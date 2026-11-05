@@ -772,6 +772,50 @@ nav.tabs{top:38px}
 .lcard .lno{width:58px;height:58px;flex:none}
 .lcard > div:first-child{flex:0 0 120px}
 
+/* ---------- 탭 막대 : 넓은 화면은 줄바꿈, 좁은 화면은 화살표 + 끌어서 넘기기 ---------- */
+nav.tabs{position:sticky}
+.tabs-in{scroll-behavior:smooth;cursor:grab;user-select:none;-webkit-user-select:none}
+.tabs-in.dragging{cursor:grabbing;scroll-behavior:auto}
+.tabs-in.dragging .tab{pointer-events:none}
+@media (min-width:600px){
+  .tabs-in{flex-wrap:wrap;justify-content:center;overflow:visible;cursor:default}
+  .tabarr{display:none !important}
+}
+.tabarr{position:absolute;top:0;bottom:0;width:46px;border:0;z-index:2;font-size:1.25rem;font-weight:900;color:var(--lav);
+  cursor:pointer;display:flex;align-items:center;font-family:inherit;transition:opacity .2s}
+.tabarr.l{left:0;justify-content:flex-start;padding-left:6px;background:linear-gradient(90deg,rgba(255,250,252,1) 45%,rgba(255,250,252,0))}
+.tabarr.r{right:0;justify-content:flex-end;padding-right:6px;background:linear-gradient(270deg,rgba(255,250,252,1) 45%,rgba(255,250,252,0))}
+.tabarr span{width:30px;height:30px;border-radius:50%;background:#fff;border:2px solid var(--lav-s);display:flex;align-items:center;justify-content:center;box-shadow:0 3px 8px rgba(125,95,224,.18)}
+.tabarr.hide{opacity:0;pointer-events:none}
+.hscroll-grab{cursor:grab}
+.hscroll-grab.dragging{cursor:grabbing;user-select:none}
+
+/* ---------- 성우 낭독 ---------- */
+.narr{display:flex;gap:14px;align-items:center;margin:10px 0 14px;padding:12px 14px;border-radius:18px;
+  background:linear-gradient(135deg,#fff4f9,#f3efff);border:2px solid #f1dcff;box-shadow:0 6px 16px rgba(169,140,255,.14)}
+.nbtn{flex:0 0 auto;display:flex;align-items:center;gap:9px;border:0;cursor:pointer;font-family:inherit;font-weight:900;font-size:.95rem;
+  color:#fff;background:var(--grad);padding:11px 18px 11px 12px;border-radius:999px;box-shadow:0 5px 0 #d9568a,0 10px 18px rgba(255,123,169,.35);transition:.15s}
+.nbtn:hover{transform:translateY(-2px)}
+.nbtn:active{transform:translateY(3px);box-shadow:0 2px 0 #d9568a,0 4px 8px rgba(255,123,169,.3)}
+.nbtn .ni{width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.28);display:flex;align-items:center;justify-content:center;font-size:.8rem;letter-spacing:-1px}
+.narr.play .nbtn{background:linear-gradient(135deg,#7d5fe0,#a98cff);box-shadow:0 5px 0 #5c40bd,0 10px 18px rgba(125,95,224,.35)}
+.narr.play .ni{animation:npulse 1.2s ease-in-out infinite}
+@keyframes npulse{0%,100%{box-shadow:0 0 0 0 rgba(255,255,255,.6)}50%{box-shadow:0 0 0 7px rgba(255,255,255,0)}}
+.ninfo{flex:1;min-width:0;display:flex;flex-direction:column;gap:3px}
+.ninfo b{font-size:.9rem;color:var(--ink)}
+.ninfo>span{font-size:.8rem;color:var(--ink2)}
+.nbar{height:8px;border-radius:99px;background:#fff;border:1px solid #eadcff;overflow:hidden;cursor:pointer;margin-top:4px}
+.nfill{height:100%;width:0;background:var(--grad);border-radius:99px;transition:width .25s linear}
+.nmeta{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+.ntime{font-size:.74rem;font-weight:800;color:var(--ink3);font-variant-numeric:tabular-nums}
+.nspd{display:flex;gap:4px}
+.nspd button{border:1.5px solid #e4d8ff;background:#fff;color:#7d5fe0;font-family:inherit;font-size:.7rem;font-weight:800;padding:2px 9px;border-radius:999px;cursor:pointer}
+.nspd button.on{background:#7d5fe0;color:#fff;border-color:#7d5fe0}
+.nai{font-size:.68rem;color:var(--ink3)}
+.book.reading{box-shadow:0 0 0 3px rgba(169,140,255,.45),0 14px 30px rgba(125,95,224,.18);transition:box-shadow .4s}
+@media (max-width:560px){ .narr{flex-direction:column;align-items:stretch} .nbtn{justify-content:center} }
+.seg{flex-wrap:wrap;max-width:100%}
+
 </style>
 </head>
 <body>
@@ -880,7 +924,24 @@ Object.keys(IMG).forEach(k => IMG[k] = IMG_BASE + IMG[k]);
 
 </script>
 <script>
-var LESSON_META = {"f1": {"probs": 12, "title": "함수의 뜻과 그래프", "unit": "Ⅲ-1 함수", "no": 1, "pages": "교과서 101~105쪽", "focus": "「식」이 없어도 함수일 수 있다.", "core": "함수란 무엇이고, 우리는 왜 세상을 「대응」으로 바라볼까?", "ref": {"c1": "짝 지어 주기 — 대응과 함수", "c2": "정의역 · 공역 · 함숫값 · 치역", "c3": "함수의 그래프 — 세로선 테스트", "c4": "일대일함수와 일대일대응", "c5": "항등함수와 상수함수", "c6": "폴리그래프 — 예/아니요 질문으로 그래프 찾기", "l1": "학생 → 우편번호, 학생 → 출석번호", "l2": "자판기와 「랜덤 뽑기」는 함수일까?", "l3": "수지와 지호가 찾은 함수", "f1-p1": "문제 01 · 101쪽", "f1-p2": "스스로 확인하기 · 101쪽", "f1-p3": "문제 02 · 102쪽", "f1-p4": "문제 04 · 103쪽", "f1-p5": "문제 05 · 103쪽", "f1-p6": "문제 06 · 104쪽", "f1-p7": "문제 07 · 104쪽", "f1-p8": "문제 08 · 105쪽", "f1-p9": "중단원 01 · 113쪽", "f1-p10": "중단원 02 · 113쪽", "f1-p11": "대단원 01 · 130쪽", "f1-p12": "익힘책 01 · 140쪽"}, "book": "함수란 「식」일까, 「대응」일까? — 오일러 vs 디리클레", "cards": 6, "life": 3, "videos": 7}, "f2": {"probs": 11, "title": "합성함수", "unit": "Ⅲ-1 함수", "no": 2, "pages": "교과서 106~108쪽", "focus": "양말을 신고 신발을 신는 것과, 신발을 신고 양말을 신는 것은 다르다.", "core": "두 함수를 이어 붙이면 무엇이 달라지고, 왜 「순서」가 중요할까?", "ref": {"c1": "곡명 → 작곡가 → 국적", "c2": "합성함수 \\(g\\circ f\\)", "c3": "교환법칙은 ✘, 결합법칙은 ○", "l1": "원 → 유로 → 파운드, 환전도 합성함수", "l2": "할인 먼저? 쿠폰 먼저?", "l3": "사진 앱 : 회전하고 뒤집기 vs 뒤집고 회전하기", "f2-e1": "예제 1 · 107쪽", "f2-p1": "스스로 확인하기 · 107쪽", "f2-p2": "문제 01 · 107쪽", "f2-p3": "문제 02 · 107쪽", "f2-p4": "문제 03 · 108쪽", "f2-p5": "중단원 03 · 113쪽", "f2-p6": "중단원 06 · 114쪽", "f2-p7": "대단원 03 · 130쪽", "f2-p8": "익힘책 05 · 140쪽", "f2-p9": "익힘책 06 · 140쪽", "f2-p10": "익힘책 07 · 140쪽"}, "book": "앨리스의 키는 어떻게 변할까? — 「마셔라」와 「먹어라」의 합성", "cards": 3, "life": 3, "videos": 6}, "f3": {"probs": 14, "title": "역함수", "unit": "Ⅲ-1 함수", "no": 3, "pages": "교과서 109~112쪽", "focus": "암호를 만들 수 있다면, 반드시 풀 수도 있다.", "core": "어떤 함수는 되돌릴 수 있고, 어떤 함수는 왜 되돌릴 수 없을까?", "ref": {"c1": "화살표를 거꾸로 하면 여전히 함수일까?", "c2": "역함수 \\(f^{-1}\\)와 존재 조건", "c3": "역함수 구하기 — 풀고, 바꾸고", "c4": "함수와 역함수의 그래프는 \\(y=x\\)에 대칭", "l1": "카이사르 암호 — 일대일대응이라 풀 수 있다", "l2": "되돌릴 수 없어야 안전한 함수 — 비밀번호 저장", "l3": "섭씨 ↔ 화씨, 양말 ↔ 신발", "f3-e1": "예제 1 · 111쪽", "f3-p1": "스스로 확인하기 · 109쪽", "f3-p2": "문제 01 · 110쪽", "f3-p3": "문제 03 · 111쪽", "f3-p4": "문제 04 · 111쪽", "f3-p5": "내 역량 · 111쪽", "f3-p6": "문제 05 · 112쪽", "f3-p7": "중단원 04 · 113쪽", "f3-p8": "중단원 08 · 114쪽", "f3-p9": "중단원 09 · 114쪽", "f3-p10": "중단원 11 · 114쪽", "f3-p11": "중단원 12 · 114쪽", "f3-p12": "대단원 14 · 131쪽", "f3-p13": "익힘책 08 · 141쪽"}, "book": "카이사르의 비밀 편지 — 2000년 전의 함수와 역함수", "cards": 4, "life": 3, "videos": 7}, "r1": {"probs": 8, "title": "유리식과 유리함수", "unit": "Ⅲ-2 유리함수와 무리함수", "no": 1, "pages": "교과서 117~119쪽", "focus": "가까워지기만 하고 영원히 닿지 않는 선이 있다.", "core": "왜 어떤 양은 한없이 가까워지기만 하고 닿지 않을까? — 반비례와 점근선", "ref": {"c1": "하이브리드 자동차의 연비", "c2": "유리식의 사칙연산", "c3": "유리함수와 정의역", "c4": "\\(y=\\frac{k}{x}\\)의 그래프와 점근선", "c5": "폴리그래프 — 유리함수의 그래프 찾기", "l1": "함께 일하면 얼마나 빨라질까?", "l2": "보일의 법칙 — 공기를 누르면?", "l3": "1인당 비용과 화면 속 크기", "r1-p1": "개념 탐구 · 117쪽", "r1-p2": "스스로 확인하기 · 118쪽", "r1-p3": "문제 01 · 118쪽", "r1-p4": "문제 02 · 118쪽", "r1-p5": "문제 03 · 119쪽", "r1-p6": "탐구 · 119쪽", "r1-p7": "중단원 01 · 127쪽", "r1-p8": "대단원 07 · 130쪽"}, "book": "아킬레스는 거북이를 따라잡을 수 있을까? — 제논의 역설", "cards": 5, "life": 3, "videos": 8}, "r2": {"probs": 13, "title": "유리함수 그래프의 이동과 활용", "unit": "Ⅲ-2 유리함수와 무리함수", "no": 2, "pages": "교과서 119~121쪽 · 127~131쪽 · 익힘책", "focus": "갈 때는 시속 60km, 올 때는 시속 40km. 왕복 평균은 시속 50km가 아니다.", "core": "유리함수의 그래프는 어떻게 움직이고, 세상의 어떤 변화를 설명할까?", "ref": {"c1": "\\(y=\\frac{k}{x-p}+q\\) — 점근선이 움직인다", "c2": "\\(y=\\frac{ax+b}{cx+d}\\)를 표준형으로", "c3": "그래프를 보고 식 찾기", "l1": "왕복 평균 속력은 왜 산술평균이 아닐까?", "l2": "다가오는 기차의 기적 소리 (도플러 효과)", "l3": "저항을 병렬로 연결하면?", "r2-e1": "예제 1 · 120쪽", "r2-p1": "예제 2 · 121쪽", "r2-p2": "문제 04 · 120쪽", "r2-p3": "문제 05 · 121쪽", "r2-p4": "문제 06 · 121쪽 (도플러)", "r2-p5": "중단원 02 · 127쪽", "r2-p6": "중단원 05 · 128쪽", "r2-p7": "중단원 06 · 128쪽", "r2-p8": "중단원 07 · 128쪽", "r2-p9": "대단원 08 · 131쪽", "r2-p10": "대단원 15 · 132쪽", "r2-p11": "익힘책 09 · 141쪽", "r2-p12": "익힘책 11 · 141쪽"}, "book": "갈릴레이의 「등속 운동」 — 시간은 속력에 반비례한다", "cards": 3, "life": 3, "videos": 7}, "r3": {"probs": 13, "title": "무리식과 무리함수", "unit": "Ⅲ-2 유리함수와 무리함수", "no": 3, "pages": "교과서 122~126쪽", "focus": "실의 길이를 4배로 늘려도, 진자는 겨우 2배 느리게 흔들린다.", "core": "왜 어떤 변화는 「제곱근」의 모양으로 나타날까?", "ref": {"c1": "지진 해일은 얼마나 빠를까?", "c2": "무리식 — 근호 안이 0 이상, 분모는 0이 아니게", "c3": "\\(y=\\sqrt{ax}\\)는 \\(y=\\frac{1}{a}x^2\\ (x\\ge0)\\)의 역함수", "c4": "\\(y=\\sqrt{a(x-p)}+q\\) — 시작점이 움직인다", "c5": "폴리그래프 — 무리함수 그래프 찾기", "l1": "진자의 주기 — 갈릴레이가 발견한 제곱근", "l2": "스키드 마크로 사고 차량의 속력 추정", "l3": "크레인 쇠밧줄의 지름", "r3-e1": "예제 1 · 126쪽", "r3-p1": "스스로 확인하기 · 122쪽", "r3-p2": "문제 01 · 122쪽", "r3-p3": "문제 02 · 123쪽", "r3-p4": "문제 03 · 123쪽", "r3-p5": "문제 05 · 125쪽", "r3-p6": "문제 06 · 126쪽", "r3-p7": "문제 07 · 126쪽", "r3-p8": "중단원 03 · 127쪽", "r3-p9": "중단원 08 · 128쪽", "r3-p10": "중단원 09 · 128쪽", "r3-p11": "중단원 10 · 128쪽", "r3-p12": "대단원 11 · 131쪽"}, "book": "갈릴레이의 진자 — 길이와 시간 사이의 제곱근", "cards": 5, "life": 3, "videos": 8}};
+// 책 속 글 성우 낭독 (Higgsfield · Qwen TTS 한국어, AI 음성) — 선생님 Higgsfield 계정 CDN
+var AUD_BASE = 'https://d8j0ntlcm91z4.cloudfront.net/user_3FbbP9nGEx1ZGPmwNvdArD3Boyr/';
+var AUD = {
+  f1 : { f:'hf_20261105_160827_b239d6c9-03f5-46a6-b487-76f29d46a6fc.mp3', who:'오일러 역 · 차분한 노학자', mood:'서재에서 생각을 정리하듯 또박또박', ic:'🕯️' },
+  f1x: { f:'hf_20261105_160827_f59f2da3-7360-4368-981f-367fb425f372.mp3', who:'디리클레 역 · 엄밀한 수학자', mood:'정의를 선언하듯 단호하게', ic:'📐' },
+  f2 : { f:'hf_20261105_160827_78b731e0-3b78-4cdf-ba4d-f8925b5df900.mp3', who:'동화 이야기꾼 · 밝은 목소리', mood:'놀라고 호기심 가득한 앨리스, 느긋한 애벌레', ic:'🐇' },
+  f3 : { f:'hf_20261105_160827_07978690-a92a-4dda-b400-56f66fe27823.mp3', who:'로마 역사가 · 묵직한 목소리', mood:'비밀을 털어놓듯 낮고 은밀하게', ic:'🏛️' },
+  f3x: { f:'hf_20261105_160827_780fed9c-c5be-4d42-9fc7-d90666b4fe73.mp3', who:'로마 역사가 · 묵직한 목소리', mood:'은밀하게, 끝은 살짝 흥미롭게', ic:'📜' },
+  r1 : { f:'hf_20261105_160827_49e8b81a-51f7-404f-9461-10d10bf60994.mp3', who:'그리스 철학자 · 깊은 목소리', mood:'수수께끼를 내듯 천천히, 진지하게', ic:'🐢' },
+  r2 : { f:'hf_20261105_160946_18f6dd73-c0fe-4677-b443-785a77f689b9.mp3', who:'갈릴레이 역 · 열정적인 과학자', mood:'새 발견을 발표하듯 자신감 있게', ic:'🔭' },
+  r3 : { f:'hf_20261105_160827_3cea4ed7-f047-4481-91d3-a24202c9b0ec.mp3', who:'갈릴레이 역 · 열정적인 과학자', mood:'흔들리는 진자를 보며 리듬감 있게', ic:'⏱️' },
+  r3x: { f:'hf_20261105_160827_528f4501-58ce-45b2-b2a9-8d622fc63aef.mp3', who:'전설 이야기꾼 · 신비로운 목소리', mood:'오래된 전설처럼 나지막하고 서늘하게', ic:'🌊' }
+};
+for (var k in AUD) AUD[k].url = AUD_BASE + AUD[k].f;
+
+</script>
+<script>
+var LESSON_META = {"f1": {"probs": 12, "title": "함수의 뜻과 그래프", "unit": "Ⅲ-1 함수", "no": 1, "pages": "교과서 101~105쪽", "focus": "「식」이 없어도 함수일 수 있다.", "core": "함수란 무엇이고, 우리는 왜 세상을 「대응」으로 바라볼까?", "ref": {"c1": "짝 지어 주기 — 대응과 함수", "c2": "정의역 · 공역 · 함숫값 · 치역", "c3": "함수의 그래프 — 세로선 테스트", "c4": "일대일함수와 일대일대응", "c5": "항등함수와 상수함수", "c6": "폴리그래프 — 예/아니요 질문으로 그래프 찾기", "l1": "학생 → 우편번호, 학생 → 출석번호", "l2": "자판기와 「랜덤 뽑기」는 함수일까?", "l3": "수지와 지호가 찾은 함수", "f1-p1": "문제 01 · 101쪽", "f1-p2": "스스로 확인하기 · 101쪽", "f1-p3": "문제 02 · 102쪽", "f1-p4": "문제 04 · 103쪽", "f1-p5": "문제 05 · 103쪽", "f1-p6": "문제 06 · 104쪽", "f1-p7": "문제 07 · 104쪽", "f1-p8": "문제 08 · 105쪽", "f1-p9": "중단원 01 · 113쪽", "f1-p10": "중단원 02 · 113쪽", "f1-p11": "대단원 01 · 130쪽", "f1-p12": "익힘책 01 · 140쪽"}, "book": "함수란 「식」일까, 「대응」일까? — 오일러 vs 디리클레", "cards": 6, "life": 3, "videos": 1}, "f2": {"probs": 11, "title": "합성함수", "unit": "Ⅲ-1 함수", "no": 2, "pages": "교과서 106~108쪽", "focus": "양말을 신고 신발을 신는 것과, 신발을 신고 양말을 신는 것은 다르다.", "core": "두 함수를 이어 붙이면 무엇이 달라지고, 왜 「순서」가 중요할까?", "ref": {"c1": "곡명 → 작곡가 → 국적", "c2": "합성함수 \\(g\\circ f\\)", "c3": "교환법칙은 ✘, 결합법칙은 ○", "l1": "원 → 유로 → 파운드, 환전도 합성함수", "l2": "할인 먼저? 쿠폰 먼저?", "l3": "사진 앱 : 회전하고 뒤집기 vs 뒤집고 회전하기", "f2-e1": "예제 1 · 107쪽", "f2-p1": "스스로 확인하기 · 107쪽", "f2-p2": "문제 01 · 107쪽", "f2-p3": "문제 02 · 107쪽", "f2-p4": "문제 03 · 108쪽", "f2-p5": "중단원 03 · 113쪽", "f2-p6": "중단원 06 · 114쪽", "f2-p7": "대단원 03 · 130쪽", "f2-p8": "익힘책 05 · 140쪽", "f2-p9": "익힘책 06 · 140쪽", "f2-p10": "익힘책 07 · 140쪽"}, "book": "앨리스의 키는 어떻게 변할까? — 「마셔라」와 「먹어라」의 합성", "cards": 3, "life": 3, "videos": 0}, "f3": {"probs": 14, "title": "역함수", "unit": "Ⅲ-1 함수", "no": 3, "pages": "교과서 109~112쪽", "focus": "암호를 만들 수 있다면, 반드시 풀 수도 있다.", "core": "어떤 함수는 되돌릴 수 있고, 어떤 함수는 왜 되돌릴 수 없을까?", "ref": {"c1": "화살표를 거꾸로 하면 여전히 함수일까?", "c2": "역함수 \\(f^{-1}\\)와 존재 조건", "c3": "역함수 구하기 — 풀고, 바꾸고", "c4": "함수와 역함수의 그래프는 \\(y=x\\)에 대칭", "l1": "카이사르 암호 — 일대일대응이라 풀 수 있다", "l2": "되돌릴 수 없어야 안전한 함수 — 비밀번호 저장", "l3": "섭씨 ↔ 화씨, 양말 ↔ 신발", "f3-e1": "예제 1 · 111쪽", "f3-p1": "스스로 확인하기 · 109쪽", "f3-p2": "문제 01 · 110쪽", "f3-p3": "문제 03 · 111쪽", "f3-p4": "문제 04 · 111쪽", "f3-p5": "내 역량 · 111쪽", "f3-p6": "문제 05 · 112쪽", "f3-p7": "중단원 04 · 113쪽", "f3-p8": "중단원 08 · 114쪽", "f3-p9": "중단원 09 · 114쪽", "f3-p10": "중단원 11 · 114쪽", "f3-p11": "중단원 12 · 114쪽", "f3-p12": "대단원 14 · 131쪽", "f3-p13": "익힘책 08 · 141쪽"}, "book": "카이사르의 비밀 편지 — 2000년 전의 함수와 역함수", "cards": 4, "life": 3, "videos": 3}, "r1": {"probs": 8, "title": "유리식과 유리함수", "unit": "Ⅲ-2 유리함수와 무리함수", "no": 1, "pages": "교과서 117~119쪽", "focus": "가까워지기만 하고 영원히 닿지 않는 선이 있다.", "core": "왜 어떤 양은 한없이 가까워지기만 하고 닿지 않을까? — 반비례와 점근선", "ref": {"c1": "하이브리드 자동차의 연비", "c2": "유리식의 사칙연산", "c3": "유리함수와 정의역", "c4": "\\(y=\\frac{k}{x}\\)의 그래프와 점근선", "c5": "폴리그래프 — 유리함수의 그래프 찾기", "l1": "함께 일하면 얼마나 빨라질까?", "l2": "보일의 법칙 — 공기를 누르면?", "l3": "1인당 비용과 화면 속 크기", "r1-p1": "개념 탐구 · 117쪽", "r1-p2": "스스로 확인하기 · 118쪽", "r1-p3": "문제 01 · 118쪽", "r1-p4": "문제 02 · 118쪽", "r1-p5": "문제 03 · 119쪽", "r1-p6": "탐구 · 119쪽", "r1-p7": "중단원 01 · 127쪽", "r1-p8": "대단원 07 · 130쪽"}, "book": "아킬레스는 거북이를 따라잡을 수 있을까? — 제논의 역설", "cards": 5, "life": 3, "videos": 4}, "r2": {"probs": 13, "title": "유리함수 그래프의 이동과 활용", "unit": "Ⅲ-2 유리함수와 무리함수", "no": 2, "pages": "교과서 119~121쪽 · 127~131쪽 · 익힘책", "focus": "갈 때는 시속 60km, 올 때는 시속 40km. 왕복 평균은 시속 50km가 아니다.", "core": "유리함수의 그래프는 어떻게 움직이고, 세상의 어떤 변화를 설명할까?", "ref": {"c1": "\\(y=\\frac{k}{x-p}+q\\) — 점근선이 움직인다", "c2": "\\(y=\\frac{ax+b}{cx+d}\\)를 표준형으로", "c3": "그래프를 보고 식 찾기", "l1": "왕복 평균 속력은 왜 산술평균이 아닐까?", "l2": "다가오는 기차의 기적 소리 (도플러 효과)", "l3": "저항을 병렬로 연결하면?", "r2-e1": "예제 1 · 120쪽", "r2-p1": "예제 2 · 121쪽", "r2-p2": "문제 04 · 120쪽", "r2-p3": "문제 05 · 121쪽", "r2-p4": "문제 06 · 121쪽 (도플러)", "r2-p5": "중단원 02 · 127쪽", "r2-p6": "중단원 05 · 128쪽", "r2-p7": "중단원 06 · 128쪽", "r2-p8": "중단원 07 · 128쪽", "r2-p9": "대단원 08 · 131쪽", "r2-p10": "대단원 15 · 132쪽", "r2-p11": "익힘책 09 · 141쪽", "r2-p12": "익힘책 11 · 141쪽"}, "book": "갈릴레이의 「등속 운동」 — 시간은 속력에 반비례한다", "cards": 3, "life": 3, "videos": 2}, "r3": {"probs": 13, "title": "무리식과 무리함수", "unit": "Ⅲ-2 유리함수와 무리함수", "no": 3, "pages": "교과서 122~126쪽", "focus": "실의 길이를 4배로 늘려도, 진자는 겨우 2배 느리게 흔들린다.", "core": "왜 어떤 변화는 「제곱근」의 모양으로 나타날까?", "ref": {"c1": "지진 해일은 얼마나 빠를까?", "c2": "무리식 — 근호 안이 0 이상, 분모는 0이 아니게", "c3": "\\(y=\\sqrt{ax}\\)는 \\(y=\\frac{1}{a}x^2\\ (x\\ge0)\\)의 역함수", "c4": "\\(y=\\sqrt{a(x-p)}+q\\) — 시작점이 움직인다", "c5": "폴리그래프 — 무리함수 그래프 찾기", "l1": "진자의 주기 — 갈릴레이가 발견한 제곱근", "l2": "스키드 마크로 사고 차량의 속력 추정", "l3": "크레인 쇠밧줄의 지름", "r3-e1": "예제 1 · 126쪽", "r3-p1": "스스로 확인하기 · 122쪽", "r3-p2": "문제 01 · 122쪽", "r3-p3": "문제 02 · 123쪽", "r3-p4": "문제 03 · 123쪽", "r3-p5": "문제 05 · 125쪽", "r3-p6": "문제 06 · 126쪽", "r3-p7": "문제 07 · 126쪽", "r3-p8": "중단원 03 · 127쪽", "r3-p9": "중단원 08 · 128쪽", "r3-p10": "중단원 09 · 128쪽", "r3-p11": "중단원 10 · 128쪽", "r3-p12": "대단원 11 · 131쪽"}, "book": "갈릴레이의 진자 — 길이와 시간 사이의 제곱근", "cards": 5, "life": 3, "videos": 4}};
 /* 3-1 함수 · 2차시 — 합성함수 (교과서 106~108쪽) */
 const LESSON = {
   code:'f2', no:2, unit:'Ⅲ-1 함수', title:'합성함수', pages:'교과서 106~108쪽',
@@ -993,12 +1054,6 @@ const LESSON = {
   },
 
   videos:[
-    {id:'VnXhmMP_SkI', t:'[함수] 합성함수의 정의와 함숫값', d:'합성함수의 뜻과 함숫값 계산을 차근차근', tag:'합성함수'},
-    {id:'KXhmCh6iLyU', t:'아주 쉬운 고1 수학 — 합성함수의 개념', d:'처음 배우는 학생을 위한 쉬운 설명', tag:'합성함수'},
-    {id:'1iJKnHG7NYk', t:'인생 처음 만나는 합성함수 — 정승제의 수학개념', d:'합성함수 1편', tag:'합성함수'},
-    {id:'MN33WUlmS6U', t:'합성함수의 껍데기와 알맹이 — 정승제의 수학개념', d:'합성함수 2편 : 안쪽 함수와 바깥 함수', tag:'합성함수'},
-    {id:'OSWZ1zmkFn8', t:'[공통수학2] 합성함수와 역함수 (1) 합성함수의 정의', d:'2022 개정 공통수학2 강의', tag:'공통수학2'},
-    {id:'aRgu0If-gzs', t:'[개념원리] 함수가 수학의 전부다! — 합성함수와 역함수', d:'다음 차시 역함수까지 미리 보기', tag:'예습'}
   ],
   links:[
     {k:'그래프 도구', t:'Desmos 그래핑 계산기', u:'https://www.desmos.com/calculator?lang=ko', d:'f(x), g(x)를 정의하고 g(f(x)), f(g(x))를 입력해 비교해 보세요.'},
@@ -2552,6 +2607,61 @@ function pageLife(){
 }
 
 /* ---------- 📚 책 속 질문 · 토의 · 토론 ---------- */
+// ---------- 성우 낭독 ----------
+function narr(k){
+  const a = (typeof AUD !== 'undefined') && AUD[k];
+  if (!a) return '';
+  return `<div class="narr" data-k="${k}">
+    <button class="nbtn" type="button" aria-label="성우가 읽어주기"><span class="ni">▶</span><span class="nt">🎧 성우가 읽어주기</span></button>
+    <div class="ninfo"><b>${a.ic} ${a.who}</b><span>${a.mood}</span>
+      <div class="nbar"><div class="nfill"></div></div>
+      <div class="nmeta"><span class="ntime">0:00</span><span class="nspd">
+        <button type="button" data-s="0.85">느리게</button><button type="button" data-s="1" class="on">보통</button><button type="button" data-s="1.15">빠르게</button></span></div>
+      <small class="nai">🤖 AI 음성 (Higgsfield · Qwen TTS) — 실제 성우·저자의 목소리가 아니에요</small>
+    </div></div>`;
+}
+let NARR_A = null, NARR_EL = null;
+function fmtT(t){ t = Math.max(0, Math.floor(t || 0)); return Math.floor(t / 60) + ':' + String(t % 60).padStart(2, '0'); }
+function narrStop(){
+  if (NARR_A){ NARR_A.pause(); }
+  if (NARR_EL){ NARR_EL.classList.remove('play'); NARR_EL.querySelector('.ni').textContent = '▶'; NARR_EL.querySelector('.nt').textContent = '🎧 이어서 듣기'; NARR_EL.closest('.book')?.classList.remove('reading'); }
+}
+function bindNarr(root){
+  (root || document).querySelectorAll('.narr').forEach(el => {
+    const k = el.dataset.k, a = AUD[k];
+    el.querySelector('.nbtn').onclick = () => {
+      if (NARR_EL === el && NARR_A && !NARR_A.paused){ narrStop(); return; }
+      if (NARR_EL !== el){
+        narrStop();
+        if (NARR_A){ NARR_A.src = ''; }
+        NARR_A = new Audio(a.url); NARR_A.preload = 'auto'; NARR_EL = el;
+        const spd = el.querySelector('.nspd .on'); NARR_A.playbackRate = +(spd ? spd.dataset.s : 1);
+        NARR_A.ontimeupdate = () => {
+          if (NARR_EL !== el) return;
+          const d = NARR_A.duration || 0;
+          el.querySelector('.nfill').style.width = (d ? NARR_A.currentTime / d * 100 : 0) + '%';
+          el.querySelector('.ntime').textContent = fmtT(NARR_A.currentTime) + (d ? ' / ' + fmtT(d) : '');
+        };
+        NARR_A.onended = () => { narrStop(); el.querySelector('.nt').textContent = '🎧 다시 듣기'; el.querySelector('.nfill').style.width = '100%'; NARR_A = null; NARR_EL = null; };
+        NARR_A.onerror = () => { el.classList.remove('play'); el.querySelector('.ni').textContent = '!'; el.querySelector('.nt').textContent = '음성을 불러오지 못했어요'; snack('인터넷 연결을 확인해 주세요 (음성은 인터넷에서 불러와요)'); };
+      }
+      NARR_A.play().then(() => {
+        el.classList.add('play'); el.querySelector('.ni').textContent = '❚❚'; el.querySelector('.nt').textContent = '잠깐 멈추기';
+        el.closest('.book')?.classList.add('reading');
+      }).catch(() => {});
+    };
+    el.querySelector('.nbar').onclick = e => {
+      if (NARR_EL !== el || !NARR_A || !NARR_A.duration) return;
+      const r = e.currentTarget.getBoundingClientRect();
+      NARR_A.currentTime = Math.min(1, Math.max(0, (e.clientX - r.left) / r.width)) * NARR_A.duration;
+    };
+    el.querySelectorAll('.nspd button').forEach(b => b.onclick = () => {
+      el.querySelectorAll('.nspd button').forEach(x => x.classList.toggle('on', x === b));
+      if (NARR_EL === el && NARR_A) NARR_A.playbackRate = +b.dataset.s;
+    });
+  });
+}
+
 function pageBook(){
   const B = LESSON.book;
   return `
@@ -2563,6 +2673,7 @@ function pageBook(){
         <div class="bnote">🖼️ 글의 분위기를 살려 AI로 그린 상상 그림이에요.<br>(실제 책 표지나 사진이 아니에요)</div></div>` : '<div></div>'}
       <div class="book">
         <div class="bt">📖 ${B.author} · ${B.work} (${B.year})</div>
+        ${narr(LESSON.code)}
         <h3>${B.heading}</h3>
         <div class="pg">${B.passage}</div>
         <div class="src">${B.src}</div>
@@ -2573,6 +2684,7 @@ function pageBook(){
         <div class="bnote">🖼️ AI로 그린 상상 그림 (실제 자료 아님)</div></div>` : '<div></div>'}
       <div class="book" style="background:linear-gradient(180deg,#fbfaff,#f3f0ff);border-color:#ddd2ff">
       <div class="bt" style="color:#7d5fe0">📖 ${B.extra.author} · ${B.extra.work} (${B.extra.year})</div>
+      ${narr(LESSON.code + 'x')}
       <h3>${B.extra.heading}</h3><div class="pg">${B.extra.passage}</div><div class="src">${B.extra.src}</div></div></div>` : ''}
     ${B.glossary ? `<div class="tip">📝 <b>읽기 도움말</b><br>${B.glossary}</div>` : ''}
   </div>
@@ -2690,7 +2802,8 @@ function pageRes(){
   const L = LESSON;
   return `
   <div class="card"><h2><span class="chip">유튜브</span>영상으로 보고, 질문으로 남기기</h2>
-    <p class="lead">영상을 보다가 「어? 왜 그렇지?」 하는 순간을 놓치지 마세요. 그 순간이 질문의 재료예요.</p>
+    <p class="lead">영상을 보다가 「어? 왜 그렇지?」 하는 순간을 놓치지 마세요. 그 순간이 질문의 재료예요.<br><small style="color:var(--ink3)">📺 학원·인터넷 강의 강사의 문제 풀이 강의는 싣지 않고, 방송·과학 이야기·실험 영상만 골랐어요.</small></p>
+    ${L.videos.length ? '' : `<div class="tip">🎬 이 차시는 개념 강의 영상 대신, 아래 <b>인터넷 도구</b>로 직접 만져 보고 질문을 만들어요. 선생님이 고른 영상이 있으면 수업 시간에 함께 봐요.</div>`}
     <div class="vgrid">${L.videos.map(v => `
       <a class="vcard" href="https://www.youtube.com/watch?v=${v.id}" target="_blank" rel="noopener">
         <div class="vthumb"><div class="ph">🎬</div>
@@ -2772,12 +2885,65 @@ const TABS = [
 ];
 let CUR = 'start';
 function go(id){
+  if (id !== 'book' && typeof narrStop === 'function') narrStop();
   CUR = id;
   $$('.page').forEach(s => s.classList.toggle('on', s.id === 'pg-' + id));
   $$('.tab').forEach(b => b.classList.toggle('on', b.dataset.p === id));
   scrollTo({ top:0, behavior:'smooth' });
-  setTimeout(() => { drawClouds(); mountLabs(); bindTilt(); }, 50);
+  setTimeout(() => { drawClouds(); mountLabs(); bindTilt(); bindHScroll($('#pg-' + id)); }, 50);
   try{ localStorage.setItem('qf_tab_' + LESSON.code, id); }catch(e){}
+  const on = document.querySelector('.tab.on'), bar = $('#tabbar');
+  if (on && bar && bar.scrollWidth > bar.clientWidth + 2){
+    bar.scrollTo({ left: on.offsetLeft - (bar.clientWidth - on.offsetWidth) / 2, behavior:'smooth' });
+  }
+}
+
+// ---------- 가로로 넘기는 영역 : 마우스로 끌기 · 휠 · 화살표 ----------
+function dragScroll(el, opt){
+  if (!el || el._ds) return; el._ds = 1;
+  let down = false, sx = 0, sl = 0, moved = false, pid = null;
+  el.addEventListener('pointerdown', e => {
+    if (e.pointerType !== 'mouse' || e.button !== 0) return;          // 터치는 브라우저 기본 스크롤 사용
+    if (el.scrollWidth <= el.clientWidth + 2) return;
+    down = true; moved = false; sx = e.clientX; sl = el.scrollLeft; pid = e.pointerId;
+  });
+  window.addEventListener('pointermove', e => {
+    if (!down || e.pointerId !== pid) return;
+    const dx = e.clientX - sx;
+    if (!moved && Math.abs(dx) > 6){ moved = true; el.classList.add('dragging'); }
+    if (moved){ el.scrollLeft = sl - dx; e.preventDefault(); }
+  });
+  const up = () => { if (!down) return; down = false; setTimeout(() => el.classList.remove('dragging'), 0); };
+  window.addEventListener('pointerup', up); window.addEventListener('pointercancel', up);
+  el.addEventListener('click', e => { if (moved){ e.stopPropagation(); e.preventDefault(); moved = false; } }, true);
+  if (opt && opt.wheel) el.addEventListener('wheel', e => {
+    if (el.scrollWidth <= el.clientWidth + 2) return;
+    if (Math.abs(e.deltaY) > Math.abs(e.deltaX)){ el.scrollLeft += e.deltaY; e.preventDefault(); }
+  }, { passive:false });
+}
+function initTabScroll(){
+  const bar = $('#tabbar'), nav = bar.parentElement;
+  nav.style.position = 'sticky';
+  if (!nav.querySelector('.tabarr')){
+    nav.insertAdjacentHTML('beforeend', '<button class="tabarr l" type="button" aria-label="앞 탭 보기"><span>‹</span></button><button class="tabarr r" type="button" aria-label="뒤 탭 보기"><span>›</span></button>');
+    nav.querySelector('.tabarr.l').onclick = () => bar.scrollBy({ left: -bar.clientWidth * .7, behavior:'smooth' });
+    nav.querySelector('.tabarr.r').onclick = () => bar.scrollBy({ left:  bar.clientWidth * .7, behavior:'smooth' });
+  }
+  const paint = () => {
+    const over = bar.scrollWidth > bar.clientWidth + 2;
+    nav.querySelector('.tabarr.l').classList.toggle('hide', !over || bar.scrollLeft < 4);
+    nav.querySelector('.tabarr.r').classList.toggle('hide', !over || bar.scrollLeft + bar.clientWidth >= bar.scrollWidth - 4);
+  };
+  bar.addEventListener('scroll', paint, { passive:true });
+  window.addEventListener('resize', paint);
+  dragScroll(bar, { wheel:true });
+  setTimeout(paint, 60);
+}
+// 표·수식 등 가로로 넘치는 다른 영역도 마우스로 끌어서 넘길 수 있게
+function bindHScroll(root){
+  (root || document).querySelectorAll('.tscroll, .eq, .seg, .tsub, .filters').forEach(el => {
+    if (el.scrollWidth > el.clientWidth + 2){ el.classList.add('hscroll-grab'); dragScroll(el); }
+  });
 }
 
 let pzKind = 'all', pzSort = 'new', pzCloud = 'all', frCloud = 'all';
@@ -2851,6 +3017,8 @@ function bootPages(){
   $('#tabbar').innerHTML = TABS.map(t => `<button class="tab" data-p="${t.id}">${t.label}</button>`).join('');
   $('#pages').innerHTML = TABS.map(t => `<section class="page" id="pg-${t.id}"><div class="netbad">⚠️ 서버에 연결되지 않았어요. 인터넷 연결을 확인해 주세요. (적은 글은 지워지지 않아요)</div>${t.html()}</section>`).join('');
   $$('.tab').forEach(b => b.onclick = () => go(b.dataset.p));
+  initTabScroll();
+  bindNarr($('#pg-book'));
 
   // 시작 탭
   mountComposer($('#startAsk'), { kind:'concept', ref:'focus', refLabel:'질문 초점', chips:L.concepts, max:6,
@@ -3005,6 +3173,7 @@ function tRender(){
   if (tView === 'poly') tPoly(V);
   if (tView === 'probs') tProbs(V);
   if (tView === 'cloud') tCloud(V, Q);
+  setTimeout(() => bindHScroll($('#pg-teacher')), 30);
 }
 
 function tPosts(V, Q){

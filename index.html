@@ -762,6 +762,50 @@ nav.tabs{top:38px}
 .lcard .lno{width:58px;height:58px;flex:none}
 .lcard > div:first-child{flex:0 0 120px}
 
+/* ---------- 탭 막대 : 넓은 화면은 줄바꿈, 좁은 화면은 화살표 + 끌어서 넘기기 ---------- */
+nav.tabs{position:sticky}
+.tabs-in{scroll-behavior:smooth;cursor:grab;user-select:none;-webkit-user-select:none}
+.tabs-in.dragging{cursor:grabbing;scroll-behavior:auto}
+.tabs-in.dragging .tab{pointer-events:none}
+@media (min-width:600px){
+  .tabs-in{flex-wrap:wrap;justify-content:center;overflow:visible;cursor:default}
+  .tabarr{display:none !important}
+}
+.tabarr{position:absolute;top:0;bottom:0;width:46px;border:0;z-index:2;font-size:1.25rem;font-weight:900;color:var(--lav);
+  cursor:pointer;display:flex;align-items:center;font-family:inherit;transition:opacity .2s}
+.tabarr.l{left:0;justify-content:flex-start;padding-left:6px;background:linear-gradient(90deg,rgba(255,250,252,1) 45%,rgba(255,250,252,0))}
+.tabarr.r{right:0;justify-content:flex-end;padding-right:6px;background:linear-gradient(270deg,rgba(255,250,252,1) 45%,rgba(255,250,252,0))}
+.tabarr span{width:30px;height:30px;border-radius:50%;background:#fff;border:2px solid var(--lav-s);display:flex;align-items:center;justify-content:center;box-shadow:0 3px 8px rgba(125,95,224,.18)}
+.tabarr.hide{opacity:0;pointer-events:none}
+.hscroll-grab{cursor:grab}
+.hscroll-grab.dragging{cursor:grabbing;user-select:none}
+
+/* ---------- 성우 낭독 ---------- */
+.narr{display:flex;gap:14px;align-items:center;margin:10px 0 14px;padding:12px 14px;border-radius:18px;
+  background:linear-gradient(135deg,#fff4f9,#f3efff);border:2px solid #f1dcff;box-shadow:0 6px 16px rgba(169,140,255,.14)}
+.nbtn{flex:0 0 auto;display:flex;align-items:center;gap:9px;border:0;cursor:pointer;font-family:inherit;font-weight:900;font-size:.95rem;
+  color:#fff;background:var(--grad);padding:11px 18px 11px 12px;border-radius:999px;box-shadow:0 5px 0 #d9568a,0 10px 18px rgba(255,123,169,.35);transition:.15s}
+.nbtn:hover{transform:translateY(-2px)}
+.nbtn:active{transform:translateY(3px);box-shadow:0 2px 0 #d9568a,0 4px 8px rgba(255,123,169,.3)}
+.nbtn .ni{width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.28);display:flex;align-items:center;justify-content:center;font-size:.8rem;letter-spacing:-1px}
+.narr.play .nbtn{background:linear-gradient(135deg,#7d5fe0,#a98cff);box-shadow:0 5px 0 #5c40bd,0 10px 18px rgba(125,95,224,.35)}
+.narr.play .ni{animation:npulse 1.2s ease-in-out infinite}
+@keyframes npulse{0%,100%{box-shadow:0 0 0 0 rgba(255,255,255,.6)}50%{box-shadow:0 0 0 7px rgba(255,255,255,0)}}
+.ninfo{flex:1;min-width:0;display:flex;flex-direction:column;gap:3px}
+.ninfo b{font-size:.9rem;color:var(--ink)}
+.ninfo>span{font-size:.8rem;color:var(--ink2)}
+.nbar{height:8px;border-radius:99px;background:#fff;border:1px solid #eadcff;overflow:hidden;cursor:pointer;margin-top:4px}
+.nfill{height:100%;width:0;background:var(--grad);border-radius:99px;transition:width .25s linear}
+.nmeta{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+.ntime{font-size:.74rem;font-weight:800;color:var(--ink3);font-variant-numeric:tabular-nums}
+.nspd{display:flex;gap:4px}
+.nspd button{border:1.5px solid #e4d8ff;background:#fff;color:#7d5fe0;font-family:inherit;font-size:.7rem;font-weight:800;padding:2px 9px;border-radius:999px;cursor:pointer}
+.nspd button.on{background:#7d5fe0;color:#fff;border-color:#7d5fe0}
+.nai{font-size:.68rem;color:var(--ink3)}
+.book.reading{box-shadow:0 0 0 3px rgba(169,140,255,.45),0 14px 30px rgba(125,95,224,.18);transition:box-shadow .4s}
+@media (max-width:560px){ .narr{flex-direction:column;align-items:stretch} .nbtn{justify-content:center} }
+.seg{flex-wrap:wrap;max-width:100%}
+
 </style>
 <style>
 .uh{margin:26px 0 12px;font-size:1.15rem;font-weight:900}
