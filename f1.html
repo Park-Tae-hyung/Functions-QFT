@@ -919,8 +919,8 @@ nav.tabs{position:sticky}
     <div class="gl">❓</div>
     <h2 id="gTitle">질문 탐구 교실</h2>
     <p class="gsub" id="gSub">학번과 이름을 적고 시작해요!</p>
-    <input id="gNo"   type="text" maxlength="20" placeholder="학번  (예: 10315)" autocomplete="off">
-    <input id="gName" type="text" maxlength="20" placeholder="이름" autocomplete="off">
+    <input id="gNo"   type="text" name="qf-hakbun" maxlength="20" placeholder="학번  (예: 10315)" autocomplete="off" autocapitalize="off" spellcheck="false" data-lpignore="true" data-form-type="other" readonly>
+    <input id="gName" type="text" name="qf-ireum" maxlength="20" placeholder="이름" autocomplete="off" autocapitalize="off" spellcheck="false" data-lpignore="true" data-form-type="other" readonly>
     <button class="btn main gbtn" id="gGo">입장하기 ✨</button>
     <div class="gmsg" id="gMsg"></div>
     <button class="glink" id="gTeacher">선생님이신가요?</button>
@@ -1671,7 +1671,7 @@ function netState(ok){ $$('.netbad').forEach(n => n.classList.toggle('on', !ok))
 const ME = { no:'', name:'' };
 try{ Object.assign(ME, JSON.parse(localStorage.getItem('qf_me') || '{}')); }catch(e){}
 function paintMe(){ $('#meNo').textContent = ME.no || '—'; $('#meName').textContent = ME.name || '손님'; }
-function openGate(){ $('#gate').classList.remove('hide'); setTimeout(() => $('#gNo').focus(), 60); }
+function openGate(){ $('#gate').classList.remove('hide'); ['#gNo', '#gName'].forEach(id => { const el = $(id); if (el && /@/.test(el.value)) el.value = ''; }); setTimeout(() => $('#gNo').focus(), 60); }
 function closeGate(){ $('#gate').classList.add('hide'); }
 async function enter(no, name){
   const msg = $('#gMsg');
@@ -1679,6 +1679,7 @@ async function enter(no, name){
   if (!no){ msg.textContent = '학번을 입력해 주세요.'; return false; }
   if (!name){ msg.textContent = '이름을 입력해 주세요.'; return false; }
   if (no.length > 20 || name.length > 20){ msg.textContent = '20자 이내로 적어 주세요.'; return false; }
+  if (/@/.test(no + name)){ msg.textContent = '이메일이 아니라 학번과 이름을 적어 주세요.'; return false; }
   const changed = ME.no && ME.no !== no;
   ME.no = no; ME.name = name;
   try{ localStorage.setItem('qf_me', JSON.stringify(ME)); }catch(e){}
@@ -3525,7 +3526,7 @@ function pageTeacher(){
   return `
   <div class="card" id="tLogin">
     <h2><span class="chip">선생님 화면</span>암호를 입력하세요</h2>
-    <div class="crow"><input class="inp" id="tPass" type="password" style="max-width:240px" placeholder="선생님 암호">
+    <div class="crow"><input class="inp" id="tPass" type="password" autocomplete="new-password" data-lpignore="true" style="max-width:240px" placeholder="선생님 암호">
       <select class="inp" id="tLesson" style="max-width:260px"></select>
       <button class="btn main" id="tGo" type="button">열기</button></div>
     <div class="cmsg" id="tMsg"></div>
@@ -3822,8 +3823,8 @@ function tRender(){
     <div id="tView"></div>
   </div>
   <div class="card"><h2><span class="chip">암호 바꾸기</span>처음 암호는 꼭 바꿔 주세요</h2>
-    <div class="crow"><input class="inp" id="tOld" type="password" placeholder="현재 암호" style="max-width:200px">
-    <input class="inp" id="tNew" type="password" placeholder="새 암호 (4자 이상)" style="max-width:200px">
+    <div class="crow"><input class="inp" id="tOld" type="password" autocomplete="new-password" data-lpignore="true" placeholder="현재 암호" style="max-width:200px">
+    <input class="inp" id="tNew" type="password" autocomplete="new-password" data-lpignore="true" placeholder="새 암호 (4자 이상)" style="max-width:200px">
     <button class="btn" id="tPw" type="button">바꾸기</button></div><div class="cmsg" id="tPwMsg"></div></div>`;
   $('#tRe').onclick = () => tLoad(TP, TL);
   $$('.tsub .fbtn').forEach(b => b.onclick = () => { tView = b.dataset.v; tRender(); });
@@ -4073,6 +4074,11 @@ window.addEventListener('DOMContentLoaded', () => {
   $('#gTeacher').onclick = () => { closeGate(); go('teacher'); setTimeout(() => $('#tPass').focus(), 200); };
   $('#sndBtn').onclick = () => { SND.on = !SND.on; $('#sndBtn').textContent = SND.on ? '🔊' : '🔇'; $('#sndBtn').classList.toggle('off', !SND.on); };
   document.addEventListener('pointerdown', () => SND.boot(), { once:true });
+  // 브라우저 자동완성(저장된 이메일·아이디)이 입장 칸에 들어가지 않도록
+  ['#gNo', '#gName'].forEach(id => { const el = $(id), open = () => el.removeAttribute('readonly');
+    el.addEventListener('pointerdown', open); el.addEventListener('focus', open); });
+  const scrub = () => { if (ME.no) return; ['#gNo', '#gName'].forEach(id => { const el = $(id); if (/@/.test(el.value)) el.value = ''; }); };
+  [0, 300, 1200, 2500].forEach(t => setTimeout(scrub, t));
   if (ME.no){ $('#gNo').value = ME.no; $('#gName').value = ME.name; closeGate(); }
   else openGate();
   const start = () => { if (ME.no){ rpc('qf_checkin', { p_no:ME.no, p_name:ME.name }).catch(() => {}); loadMine(); } loadBoard(); };
