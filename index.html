@@ -685,6 +685,224 @@ table.mini th{background:var(--lav-s)}
 .aibadge.engine{background:linear-gradient(90deg,#1fb48a,#3cc9a0);color:#fff}
 .aibadge.device{background:linear-gradient(90deg,#4f7cff,#a46bff);color:#fff}
 
+/* ---------- 📘 개념 학습 흐름 ---------- */
+.lguide .lnav{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+.lchip{display:flex;align-items:center;gap:6px;border:2px solid var(--line2);background:#fff;border-radius:999px;padding:5px 12px 5px 6px;font-family:inherit;font-size:.8rem;font-weight:800;color:var(--ink2);cursor:pointer;max-width:100%}
+.lchip .ln{width:22px;height:22px;border-radius:50%;background:var(--lav-s);color:var(--lav);display:inline-flex;align-items:center;justify-content:center;font-size:.72rem;flex:0 0 auto}
+.lchip .lck{display:none;color:#1fa37a}.lchip.seen .lck{display:inline}
+.lchip.on{background:var(--grad);color:#fff;border-color:transparent}.lchip.on .ln{background:rgba(255,255,255,.3);color:#fff}.lchip.on .lck{color:#fff}
+.lprog{height:8px;background:var(--lav-s);border-radius:99px;margin-top:10px;overflow:hidden}.lprog>div{height:100%;width:0;background:var(--grad);border-radius:99px;transition:width .4s}
+.lsec{display:none}.lsec.on{display:block;animation:lsin .35s ease}
+@keyframes lsin{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.lhead{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:4px 2px 10px}
+.lcount{background:var(--tb-navy,#2f3a8f);color:#fff;border-radius:999px;padding:2px 12px;font-size:.78rem;font-weight:900}
+.lhead b{font-size:1.08rem}
+.lsteps{display:flex;gap:4px;margin-left:auto;flex-wrap:wrap}
+.lstep{font-size:.72rem;font-weight:800;color:var(--ink3);background:#fff;border:1.5px solid var(--line2);border-radius:999px;padding:2px 9px}
+.lstep b{margin-right:3px;color:var(--lav)}
+.miniladder{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:8px}
+.miniladder span{border-radius:12px;padding:4px 12px;font-weight:900;font-size:.84rem;display:flex;flex-direction:column;line-height:1.3}
+.miniladder small{font-weight:600;font-size:.7rem;opacity:.85}
+.miniladder .what{background:var(--sky-s);color:#2f93d6}.miniladder .how{background:var(--lav-s);color:#7d5fe0}.miniladder .if{background:var(--pink-s);color:#e8558c}
+.miniladder i{font-style:normal;color:var(--ink3);font-weight:900}
+.qex{background:#fbf9ff;border:1.5px dashed #d9cff8;border-radius:14px;padding:8px 12px;margin-bottom:8px}
+.qex summary{cursor:pointer;font-weight:800;font-size:.86rem;color:#5a3fc0}
+.qexi{margin:6px 0;font-size:.92rem}.qex small{color:var(--ink3)}
+.lfoot,.pagenav{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin:6px 0 22px}
+.pagenav{margin-top:10px;padding-top:12px;border-top:2px dashed var(--line)}
+.lfoot .btn,.pagenav .btn{white-space:normal;text-align:left}
+.prob.worked{border-color:#c9b8ff}
+.btn.main2{background:linear-gradient(90deg,#7d5fe0,#a98cff);color:#fff;border-color:transparent}
+.stepbox{display:none;margin-top:10px;background:#fffdf5;border:1.5px solid #f3e3b5;border-radius:14px;padding:6px 12px}
+.stepbox.on{display:block}
+.stp{display:none;gap:10px;align-items:flex-start;padding:6px 0;border-bottom:1px dashed #f0e2bb;line-height:1.9}
+.stp:last-child{border-bottom:0}.stp.on{display:flex;animation:lsin .3s ease}
+.stp .sn{flex:0 0 24px;height:24px;border-radius:50%;background:#e69a00;color:#fff;font-weight:900;font-size:.76rem;display:flex;align-items:center;justify-content:center;margin-top:4px}
+.roadmap .road{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.roadmap .road button{border:2px solid var(--line2);background:#fff;border-radius:16px;padding:8px 10px;font-family:inherit;text-align:left;cursor:pointer;font-weight:900;font-size:.88rem;color:var(--ink);display:flex;flex-direction:column;gap:2px;transition:.15s}
+.roadmap .road button:hover{border-color:var(--lav);transform:translateY(-2px)}
+.roadmap .road b{width:22px;height:22px;border-radius:50%;background:var(--grad);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:.74rem}
+.roadmap .road small{font-weight:600;font-size:.72rem;color:var(--ink3)}
+@media (max-width:720px){ .roadmap .road{grid-template-columns:1fr 1fr} .lsteps{margin-left:0} }
+
+/* ---------- 🎬 동기 유발 영상 ---------- */
+.ytgrid{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;align-items:flex-start}
+.ytgrid > .ytbox{flex:1 1 300px;max-width:680px}
+.ytgrid > .ytbox.short{flex:0 1 290px;max-width:290px}
+.ytbox{background:#fff;border:2px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 8px 20px rgba(125,95,224,.12)}
+.ytbox .ytplay,.ytbox iframe{display:block;width:100%;aspect-ratio:16/9;border:0;background:#111;position:relative;cursor:pointer;padding:0}
+.ytbox.short .ytplay,.ytbox.short iframe{aspect-ratio:9/16;max-height:560px}
+.ytplay img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
+.ytplay:hover img{transform:scale(1.04)}
+.ytbtn{position:absolute;left:50%;top:50%;width:72px;height:50px;margin:-25px 0 0 -36px;border-radius:14px;background:#ff0033;box-shadow:0 8px 20px rgba(0,0,0,.35);display:flex;align-items:center;justify-content:center;animation:ytpulse 1.8s ease-in-out infinite}
+.ytbtn i{width:0;height:0;border-left:20px solid #fff;border-top:12px solid transparent;border-bottom:12px solid transparent;margin-left:4px}
+@keyframes ytpulse{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+.ytshort{position:absolute;right:10px;top:10px;background:rgba(0,0,0,.65);color:#fff;font-size:.7rem;font-weight:900;border-radius:999px;padding:2px 9px}
+.ytmeta{padding:10px 14px;display:flex;flex-direction:column;gap:2px}
+.ytmeta b{font-size:.95rem}.ytmeta span{font-size:.78rem;color:var(--ink3);font-weight:700}.ytmeta a{font-size:.76rem;font-weight:800;color:#d0344f;text-decoration:none}
+
+/* ---------- 🎞️ 모션 그래픽 ---------- */
+.mg{position:relative;border-radius:18px;overflow:hidden;background:linear-gradient(135deg,#fff0f6,#eef3ff)}
+.mg video{display:block;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .6s}
+.mg video.ready{opacity:1}
+.mg.fail{display:none}
+.mg.ld::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:linear-gradient(100deg,transparent 30%,rgba(255,255,255,.75) 50%,transparent 70%) -150% 0/60% 100% no-repeat;animation:mgshim 1.3s linear infinite}
+@keyframes mgshim{to{background-position:250% 0}}
+.mg.concept{aspect-ratio:16/9;max-height:340px;margin:0 auto 14px;box-shadow:0 14px 30px rgba(125,95,224,.20);border:3px solid #fff;outline:2px solid rgba(155,123,255,.25)}
+.mg.concept.on{animation:mgglow 3.2s ease-in-out infinite}
+@keyframes mgglow{0%,100%{box-shadow:0 14px 30px rgba(125,95,224,.20)}50%{box-shadow:0 16px 38px rgba(255,107,157,.32)}}
+.mg .mgcap{position:absolute;left:10px;bottom:8px;z-index:2;background:rgba(255,255,255,.9);border-radius:999px;padding:3px 11px;font-size:.68rem;font-weight:900;color:#5a3fc0;box-shadow:0 2px 6px rgba(0,0,0,.08)}
+.mg.concept.on .mgcap::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:#ff4d7e;margin-right:6px;vertical-align:1px;animation:recdot 1.2s ease-in-out infinite}
+@keyframes recdot{50%{opacity:.25}}
+.card > h2 .mg.mini{margin-left:auto;flex:0 0 auto;width:96px;height:54px;border-radius:12px;border:2px solid rgba(255,255,255,.8);box-shadow:0 4px 12px rgba(125,95,224,.25);transition:transform .25s}
+.card > h2 .mg.mini:hover{transform:scale(1.6) translateX(-12px);z-index:5}
+.card > h2:has(.mg.mini){display:flex;align-items:center;gap:8px}
+/* 자동 재생이 막혔을 때 : 눌러서 움직이기 */
+.mgtap{display:none;position:absolute;inset:0;z-index:3;border:0;margin:0;padding:0;cursor:pointer;font-family:inherit;
+  background:radial-gradient(circle at 50% 50%,rgba(255,255,255,.25),rgba(40,20,90,.35));color:#fff;flex-direction:column;align-items:center;justify-content:center;gap:6px}
+.mgtap i{font-style:normal;width:58px;height:58px;border-radius:50%;background:var(--grad,linear-gradient(135deg,#ff7ba9,#9b7bff));display:flex;align-items:center;justify-content:center;font-size:1.4rem;padding-left:4px;box-shadow:0 8px 20px rgba(0,0,0,.3);animation:ytpulse 1.6s ease-in-out infinite}
+.mgtap span{font-weight:900;font-size:.82rem;text-shadow:0 1px 4px rgba(0,0,0,.5)}
+.mg.tap .mgtap,.stage.tap .mgtap{display:flex}
+.mg.mini .mgtap i{width:26px;height:26px;font-size:.7rem;animation:none}.mg.mini .mgtap span{display:none}
+.mgdead .mgtap,.mgdead .herotag{display:none!important}
+.motion-off .mg .mgtap,.motion-off .stage .mgtap{display:flex;background:rgba(40,20,90,.18)}
+.motion-off .mg .mgtap span,.motion-off .stage .mgtap span{display:none}
+.motion-off .mg .mgtap i,.motion-off .stage .mgtap i{width:44px;height:44px;font-size:1rem;opacity:.85;animation:none}
+.motion-off .mg.mini .mgtap i{width:24px;height:24px;font-size:.65rem}
+.motion-off .mg video.ready{opacity:1}
+/* 표지 */
+.scene .stage .herov{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1s;z-index:0}
+.scene .stage .herov.ready{opacity:1}
+.scene .stage .glare,.scene .stage .cap{z-index:2}
+.scene .stage .herotag{position:absolute;right:16px;top:14px;z-index:2;background:rgba(20,16,60,.55);backdrop-filter:blur(4px);color:#fff;font-size:.72rem;font-weight:900;border-radius:999px;padding:4px 12px;opacity:0;transition:opacity .6s}
+.scene .stage.on .herotag{opacity:1}
+.scene .stage > img{animation:kenburns 16s ease-in-out infinite alternate;transform-origin:60% 40%}
+@keyframes kenburns{from{transform:scale(1)}to{transform:scale(1.08) translate(-1%,1%)}}
+.scene .stage.on > img{animation:none}
+/* 머리말 단추 · 점수 튀기 */
+.mvbtn.off{background:#f2f0f7;filter:grayscale(.6)}
+.score .sc.bump{animation:scbump .6s cubic-bezier(.2,.9,.25,1.5)}
+.score .sc.bump .v{color:#ff4d7e;transition:color .6s}
+@keyframes scbump{0%{transform:none}35%{transform:translateY(-6px) scale(1.04)}100%{transform:none}}
+/* 카드가 차례로 떠오르기 */
+.rv{opacity:0;transform:translateY(18px) scale(.985)}
+.rv.in{opacity:1;transform:none;transition:opacity .55s ease var(--d,0ms),transform .55s cubic-bezier(.2,.9,.25,1.15) var(--d,0ms)}
+.lsec .card > h2 .chip{animation:chipin .6s cubic-bezier(.2,.9,.25,1.3) both}
+@keyframes chipin{from{transform:scale(.6) rotate(-6deg);opacity:0}to{transform:none;opacity:1}}
+.prob.solved{animation:solvedpop .6s cubic-bezier(.2,.9,.25,1.4)}
+@keyframes solvedpop{0%{transform:scale(1)}40%{transform:scale(1.02)}100%{transform:scale(1)}}
+.prob,.qexi,.ytbox{transition:transform .2s,box-shadow .2s}
+.prob:hover,.qexi:hover,.ytbox:hover{transform:translateY(-3px);box-shadow:0 12px 26px rgba(125,95,224,.16)}
+.roadmap .road button b{transition:transform .3s}
+.roadmap .road button:hover b{transform:rotate(-12deg) scale(1.2)}
+@media (max-width:560px){ .card > h2 .mg.mini{width:72px;height:40px} .card > h2 .mg.mini:hover{transform:none} .mg.concept{max-height:230px} }
+/* 🎞️ 단추로 움직임을 끈 경우에만 화면 움직임을 멈춤 (윈도우 설정과 상관없이 기본은 켜짐) */
+.motion-off .rv{opacity:1;transform:none}
+.motion-off *,.motion-off *::before,.motion-off *::after{animation-duration:.001s!important;animation-iteration-count:1!important;transition-duration:.001s!important}
+
+/* ---------- 🏫 반별 보기 · ☁️ 영역별 워드클라우드 ---------- */
+.tclsbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:12px 0 4px;padding:10px 12px;background:linear-gradient(135deg,#f4f0ff,#fff3f8);border:2px solid var(--line);border-radius:16px}
+.tclsbar > b{font-size:.9rem;margin-right:4px}
+.tcls{position:relative;overflow:hidden;border:2px solid var(--line);background:#fff;border-radius:14px;padding:6px 14px 8px;font:inherit;font-weight:900;cursor:pointer;display:flex;flex-direction:column;align-items:center;line-height:1.15;min-width:74px;color:#3b3363}
+.tcls small{font-size:.68rem;font-weight:800;opacity:.7}
+.tcls i{position:absolute;left:0;bottom:0;height:4px;background:linear-gradient(90deg,#2bbf9e,#7d5fe0)}
+.tcls.on{background:linear-gradient(135deg,#7d5fe0,#ff6fa3);color:#fff;border-color:transparent;box-shadow:0 6px 14px rgba(125,95,224,.3)}
+.tcls.on i{background:rgba(255,255,255,.8)}
+.tcls.roster{margin-left:auto;flex-direction:row;font-size:.8rem;background:#fffbea;border-color:#ffd66b}
+.tclsnote{font-size:.78rem;color:#6b6290;margin:2px 4px 10px;line-height:1.5}
+.chip.cls{background:#2bbf9e!important;color:#fff!important}
+.tabsent{margin-top:10px;padding:10px 12px;border:2px dashed var(--line);border-radius:14px;font-size:.84rem;line-height:1.7}
+.tabsent span{display:inline-block;background:#f4f0ff;border-radius:999px;padding:0 9px;margin:2px 3px;font-size:.78rem}
+.tabsent .odd span{background:#fff0e6}
+.clsbar{align-items:center}
+.clsbar .clslab{font-weight:900;font-size:.82rem;margin-right:4px;color:#5a3fc0}
+.tcgrid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:16px;align-items:start}
+.tcgrid h3,#tView > h3{margin:14px 0 8px;font-size:1rem}
+.tcgrid h3 small,#tView > h3 small{font-weight:700;color:#8a82ad;font-size:.76rem}
+.tfreq td{padding:4px 8px}
+.mtag{font-size:.62rem;background:#efe9ff;color:#6b4fd8;border-radius:6px;padding:1px 5px;font-weight:900}
+.fbar{display:inline-block;width:60px;height:8px;background:#f1eefb;border-radius:9px;margin-right:6px;vertical-align:middle;overflow:hidden}
+.fbar i{display:block;height:100%;background:linear-gradient(90deg,#9b7cf6,#ff6fa3)}
+.tnet{border:2px solid var(--line);border-radius:18px;background:radial-gradient(circle at 50% 40%,#fff,#f8f5ff);min-height:120px}
+.tnet .state{padding:30px;text-align:center;color:#8a82ad}
+.tpairs{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.tpairs span{background:#fff;border:2px solid var(--line);border-radius:999px;padding:2px 10px;font-size:.78rem;font-weight:800}
+.tpairs b{color:#e8558c;margin-left:4px}
+.tcmp{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.tcmp > div{border:2px solid var(--line);border-radius:16px;padding:6px 8px;background:#fff}
+.tcmp h4{margin:2px 4px 4px;font-size:.9rem}
+.tcmp h4 small{font-weight:700;color:#8a82ad;font-size:.7rem}
+.tsrcgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px}
+.tsrc{text-align:left;border:2px solid var(--line);border-radius:16px;background:#fff;padding:10px 12px;font:inherit;cursor:pointer;display:flex;flex-direction:column;gap:4px;transition:transform .15s}
+.tsrc:hover{transform:translateY(-2px)}
+.tsrc.on{border-color:#9b7cf6;box-shadow:0 6px 16px rgba(125,95,224,.18)}
+.tsrc small{color:#8a82ad;font-size:.72rem;font-weight:800}
+.tsrc span{display:flex;flex-wrap:wrap;gap:4px}
+.tsrc em{font-style:normal;background:#f4f0ff;border-radius:8px;padding:1px 7px;font-size:.74rem;font-weight:800}
+.tsrc em.none{background:none;color:#aaa}
+.tmhow{margin-top:14px;border:2px solid var(--line);border-radius:16px;padding:10px 14px;background:#fffdf5;font-size:.84rem;line-height:1.65}
+.tmhow summary{font-weight:900;cursor:pointer}
+.tmhow code{background:#f1eefb;border-radius:6px;padding:0 5px}
+#tcSrc .fbtn small{opacity:.65;font-weight:800;margin-left:2px}
+@media (max-width:820px){ .tcgrid{grid-template-columns:1fr} .tcmp{grid-template-columns:repeat(2,minmax(0,1fr))} .tcls.roster{margin-left:0} }
+
+/* 중단원 개념 정리 */
+.sumgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.sumgrid > div{background:#f7f4ff;border:2px solid var(--line);border-radius:16px;padding:12px 14px}
+.sumgrid b{display:inline-block;background:#7d5fe0;color:#fff;border-radius:999px;padding:2px 12px;font-size:.86rem;margin-bottom:6px}
+.sumgrid p{margin:0;line-height:1.85;font-size:.92rem}
+
+/* ---------- 👥 소그룹 ---------- */
+.gpgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:12px}
+.gpcard{border:2px solid var(--line);border-radius:18px;padding:12px;background:#fff;display:flex;flex-direction:column;gap:8px;box-shadow:0 6px 14px rgba(125,95,224,.08)}
+.gpcard.mine{border-color:#9b7cf6;background:linear-gradient(160deg,#f6f2ff,#fff4f9)}
+.gph{display:flex;align-items:center;gap:8px}.gph b{font-size:1.05rem}
+.gpme{background:#7d5fe0;color:#fff;border-radius:999px;padding:1px 9px;font-size:.7rem;font-weight:900}
+.gpm{display:flex;flex-wrap:wrap;gap:4px;min-height:24px}.gpm span{background:#f1edff;border-radius:999px;padding:1px 8px;font-size:.76rem;font-weight:800}.gpm i{color:#aaa;font-size:.8rem}
+.gpn{display:flex;flex-wrap:wrap;gap:6px;font-size:.78rem;font-weight:800;color:#5a4f80}
+.gpb{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto}.gpb .btn{padding:6px 10px;font-size:.8rem}
+.gproom{border:3px solid #c9b8ff}
+.gpmem{font-size:.84rem;font-weight:800;color:#5a4f80;margin:-4px 0 8px}
+.gpcomp{display:flex;gap:8px;align-items:flex-end;margin:8px 0}.gpcomp textarea{flex:1;border:2px solid var(--line);border-radius:14px;padding:10px;font:inherit;resize:vertical}
+.gpqs{display:flex;flex-direction:column;gap:10px}
+.gpq{border:2px solid var(--line);border-radius:16px;padding:10px 12px;background:#fff}.gpq.solved{background:#f2fbf7;border-color:#9fe0c5}
+.gpqh{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:.86rem}.gpqh small{color:#999}
+.gpok{margin-left:auto;color:#169c74;font-weight:900;font-size:.78rem}.gpwait{margin-left:auto;color:#d08a1a;font-weight:900;font-size:.78rem}
+.gpqb{margin:6px 0;font-weight:700;line-height:1.6}
+.gpr{background:#fffbea;border-radius:10px;padding:5px 9px;margin:4px 0 4px 14px;font-size:.86rem}.gpr small{color:#999}
+.gpra{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}.gpra .inp{flex:1;min-width:180px}.gpra .btn{padding:6px 10px;font-size:.78rem}
+.gpchat{max-height:380px;overflow:auto;display:flex;flex-direction:column;gap:8px;padding:10px;background:#f8f6ff;border-radius:16px;border:2px solid var(--line)}
+.gpmsg{max-width:80%;background:#fff;border-radius:14px 14px 14px 4px;padding:7px 11px;box-shadow:0 2px 6px rgba(0,0,0,.06);align-self:flex-start}
+.gpmsg.me{align-self:flex-end;background:#efe8ff;border-radius:14px 14px 4px 14px}
+.gpmsg b{display:block;font-size:.74rem;color:#7d5fe0}.gpmsg span{white-space:pre-wrap;line-height:1.55}.gpmsg small{display:block;text-align:right;font-size:.66rem;color:#aaa}
+.gpstarts{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.chipb{border:2px dashed #c9b8ff;background:#fff;border-radius:999px;padding:3px 10px;font:inherit;font-size:.76rem;font-weight:800;cursor:pointer;color:#5a3fc0}
+.gpform .ff,#gpMine .ff{margin:8px 0}.gpform label,#gpMine label{display:block;font-weight:900;font-size:.86rem;margin-bottom:4px}
+.gpform textarea,#gpMine textarea{width:100%;border:2px solid var(--line);border-radius:12px;padding:9px;font:inherit;resize:vertical;box-sizing:border-box}
+.gpres{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
+.gprc{border:2px solid var(--line);border-radius:18px;padding:12px;background:linear-gradient(170deg,#fff,#fbf8ff)}
+.gprh{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.gprh small{color:#888}
+.gplike{margin-left:auto;border:2px solid #ffc2d8;background:#fff;border-radius:999px;padding:2px 10px;font:inherit;font-weight:900;color:#e8558c;cursor:pointer}.gplike.on{background:#ffe3ee}
+.gprq{font-weight:900;margin:8px 0 4px}.gprb{font-size:.88rem;line-height:1.6;margin:3px 0;white-space:pre-wrap}
+.gpstat{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 4px}.gpstat span{background:#f4f0ff;border-radius:12px;padding:5px 10px;font-size:.8rem;font-weight:800}
+/* 선생님 : 소그룹 · 세특 */
+.tgcls{margin:16px 0 8px}
+.tggrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px}
+.tgcard{border:2px solid var(--line);border-radius:16px;padding:10px;background:#fff;font-size:.84rem}
+.tgh small{display:block;color:#777;margin-top:2px}.tgcard details{margin-top:6px}.tgcard summary{font-weight:900;cursor:pointer}
+.tgq{border-top:1px dashed #e4dcfa;padding:5px 0}.tgr{margin-left:12px;color:#555}.tgres{background:#f7f4ff;border-radius:10px;padding:6px 8px;margin:5px 0}
+.stguide{border:2px solid #c9b8ff;border-radius:16px;padding:12px 14px;background:#faf8ff;font-size:.86rem;line-height:1.65}.stguide ul{margin:6px 0 8px 18px;padding:0}
+.stlist{display:flex;flex-direction:column;gap:12px;margin-top:12px}
+.stcard{border:2px solid var(--line);border-radius:16px;padding:10px 12px;background:#fff}
+.sth{display:flex;flex-wrap:wrap;align-items:center;gap:8px}.sth small{color:#6b6290;width:100%}
+.stcols{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:12px;margin-top:8px;align-items:start}
+.strec summary{font-weight:900;cursor:pointer}.strec h5{margin:8px 0 2px;font-size:.82rem}.strec ul{margin:0 0 0 16px;padding:0;font-size:.8rem;line-height:1.6}.strec i{font-size:.8rem;color:#aaa}
+.stw textarea{width:100%;box-sizing:border-box;border:2px solid var(--line);border-radius:12px;padding:10px;font:inherit;font-size:.9rem;line-height:1.7;resize:vertical}
+.stbar{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:6px}.stbar .btn{padding:5px 10px;font-size:.78rem}
+.stb{font-size:.78rem;font-weight:900;color:#169c74}.stb.warn{color:#e8558c}.stsv{font-size:.76rem;color:#888;margin-right:auto}
+@media (max-width:820px){ .stcols{grid-template-columns:1fr} .gpcomp{flex-direction:column;align-items:stretch} }
+
 /* ===================================================================
    교과서 스타일 + 입체감 + 큰 글씨 · 큰 수식
    =================================================================== */
@@ -839,7 +1057,12 @@ nav.tabs{top:38px}
 
 /* 차시 목록 카드 이미지 */
 .lcard .lthumb{flex:0 0 120px;height:120px;border-radius:18px;overflow:hidden;box-shadow:0 12px 20px -10px rgba(47,58,140,.5)}
+.lcard .lthumb{position:relative}
 .lcard .lthumb img{width:100%;height:100%;object-fit:cover}
+.lcard .lthumb video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .8s}
+.lcard .lthumb video.ready{opacity:1}
+.lcard:hover .lthumb video{transform:scale(1.06);transition:opacity .8s,transform .4s}
+@keyframes lcin{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
 @media (max-width:640px){
   html{font-size:16.5px}
   .focus .ft{font-size:1.32rem}
@@ -916,7 +1139,7 @@ nav.tabs{position:sticky}
 <div class="crumb"><div class="wrap"><span class="cb">공통수학2 › <b>Ⅲ. 함수와 그래프</b></span><span class="pgpill">📖 교과서 101~132쪽</span></div></div>
 <header><div class="wrap"><div class="hd"><div class="secno"><span>Ⅲ</span></div><h1>질문 탐구 교실<small>공통수학2 Ⅲ. 함수와 그래프 · 학생이 질문하고, 질문으로 배우는 수업</small></h1></div></div></header>
 <div class="wrap" style="padding-bottom:50px">
-<div class="scene"><div class="stage"><img src="" data-k="hub_hero" alt=""><div class="glare"></div>
+<div class="scene"><div class="stage"><img src="" data-k="hub_hero" alt=""><video id="hubv" class="herov" muted autoplay playsinline disablepictureinpicture preload="none" aria-hidden="true"></video><span class="herotag" id="hubtag">🎞️ AI 모션 그래픽</span><div class="glare"></div>
 <div class="cap"><div class="tt"><b>질문으로 여는 함수 수업</b><span>함수 · 합성함수 · 역함수 · 유리함수 · 무리함수 — 6차시</span></div><div class="badge3d">❓ 질문 탐구 교실</div></div></div></div>
 <div class="focus"><div class="fl">💭 우리 교실의 약속</div><div class="ft">가장 많이 질문하는 사람이 가장 많이 배운다.</div>
 <div class="fs">모든 차시는 <b>질문 초점 → 질문 쏟아내기 → 개념·문제·실생활 질문 → 책 속 토의·토론 → 질문 광장 → 성찰</b> 순서로 진행돼요.
@@ -926,25 +1149,25 @@ nav.tabs{position:sticky}
 <div class="rule"><span class="rn">2</span><b>질문을 판단·토론·대답하지 않는다</b></div>
 <div class="rule"><span class="rn">3</span><b>말한 그대로 정확히 적는다</b></div>
 <div class="rule"><span class="rn">4</span><b>진술문은 질문으로 바꾼다</b></div></div>
-<h2 class="uh">Ⅲ-1 함수</h2><div class="ph tilt" style="margin-bottom:16px"><img src="" data-k="hub_u1" alt="" style="max-height:260px;aspect-ratio:21/9"><figcaption>AI 생성 이미지</figcaption></div><div class="lgrid"><a class="lcard" href="f1.html"><div style="display:flex;flex-direction:column;gap:8px;align-items:center"><div class="lthumb"><img src="" data-k="f1_hero" alt=""></div><div class="lno" style="background:var(--grad)">1<small>차시</small></div></div>
+<h2 class="uh">Ⅲ-1 함수</h2><div class="ph tilt" style="margin-bottom:16px"><img src="" data-k="hub_u1" alt="" style="max-height:260px;aspect-ratio:21/9"><figcaption>AI 생성 이미지</figcaption></div><div class="lgrid"><a class="lcard" href="f1.html"><div style="display:flex;flex-direction:column;gap:8px;align-items:center"><div class="lthumb"><img src="" data-k="f1_hero" alt=""><video data-mv="f1_hero" muted autoplay loop playsinline disablepictureinpicture preload="none" aria-hidden="true"></video></div><div class="lno" style="background:var(--grad)">1<small>차시</small></div></div>
           <div class="lb"><b>함수의 뜻과 그래프</b><span class="pg">교과서 101~105쪽</span>
           <div class="fq">💭 「식」이 없어도 함수일 수 있다.</div><div class="cq">🧭 함수란 무엇이고, 우리는 왜 세상을 「대응」으로 바라볼까?</div>
-          <div class="tg"><span>🧠 개념 6</span><span>✏️ 문제 12</span><span>🌍 실생활 3</span><span>📚 함수란 「식」일까, 「대응」일까?</span></div></div></a><a class="lcard" href="f2.html"><div style="display:flex;flex-direction:column;gap:8px;align-items:center"><div class="lthumb"><img src="" data-k="f2_hero" alt=""></div><div class="lno" style="background:var(--grad)">2<small>차시</small></div></div>
+          <div class="tg"><span>🧠 개념 6</span><span>✏️ 문제 21</span><span>🌍 실생활 3</span><span>📚 함수란 「식」일까, 「대응」일까?</span></div></div></a><a class="lcard" href="f2.html"><div style="display:flex;flex-direction:column;gap:8px;align-items:center"><div class="lthumb"><img src="" data-k="f2_hero" alt=""><video data-mv="f2_hero" muted autoplay loop playsinline disablepictureinpicture preload="none" aria-hidden="true"></video></div><div class="lno" style="background:var(--grad)">2<small>차시</small></div></div>
           <div class="lb"><b>합성함수</b><span class="pg">교과서 106~108쪽</span>
           <div class="fq">💭 양말을 신고 신발을 신는 것과, 신발을 신고 양말을 신는 것은 다르다.</div><div class="cq">🧭 두 함수를 이어 붙이면 무엇이 달라지고, 왜 「순서」가 중요할까?</div>
-          <div class="tg"><span>🧠 개념 3</span><span>✏️ 문제 11</span><span>🌍 실생활 3</span><span>📚 앨리스의 키는 어떻게 변할까?</span></div></div></a><a class="lcard" href="f3.html"><div style="display:flex;flex-direction:column;gap:8px;align-items:center"><div class="lthumb"><img src="" data-k="f3_hero" alt=""></div><div class="lno" style="background:var(--grad)">3<small>차시</small></div></div>
+          <div class="tg"><span>🧠 개념 3</span><span>✏️ 문제 12</span><span>🌍 실생활 3</span><span>📚 앨리스의 키는 어떻게 변할까?</span></div></div></a><a class="lcard" href="f3.html"><div style="display:flex;flex-direction:column;gap:8px;align-items:center"><div class="lthumb"><img src="" data-k="f3_hero" alt=""><video data-mv="f3_hero" muted autoplay loop playsinline disablepictureinpicture preload="none" aria-hidden="true"></video></div><div class="lno" style="background:var(--grad)">3<small>차시</small></div></div>
           <div class="lb"><b>역함수</b><span class="pg">교과서 109~112쪽</span>
           <div class="fq">💭 암호를 만들 수 있다면, 반드시 풀 수도 있다.</div><div class="cq">🧭 어떤 함수는 되돌릴 수 있고, 어떤 함수는 왜 되돌릴 수 없을까?</div>
-          <div class="tg"><span>🧠 개념 4</span><span>✏️ 문제 14</span><span>🌍 실생활 3</span><span>📚 카이사르의 비밀 편지</span></div></div></a></div><h2 class="uh">Ⅲ-2 유리함수와 무리함수</h2><div class="ph tilt" style="margin-bottom:16px"><img src="" data-k="hub_u2" alt="" style="max-height:260px;aspect-ratio:21/9"><figcaption>AI 생성 이미지</figcaption></div><div class="lgrid"><a class="lcard" href="r1.html"><div style="display:flex;flex-direction:column;gap:8px;align-items:center"><div class="lthumb"><img src="" data-k="r1_hero" alt=""></div><div class="lno" style="background:var(--grad2)">1<small>차시</small></div></div>
+          <div class="tg"><span>🧠 개념 4</span><span>✏️ 문제 21</span><span>🌍 실생활 3</span><span>📚 카이사르의 비밀 편지</span></div></div></a></div><h2 class="uh">Ⅲ-2 유리함수와 무리함수</h2><div class="ph tilt" style="margin-bottom:16px"><img src="" data-k="hub_u2" alt="" style="max-height:260px;aspect-ratio:21/9"><figcaption>AI 생성 이미지</figcaption></div><div class="lgrid"><a class="lcard" href="r1.html"><div style="display:flex;flex-direction:column;gap:8px;align-items:center"><div class="lthumb"><img src="" data-k="r1_hero" alt=""><video data-mv="r1_hero" muted autoplay loop playsinline disablepictureinpicture preload="none" aria-hidden="true"></video></div><div class="lno" style="background:var(--grad2)">1<small>차시</small></div></div>
           <div class="lb"><b>유리식과 유리함수</b><span class="pg">교과서 117~119쪽</span>
           <div class="fq">💭 가까워지기만 하고 영원히 닿지 않는 선이 있다.</div><div class="cq">🧭 왜 어떤 양은 한없이 가까워지기만 하고 닿지 않을까? — 반비례와 점근선</div>
-          <div class="tg"><span>🧠 개념 5</span><span>✏️ 문제 8</span><span>🌍 실생활 3</span><span>📚 아킬레스는 거북이를 따라잡을 수 있을까?</span></div></div></a><a class="lcard" href="r2.html"><div style="display:flex;flex-direction:column;gap:8px;align-items:center"><div class="lthumb"><img src="" data-k="r2_hero" alt=""></div><div class="lno" style="background:var(--grad2)">2<small>차시</small></div></div>
+          <div class="tg"><span>🧠 개념 5</span><span>✏️ 문제 8</span><span>🌍 실생활 3</span><span>📚 아킬레스는 거북이를 따라잡을 수 있을까?</span></div></div></a><a class="lcard" href="r2.html"><div style="display:flex;flex-direction:column;gap:8px;align-items:center"><div class="lthumb"><img src="" data-k="r2_hero" alt=""><video data-mv="r2_hero" muted autoplay loop playsinline disablepictureinpicture preload="none" aria-hidden="true"></video></div><div class="lno" style="background:var(--grad2)">2<small>차시</small></div></div>
           <div class="lb"><b>유리함수 그래프의 이동과 활용</b><span class="pg">교과서 119~121쪽 · 127~131쪽 · 익힘책</span>
           <div class="fq">💭 갈 때는 시속 60km, 올 때는 시속 40km. 왕복 평균은 시속 50km가 아니다.</div><div class="cq">🧭 유리함수의 그래프는 어떻게 움직이고, 세상의 어떤 변화를 설명할까?</div>
-          <div class="tg"><span>🧠 개념 3</span><span>✏️ 문제 13</span><span>🌍 실생활 3</span><span>📚 갈릴레이의 「등속 운동」</span></div></div></a><a class="lcard" href="r3.html"><div style="display:flex;flex-direction:column;gap:8px;align-items:center"><div class="lthumb"><img src="" data-k="r3_hero" alt=""></div><div class="lno" style="background:var(--grad2)">3<small>차시</small></div></div>
+          <div class="tg"><span>🧠 개념 3</span><span>✏️ 문제 15</span><span>🌍 실생활 3</span><span>📚 갈릴레이의 「등속 운동」</span></div></div></a><a class="lcard" href="r3.html"><div style="display:flex;flex-direction:column;gap:8px;align-items:center"><div class="lthumb"><img src="" data-k="r3_hero" alt=""><video data-mv="r3_hero" muted autoplay loop playsinline disablepictureinpicture preload="none" aria-hidden="true"></video></div><div class="lno" style="background:var(--grad2)">3<small>차시</small></div></div>
           <div class="lb"><b>무리식과 무리함수</b><span class="pg">교과서 122~126쪽</span>
           <div class="fq">💭 실의 길이를 4배로 늘려도, 진자는 겨우 2배 느리게 흔들린다.</div><div class="cq">🧭 왜 어떤 변화는 「제곱근」의 모양으로 나타날까?</div>
-          <div class="tg"><span>🧠 개념 5</span><span>✏️ 문제 13</span><span>🌍 실생활 3</span><span>📚 갈릴레이의 진자</span></div></div></a></div>
+          <div class="tg"><span>🧠 개념 5</span><span>✏️ 문제 26</span><span>🌍 실생활 3</span><span>📚 갈릴레이의 진자</span></div></div></a></div>
 <p class="lead" style="margin-top:22px;font-size:.84rem">🧑‍🏫 선생님 : 각 차시 화면의 「🧑‍🏫 선생님」 탭에서 암호를 넣으면 학생별 질문·토론·성찰·문제 기록을 볼 수 있어요 (6개 차시 모두 같은 암호).</p>
 </div>
 <script>
@@ -997,6 +1220,49 @@ Object.keys(IMG).forEach(k => IMG[k] = IMG_BASE + IMG[k]);
 
 </script>
 <script>
+/* Higgsfield(Kling 3.0)로 만든 모션 그래픽 (사용자 계정 CDN) */
+var MOV_BASE = 'https://d8j0ntlcm91z4.cloudfront.net/user_3FbbP9nGEx1ZGPmwNvdArD3Boyr/';
+var MOV = {
+  f1_c1:'hf_20261106_070551_46526389-2846-4b1c-b4bb-56a3763e6cc6.mp4', f1_c2:'hf_20261106_070550_08e2a2fb-c4dd-4b9f-a118-5aab513aa591.mp4',
+  f1_c3:'hf_20261106_070551_554f2cf0-e13f-4f9f-905b-1cf8ad64aab3.mp4', f1_c4:'hf_20261106_070551_ad64a4b4-ef2c-4f0b-8049-dd726b047ac2.mp4',
+  f1_c5:'hf_20261106_070550_111a5dd9-0ae5-4fa3-9bb4-0d020ab86d6c.mp4', f1_c6:'hf_20261106_070551_37130698-40e0-418f-9342-ea4053bb9aa1.mp4',
+  f2_c1:'hf_20261106_070717_6c5d09e9-6629-4558-a304-edaf6e9c9d6f.mp4', f2_c2:'hf_20261106_070717_89ead634-7cfe-492f-ba80-d470f719da29.mp4',
+  f2_c3:'hf_20261106_070717_1b866650-ea8f-4fa1-826e-7f7e521998d2.mp4',
+  f3_c1:'hf_20261106_070717_91921f1b-917f-4947-be71-969a01edd854.mp4', f3_c2:'hf_20261106_070717_2af0425a-5e97-4543-93b3-dd647628fb0e.mp4',
+  f3_c3:'hf_20261106_070717_ea6ce7af-0e17-40a0-af94-bdbeae18e98d.mp4', f3_c4:'hf_20261106_071659_6e2ccf68-cbfd-4edf-a0b6-ed12cc5db88f.mp4',
+  r1_c1:'hf_20261106_071659_f3af8a99-6894-4024-88c8-b596731c1bad.mp4', r1_c2:'hf_20261106_071659_1ba9e896-5f3b-45e2-8772-350222edfd69.mp4',
+  r1_c3:'hf_20261106_071659_b193cafa-2b4f-4353-ae1e-96d440ff7477.mp4', r1_c4:'hf_20261106_071659_cd76da01-d39c-459e-b43c-aa0605c83b39.mp4',
+  r1_c5:'hf_20261106_071659_b918c266-aadb-41dc-bfcc-7d7fbfe03915.mp4',
+  r2_c1:'hf_20261106_071715_58fc359b-858a-41a4-8c1e-82c1a2c3b435.mp4', r2_c2:'hf_20261106_071715_5ef65458-c8b3-4917-b272-c724c184b166.mp4',
+  r2_c3:'hf_20261106_071715_1709ae41-74e6-46a1-a5e4-21d66661a14b.mp4',
+  r3_c1:'hf_20261106_071715_013af86f-906f-44fc-afcd-7b04bc007bfd.mp4', r3_c2:'hf_20261106_071718_697b09ad-366d-4899-9b90-48e4a761cb8c.mp4',
+  r3_c3:'hf_20261106_071715_3fa27e82-cb01-4dba-baa1-065881ff533e.mp4', r3_c4:'hf_20261106_071738_a6004f97-7bfc-490e-bc77-87ba9731804a.mp4',
+  r3_c5:'hf_20261106_071739_e2a4347e-eae9-449a-a4c3-0460ba120414.mp4',
+  mg_ex:'hf_20261106_071738_5cdc200f-44d2-4948-ba9f-91c6264fe8a7.mp4', mg_prob:'hf_20261106_071738_1da7b154-dfd3-4e2d-bd83-2024b25ef9b6.mp4',
+  mg_q:'hf_20261106_071738_c2d6801e-efe1-49da-8987-351d35b7e6d9.mp4',
+  f1_hero:'hf_20261106_071951_10a599fe-a5f0-4215-9ad8-0d832d7bd3ef.mp4', f2_hero:'hf_20261106_071951_b86dcd5d-e780-41ed-8200-d5ab6ca85dee.mp4',
+  f3_hero:'hf_20261106_071951_b7d25958-401e-4a52-8ace-4e01afae4a34.mp4', r1_hero:'hf_20261106_071951_dd980cdd-f912-4283-ba6d-b501859c71d5.mp4',
+  r2_hero:'hf_20261106_071951_991807e8-24a6-4d37-b34d-8eecce7846b6.mp4', r3_hero:'hf_20261106_071951_64b15b9d-2bc5-4626-b795-5666dd9f5f5e.mp4'
+};
+for (var k in MOV) MOV[k] = MOV_BASE + MOV[k];
+
+</script>
+<script>
+/* 차시 카드의 작은 모션 그래픽 : 화면에 보이면 재생 (각 차시 화면의 🎞️ 단추로 끈 경우에는 멈춤) */
+(function(){ let on = true; try { on = localStorage.getItem('qf_motion') !== 'off'; } catch (e) {}
+  if (!on || typeof MOV === 'undefined' || !('IntersectionObserver' in window)) return;
+  const io = new IntersectionObserver(es => es.forEach(e => { const v = e.target;
+    if (e.isIntersecting){ if (!v.getAttribute('src')) v.src = MOV[v.dataset.mv]; v.muted = true; const p = v.play(); if (p && p.catch) p.catch(() => {}); } else v.pause(); }), { rootMargin:'100px' });
+  document.querySelectorAll('video[data-mv]').forEach(v => { if (!MOV[v.dataset.mv]) return v.remove();
+    v.addEventListener('playing', () => v.classList.add('ready')); v.addEventListener('error', () => v.remove()); io.observe(v); });
+  /* 표지 : 6개 차시의 모션 그래픽을 차례로 이어 틀기 */
+  const hv = document.getElementById('hubv'), keys = ['f1_hero','f2_hero','f3_hero','r1_hero','r2_hero','r3_hero'].filter(k => MOV[k]); let hi = 0, bad = 0;
+  if (hv && keys.length){ const nxt = () => { hv.src = MOV[keys[hi++ % keys.length]]; hv.muted = true; const p = hv.play(); if (p && p.catch) p.catch(() => {}); };
+    hv.addEventListener('playing', () => { bad = 0; hv.classList.add('ready'); hv.parentNode.classList.add('on'); });
+    hv.addEventListener('ended', nxt); hv.addEventListener('error', () => { if (++bad < keys.length) nxt(); else hv.remove(); });
+    addEventListener('pointerdown', () => { if (hv.paused && hv.isConnected) hv.play().catch(() => {}); }, { once:true }); nxt(); }
+  document.querySelectorAll('.lcard, .rule, .focus').forEach((el, i) => { el.style.animation = `lcin .6s cubic-bezier(.2,.9,.25,1.2) ${(i % 8) * 70}ms both`; });
+})();
 document.querySelectorAll('img[data-k]').forEach(i => { if (IMG[i.dataset.k]) i.src = IMG[i.dataset.k]; });
 document.querySelectorAll('.tilt, .scene .stage').forEach(el => {
   el.addEventListener('pointermove', e => { const r = el.getBoundingClientRect(), x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;

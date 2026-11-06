@@ -2,6 +2,7 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>질문 탐구 교실</title>
 <meta name="theme-color" content="#fff7fb">
@@ -695,6 +696,224 @@ table.mini th{background:var(--lav-s)}
 .aibadge.engine{background:linear-gradient(90deg,#1fb48a,#3cc9a0);color:#fff}
 .aibadge.device{background:linear-gradient(90deg,#4f7cff,#a46bff);color:#fff}
 
+/* ---------- 📘 개념 학습 흐름 ---------- */
+.lguide .lnav{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+.lchip{display:flex;align-items:center;gap:6px;border:2px solid var(--line2);background:#fff;border-radius:999px;padding:5px 12px 5px 6px;font-family:inherit;font-size:.8rem;font-weight:800;color:var(--ink2);cursor:pointer;max-width:100%}
+.lchip .ln{width:22px;height:22px;border-radius:50%;background:var(--lav-s);color:var(--lav);display:inline-flex;align-items:center;justify-content:center;font-size:.72rem;flex:0 0 auto}
+.lchip .lck{display:none;color:#1fa37a}.lchip.seen .lck{display:inline}
+.lchip.on{background:var(--grad);color:#fff;border-color:transparent}.lchip.on .ln{background:rgba(255,255,255,.3);color:#fff}.lchip.on .lck{color:#fff}
+.lprog{height:8px;background:var(--lav-s);border-radius:99px;margin-top:10px;overflow:hidden}.lprog>div{height:100%;width:0;background:var(--grad);border-radius:99px;transition:width .4s}
+.lsec{display:none}.lsec.on{display:block;animation:lsin .35s ease}
+@keyframes lsin{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.lhead{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:4px 2px 10px}
+.lcount{background:var(--tb-navy,#2f3a8f);color:#fff;border-radius:999px;padding:2px 12px;font-size:.78rem;font-weight:900}
+.lhead b{font-size:1.08rem}
+.lsteps{display:flex;gap:4px;margin-left:auto;flex-wrap:wrap}
+.lstep{font-size:.72rem;font-weight:800;color:var(--ink3);background:#fff;border:1.5px solid var(--line2);border-radius:999px;padding:2px 9px}
+.lstep b{margin-right:3px;color:var(--lav)}
+.miniladder{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:8px}
+.miniladder span{border-radius:12px;padding:4px 12px;font-weight:900;font-size:.84rem;display:flex;flex-direction:column;line-height:1.3}
+.miniladder small{font-weight:600;font-size:.7rem;opacity:.85}
+.miniladder .what{background:var(--sky-s);color:#2f93d6}.miniladder .how{background:var(--lav-s);color:#7d5fe0}.miniladder .if{background:var(--pink-s);color:#e8558c}
+.miniladder i{font-style:normal;color:var(--ink3);font-weight:900}
+.qex{background:#fbf9ff;border:1.5px dashed #d9cff8;border-radius:14px;padding:8px 12px;margin-bottom:8px}
+.qex summary{cursor:pointer;font-weight:800;font-size:.86rem;color:#5a3fc0}
+.qexi{margin:6px 0;font-size:.92rem}.qex small{color:var(--ink3)}
+.lfoot,.pagenav{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin:6px 0 22px}
+.pagenav{margin-top:10px;padding-top:12px;border-top:2px dashed var(--line)}
+.lfoot .btn,.pagenav .btn{white-space:normal;text-align:left}
+.prob.worked{border-color:#c9b8ff}
+.btn.main2{background:linear-gradient(90deg,#7d5fe0,#a98cff);color:#fff;border-color:transparent}
+.stepbox{display:none;margin-top:10px;background:#fffdf5;border:1.5px solid #f3e3b5;border-radius:14px;padding:6px 12px}
+.stepbox.on{display:block}
+.stp{display:none;gap:10px;align-items:flex-start;padding:6px 0;border-bottom:1px dashed #f0e2bb;line-height:1.9}
+.stp:last-child{border-bottom:0}.stp.on{display:flex;animation:lsin .3s ease}
+.stp .sn{flex:0 0 24px;height:24px;border-radius:50%;background:#e69a00;color:#fff;font-weight:900;font-size:.76rem;display:flex;align-items:center;justify-content:center;margin-top:4px}
+.roadmap .road{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.roadmap .road button{border:2px solid var(--line2);background:#fff;border-radius:16px;padding:8px 10px;font-family:inherit;text-align:left;cursor:pointer;font-weight:900;font-size:.88rem;color:var(--ink);display:flex;flex-direction:column;gap:2px;transition:.15s}
+.roadmap .road button:hover{border-color:var(--lav);transform:translateY(-2px)}
+.roadmap .road b{width:22px;height:22px;border-radius:50%;background:var(--grad);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:.74rem}
+.roadmap .road small{font-weight:600;font-size:.72rem;color:var(--ink3)}
+@media (max-width:720px){ .roadmap .road{grid-template-columns:1fr 1fr} .lsteps{margin-left:0} }
+
+/* ---------- 🎬 동기 유발 영상 ---------- */
+.ytgrid{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;align-items:flex-start}
+.ytgrid > .ytbox{flex:1 1 300px;max-width:680px}
+.ytgrid > .ytbox.short{flex:0 1 290px;max-width:290px}
+.ytbox{background:#fff;border:2px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 8px 20px rgba(125,95,224,.12)}
+.ytbox .ytplay,.ytbox iframe{display:block;width:100%;aspect-ratio:16/9;border:0;background:#111;position:relative;cursor:pointer;padding:0}
+.ytbox.short .ytplay,.ytbox.short iframe{aspect-ratio:9/16;max-height:560px}
+.ytplay img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
+.ytplay:hover img{transform:scale(1.04)}
+.ytbtn{position:absolute;left:50%;top:50%;width:72px;height:50px;margin:-25px 0 0 -36px;border-radius:14px;background:#ff0033;box-shadow:0 8px 20px rgba(0,0,0,.35);display:flex;align-items:center;justify-content:center;animation:ytpulse 1.8s ease-in-out infinite}
+.ytbtn i{width:0;height:0;border-left:20px solid #fff;border-top:12px solid transparent;border-bottom:12px solid transparent;margin-left:4px}
+@keyframes ytpulse{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+.ytshort{position:absolute;right:10px;top:10px;background:rgba(0,0,0,.65);color:#fff;font-size:.7rem;font-weight:900;border-radius:999px;padding:2px 9px}
+.ytmeta{padding:10px 14px;display:flex;flex-direction:column;gap:2px}
+.ytmeta b{font-size:.95rem}.ytmeta span{font-size:.78rem;color:var(--ink3);font-weight:700}.ytmeta a{font-size:.76rem;font-weight:800;color:#d0344f;text-decoration:none}
+
+/* ---------- 🎞️ 모션 그래픽 ---------- */
+.mg{position:relative;border-radius:18px;overflow:hidden;background:linear-gradient(135deg,#fff0f6,#eef3ff)}
+.mg video{display:block;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .6s}
+.mg video.ready{opacity:1}
+.mg.fail{display:none}
+.mg.ld::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:linear-gradient(100deg,transparent 30%,rgba(255,255,255,.75) 50%,transparent 70%) -150% 0/60% 100% no-repeat;animation:mgshim 1.3s linear infinite}
+@keyframes mgshim{to{background-position:250% 0}}
+.mg.concept{aspect-ratio:16/9;max-height:340px;margin:0 auto 14px;box-shadow:0 14px 30px rgba(125,95,224,.20);border:3px solid #fff;outline:2px solid rgba(155,123,255,.25)}
+.mg.concept.on{animation:mgglow 3.2s ease-in-out infinite}
+@keyframes mgglow{0%,100%{box-shadow:0 14px 30px rgba(125,95,224,.20)}50%{box-shadow:0 16px 38px rgba(255,107,157,.32)}}
+.mg .mgcap{position:absolute;left:10px;bottom:8px;z-index:2;background:rgba(255,255,255,.9);border-radius:999px;padding:3px 11px;font-size:.68rem;font-weight:900;color:#5a3fc0;box-shadow:0 2px 6px rgba(0,0,0,.08)}
+.mg.concept.on .mgcap::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:#ff4d7e;margin-right:6px;vertical-align:1px;animation:recdot 1.2s ease-in-out infinite}
+@keyframes recdot{50%{opacity:.25}}
+.card > h2 .mg.mini{margin-left:auto;flex:0 0 auto;width:96px;height:54px;border-radius:12px;border:2px solid rgba(255,255,255,.8);box-shadow:0 4px 12px rgba(125,95,224,.25);transition:transform .25s}
+.card > h2 .mg.mini:hover{transform:scale(1.6) translateX(-12px);z-index:5}
+.card > h2:has(.mg.mini){display:flex;align-items:center;gap:8px}
+/* 자동 재생이 막혔을 때 : 눌러서 움직이기 */
+.mgtap{display:none;position:absolute;inset:0;z-index:3;border:0;margin:0;padding:0;cursor:pointer;font-family:inherit;
+  background:radial-gradient(circle at 50% 50%,rgba(255,255,255,.25),rgba(40,20,90,.35));color:#fff;flex-direction:column;align-items:center;justify-content:center;gap:6px}
+.mgtap i{font-style:normal;width:58px;height:58px;border-radius:50%;background:var(--grad,linear-gradient(135deg,#ff7ba9,#9b7bff));display:flex;align-items:center;justify-content:center;font-size:1.4rem;padding-left:4px;box-shadow:0 8px 20px rgba(0,0,0,.3);animation:ytpulse 1.6s ease-in-out infinite}
+.mgtap span{font-weight:900;font-size:.82rem;text-shadow:0 1px 4px rgba(0,0,0,.5)}
+.mg.tap .mgtap,.stage.tap .mgtap{display:flex}
+.mg.mini .mgtap i{width:26px;height:26px;font-size:.7rem;animation:none}.mg.mini .mgtap span{display:none}
+.mgdead .mgtap,.mgdead .herotag{display:none!important}
+.motion-off .mg .mgtap,.motion-off .stage .mgtap{display:flex;background:rgba(40,20,90,.18)}
+.motion-off .mg .mgtap span,.motion-off .stage .mgtap span{display:none}
+.motion-off .mg .mgtap i,.motion-off .stage .mgtap i{width:44px;height:44px;font-size:1rem;opacity:.85;animation:none}
+.motion-off .mg.mini .mgtap i{width:24px;height:24px;font-size:.65rem}
+.motion-off .mg video.ready{opacity:1}
+/* 표지 */
+.scene .stage .herov{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1s;z-index:0}
+.scene .stage .herov.ready{opacity:1}
+.scene .stage .glare,.scene .stage .cap{z-index:2}
+.scene .stage .herotag{position:absolute;right:16px;top:14px;z-index:2;background:rgba(20,16,60,.55);backdrop-filter:blur(4px);color:#fff;font-size:.72rem;font-weight:900;border-radius:999px;padding:4px 12px;opacity:0;transition:opacity .6s}
+.scene .stage.on .herotag{opacity:1}
+.scene .stage > img{animation:kenburns 16s ease-in-out infinite alternate;transform-origin:60% 40%}
+@keyframes kenburns{from{transform:scale(1)}to{transform:scale(1.08) translate(-1%,1%)}}
+.scene .stage.on > img{animation:none}
+/* 머리말 단추 · 점수 튀기 */
+.mvbtn.off{background:#f2f0f7;filter:grayscale(.6)}
+.score .sc.bump{animation:scbump .6s cubic-bezier(.2,.9,.25,1.5)}
+.score .sc.bump .v{color:#ff4d7e;transition:color .6s}
+@keyframes scbump{0%{transform:none}35%{transform:translateY(-6px) scale(1.04)}100%{transform:none}}
+/* 카드가 차례로 떠오르기 */
+.rv{opacity:0;transform:translateY(18px) scale(.985)}
+.rv.in{opacity:1;transform:none;transition:opacity .55s ease var(--d,0ms),transform .55s cubic-bezier(.2,.9,.25,1.15) var(--d,0ms)}
+.lsec .card > h2 .chip{animation:chipin .6s cubic-bezier(.2,.9,.25,1.3) both}
+@keyframes chipin{from{transform:scale(.6) rotate(-6deg);opacity:0}to{transform:none;opacity:1}}
+.prob.solved{animation:solvedpop .6s cubic-bezier(.2,.9,.25,1.4)}
+@keyframes solvedpop{0%{transform:scale(1)}40%{transform:scale(1.02)}100%{transform:scale(1)}}
+.prob,.qexi,.ytbox{transition:transform .2s,box-shadow .2s}
+.prob:hover,.qexi:hover,.ytbox:hover{transform:translateY(-3px);box-shadow:0 12px 26px rgba(125,95,224,.16)}
+.roadmap .road button b{transition:transform .3s}
+.roadmap .road button:hover b{transform:rotate(-12deg) scale(1.2)}
+@media (max-width:560px){ .card > h2 .mg.mini{width:72px;height:40px} .card > h2 .mg.mini:hover{transform:none} .mg.concept{max-height:230px} }
+/* 🎞️ 단추로 움직임을 끈 경우에만 화면 움직임을 멈춤 (윈도우 설정과 상관없이 기본은 켜짐) */
+.motion-off .rv{opacity:1;transform:none}
+.motion-off *,.motion-off *::before,.motion-off *::after{animation-duration:.001s!important;animation-iteration-count:1!important;transition-duration:.001s!important}
+
+/* ---------- 🏫 반별 보기 · ☁️ 영역별 워드클라우드 ---------- */
+.tclsbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:12px 0 4px;padding:10px 12px;background:linear-gradient(135deg,#f4f0ff,#fff3f8);border:2px solid var(--line);border-radius:16px}
+.tclsbar > b{font-size:.9rem;margin-right:4px}
+.tcls{position:relative;overflow:hidden;border:2px solid var(--line);background:#fff;border-radius:14px;padding:6px 14px 8px;font:inherit;font-weight:900;cursor:pointer;display:flex;flex-direction:column;align-items:center;line-height:1.15;min-width:74px;color:#3b3363}
+.tcls small{font-size:.68rem;font-weight:800;opacity:.7}
+.tcls i{position:absolute;left:0;bottom:0;height:4px;background:linear-gradient(90deg,#2bbf9e,#7d5fe0)}
+.tcls.on{background:linear-gradient(135deg,#7d5fe0,#ff6fa3);color:#fff;border-color:transparent;box-shadow:0 6px 14px rgba(125,95,224,.3)}
+.tcls.on i{background:rgba(255,255,255,.8)}
+.tcls.roster{margin-left:auto;flex-direction:row;font-size:.8rem;background:#fffbea;border-color:#ffd66b}
+.tclsnote{font-size:.78rem;color:#6b6290;margin:2px 4px 10px;line-height:1.5}
+.chip.cls{background:#2bbf9e!important;color:#fff!important}
+.tabsent{margin-top:10px;padding:10px 12px;border:2px dashed var(--line);border-radius:14px;font-size:.84rem;line-height:1.7}
+.tabsent span{display:inline-block;background:#f4f0ff;border-radius:999px;padding:0 9px;margin:2px 3px;font-size:.78rem}
+.tabsent .odd span{background:#fff0e6}
+.clsbar{align-items:center}
+.clsbar .clslab{font-weight:900;font-size:.82rem;margin-right:4px;color:#5a3fc0}
+.tcgrid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:16px;align-items:start}
+.tcgrid h3,#tView > h3{margin:14px 0 8px;font-size:1rem}
+.tcgrid h3 small,#tView > h3 small{font-weight:700;color:#8a82ad;font-size:.76rem}
+.tfreq td{padding:4px 8px}
+.mtag{font-size:.62rem;background:#efe9ff;color:#6b4fd8;border-radius:6px;padding:1px 5px;font-weight:900}
+.fbar{display:inline-block;width:60px;height:8px;background:#f1eefb;border-radius:9px;margin-right:6px;vertical-align:middle;overflow:hidden}
+.fbar i{display:block;height:100%;background:linear-gradient(90deg,#9b7cf6,#ff6fa3)}
+.tnet{border:2px solid var(--line);border-radius:18px;background:radial-gradient(circle at 50% 40%,#fff,#f8f5ff);min-height:120px}
+.tnet .state{padding:30px;text-align:center;color:#8a82ad}
+.tpairs{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.tpairs span{background:#fff;border:2px solid var(--line);border-radius:999px;padding:2px 10px;font-size:.78rem;font-weight:800}
+.tpairs b{color:#e8558c;margin-left:4px}
+.tcmp{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.tcmp > div{border:2px solid var(--line);border-radius:16px;padding:6px 8px;background:#fff}
+.tcmp h4{margin:2px 4px 4px;font-size:.9rem}
+.tcmp h4 small{font-weight:700;color:#8a82ad;font-size:.7rem}
+.tsrcgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px}
+.tsrc{text-align:left;border:2px solid var(--line);border-radius:16px;background:#fff;padding:10px 12px;font:inherit;cursor:pointer;display:flex;flex-direction:column;gap:4px;transition:transform .15s}
+.tsrc:hover{transform:translateY(-2px)}
+.tsrc.on{border-color:#9b7cf6;box-shadow:0 6px 16px rgba(125,95,224,.18)}
+.tsrc small{color:#8a82ad;font-size:.72rem;font-weight:800}
+.tsrc span{display:flex;flex-wrap:wrap;gap:4px}
+.tsrc em{font-style:normal;background:#f4f0ff;border-radius:8px;padding:1px 7px;font-size:.74rem;font-weight:800}
+.tsrc em.none{background:none;color:#aaa}
+.tmhow{margin-top:14px;border:2px solid var(--line);border-radius:16px;padding:10px 14px;background:#fffdf5;font-size:.84rem;line-height:1.65}
+.tmhow summary{font-weight:900;cursor:pointer}
+.tmhow code{background:#f1eefb;border-radius:6px;padding:0 5px}
+#tcSrc .fbtn small{opacity:.65;font-weight:800;margin-left:2px}
+@media (max-width:820px){ .tcgrid{grid-template-columns:1fr} .tcmp{grid-template-columns:repeat(2,minmax(0,1fr))} .tcls.roster{margin-left:0} }
+
+/* 중단원 개념 정리 */
+.sumgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.sumgrid > div{background:#f7f4ff;border:2px solid var(--line);border-radius:16px;padding:12px 14px}
+.sumgrid b{display:inline-block;background:#7d5fe0;color:#fff;border-radius:999px;padding:2px 12px;font-size:.86rem;margin-bottom:6px}
+.sumgrid p{margin:0;line-height:1.85;font-size:.92rem}
+
+/* ---------- 👥 소그룹 ---------- */
+.gpgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:12px}
+.gpcard{border:2px solid var(--line);border-radius:18px;padding:12px;background:#fff;display:flex;flex-direction:column;gap:8px;box-shadow:0 6px 14px rgba(125,95,224,.08)}
+.gpcard.mine{border-color:#9b7cf6;background:linear-gradient(160deg,#f6f2ff,#fff4f9)}
+.gph{display:flex;align-items:center;gap:8px}.gph b{font-size:1.05rem}
+.gpme{background:#7d5fe0;color:#fff;border-radius:999px;padding:1px 9px;font-size:.7rem;font-weight:900}
+.gpm{display:flex;flex-wrap:wrap;gap:4px;min-height:24px}.gpm span{background:#f1edff;border-radius:999px;padding:1px 8px;font-size:.76rem;font-weight:800}.gpm i{color:#aaa;font-size:.8rem}
+.gpn{display:flex;flex-wrap:wrap;gap:6px;font-size:.78rem;font-weight:800;color:#5a4f80}
+.gpb{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto}.gpb .btn{padding:6px 10px;font-size:.8rem}
+.gproom{border:3px solid #c9b8ff}
+.gpmem{font-size:.84rem;font-weight:800;color:#5a4f80;margin:-4px 0 8px}
+.gpcomp{display:flex;gap:8px;align-items:flex-end;margin:8px 0}.gpcomp textarea{flex:1;border:2px solid var(--line);border-radius:14px;padding:10px;font:inherit;resize:vertical}
+.gpqs{display:flex;flex-direction:column;gap:10px}
+.gpq{border:2px solid var(--line);border-radius:16px;padding:10px 12px;background:#fff}.gpq.solved{background:#f2fbf7;border-color:#9fe0c5}
+.gpqh{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:.86rem}.gpqh small{color:#999}
+.gpok{margin-left:auto;color:#169c74;font-weight:900;font-size:.78rem}.gpwait{margin-left:auto;color:#d08a1a;font-weight:900;font-size:.78rem}
+.gpqb{margin:6px 0;font-weight:700;line-height:1.6}
+.gpr{background:#fffbea;border-radius:10px;padding:5px 9px;margin:4px 0 4px 14px;font-size:.86rem}.gpr small{color:#999}
+.gpra{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}.gpra .inp{flex:1;min-width:180px}.gpra .btn{padding:6px 10px;font-size:.78rem}
+.gpchat{max-height:380px;overflow:auto;display:flex;flex-direction:column;gap:8px;padding:10px;background:#f8f6ff;border-radius:16px;border:2px solid var(--line)}
+.gpmsg{max-width:80%;background:#fff;border-radius:14px 14px 14px 4px;padding:7px 11px;box-shadow:0 2px 6px rgba(0,0,0,.06);align-self:flex-start}
+.gpmsg.me{align-self:flex-end;background:#efe8ff;border-radius:14px 14px 4px 14px}
+.gpmsg b{display:block;font-size:.74rem;color:#7d5fe0}.gpmsg span{white-space:pre-wrap;line-height:1.55}.gpmsg small{display:block;text-align:right;font-size:.66rem;color:#aaa}
+.gpstarts{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.chipb{border:2px dashed #c9b8ff;background:#fff;border-radius:999px;padding:3px 10px;font:inherit;font-size:.76rem;font-weight:800;cursor:pointer;color:#5a3fc0}
+.gpform .ff,#gpMine .ff{margin:8px 0}.gpform label,#gpMine label{display:block;font-weight:900;font-size:.86rem;margin-bottom:4px}
+.gpform textarea,#gpMine textarea{width:100%;border:2px solid var(--line);border-radius:12px;padding:9px;font:inherit;resize:vertical;box-sizing:border-box}
+.gpres{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
+.gprc{border:2px solid var(--line);border-radius:18px;padding:12px;background:linear-gradient(170deg,#fff,#fbf8ff)}
+.gprh{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.gprh small{color:#888}
+.gplike{margin-left:auto;border:2px solid #ffc2d8;background:#fff;border-radius:999px;padding:2px 10px;font:inherit;font-weight:900;color:#e8558c;cursor:pointer}.gplike.on{background:#ffe3ee}
+.gprq{font-weight:900;margin:8px 0 4px}.gprb{font-size:.88rem;line-height:1.6;margin:3px 0;white-space:pre-wrap}
+.gpstat{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 4px}.gpstat span{background:#f4f0ff;border-radius:12px;padding:5px 10px;font-size:.8rem;font-weight:800}
+/* 선생님 : 소그룹 · 세특 */
+.tgcls{margin:16px 0 8px}
+.tggrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px}
+.tgcard{border:2px solid var(--line);border-radius:16px;padding:10px;background:#fff;font-size:.84rem}
+.tgh small{display:block;color:#777;margin-top:2px}.tgcard details{margin-top:6px}.tgcard summary{font-weight:900;cursor:pointer}
+.tgq{border-top:1px dashed #e4dcfa;padding:5px 0}.tgr{margin-left:12px;color:#555}.tgres{background:#f7f4ff;border-radius:10px;padding:6px 8px;margin:5px 0}
+.stguide{border:2px solid #c9b8ff;border-radius:16px;padding:12px 14px;background:#faf8ff;font-size:.86rem;line-height:1.65}.stguide ul{margin:6px 0 8px 18px;padding:0}
+.stlist{display:flex;flex-direction:column;gap:12px;margin-top:12px}
+.stcard{border:2px solid var(--line);border-radius:16px;padding:10px 12px;background:#fff}
+.sth{display:flex;flex-wrap:wrap;align-items:center;gap:8px}.sth small{color:#6b6290;width:100%}
+.stcols{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:12px;margin-top:8px;align-items:start}
+.strec summary{font-weight:900;cursor:pointer}.strec h5{margin:8px 0 2px;font-size:.82rem}.strec ul{margin:0 0 0 16px;padding:0;font-size:.8rem;line-height:1.6}.strec i{font-size:.8rem;color:#aaa}
+.stw textarea{width:100%;box-sizing:border-box;border:2px solid var(--line);border-radius:12px;padding:10px;font:inherit;font-size:.9rem;line-height:1.7;resize:vertical}
+.stbar{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:6px}.stbar .btn{padding:5px 10px;font-size:.78rem}
+.stb{font-size:.78rem;font-weight:900;color:#169c74}.stb.warn{color:#e8558c}.stsv{font-size:.76rem;color:#888;margin-right:auto}
+@media (max-width:820px){ .stcols{grid-template-columns:1fr} .gpcomp{flex-direction:column;align-items:stretch} }
+
 /* ===================================================================
    교과서 스타일 + 입체감 + 큰 글씨 · 큰 수식
    =================================================================== */
@@ -849,7 +1068,12 @@ nav.tabs{top:38px}
 
 /* 차시 목록 카드 이미지 */
 .lcard .lthumb{flex:0 0 120px;height:120px;border-radius:18px;overflow:hidden;box-shadow:0 12px 20px -10px rgba(47,58,140,.5)}
+.lcard .lthumb{position:relative}
 .lcard .lthumb img{width:100%;height:100%;object-fit:cover}
+.lcard .lthumb video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .8s}
+.lcard .lthumb video.ready{opacity:1}
+.lcard:hover .lthumb video{transform:scale(1.06);transition:opacity .8s,transform .4s}
+@keyframes lcin{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
 @media (max-width:640px){
   html{font-size:16.5px}
   .focus .ft{font-size:1.32rem}
@@ -1034,9 +1258,37 @@ var AUD = {
 };
 for (var k in AUD) AUD[k].url = AUD_BASE + AUD[k].f;
 
+/* Higgsfield(Kling 3.0)로 만든 모션 그래픽 (사용자 계정 CDN) */
+var MOV_BASE = 'https://d8j0ntlcm91z4.cloudfront.net/user_3FbbP9nGEx1ZGPmwNvdArD3Boyr/';
+var MOV = {
+  f1_c1:'hf_20261106_070551_46526389-2846-4b1c-b4bb-56a3763e6cc6.mp4', f1_c2:'hf_20261106_070550_08e2a2fb-c4dd-4b9f-a118-5aab513aa591.mp4',
+  f1_c3:'hf_20261106_070551_554f2cf0-e13f-4f9f-905b-1cf8ad64aab3.mp4', f1_c4:'hf_20261106_070551_ad64a4b4-ef2c-4f0b-8049-dd726b047ac2.mp4',
+  f1_c5:'hf_20261106_070550_111a5dd9-0ae5-4fa3-9bb4-0d020ab86d6c.mp4', f1_c6:'hf_20261106_070551_37130698-40e0-418f-9342-ea4053bb9aa1.mp4',
+  f2_c1:'hf_20261106_070717_6c5d09e9-6629-4558-a304-edaf6e9c9d6f.mp4', f2_c2:'hf_20261106_070717_89ead634-7cfe-492f-ba80-d470f719da29.mp4',
+  f2_c3:'hf_20261106_070717_1b866650-ea8f-4fa1-826e-7f7e521998d2.mp4',
+  f3_c1:'hf_20261106_070717_91921f1b-917f-4947-be71-969a01edd854.mp4', f3_c2:'hf_20261106_070717_2af0425a-5e97-4543-93b3-dd647628fb0e.mp4',
+  f3_c3:'hf_20261106_070717_ea6ce7af-0e17-40a0-af94-bdbeae18e98d.mp4', f3_c4:'hf_20261106_071659_6e2ccf68-cbfd-4edf-a0b6-ed12cc5db88f.mp4',
+  r1_c1:'hf_20261106_071659_f3af8a99-6894-4024-88c8-b596731c1bad.mp4', r1_c2:'hf_20261106_071659_1ba9e896-5f3b-45e2-8772-350222edfd69.mp4',
+  r1_c3:'hf_20261106_071659_b193cafa-2b4f-4353-ae1e-96d440ff7477.mp4', r1_c4:'hf_20261106_071659_cd76da01-d39c-459e-b43c-aa0605c83b39.mp4',
+  r1_c5:'hf_20261106_071659_b918c266-aadb-41dc-bfcc-7d7fbfe03915.mp4',
+  r2_c1:'hf_20261106_071715_58fc359b-858a-41a4-8c1e-82c1a2c3b435.mp4', r2_c2:'hf_20261106_071715_5ef65458-c8b3-4917-b272-c724c184b166.mp4',
+  r2_c3:'hf_20261106_071715_1709ae41-74e6-46a1-a5e4-21d66661a14b.mp4',
+  r3_c1:'hf_20261106_071715_013af86f-906f-44fc-afcd-7b04bc007bfd.mp4', r3_c2:'hf_20261106_071718_697b09ad-366d-4899-9b90-48e4a761cb8c.mp4',
+  r3_c3:'hf_20261106_071715_3fa27e82-cb01-4dba-baa1-065881ff533e.mp4', r3_c4:'hf_20261106_071738_a6004f97-7bfc-490e-bc77-87ba9731804a.mp4',
+  r3_c5:'hf_20261106_071739_e2a4347e-eae9-449a-a4c3-0460ba120414.mp4',
+  mg_ex:'hf_20261106_071738_5cdc200f-44d2-4948-ba9f-91c6264fe8a7.mp4', mg_prob:'hf_20261106_071738_1da7b154-dfd3-4e2d-bd83-2024b25ef9b6.mp4',
+  mg_q:'hf_20261106_071738_c2d6801e-efe1-49da-8987-351d35b7e6d9.mp4',
+  f1_hero:'hf_20261106_071951_10a599fe-a5f0-4215-9ad8-0d832d7bd3ef.mp4', f2_hero:'hf_20261106_071951_b86dcd5d-e780-41ed-8200-d5ab6ca85dee.mp4',
+  f3_hero:'hf_20261106_071951_b7d25958-401e-4a52-8ace-4e01afae4a34.mp4', r1_hero:'hf_20261106_071951_dd980cdd-f912-4283-ba6d-b501859c71d5.mp4',
+  r2_hero:'hf_20261106_071951_991807e8-24a6-4d37-b34d-8eecce7846b6.mp4', r3_hero:'hf_20261106_071951_64b15b9d-2bc5-4626-b795-5666dd9f5f5e.mp4'
+};
+for (var k in MOV) MOV[k] = MOV_BASE + MOV[k];
+
 </script>
 <script>
-var LESSON_META = {"f1": {"probs": 12, "title": "함수의 뜻과 그래프", "unit": "Ⅲ-1 함수", "no": 1, "pages": "교과서 101~105쪽", "focus": "「식」이 없어도 함수일 수 있다.", "core": "함수란 무엇이고, 우리는 왜 세상을 「대응」으로 바라볼까?", "ref": {"c1": "짝 지어 주기 — 대응과 함수", "c2": "정의역 · 공역 · 함숫값 · 치역", "c3": "함수의 그래프 — 세로선 테스트", "c4": "일대일함수와 일대일대응", "c5": "항등함수와 상수함수", "c6": "폴리그래프 — 예/아니요 질문으로 그래프 찾기", "l1": "학생 → 우편번호, 학생 → 출석번호", "l2": "자판기와 「랜덤 뽑기」는 함수일까?", "l3": "수지와 지호가 찾은 함수", "f1-p1": "문제 01 · 101쪽", "f1-p2": "스스로 확인하기 · 101쪽", "f1-p3": "문제 02 · 102쪽", "f1-p4": "문제 04 · 103쪽", "f1-p5": "문제 05 · 103쪽", "f1-p6": "문제 06 · 104쪽", "f1-p7": "문제 07 · 104쪽", "f1-p8": "문제 08 · 105쪽", "f1-p9": "중단원 01 · 113쪽", "f1-p10": "중단원 02 · 113쪽", "f1-p11": "대단원 01 · 130쪽", "f1-p12": "익힘책 01 · 140쪽"}, "book": "함수란 「식」일까, 「대응」일까? — 오일러 vs 디리클레", "cards": 6, "life": 3, "videos": 1}, "f2": {"probs": 11, "title": "합성함수", "unit": "Ⅲ-1 함수", "no": 2, "pages": "교과서 106~108쪽", "focus": "양말을 신고 신발을 신는 것과, 신발을 신고 양말을 신는 것은 다르다.", "core": "두 함수를 이어 붙이면 무엇이 달라지고, 왜 「순서」가 중요할까?", "ref": {"c1": "곡명 → 작곡가 → 국적", "c2": "합성함수 \\(g\\circ f\\)", "c3": "교환법칙은 ✘, 결합법칙은 ○", "l1": "원 → 유로 → 파운드, 환전도 합성함수", "l2": "할인 먼저? 쿠폰 먼저?", "l3": "사진 앱 : 회전하고 뒤집기 vs 뒤집고 회전하기", "f2-e1": "예제 1 · 107쪽", "f2-p1": "스스로 확인하기 · 107쪽", "f2-p2": "문제 01 · 107쪽", "f2-p3": "문제 02 · 107쪽", "f2-p4": "문제 03 · 108쪽", "f2-p5": "중단원 03 · 113쪽", "f2-p6": "중단원 06 · 114쪽", "f2-p7": "대단원 03 · 130쪽", "f2-p8": "익힘책 05 · 140쪽", "f2-p9": "익힘책 06 · 140쪽", "f2-p10": "익힘책 07 · 140쪽"}, "book": "앨리스의 키는 어떻게 변할까? — 「마셔라」와 「먹어라」의 합성", "cards": 3, "life": 3, "videos": 0}, "f3": {"probs": 14, "title": "역함수", "unit": "Ⅲ-1 함수", "no": 3, "pages": "교과서 109~112쪽", "focus": "암호를 만들 수 있다면, 반드시 풀 수도 있다.", "core": "어떤 함수는 되돌릴 수 있고, 어떤 함수는 왜 되돌릴 수 없을까?", "ref": {"c1": "화살표를 거꾸로 하면 여전히 함수일까?", "c2": "역함수 \\(f^{-1}\\)와 존재 조건", "c3": "역함수 구하기 — 풀고, 바꾸고", "c4": "함수와 역함수의 그래프는 \\(y=x\\)에 대칭", "l1": "카이사르 암호 — 일대일대응이라 풀 수 있다", "l2": "되돌릴 수 없어야 안전한 함수 — 비밀번호 저장", "l3": "섭씨 ↔ 화씨, 양말 ↔ 신발", "f3-e1": "예제 1 · 111쪽", "f3-p1": "스스로 확인하기 · 109쪽", "f3-p2": "문제 01 · 110쪽", "f3-p3": "문제 03 · 111쪽", "f3-p4": "문제 04 · 111쪽", "f3-p5": "내 역량 · 111쪽", "f3-p6": "문제 05 · 112쪽", "f3-p7": "중단원 04 · 113쪽", "f3-p8": "중단원 08 · 114쪽", "f3-p9": "중단원 09 · 114쪽", "f3-p10": "중단원 11 · 114쪽", "f3-p11": "중단원 12 · 114쪽", "f3-p12": "대단원 14 · 131쪽", "f3-p13": "익힘책 08 · 141쪽"}, "book": "카이사르의 비밀 편지 — 2000년 전의 함수와 역함수", "cards": 4, "life": 3, "videos": 3}, "r1": {"probs": 8, "title": "유리식과 유리함수", "unit": "Ⅲ-2 유리함수와 무리함수", "no": 1, "pages": "교과서 117~119쪽", "focus": "가까워지기만 하고 영원히 닿지 않는 선이 있다.", "core": "왜 어떤 양은 한없이 가까워지기만 하고 닿지 않을까? — 반비례와 점근선", "ref": {"c1": "하이브리드 자동차의 연비", "c2": "유리식의 사칙연산", "c3": "유리함수와 정의역", "c4": "\\(y=\\frac{k}{x}\\)의 그래프와 점근선", "c5": "폴리그래프 — 유리함수의 그래프 찾기", "l1": "함께 일하면 얼마나 빨라질까?", "l2": "보일의 법칙 — 공기를 누르면?", "l3": "1인당 비용과 화면 속 크기", "r1-p1": "개념 탐구 · 117쪽", "r1-p2": "스스로 확인하기 · 118쪽", "r1-p3": "문제 01 · 118쪽", "r1-p4": "문제 02 · 118쪽", "r1-p5": "문제 03 · 119쪽", "r1-p6": "탐구 · 119쪽", "r1-p7": "중단원 01 · 127쪽", "r1-p8": "대단원 07 · 130쪽"}, "book": "아킬레스는 거북이를 따라잡을 수 있을까? — 제논의 역설", "cards": 5, "life": 3, "videos": 4}, "r2": {"probs": 13, "title": "유리함수 그래프의 이동과 활용", "unit": "Ⅲ-2 유리함수와 무리함수", "no": 2, "pages": "교과서 119~121쪽 · 127~131쪽 · 익힘책", "focus": "갈 때는 시속 60km, 올 때는 시속 40km. 왕복 평균은 시속 50km가 아니다.", "core": "유리함수의 그래프는 어떻게 움직이고, 세상의 어떤 변화를 설명할까?", "ref": {"c1": "\\(y=\\frac{k}{x-p}+q\\) — 점근선이 움직인다", "c2": "\\(y=\\frac{ax+b}{cx+d}\\)를 표준형으로", "c3": "그래프를 보고 식 찾기", "l1": "왕복 평균 속력은 왜 산술평균이 아닐까?", "l2": "다가오는 기차의 기적 소리 (도플러 효과)", "l3": "저항을 병렬로 연결하면?", "r2-e1": "예제 1 · 120쪽", "r2-p1": "예제 2 · 121쪽", "r2-p2": "문제 04 · 120쪽", "r2-p3": "문제 05 · 121쪽", "r2-p4": "문제 06 · 121쪽 (도플러)", "r2-p5": "중단원 02 · 127쪽", "r2-p6": "중단원 05 · 128쪽", "r2-p7": "중단원 06 · 128쪽", "r2-p8": "중단원 07 · 128쪽", "r2-p9": "대단원 08 · 131쪽", "r2-p10": "대단원 15 · 132쪽", "r2-p11": "익힘책 09 · 141쪽", "r2-p12": "익힘책 11 · 141쪽"}, "book": "갈릴레이의 「등속 운동」 — 시간은 속력에 반비례한다", "cards": 3, "life": 3, "videos": 2}, "r3": {"probs": 13, "title": "무리식과 무리함수", "unit": "Ⅲ-2 유리함수와 무리함수", "no": 3, "pages": "교과서 122~126쪽", "focus": "실의 길이를 4배로 늘려도, 진자는 겨우 2배 느리게 흔들린다.", "core": "왜 어떤 변화는 「제곱근」의 모양으로 나타날까?", "ref": {"c1": "지진 해일은 얼마나 빠를까?", "c2": "무리식 — 근호 안이 0 이상, 분모는 0이 아니게", "c3": "\\(y=\\sqrt{ax}\\)는 \\(y=\\frac{1}{a}x^2\\ (x\\ge0)\\)의 역함수", "c4": "\\(y=\\sqrt{a(x-p)}+q\\) — 시작점이 움직인다", "c5": "폴리그래프 — 무리함수 그래프 찾기", "l1": "진자의 주기 — 갈릴레이가 발견한 제곱근", "l2": "스키드 마크로 사고 차량의 속력 추정", "l3": "크레인 쇠밧줄의 지름", "r3-e1": "예제 1 · 126쪽", "r3-p1": "스스로 확인하기 · 122쪽", "r3-p2": "문제 01 · 122쪽", "r3-p3": "문제 02 · 123쪽", "r3-p4": "문제 03 · 123쪽", "r3-p5": "문제 05 · 125쪽", "r3-p6": "문제 06 · 126쪽", "r3-p7": "문제 07 · 126쪽", "r3-p8": "중단원 03 · 127쪽", "r3-p9": "중단원 08 · 128쪽", "r3-p10": "중단원 09 · 128쪽", "r3-p11": "중단원 10 · 128쪽", "r3-p12": "대단원 11 · 131쪽"}, "book": "갈릴레이의 진자 — 길이와 시간 사이의 제곱근", "cards": 5, "life": 3, "videos": 4}};
+var LESSON_META = {"f1": {"probs": 21, "title": "함수의 뜻과 그래프", "unit": "Ⅲ-1 함수", "no": 1, "pages": "교과서 101~105쪽", "focus": "「식」이 없어도 함수일 수 있다.", "core": "함수란 무엇이고, 우리는 왜 세상을 「대응」으로 바라볼까?", "ref": {"c1": "짝 지어 주기 — 대응과 함수", "c2": "정의역 · 공역 · 함숫값 · 치역", "c3": "함수의 그래프 — 세로선 테스트", "c4": "일대일함수와 일대일대응", "c5": "항등함수와 상수함수", "c6": "폴리그래프 — 예/아니요 질문으로 그래프 찾기", "l1": "학생 → 우편번호, 학생 → 출석번호", "l2": "자판기와 「랜덤 뽑기」는 함수일까?", "l3": "수지와 지호가 찾은 함수", "f1-p1": "문제 01 · 101쪽", "f1-p2": "스스로 확인하기 · 101쪽", "f1-p13": "스스로 확인하기 · 102쪽", "f1-p3": "문제 02 · 102쪽", "f1-p4": "문제 04 · 103쪽", "f1-p5": "문제 05 · 103쪽", "f1-p14": "스스로 확인하기 · 104쪽", "f1-p6": "문제 06 · 104쪽", "f1-p7": "문제 07 · 104쪽", "f1-p8": "문제 08 · 105쪽", "f1-p9": "중단원 01 · 113쪽", "f1-p10": "중단원 02 · 113쪽", "f1-p15": "중단원 05 · 114쪽", "f1-p11": "대단원 01 · 130쪽", "f1-p16": "대단원 02 · 130쪽", "f1-p17": "대단원 12 · 131쪽 (서술형)", "f1-p18": "대단원 13 · 131쪽 (서술형)", "f1-p12": "익힘책 01 · 140쪽", "f1-p19": "익힘책 02 · 140쪽", "f1-p20": "익힘책 03 · 140쪽", "f1-p21": "익힘책 04 · 140쪽"}, "book": "함수란 「식」일까, 「대응」일까? — 오일러 vs 디리클레", "cards": 6, "life": 3, "videos": 1}, "f2": {"probs": 12, "title": "합성함수", "unit": "Ⅲ-1 함수", "no": 2, "pages": "교과서 106~108쪽", "focus": "양말을 신고 신발을 신는 것과, 신발을 신고 양말을 신는 것은 다르다.", "core": "두 함수를 이어 붙이면 무엇이 달라지고, 왜 「순서」가 중요할까?", "ref": {"c1": "곡명 → 작곡가 → 국적", "c2": "합성함수 \\(g\\circ f\\)", "c3": "교환법칙은 ✘, 결합법칙은 ○", "l1": "원 → 유로 → 파운드, 환전도 합성함수", "l2": "할인 먼저? 쿠폰 먼저?", "l3": "사진 앱 : 회전하고 뒤집기 vs 뒤집고 회전하기", "f2-e1": "예제 1 · 107쪽", "f2-p1": "스스로 확인하기 · 107쪽", "f2-p2": "문제 01 · 107쪽", "f2-p3": "문제 02 · 107쪽", "f2-p4": "문제 03 · 108쪽", "f2-p5": "중단원 03 · 113쪽", "f2-p6": "중단원 06 · 114쪽", "f2-p7": "대단원 03 · 130쪽", "f2-p8": "익힘책 05 · 140쪽", "f2-p9": "익힘책 06 · 140쪽", "f2-p10": "익힘책 07 · 140쪽", "f2-p11": "수행 평가 · 115쪽 (모둠)"}, "book": "앨리스의 키는 어떻게 변할까? — 「마셔라」와 「먹어라」의 합성", "cards": 3, "life": 3, "videos": 0}, "f3": {"probs": 21, "title": "역함수", "unit": "Ⅲ-1 함수", "no": 3, "pages": "교과서 109~112쪽", "focus": "암호를 만들 수 있다면, 반드시 풀 수도 있다.", "core": "어떤 함수는 되돌릴 수 있고, 어떤 함수는 왜 되돌릴 수 없을까?", "ref": {"c1": "화살표를 거꾸로 하면 여전히 함수일까?", "c2": "역함수 \\(f^{-1}\\)와 존재 조건", "c3": "역함수 구하기 — 풀고, 바꾸고", "c4": "함수와 역함수의 그래프는 \\(y=x\\)에 대칭", "l1": "카이사르 암호 — 일대일대응이라 풀 수 있다", "l2": "되돌릴 수 없어야 안전한 함수 — 비밀번호 저장", "l3": "섭씨 ↔ 화씨, 양말 ↔ 신발", "f3-e1": "예제 1 · 111쪽", "f3-p1": "스스로 확인하기 · 109쪽", "f3-p2": "문제 01 · 110쪽", "f3-p14": "문제 02 · 110쪽", "f3-p3": "문제 03 · 111쪽", "f3-p4": "문제 04 · 111쪽", "f3-p5": "내 역량 · 111쪽", "f3-p20": "개념 탐구 · 112쪽", "f3-p6": "문제 05 · 112쪽", "f3-p7": "중단원 04 · 113쪽", "f3-p15": "중단원 07 · 114쪽", "f3-p8": "중단원 08 · 114쪽", "f3-p9": "중단원 09 · 114쪽", "f3-p16": "중단원 10 · 114쪽", "f3-p10": "중단원 11 · 114쪽", "f3-p11": "중단원 12 · 114쪽", "f3-p17": "대단원 04 · 130쪽", "f3-p18": "대단원 05 · 130쪽", "f3-p19": "대단원 06 · 130쪽", "f3-p12": "대단원 14 · 131쪽", "f3-p13": "익힘책 08 · 141쪽"}, "book": "카이사르의 비밀 편지 — 2000년 전의 함수와 역함수", "cards": 4, "life": 3, "videos": 3}, "r1": {"probs": 8, "title": "유리식과 유리함수", "unit": "Ⅲ-2 유리함수와 무리함수", "no": 1, "pages": "교과서 117~119쪽", "focus": "가까워지기만 하고 영원히 닿지 않는 선이 있다.", "core": "왜 어떤 양은 한없이 가까워지기만 하고 닿지 않을까? — 반비례와 점근선", "ref": {"c1": "하이브리드 자동차의 연비", "c2": "유리식의 사칙연산", "c3": "유리함수와 정의역", "c4": "\\(y=\\frac{k}{x}\\)의 그래프와 점근선", "c5": "폴리그래프 — 유리함수의 그래프 찾기", "l1": "함께 일하면 얼마나 빨라질까?", "l2": "보일의 법칙 — 공기를 누르면?", "l3": "1인당 비용과 화면 속 크기", "r1-p1": "개념 탐구 · 117쪽", "r1-p2": "스스로 확인하기 · 118쪽", "r1-p3": "문제 01 · 118쪽", "r1-p4": "문제 02 · 118쪽", "r1-p5": "문제 03 · 119쪽", "r1-p6": "탐구 · 119쪽", "r1-p7": "중단원 01 · 127쪽", "r1-p8": "대단원 07 · 130쪽"}, "book": "아킬레스는 거북이를 따라잡을 수 있을까? — 제논의 역설", "cards": 5, "life": 3, "videos": 4}, "r2": {"probs": 15, "title": "유리함수 그래프의 이동과 활용", "unit": "Ⅲ-2 유리함수와 무리함수", "no": 2, "pages": "교과서 119~121쪽 · 127~131쪽 · 익힘책", "focus": "갈 때는 시속 60km, 올 때는 시속 40km. 왕복 평균은 시속 50km가 아니다.", "core": "유리함수의 그래프는 어떻게 움직이고, 세상의 어떤 변화를 설명할까?", "ref": {"c1": "\\(y=\\frac{k}{x-p}+q\\) — 점근선이 움직인다", "c2": "\\(y=\\frac{ax+b}{cx+d}\\)를 표준형으로", "c3": "그래프를 보고 식 찾기", "l1": "왕복 평균 속력은 왜 산술평균이 아닐까?", "l2": "다가오는 기차의 기적 소리 (도플러 효과)", "l3": "저항을 병렬로 연결하면?", "r2-e1": "예제 1 · 120쪽", "r2-p1": "예제 2 · 121쪽", "r2-p2": "문제 04 · 120쪽", "r2-p3": "문제 05 · 121쪽", "r2-p4": "문제 06 · 121쪽 (도플러)", "r2-p5": "중단원 02 · 127쪽", "r2-p6": "중단원 05 · 128쪽", "r2-p7": "중단원 06 · 128쪽", "r2-p8": "중단원 07 · 128쪽", "r2-p13": "중단원 11 · 128쪽", "r2-p9": "대단원 08 · 131쪽", "r2-p10": "대단원 15 · 132쪽", "r2-p11": "익힘책 09 · 141쪽", "r2-p14": "익힘책 10 · 141쪽", "r2-p12": "익힘책 11 · 141쪽"}, "book": "갈릴레이의 「등속 운동」 — 시간은 속력에 반비례한다", "cards": 3, "life": 3, "videos": 2}, "r3": {"probs": 26, "title": "무리식과 무리함수", "unit": "Ⅲ-2 유리함수와 무리함수", "no": 3, "pages": "교과서 122~126쪽", "focus": "실의 길이를 4배로 늘려도, 진자는 겨우 2배 느리게 흔들린다.", "core": "왜 어떤 변화는 「제곱근」의 모양으로 나타날까?", "ref": {"c1": "지진 해일은 얼마나 빠를까?", "c2": "무리식 — 근호 안이 0 이상, 분모는 0이 아니게", "c3": "\\(y=\\sqrt{ax}\\)는 \\(y=\\frac{1}{a}x^2\\ (x\\ge0)\\)의 역함수", "c4": "\\(y=\\sqrt{a(x-p)}+q\\) — 시작점이 움직인다", "c5": "폴리그래프 — 무리함수 그래프 찾기", "l1": "진자의 주기 — 갈릴레이가 발견한 제곱근", "l2": "스키드 마크로 사고 차량의 속력 추정", "l3": "크레인 쇠밧줄의 지름", "r3-e1": "예제 1 · 126쪽", "r3-p1": "스스로 확인하기 · 122쪽", "r3-p2": "문제 01 · 122쪽", "r3-p13": "스스로 확인하기 · 123쪽", "r3-p3": "문제 02 · 123쪽", "r3-p14": "스스로 확인하기 · 123쪽", "r3-p4": "문제 03 · 123쪽", "r3-p15": "문제 04 · 124쪽", "r3-p5": "문제 05 · 125쪽", "r3-p16": "스스로 확인하기 · 125쪽", "r3-p6": "문제 06 · 126쪽", "r3-p7": "문제 07 · 126쪽", "r3-p8": "중단원 03 · 127쪽", "r3-p17": "중단원 04 · 127쪽", "r3-p9": "중단원 08 · 128쪽", "r3-p10": "중단원 09 · 128쪽", "r3-p11": "중단원 10 · 128쪽", "r3-p18": "중단원 12 · 128쪽", "r3-p19": "대단원 09 · 131쪽", "r3-p20": "대단원 10 · 131쪽", "r3-p12": "대단원 11 · 131쪽", "r3-p21": "대단원 16 · 132쪽 (서술형)", "r3-p22": "대단원 17 · 132쪽 (서술형)", "r3-p23": "익힘책 12 · 141쪽", "r3-p24": "익힘책 13 · 141쪽", "r3-p25": "수행 평가 · 129쪽 (공학 도구)"}, "book": "갈릴레이의 진자 — 길이와 시간 사이의 제곱근", "cards": 5, "life": 3, "videos": 4}};
+var LESSON_SOL = {"r3-e1": "\\(y=\\sqrt{2x-4}+1=\\sqrt{2(x-2)}+1\\) → \\(y=\\sqrt{2x}\\)의 그래프를 \\(x\\)축 방향으로 \\(2\\), \\(y\\)축 방향으로 \\(1\\)만큼 평행이동<br>\n시작점 \\((2,1)\\), \\(a=2\\gt0\\)이므로 오른쪽 위로 뻗는다.<br>\n정의역 : \\(2x-4\\ge0\\) → \\(\\{x\\mid x\\ge2\\}\\), 치역 : \\(\\{y\\mid y\\ge1\\}\\)<br>\n<b>정답</b> \\(a=2,\\ b=1\\)", "r3-p1": "분모에 근호가 있으므로 근호 안 \\(\\ge0\\), 분모 \\(\\ne0\\) → \\(3x-1\\gt0\\) → \\(x\\gt\\frac13\\)<br>\n<b>정답</b> \\(a=\\frac13\\)", "r3-p2": "(1) \\(2x+1\\ge0\\) → \\(x\\ge-\\frac12\\), \\(1-x\\ge0\\) → \\(x\\le1\\) → \\(-\\frac12\\le x\\le1\\)<br>\n(2) 분자 : \\(x\\ge0\\), 분모 : \\(3-2x\\gt0\\) → \\(x\\lt\\frac32\\) → \\(0\\le x\\lt\\frac32\\)<br>\n<b>정답</b> (1) \\(p=-\\frac12,\\ q=1\\) &nbsp; (2) \\(p=0,\\ q=\\frac32\\), \\(q\\)는 포함되지 않는다", "r3-p3": "(1) 합차공식 : \\((\\sqrt x)^2-(\\sqrt{x+4})^2=x-(x+4)=-4\\)<br>\n(2) 통분 : \\(\\dfrac{(\\sqrt x-3)^2+(\\sqrt x+3)^2}{(\\sqrt x+3)(\\sqrt x-3)}=\\dfrac{(x-6\\sqrt x+9)+(x+6\\sqrt x+9)}{x-9}=\\dfrac{2x+18}{x-9}\\)<br>\n<b>정답</b> (1) \\(-4\\) &nbsp; (2) \\(\\dfrac{2x+18}{x-9}\\)", "r3-p4": "(1) \\(3x-1\\ge0\\) → \\(x\\ge\\frac13\\) → \\(a=\\frac13\\)<br>\n(2) \\(2-x\\ge0\\) → \\(x\\le2\\) → \\(b=2\\) (근호 앞의 \\(-\\)와 \\(-1\\)은 정의역에 영향 없음)<br>\n<b>정답</b> \\(a=\\frac13,\\ b=2\\)", "r3-p5": "(1) \\(y=\\sqrt{-2x}\\) : \\(-2x\\ge0\\) → \\(x\\le0\\), 근호 값 \\(\\ge0\\) → \\(y\\ge0\\)<br>\n(2) \\(y=-\\sqrt{3x}\\) : \\(x\\ge0\\), 앞에 \\(-\\) → \\(y\\le0\\)<br>\n(3) \\(y=-\\sqrt{-3x}\\) : \\(x\\le0\\), \\(y\\le0\\)<br>\n<b>정답</b> (1) \\(x\\le0,\\ y\\ge0\\) &nbsp; (2) \\(x\\ge0,\\ y\\le0\\) &nbsp; (3) \\(x\\le0,\\ y\\le0\\)", "r3-p6": "(1) \\(y=\\sqrt{x+1}-2\\) : 시작점 \\((-1,-2)\\), 오른쪽 위로 → 정의역 \\(x\\ge-1\\), 치역 \\(y\\ge-2\\)<br>\n(2) \\(y=-\\sqrt{2-x}+1=-\\sqrt{-(x-2)}+1\\) : 시작점 \\((2,1)\\), 왼쪽 아래로 → 정의역 \\(x\\le2\\), 치역 \\(y\\le1\\)<br>\n<b>정답</b> \\(a=-1,\\ b=-2,\\ c=2,\\ d=1\\)", "r3-p7": "(1) \\(y=\\sqrt{3x+6}+2=\\sqrt{3(x+2)}+2\\) → 시작점 \\((-2,2)\\), 정의역 \\(x\\ge-2\\), 치역 \\(y\\ge2\\)<br>\n(2) \\(y=-\\sqrt{5x+15}-1=-\\sqrt{5(x+3)}-1\\) → 시작점 \\((-3,-1)\\), 정의역 \\(x\\ge-3\\), 치역 \\(y\\le-1\\)<br>\n<b>정답</b> (1) \\((-2,2)\\) &nbsp; (2) \\((-3,-1)\\)", "r3-p8": "(1) 합차공식 : \\((x+1)-(x-1)=2\\)<br>\n(2) \\(\\dfrac{\\sqrt x(\\sqrt x-2)+\\sqrt x(\\sqrt x+2)}{(\\sqrt x+2)(\\sqrt x-2)}=\\dfrac{x-2\\sqrt x+x+2\\sqrt x}{x-4}=\\dfrac{2x}{x-4}\\)<br>\n<b>정답</b> (1) \\(2\\) &nbsp; (2) \\(\\dfrac{2x}{x-4}\\)", "r3-p9": "시작점이 \\((3,-1)\\)이므로 \\(y=\\sqrt{a(x-3)}-1\\)<br>\n점 \\((0,2)\\)를 지나므로 \\(2=\\sqrt{-3a}-1\\) → \\(\\sqrt{-3a}=3\\) → \\(-3a=9\\) → \\(a=-3\\)<br>\n\\(y=\\sqrt{-3(x-3)}-1=\\sqrt{-3x+9}-1\\) → \\(b=9,\\ c=-1\\)<br>\n<b>정답</b> \\(a=-3,\\ b=9,\\ c=-1\\)", "r3-p10": "\\(4\\gt0\\)이므로 \\(y=\\sqrt{4x+a}+1\\)은 증가함수 → 최솟값은 \\(x=0\\), 최댓값은 \\(x=3\\)<br>\n최솟값 : \\(\\sqrt a+1=3\\) → \\(a=4\\)<br>\n최댓값 : \\(\\sqrt{12+4}+1=4+1=5\\)<br>\n<b>정답</b> \\(a=4\\), 최댓값 \\(5\\)", "r3-p11": "\\(f(3)=1\\) → \\(\\sqrt{3a+b}=1\\) → \\(3a+b=1\\)<br>\n\\(g(3)=1\\) ⟺ \\(f(1)=3\\) → \\(\\sqrt{a+b}=3\\) → \\(a+b=9\\)<br>\n두 식을 빼면 \\(2a=-8\\) → \\(a=-4\\), \\(b=13\\)<br>\n<b>정답</b> \\(a=-4,\\ b=13\\)", "r3-p12": "\\(y=\\sqrt{3x+4}-1=\\sqrt{3\\left(x+\\frac43\\right)}-1\\) → 시작점 \\(\\left(-\\frac43,-1\\right)\\) (제3사분면)<br>\n① 정의역 \\(x\\ge-\\frac43\\) ✔ &nbsp; ② 치역 \\(y\\ge-1\\) ✔<br>\n③ \\(y=0\\) : \\(\\sqrt{3x+4}=1\\) → \\(x=-1\\). 시작점에서 출발해 \\(-\\frac43\\le x\\lt-1\\)에서 제3사분면, \\(-1\\lt x\\lt0\\)에서 제2사분면, \\(x\\gt0\\)에서 제1사분면 → 제1, 2, 3사분면을 지난다 ✘<br>\n④ \\(x\\) 대신 \\(-x\\)를 넣은 식이므로 \\(y\\)축 대칭 ✔ &nbsp; ⑤ \\(f(4)=\\sqrt{16}-1=3\\) → 역함수는 \\((3,4)\\)를 지난다 ✔<br>\n<b>정답</b> ③", "r3-p13": "\\(\\dfrac{1}{1+\\sqrt x}+\\dfrac{1}{1-\\sqrt x}=\\dfrac{1-\\sqrt x}{(1+\\sqrt x)(1-\\sqrt x)}+\\dfrac{1+\\sqrt x}{(1-\\sqrt x)(1+\\sqrt x)}=\\dfrac{1-\\sqrt x+1+\\sqrt x}{1-x}=\\dfrac{2}{1-x}\\)<br>\n<b>정답</b> 빈칸 \\(1+\\sqrt x\\), 결과 \\(\\dfrac{2}{1-x}\\)", "r3-p14": "(1) \\(1-x\\ge0\\) → \\(x\\le1\\)<br>\n(2) \\(2x+5\\ge0\\) → \\(x\\ge-\\frac52\\) → 정의역 \\(\\left\\{x\\mid x\\ge-\\frac52\\right\\}\\)<br>\n<b>정답</b> \\(a=-\\frac52\\)", "r3-p15": "(1) \\(y=-\\sqrt x\\) : \\(y=\\sqrt x\\)에서 \\(y\\) 대신 \\(-y\\) → \\(x\\)축에 대하여 대칭 (제4사분면)<br>\n(2) \\(y=\\sqrt{-x}\\) : \\(x\\) 대신 \\(-x\\) → \\(y\\)축에 대하여 대칭 (제2사분면)<br>\n(3) \\(y=-\\sqrt{-x}\\) : \\(x\\) 대신 \\(-x\\), \\(y\\) 대신 \\(-y\\) → 원점에 대하여 대칭 (제3사분면)<br>\n<b>정답</b> (1) \\(x\\)축 대칭 (2) \\(y\\)축 대칭 (3) 원점 대칭", "r3-p16": "\\(y=\\sqrt{x+4}+1=\\sqrt{x-(-4)}+1\\) 이므로 \\(y=\\sqrt x\\)의 그래프를 \\(x\\)축의 방향으로 \\(-4\\)만큼, \\(y\\)축의 방향으로 \\(1\\)만큼 평행이동한 것<br>\n<b>정답</b> \\(-4,\\ 1\\)", "r3-p17": "(1) \\(y=-\\sqrt{x-1}+2\\) : \\(y=-\\sqrt x\\)를 \\(x\\)축 방향으로 \\(1\\), \\(y\\)축 방향으로 \\(2\\)만큼 평행이동 (시작점 \\((1,2)\\))<br>\n정의역 \\(\\{x\\mid x\\ge1\\}\\), 치역 \\(\\{y\\mid y\\le2\\}\\)<br>\n(2) \\(y=\\sqrt{4-2x}-1=\\sqrt{-2(x-2)}-1\\) : \\(y=\\sqrt{-2x}\\)를 \\(x\\)축 방향으로 \\(2\\), \\(y\\)축 방향으로 \\(-1\\)만큼 평행이동 (시작점 \\((2,-1)\\))<br>\n정의역 \\(\\{x\\mid x\\le2\\}\\), 치역 \\(\\{y\\mid y\\ge-1\\}\\)", "r3-p18": "\\(A\\)는 무리함수 \\(y=-\\sqrt{x-3}+1\\)의 그래프로 시작점 \\((3,1)\\)에서 오른쪽 아래로 내려간다.<br>\n\\(B\\)는 점 \\((0,-2)\\)를 지나고 기울기가 \\(m\\)인 직선이다. \\(m\\)이 자연수이면 직선은 증가한다.<br>\n\\(A\\cap B=\\varnothing\\)이려면 \\(x=3\\)에서 직선이 시작점보다 위에 있어야 한다 : \\(3m-2>1\\) → \\(m>1\\)<br>\n(\\(m=1\\)이면 직선이 점 \\((3,1)\\)을 지나 만난다)<br>\n<b>정답</b> \\(2\\)", "r3-p19": "\\(y=\\sqrt{-5x+a}-2\\)는 \\(x\\)의 값이 커질수록 \\(y\\)의 값이 작아진다.<br>\n최솟값은 \\(x=0\\)일 때 : \\(\\sqrt a-2=1\\) → \\(a=9\\)<br>\n최댓값은 \\(x=-8\\)일 때 : \\(\\sqrt{40+9}-2=7-2=5\\)<br>\n<b>정답</b> \\(5\\)", "r3-p20": "\\(y=-\\sqrt{4x+3}\\)을 \\(x\\)축 방향으로 \\(1\\), \\(y\\)축 방향으로 \\(2\\)만큼 평행이동 : \\(y=-\\sqrt{4(x-1)+3}+2=-\\sqrt{4x-1}+2\\)<br>\n\\(x\\)축에 대하여 대칭이동 : \\(-y=-\\sqrt{4x-1}+2\\) → \\(y=\\sqrt{4x-1}-2\\)<br>\n<b>정답</b> \\(a=4,\\ b=-1,\\ c=-2\\)", "r3-p21": "\\(\\sqrt{2x-a}\\ge0\\)이므로 \\(f(x)\\)의 최솟값은 \\(b\\) → \\(b=5\\)<br>\n\\(f^{-1}(7)=0\\)이므로 \\(f(0)=7\\) : \\(\\sqrt{-a}+5=7\\) → \\(\\sqrt{-a}=2\\) → \\(a=-4\\)<br>\n<b>정답</b> \\(a=-4,\\ b=5\\)", "r3-p22": "(1) 그래프의 시작점은 \\((-b,\\ c)\\)이고 제1사분면에 있으므로 \\(-b>0,\\ c>0\\) → \\(b\\lt 0,\\ c>0\\)<br>\n그래프가 시작점에서 오른쪽 위로 뻗으므로 \\(a>0\\)<br>\n(2) \\(y=\\dfrac{a}{x+b}-c\\)의 점근선은 \\(x=-b\\ (>0)\\), \\(y=-c\\ (\\lt 0)\\) → 점근선의 교점은 제4사분면<br>\n\\(a>0\\)이므로 그래프는 교점의 오른쪽 위(\\(x>-b>0\\) : 제1, 4사분면)와 왼쪽 아래(\\(y\\lt -c\\lt 0\\) : 제3, 4사분면)에 있다.<br>\n<b>정답</b> (1) \\(a>0,\\ b\\lt 0,\\ c>0\\) (2) 제2사분면", "r3-p23": "\\((g\\circ f^{-1})^{-1}=(f^{-1})^{-1}\\circ g^{-1}=f\\circ g^{-1}\\)<br>\n\\(g^{-1}(2\\sqrt2)=k\\)라 하면 \\(g(k)=\\sqrt{3k-1}=2\\sqrt2\\) → \\(3k-1=8\\) → \\(k=3\\)<br>\n\\((f\\circ g^{-1})(2\\sqrt2)=f(3)=\\dfrac{2\\times3+1}{3-2}=7\\)<br>\n<b>정답</b> \\(7\\)", "r3-p24": "점 A의 좌표를 \\((t,\\ 2\\sqrt t)\\)라 하면 D의 \\(y\\)좌표도 \\(2\\sqrt t\\)이므로 \\(\\sqrt x=2\\sqrt t\\) → \\(x=4t\\) → D\\((4t,\\ 2\\sqrt t)\\)<br>\n\\(\\overline{AB}=2\\sqrt t\\), \\(\\overline{BC}=4t-t=3t\\). 정사각형이므로 \\(2\\sqrt t=3t\\) → \\(\\sqrt t=\\frac23\\) → \\(t=\\frac49\\)<br>\n<b>정답</b> A\\(\\left(\\frac49,\\ \\frac43\\right)\\)", "r3-p25": "1. \\(y=\\sqrt{2x}\\)를 평행이동 : \\(y=\\sqrt{2(x-4)}+2=\\sqrt{2x-8}+2\\) → \\(a=2,\\ b=-8,\\ c=2\\)<br>\n2. (설명) \\(b\\)를 바꾸면 시작점 \\(\\left(-\\frac ba,\\ c\\right)\\)가 \\(x\\)축 방향으로 움직이고, \\(c\\)를 바꾸면 그래프 전체가 \\(y\\)축 방향으로 움직인다.<br>\n3. \\(b=4\\) : \\(y=\\sqrt{ax+4}+c\\)의 시작점은 \\(\\left(-\\frac4a,\\ c\\right)\\), \\(y\\)절편은 \\(2+c\\)<br>\n(1) 제1, 2, 3사분면 : \\(a>0\\) (시작점이 \\(x\\lt 0\\) 쪽, 오른쪽 위로), 제3사분면을 지나려면 \\(c\\lt 0\\), 제2사분면을 지나려면 \\(2+c>0\\) → \\(a>0,\\ -2\\lt c\\lt 0\\)<br>\n(2) 제2, 3, 4사분면 : \\(a\\lt 0\\) (시작점이 \\(x>0\\) 쪽, 왼쪽 위로), 제1사분면을 지나지 않으려면 \\(2+c\\lt 0\\) → \\(a\\lt 0,\\ c\\lt -2\\)"};
+var LESSON_QEX = {"focus": [{"lv": "what", "q": "진자의 시간을 2배로 하려면 실을 몇 배로 늘려야 할까?"}, {"lv": "howwhy", "q": "실의 길이를 4배로 했는데 왜 2배만 느려질까?"}, {"lv": "if", "q": "만약 실의 길이를 9배로 하면 몇 배 느려질까?"}], "c1": [{"lv": "what", "q": "9.8이라는 숫자는 어디서 왔을까?"}, {"lv": "howwhy", "q": "수심이 4배가 되면 속력은 왜 2배가 될까?"}, {"lv": "if", "q": "만약 수심이 0에 가까워지면 속력은 어떻게 될까?"}], "c2": [{"lv": "what", "q": "근호 안이 음수면 정말 안 될까?"}, {"lv": "howwhy", "q": "무리식에서 근호 안은 왜 0 이상이어야 할까?"}, {"lv": "if", "q": "만약 근호 안과 분모의 조건이 동시에 있으면 범위를 어떻게 구할까?"}], "c3": [{"lv": "what", "q": "역함수를 이용하면 \\(y=\\sqrt x\\)의 그래프를 그리지 않고 상상할 수 있을까?"}, {"lv": "howwhy", "q": "\\(y=\\sqrt x\\)와 \\(y=x^2\\ (x\\ge0)\\)은 왜 서로 역함수일까?"}, {"lv": "if", "q": "만약 \\(x\\ge0\\) 조건이 없다면 \\(y=x^2\\)의 역함수를 만들 수 있을까?"}], "c4": [{"lv": "what", "q": "무리함수에도 점근선이 있을 수 있을까?"}, {"lv": "howwhy", "q": "유리함수에는 점근선이, 무리함수에는 시작점이 있는 이유는?"}, {"lv": "if", "q": "만약 \\(y=\\sqrt{|x|}\\)라면 그래프는 어떻게 될까?"}], "c5": [{"lv": "what", "q": "무리함수와 무리함수가 아닌 그래프를 가장 빨리 구별하는 질문은?"}, {"lv": "howwhy", "q": "유리함수 폴리그래프와 무리함수 폴리그래프의 좋은 질문은 어떻게 다를까?"}, {"lv": "if", "q": "만약 그래프가 모두 같은 시작점을 가진다면 어떤 질문이 필요할까?"}], "probs": [{"lv": "what", "q": "문제 05에서 근호 앞의 부호와 근호 안의 부호는 각각 무엇을 결정할까?"}, {"lv": "howwhy", "q": "문제 01 (2)에서 분모의 근호 안은 왜 0이 되면 안 될까?"}, {"lv": "if", "q": "만약 문제의 정의역이 주어지지 않으면 최댓값이 존재할까?"}], "l1": [{"lv": "what", "q": "괘종시계가 느려지면 추를 올려야 할까, 내려야 할까?"}, {"lv": "howwhy", "q": "진자의 주기가 추의 무게와 상관없는 이유는 무엇일까?"}, {"lv": "if", "q": "만약 진폭을 크게 하면 주기가 달라질까?"}], "l2": [{"lv": "what", "q": "이 수학을 알면 운전할 때 무엇을 조심해야 할까?"}, {"lv": "howwhy", "q": "속력이 2배가 되면 미끄러지는 거리는 왜 4배일까?"}, {"lv": "if", "q": "만약 ABS 브레이크라서 스키드 마크가 안 남으면 어떻게 조사할까?"}], "l3": [{"lv": "what", "q": "3200 kg을 들려면 지름이 얼마나 필요할까?"}, {"lv": "howwhy", "q": "쇠밧줄의 지름을 2배로 하면 들 수 있는 무게는 왜 4배일까?"}, {"lv": "if", "q": "만약 쇠밧줄이 낡으면 \\(k\\)는 어떻게 변할까?"}], "book": [{"lv": "what", "q": "「실 길이의 비는 시간의 제곱의 비」를 식으로 쓰면?"}, {"lv": "howwhy", "q": "갈릴레이는 진자의 법칙을 어떻게 발견했을까?"}, {"lv": "if", "q": "만약 피타고라스 학파가 무리수를 받아들였다면 수학은 어떻게 발전했을까?"}], "free": [{"lv": "what", "q": "무리수는 유리수보다 많을까?"}, {"lv": "howwhy", "q": "\\(\\sqrt2\\)는 끝이 없는데 어떻게 실제 길이가 될 수 있을까?"}, {"lv": "if", "q": "만약 세상의 모든 길이가 유리수라면 어떤 일이 생길까?"}]};
 /* 3-2 유리함수와 무리함수 · 3차시 — 무리식과 무리함수 (교과서 122~126쪽) */
 const LESSON = {
   code:'r3', no:3, unit:'Ⅲ-2 유리함수와 무리함수', title:'무리식과 무리함수', pages:'교과서 122~126쪽',
@@ -1060,7 +1312,7 @@ const LESSON = {
       prompts:['고등학교에서는 왜 「실수」 범위에서만 생각할까? 근호 안이 음수면 정말 안 될까?','\\(\\sqrt{x^2}=x\\)는 항상 참일까?'] },
     { id:'c3', tag:'개념 · 124쪽', title:'\\(y=\\sqrt{ax}\\)는 \\(y=\\frac{1}{a}x^2\\ (x\\ge0)\\)의 역함수',
       html:`<p class="lead">\\(y=\\sqrt x\\)는 \\(\\{x\\mid x\\ge0\\}\\)에서 \\(\\{y\\mid y\\ge0\\}\\)으로의 일대일대응 → 역함수 \\(y=x^2\\ (x\\ge0)\\). 그래서 두 그래프는 <b>\\(y=x\\)에 대칭</b>!</p>
-        <div class="grid2"><div class="box"><b>\\(a>0\\)</b>정의역 \\(\\{x\\mid x\\ge0\\}\\), 치역 \\(\\{y\\mid y\\ge0\\}\\)</div><div class="box"><b>\\(a<0\\)</b>정의역 \\(\\{x\\mid x\\le0\\}\\), 치역 \\(\\{y\\mid y\\ge0\\}\\)</div>
+        <div class="grid2"><div class="box"><b>\\(a>0\\)</b>정의역 \\(\\{x\\mid x\\ge0\\}\\), 치역 \\(\\{y\\mid y\\ge0\\}\\)</div><div class="box"><b>\\(a\\lt 0\\)</b>정의역 \\(\\{x\\mid x\\le0\\}\\), 치역 \\(\\{y\\mid y\\ge0\\}\\)</div>
         <div class="box"><b>대칭이동</b>\\(y=-\\sqrt{ax}\\) : \\(x\\)축 대칭 · \\(y=\\sqrt{-ax}\\) : \\(y\\)축 대칭 · \\(y=-\\sqrt{-ax}\\) : 원점 대칭</div><div class="box"><b>모양</b>\\(|a|\\)가 클수록 \\(x\\)축에서 멀어진다</div></div>`,
       prompts:['역함수 차시에서 배운 것을 이용해 \\(y=\\sqrt x\\)의 그래프를 그리지 않고 상상할 수 있을까?','\\(y=\\sqrt{-x}\\)는 「근호 안이 음수」인데 왜 함수가 될까?'] },
     { id:'c4', tag:'개념 · 125~126쪽', title:'\\(y=\\sqrt{a(x-p)}+q\\) — 시작점이 움직인다',
@@ -1073,6 +1325,11 @@ const LESSON = {
       lab:'polyS' }
   ],
 
+  summary:{ tag:'중단원 학습 점검 · 개념 정리 · 127쪽', title:'2. 유리함수와 무리함수 — 한눈에 정리',
+    html:`<div class="sumgrid">
+      <div><b>유리함수의 그래프</b><p>\\(y=\\dfrac{k}{x-p}+q\\ (k\\ne0)\\)<br>· \\(y=\\frac kx\\)를 \\(x\\)축 방향으로 \\(p\\), \\(y\\)축 방향으로 \\(q\\)만큼 평행이동<br>· 정의역 \\(\\{x\\mid x\\ne p\\}\\), 치역 \\(\\{y\\mid y\\ne q\\}\\)<br>· 점근선 : 두 직선 \\(x=p,\\ y=q\\)<br>· \\(k>0\\)이면 점근선의 교점 기준 오른쪽 위·왼쪽 아래, \\(k\\lt 0\\)이면 왼쪽 위·오른쪽 아래</p></div>
+      <div><b>무리함수의 그래프</b><p>\\(y=\\sqrt{a(x-p)}+q\\ (a\\ne0)\\)<br>· \\(y=\\sqrt{ax}\\)를 \\(x\\)축 방향으로 \\(p\\), \\(y\\)축 방향으로 \\(q\\)만큼 평행이동 (시작점 \\((p,q)\\))<br>· \\(a>0\\) : 정의역 \\(\\{x\\mid x\\ge p\\}\\), 치역 \\(\\{y\\mid y\\ge q\\}\\)<br>· \\(a\\lt 0\\) : 정의역 \\(\\{x\\mid x\\le p\\}\\), 치역 \\(\\{y\\mid y\\ge q\\}\\)<br>· \\(y=\\sqrt{ax}\\)와 \\(y=\\frac1ax^2\\ (x\\ge0)\\)은 서로 역함수 (\\(y=x\\)에 대칭)</p></div></div>` },
+
   problems:[
     { id:'r3-e1', grp:'교과서 예제', ex:true, tag:'예제 1 · 126쪽', lv:'기초', pt:10, fig:'r3g01',
       q:'무리함수 \\(y=\\sqrt{2x-4}+1\\)의 그래프를 그리고, 정의역과 치역을 구하시오.<br><span style="color:var(--ink2);font-size:.9em">(정의역 \\(\\{x\\mid x\\ge a\\}\\), 치역 \\(\\{y\\mid y\\ge b\\}\\))</span>',
@@ -1081,19 +1338,22 @@ const LESSON = {
       sol:'<b>풀이</b> 위의 무리함수를 변형하면 \\(y=\\sqrt{2x-4}+1=\\sqrt{2(x-2)}+1\\)<br>따라서 무리함수 \\(y=\\sqrt{2(x-2)}+1\\)의 그래프는 무리함수 \\(y=\\sqrt{2x}\\)의 그래프를 \\(x\\)축의 방향으로 2만큼, \\(y\\)축의 방향으로 1만큼 평행이동한 것이다.<br>또 정의역은 \\(\\{x\\mid x\\ge2\\}\\), 치역은 \\(\\{y\\mid y\\ge1\\}\\)이다.',
       key:'무리함수는 <b>시작점</b>부터! \\(\\sqrt{a(x-p)}+q\\) 꼴로 바꾸면 시작점 \\((p,q)\\)가 바로 보여요.' },
     { id:'r3-p1', grp:'교과서 문제', tag:'스스로 확인하기 · 122쪽', lv:'기초', pt:10,
-      q:'무리식 \\(-\\dfrac{1}{\\sqrt{3x-1}}\\)의 값이 실수이려면 \\(3x-1>0\\)이어야 하므로 \\(x>a\\)이다. \\(a\\)를 구하시오.',
+      q:'무리식 \\(-\\dfrac{1}{\\sqrt{3x-1}}\\)의 값이 실수이려면 \\(3x-1\\gt 0\\)이어야 하므로 \\(x>a\\)이다. \\(a\\)를 구하시오.',
       fs:[{t:'num',l:'a (분수 가능)',a:1/3}], hints:['근호 안 ≥ 0 이고 분모 ≠ 0 → 근호 안 > 0'], sol:'\\(x>\\frac13\\)' },
     { id:'r3-p2', tag:'문제 01 · 122쪽', lv:'기본', pt:15,
       q:'값이 실수가 되도록 하는 \\(x\\)의 범위를 \\(p\\le x\\le q\\) 또는 \\(p\\le x\\lt q\\) 꼴로 구하시오. &nbsp; (1) \\(\\sqrt{2x+1}-\\sqrt{1-x}\\) &nbsp; (2) \\(\\dfrac{\\sqrt x}{\\sqrt{3-2x}}\\)',
       fs:[{t:'num',l:'(1) p',a:-0.5},{t:'num',l:'(1) q',a:1},{t:'num',l:'(2) p',a:0},{t:'num',l:'(2) q',a:1.5},{t:'sel',l:'(2)에서 q는 범위에',opts:['포함된다','포함되지 않는다'],a:'포함되지 않는다'}],
-      hints:['(1) \\(2x+1\\ge0\\) 그리고 \\(1-x\\ge0\\)','(2) \\(x\\ge0\\) 그리고 \\(3-2x>0\\) (분모!)'], sol:'(1) \\(-\\frac12\\le x\\le1\\) (2) \\(0\\le x<\\frac32\\)' },
+      hints:['(1) \\(2x+1\\ge0\\) 그리고 \\(1-x\\ge0\\)','(2) \\(x\\ge0\\) 그리고 \\(3-2x>0\\) (분모!)'], sol:'(1) \\(-\\frac12\\le x\\le1\\) (2) \\(0\\le x\\lt \\frac32\\)' },
+    { id:"r3-p13", tag:"스스로 확인하기 · 123쪽", lv:"기초", pt:10, q:"빈칸에 알맞은 것을 써넣으시오. &nbsp; \\(\\dfrac{1}{1+\\sqrt x}+\\dfrac{1}{1-\\sqrt x}=\\dfrac{1-\\sqrt x+\\square}{1-x}=\\square\\)", fs:[{"t": "txt", "l": "첫째 빈칸 (예: 2-√x)", "a": ["1+√x", "√x+1", "1+루트x", "루트x+1"]}, {"t": "sel", "l": "계산 결과", "opts": ["\\(\\frac{2}{1-x}\\)", "\\(\\frac{2\\sqrt x}{1-x}\\)", "\\(\\frac{2}{1+x}\\)", "\\(2\\)"], "a": "\\(\\frac{2}{1-x}\\)"}], hints:["분모를 \\((1+\\sqrt x)(1-\\sqrt x)=1-x\\)로 통분해요.", "둘째 분수의 분자에는 \\(1+\\sqrt x\\)가 곱해져요."], sol:"\\(\\dfrac{(1-\\sqrt x)+(1+\\sqrt x)}{1-x}=\\dfrac{2}{1-x}\\)" },
     { id:'r3-p3', tag:'문제 02 · 123쪽', lv:'기본', pt:15,
       q:'(1) \\((\\sqrt x+\\sqrt{x+4})(\\sqrt x-\\sqrt{x+4})\\) &nbsp; (2) \\(\\dfrac{\\sqrt x-3}{\\sqrt x+3}+\\dfrac{\\sqrt x+3}{\\sqrt x-3}\\)',
       fs:[{t:'num',l:'(1)',a:-4},{t:'sel',l:'(2)',opts:['\\(\\frac{2x+18}{x-9}\\)','\\(\\frac{2x-18}{x-9}\\)','\\(\\frac{12\\sqrt x}{x-9}\\)'],a:'\\(\\frac{2x+18}{x-9}\\)'}],
       hints:['(1) 합차 공식','(2) 통분하면 분자 \\((\\sqrt x-3)^2+(\\sqrt x+3)^2\\)'], sol:'(1) \\(x-(x+4)=-4\\) (2) \\(\\frac{2x+18}{x-9}\\)' },
+    { id:"r3-p14", tag:"스스로 확인하기 · 123쪽", lv:"기초", pt:10, q:"(1) 무리함수 \\(y=\\sqrt{1-x}\\)의 정의역은 \\(\\{x\\mid x\\le1\\}\\)이다. (2) 무리함수 \\(y=-\\sqrt{2x+5}\\)의 정의역을 \\(\\{x\\mid x\\ge a\\}\\)라 할 때 \\(a\\)를 구하시오. (분수는 -5/2 처럼)", fs:[{"t": "num", "l": "a", "a": -2.5}], hints:["근호 안 \\(2x+5\\ge0\\)"], sol:"\\(2x+5\\ge0\\) → \\(x\\ge-\\frac52\\)" },
     { id:'r3-p4', tag:'문제 03 · 123쪽', lv:'기초', pt:10,
       q:'정의역을 구하시오. &nbsp; (1) \\(y=\\sqrt{3x-1}\\) → \\(\\{x\\mid x\\ge a\\}\\) &nbsp; (2) \\(y=-\\sqrt{2-x}-1\\) → \\(\\{x\\mid x\\le b\\}\\)',
       fs:[{t:'num',l:'a',a:1/3},{t:'num',l:'b',a:2}], hints:['근호 안 ≥ 0'], sol:'(1) \\(x\\ge\\frac13\\) (2) \\(x\\le2\\)' },
+    { id:"r3-p15", tag:"문제 04 · 124쪽", lv:"기초", pt:10, q:"다음 무리함수의 그래프를 무리함수 \\(y=\\sqrt x\\)의 그래프를 대칭이동하여 그리시오. &nbsp; (1) \\(y=-\\sqrt x\\) &nbsp; (2) \\(y=\\sqrt{-x}\\) &nbsp; (3) \\(y=-\\sqrt{-x}\\)", fs:[{"t": "sel", "l": "(1) 어떤 대칭이동?", "opts": ["x축 대칭", "y축 대칭", "원점 대칭"], "a": "x축 대칭"}, {"t": "sel", "l": "(2) 어떤 대칭이동?", "opts": ["x축 대칭", "y축 대칭", "원점 대칭"], "a": "y축 대칭"}, {"t": "sel", "l": "(3) 어떤 대칭이동?", "opts": ["x축 대칭", "y축 대칭", "원점 대칭"], "a": "원점 대칭"}, {"t": "sel", "l": "(3)의 그래프가 있는 곳", "opts": ["제1사분면", "제2사분면", "제3사분면", "제4사분면"], "a": "제3사분면"}], hints:["\\(y\\) 대신 \\(-y\\) → \\(x\\)축 대칭, \\(x\\) 대신 \\(-x\\) → \\(y\\)축 대칭", "둘 다 바꾸면 원점 대칭"], sol:"(1) \\(x\\)축 대칭 (제4사분면) · (2) \\(y\\)축 대칭 (제2사분면) · (3) 원점 대칭 (제3사분면). 모두 시작점은 원점" },
     { id:'r3-p5', tag:'문제 05 · 125쪽', lv:'기본', pt:15,
       q:'다음 무리함수의 정의역과 치역을 고르시오. &nbsp; (1) \\(y=\\sqrt{-2x}\\) &nbsp; (2) \\(y=-\\sqrt{3x}\\) &nbsp; (3) \\(y=-\\sqrt{-3x}\\)',
       fs:[{t:'sel',l:'(1)',opts:['x≥0, y≥0','x≤0, y≥0','x≥0, y≤0','x≤0, y≤0'],a:'x≤0, y≥0'},
@@ -1101,6 +1361,7 @@ const LESSON = {
           {t:'sel',l:'(3)',opts:['x≥0, y≥0','x≤0, y≥0','x≥0, y≤0','x≤0, y≤0'],a:'x≤0, y≤0'}],
       hints:['근호 안의 부호 → 정의역, 근호 앞의 부호 → 치역'], sol:'(1) \\(x\\le0, y\\ge0\\) (2) \\(x\\ge0, y\\le0\\) (3) \\(x\\le0, y\\le0\\)',
       key:'<b>근호 안</b>의 부호가 정의역(좌우), <b>근호 앞</b>의 부호가 치역(위아래)을 정해요.' },
+    { id:"r3-p16", tag:"스스로 확인하기 · 125쪽", lv:"기초", pt:10, q:"무리함수 \\(y=\\sqrt{x+4}+1\\)의 그래프는 무리함수 \\(y=\\sqrt x\\)의 그래프를 \\(x\\)축의 방향으로 \\(p\\)만큼, \\(y\\)축의 방향으로 \\(q\\)만큼 평행이동한 것이다. \\(p, q\\)를 구하시오.", fs:[{"t": "num", "l": "p", "a": -4}, {"t": "num", "l": "q", "a": 1}], hints:["\\(\\sqrt{x+4}=\\sqrt{x-(-4)}\\)"], sol:"\\(y=\\sqrt{x-(-4)}+1\\) → \\(p=-4,\\ q=1\\) (시작점 \\((-4,1)\\))" },
     { id:'r3-p6', tag:'문제 06 · 126쪽', lv:'기본', pt:15,
       q:'(1) \\(y=\\sqrt{x+1}-2\\) 의 정의역 \\(\\{x\\mid x\\ge a\\}\\), 치역 \\(\\{y\\mid y\\ge b\\}\\) &nbsp; (2) \\(y=-\\sqrt{2-x}+1\\) 의 정의역 \\(\\{x\\mid x\\le c\\}\\), 치역 \\(\\{y\\mid y\\le d\\}\\)',
       fs:[{t:'num',l:'a',a:-1},{t:'num',l:'b',a:-2},{t:'num',l:'c',a:2},{t:'num',l:'d',a:1}], hints:['시작점은 (1) \\((-1,-2)\\), (2) \\((2,1)\\)'], sol:'(1) \\(x\\ge-1,\\ y\\ge-2\\) (2) \\(x\\le2,\\ y\\le1\\)' },
@@ -1112,19 +1373,28 @@ const LESSON = {
       q:'(1) \\((\\sqrt{x+1}-\\sqrt{x-1})(\\sqrt{x+1}+\\sqrt{x-1})\\) &nbsp; (2) \\(\\dfrac{\\sqrt x}{\\sqrt x+2}+\\dfrac{\\sqrt x}{\\sqrt x-2}\\)',
       fs:[{t:'num',l:'(1)',a:2},{t:'sel',l:'(2)',opts:['\\(\\frac{2x}{x-4}\\)','\\(\\frac{2x}{x+4}\\)','\\(\\frac{4\\sqrt x}{x-4}\\)'],a:'\\(\\frac{2x}{x-4}\\)'}],
       hints:['(2) 분자 \\(\\sqrt x(\\sqrt x-2)+\\sqrt x(\\sqrt x+2)\\)'], sol:'(1) 2 (2) \\(\\frac{2x}{x-4}\\)' },
+    { id:"r3-p17", tag:"중단원 04 · 127쪽", lv:"기초", pt:10, q:"다음 무리함수의 그래프를 그리고, 정의역과 치역을 구하시오. &nbsp; (1) \\(y=-\\sqrt{x-1}+2\\) &nbsp; (2) \\(y=\\sqrt{4-2x}-1\\)", fs:[{"t": "sel", "l": "(1) 정의역", "opts": ["\\(\\{x\\mid x\\ge1\\}\\)", "\\(\\{x\\mid x\\le1\\}\\)", "\\(\\{x\\mid x\\ge2\\}\\)"], "a": "\\(\\{x\\mid x\\ge1\\}\\)"}, {"t": "sel", "l": "(1) 치역", "opts": ["\\(\\{y\\mid y\\ge2\\}\\)", "\\(\\{y\\mid y\\le2\\}\\)", "\\(\\{y\\mid y\\le1\\}\\)"], "a": "\\(\\{y\\mid y\\le2\\}\\)"}, {"t": "sel", "l": "(2) 정의역", "opts": ["\\(\\{x\\mid x\\ge2\\}\\)", "\\(\\{x\\mid x\\le2\\}\\)", "\\(\\{x\\mid x\\le4\\}\\)"], "a": "\\(\\{x\\mid x\\le2\\}\\)"}, {"t": "sel", "l": "(2) 치역", "opts": ["\\(\\{y\\mid y\\ge-1\\}\\)", "\\(\\{y\\mid y\\le-1\\}\\)", "\\(\\{y\\mid y\\ge1\\}\\)"], "a": "\\(\\{y\\mid y\\ge-1\\}\\)"}], hints:["시작점을 먼저 찾아요.", "(2) \\(\\sqrt{4-2x}=\\sqrt{-2(x-2)}\\)"], sol:"(1) 시작점 \\((1,2)\\)에서 오른쪽 아래로 → 정의역 \\(x\\ge1\\), 치역 \\(y\\le2\\) · (2) \\(\\sqrt{-2(x-2)}-1\\) → 시작점 \\((2,-1)\\)에서 왼쪽 위로 → 정의역 \\(x\\le2\\), 치역 \\(y\\ge-1\\)" },
     { id:'r3-p9', tag:'중단원 08 · 128쪽', lv:'기본', pt:15, fig:'r3g08',
       q:'무리함수 \\(y=\\sqrt{ax+b}+c\\)의 그래프가 그림과 같이 시작점이 \\((3,-1)\\)이고 점 \\((0,2)\\)를 지날 때 \\(a,b,c\\)를 구하시오.',
-      fs:[{t:'num',l:'a',a:-3},{t:'num',l:'b',a:9},{t:'num',l:'c',a:-1}], hints:['\\(y=\\sqrt{a(x-3)}-1\\), 왼쪽으로 뻗으니 \\(a<0\\)','\\((0,2)\\) 대입 : \\(\\sqrt{-3a}-1=2\\)'], sol:'\\(a=-3\\) → \\(y=\\sqrt{-3x+9}-1\\), \\(b=9,\\ c=-1\\)' },
+      fs:[{t:'num',l:'a',a:-3},{t:'num',l:'b',a:9},{t:'num',l:'c',a:-1}], hints:['\\(y=\\sqrt{a(x-3)}-1\\), 왼쪽으로 뻗으니 \\(a\\lt 0\\)','\\((0,2)\\) 대입 : \\(\\sqrt{-3a}-1=2\\)'], sol:'\\(a=-3\\) → \\(y=\\sqrt{-3x+9}-1\\), \\(b=9,\\ c=-1\\)' },
     { id:'r3-p10', tag:'중단원 09 · 128쪽', lv:'기본', pt:15,
       q:'정의역이 \\(\\{x\\mid0\\le x\\le3\\}\\)인 \\(y=\\sqrt{4x+a}+1\\)의 최솟값이 3일 때 최댓값을 구하시오.',
       fs:[{t:'num',l:'a',a:4},{t:'num',l:'최댓값',a:5}], hints:['증가함수 → 최솟값은 \\(x=0\\)에서 : \\(\\sqrt a+1=3\\)'], sol:'\\(a=4\\), 최댓값 \\(\\sqrt{16}+1=5\\)' },
     { id:'r3-p11', tag:'중단원 10 · 128쪽', lv:'도전', pt:20,
       q:'\\(f(x)=\\sqrt{ax+b}\\)와 그 역함수 \\(g(x)\\)에 대하여 \\(f(3)=1,\\ g(3)=1\\)을 만족시키는 \\(a,b\\)를 구하시오.',
       fs:[{t:'num',l:'a',a:-4},{t:'num',l:'b',a:13}], hints:['\\(g(3)=1\\iff f(1)=3\\)','\\(3a+b=1,\\ a+b=9\\)'], sol:'\\(a=-4,\\ b=13\\)' },
+    { id:"r3-p18", tag:"중단원 12 · 128쪽", lv:"도전", pt:20, q:"두 집합 \\(A=\\{(x,y)\\mid y=-\\sqrt{x-3}+1\\}\\), \\(B=\\{(x,y)\\mid y=mx-2\\}\\)에 대하여 \\(A\\cap B=\\varnothing\\)이 되도록 하는 자연수 \\(m\\)의 최솟값을 구하시오.", fs:[{"t": "num", "l": "\\(m\\)의 최솟값", "a": 2}], hints:["곡선은 시작점 \\((3,1)\\)에서 오른쪽 아래로 내려가요.", "직선은 항상 \\((0,-2)\\)를 지나고, 자연수 \\(m\\)이면 오른쪽 위로 올라가요.", "\\(x=3\\)에서 직선이 시작점보다 위에 있으면 만나지 않아요 : \\(3m-2\\gt 1\\)"], sol:"곡선은 감소, 직선은 증가하므로 \\(x=3\\)에서 직선이 시작점 \\((3,1)\\)보다 위에 있으면 만나지 않는다 → \\(3m-2\\gt 1\\), \\(m>1\\) (\\(m=1\\)이면 \\((3,1)\\)에서 만남) → 최솟값 2" },
+    { id:"r3-p19", tag:"대단원 09 · 131쪽", lv:"기본", pt:15, q:"정의역이 \\(\\{x\\mid-8\\le x\\le0\\}\\)인 무리함수 \\(y=\\sqrt{-5x+a}-2\\)의 최솟값이 1일 때, 최댓값을 구하시오. (단, \\(a\\)는 실수)", fs:[{"t": "num", "l": "a", "a": 9}, {"t": "num", "l": "최댓값", "a": 5}], hints:["\\(-5x\\) : \\(x\\)가 커질수록 \\(y\\)는 작아져요 → 최솟값은 \\(x=0\\)에서", "\\(\\sqrt a-2=1\\)", "최댓값은 \\(x=-8\\)에서"], sol:"감소함수이므로 \\(x=0\\)에서 최솟값 : \\(\\sqrt a-2=1\\) → \\(a=9\\). \\(x=-8\\)에서 최댓값 : \\(\\sqrt{40+9}-2=5\\)" },
+    { id:"r3-p20", tag:"대단원 10 · 131쪽", lv:"기본", pt:15, q:"무리함수 \\(y=-\\sqrt{4x+3}\\)의 그래프를 \\(x\\)축의 방향으로 1만큼, \\(y\\)축의 방향으로 2만큼 평행이동한 후, \\(x\\)축에 대하여 대칭이동하면 무리함수 \\(y=\\sqrt{ax+b}+c\\)의 그래프와 일치한다고 한다. 실수 \\(a, b, c\\)를 구하시오.", fs:[{"t": "num", "l": "a", "a": 4}, {"t": "num", "l": "b", "a": -1}, {"t": "num", "l": "c", "a": -2}], hints:["평행이동 : \\(y=-\\sqrt{4(x-1)+3}+2\\)", "\\(x\\)축 대칭 : \\(y\\) 대신 \\(-y\\)"], sol:"\\(y=-\\sqrt{4x-1}+2\\) → \\(x\\)축 대칭 \\(-y=-\\sqrt{4x-1}+2\\), 즉 \\(y=\\sqrt{4x-1}-2\\) → \\(a=4,\\ b=-1,\\ c=-2\\)" },
     { id:'r3-p12', tag:'대단원 11 · 131쪽', lv:'기본', pt:15,
       q:'무리함수 \\(y=\\sqrt{3x+4}-1\\)에 대한 설명으로 <b>옳지 않은</b> 것은?<div class="choices">① 정의역은 \\(\\{x\\mid x\\ge-\\frac43\\}\\) ② 치역은 \\(\\{y\\mid y\\ge-1\\}\\) ③ 그래프는 제1, 2, 4사분면을 지난다 ④ \\(y=\\sqrt{-3x+4}-1\\)의 그래프와 \\(y\\)축에 대하여 대칭 ⑤ 역함수의 그래프는 점 \\((3,4)\\)를 지난다</div>',
       fs:[{t:'sel',l:'답',opts:['①','②','③','④','⑤'],a:'③'}],
-      hints:['시작점 \\((-\\frac43,-1)\\)은 어느 사분면?','\\(y=0\\)이 되는 \\(x=-1\\)'], sol:'시작점이 제3사분면, \\(x=-1\\)에서 \\(x\\)축을 지나 제2사분면, 제1사분면으로 → 제1, 2, 3사분면' }
+      hints:['시작점 \\((-\\frac43,-1)\\)은 어느 사분면?','\\(y=0\\)이 되는 \\(x=-1\\)'], sol:'시작점이 제3사분면, \\(x=-1\\)에서 \\(x\\)축을 지나 제2사분면, 제1사분면으로 → 제1, 2, 3사분면' },
+    { id:"r3-p21", tag:"대단원 16 · 132쪽 (서술형)", lv:"기본", pt:15, q:"무리함수 \\(f(x)=\\sqrt{2x-a}+b\\)의 최솟값이 5이고, \\(f^{-1}(7)=0\\)을 만족시킬 때, 실수 \\(a, b\\)를 구하시오.", fs:[{"t": "num", "l": "a", "a": -4}, {"t": "num", "l": "b", "a": 5}], hints:["근호 부분은 0 이상 → 최솟값은 \\(b\\)", "\\(f^{-1}(7)=0 \\iff f(0)=7\\)"], sol:"최솟값 \\(b=5\\). \\(f(0)=\\sqrt{-a}+5=7\\) → \\(\\sqrt{-a}=2\\), \\(a=-4\\)" },
+    { id:"r3-p22", tag:"대단원 17 · 132쪽 (서술형)", lv:"도전", pt:20, fig:"r3g132", q:"무리함수 \\(y=\\sqrt{a(x+b)}+c\\)의 그래프가 그림과 같을 때, (1) 실수 \\(a, b, c\\)의 부호를 정하고 (2) 유리함수 \\(y=\\dfrac{a}{x+b}-c\\)의 그래프가 지나지 않는 사분면을 구하시오.", fs:[{"t": "sel", "l": "a", "opts": ["양수", "음수"], "a": "양수"}, {"t": "sel", "l": "b", "opts": ["양수", "음수"], "a": "음수"}, {"t": "sel", "l": "c", "opts": ["양수", "음수"], "a": "양수"}, {"t": "sel", "l": "(2) 지나지 않는 사분면", "opts": ["제1사분면", "제2사분면", "제3사분면", "제4사분면"], "a": "제2사분면"}], hints:["시작점 \\((-b,\\ c)\\)가 제1사분면에 있고 오른쪽 위로 → \\(a>0\\)", "점근선 \\(x=-b>0\\), \\(y=-c\\lt 0\\) → 점근선의 교점은 제4사분면", "\\(a>0\\)이면 곡선은 교점의 오른쪽 위와 왼쪽 아래에 있어요."], sol:"(1) \\(a>0\\), \\(-b>0\\)이므로 \\(b\\lt 0\\), \\(c>0\\) · (2) 점근선 \\(x=-b>0\\), \\(y=-c\\lt 0\\). 오른쪽 위 곡선은 \\(x>-b>0\\)이라 제1, 4사분면, 왼쪽 아래 곡선은 \\(y\\lt -c\\lt 0\\)이라 제3, 4사분면 → 제2사분면을 지나지 않는다" },
+    { id:"r3-p23", tag:"익힘책 12 · 141쪽", lv:"도전", pt:20, q:"정의역이 \\(\\{x\\mid x>2\\}\\)인 두 함수 \\(f(x)=\\dfrac{2x+1}{x-2}\\), \\(g(x)=\\sqrt{3x-1}\\)에 대하여 \\((g\\circ f^{-1})^{-1}(2\\sqrt2)\\)를 구하시오.", fs:[{"t": "num", "l": "답", "a": 7}], hints:["\\((g\\circ f^{-1})^{-1}=f\\circ g^{-1}\\)", "\\(g^{-1}(2\\sqrt2)=k \\iff \\sqrt{3k-1}=2\\sqrt2\\) → \\(k=3\\)", "\\(f(3)\\)"], sol:"\\((g\\circ f^{-1})^{-1}(2\\sqrt2)=(f\\circ g^{-1})(2\\sqrt2)\\). \\(\\sqrt{3k-1}=2\\sqrt2\\) → \\(k=3\\) → \\(f(3)=\\frac71=7\\)" },
+    { id:"r3-p24", tag:"익힘책 13 · 141쪽", lv:"도전", pt:20, fig:"r3g141", q:"그림과 같이 무리함수 \\(y=2\\sqrt x\\)의 그래프 위의 점 A에서 \\(x\\)축에 평행한 직선을 그어 무리함수 \\(y=\\sqrt x\\)의 그래프와 만나는 점을 D라 하고, 두 점 A, D에서 \\(x\\)축에 내린 수선의 발을 각각 B, C라 하자. 사각형 ABCD가 정사각형일 때, 점 A의 좌표를 구하시오. (분수는 4/9 처럼)", fs:[{"t": "num", "l": "A의 x좌표", "a": 0.4444444444444444}, {"t": "num", "l": "A의 y좌표", "a": 1.3333333333333333}], hints:["A\\((t,\\ 2\\sqrt t)\\)라 하면 D의 \\(x\\)좌표는 \\(\\sqrt x=2\\sqrt t\\)에서 \\(4t\\)", "\\(\\overline{AB}=2\\sqrt t\\), \\(\\overline{BC}=4t-t=3t\\)", "\\(2\\sqrt t=3t\\) → \\(\\sqrt t=\\frac23\\)"], sol:"A\\((t,2\\sqrt t)\\), D\\((4t,2\\sqrt t)\\). \\(2\\sqrt t=3t\\) → \\(\\sqrt t=\\frac23\\), \\(t=\\frac49\\) → A\\(\\left(\\frac49,\\ \\frac43\\right)\\)" },
+    { id:"r3-p25", grp:"수행 평가", tag:"수행 평가 · 129쪽 (공학 도구)", lv:"도전", pt:20, q:"공학 도구에서 무리함수 \\(y=\\sqrt{ax+b}+c\\)의 \\(a, b, c\\) 슬라이더를 움직이며 그래프의 성질을 탐구하자.<br>1. 무리함수 \\(y=\\sqrt{2x}\\)의 그래프를 \\(x\\)축의 방향으로 4만큼, \\(y\\)축의 방향으로 2만큼 평행이동했을 때의 \\(a, b, c\\)<br>3. \\(b=4\\)로 고정했을 때, 그래프가 (1) 제1, 2, 3사분면 (2) 제2, 3, 4사분면을 지나도록 하는 \\(a, c\\)의 범위", fs:[{"t": "num", "l": "1. a", "a": 2}, {"t": "num", "l": "1. b", "a": -8}, {"t": "num", "l": "1. c", "a": 2}, {"t": "sel", "l": "3-(1)", "opts": ["\\(a>0,\\ -2\\lt c\\lt 0\\)", "\\(a>0,\\ c\\lt -2\\)", "\\(a\\lt 0,\\ c\\lt -2\\)", "\\(a\\lt 0,\\ -2\\lt c\\lt 0\\)"], "a": "\\(a>0,\\ -2\\lt c\\lt 0\\)"}, {"t": "sel", "l": "3-(2)", "opts": ["\\(a>0,\\ -2\\lt c\\lt 0\\)", "\\(a>0,\\ c\\lt -2\\)", "\\(a\\lt 0,\\ c\\lt -2\\)", "\\(a\\lt 0,\\ -2\\lt c\\lt 0\\)"], "a": "\\(a\\lt 0,\\ c\\lt -2\\)"}], hints:["1. \\(y=\\sqrt{2(x-4)}+2=\\sqrt{2x-8}+2\\)", "3. 시작점 \\(\\left(-\\frac4a,\\ c\\right)\\), \\(x=0\\)일 때 \\(y=2+c\\)", "제3사분면을 지나려면 그래프의 일부가 x<0, y<0에 있어야 해요."], sol:"1. \\(a=2,\\ b=-8,\\ c=2\\) · 3-(1) \\(a>0\\)이면 시작점은 \\(x\\lt 0\\) 쪽. 제3사분면 → \\(c\\lt 0\\), 제2사분면 → \\(y\\)절편 \\(2+c>0\\) → \\(-2\\lt c\\lt 0\\) · 3-(2) \\(a\\lt 0\\)이면 시작점은 \\(x>0\\) 쪽이고 왼쪽 위로 → 제1사분면을 피하려면 \\(2+c\\lt 0\\) → \\(c\\lt -2\\)", key:"2번(설명하기) : \\(b\\)를 바꾸면 시작점 \\(\\left(-\\frac ba,\\ c\\right)\\)가 \\(x\\)축 방향으로, \\(c\\)를 바꾸면 \\(y\\)축 방향으로 움직여요. 「개념 학습」의 무리함수 탐구 도구로 직접 실험해 보세요." }
   ],
 
   life:[
@@ -1338,13 +1608,18 @@ function fieldHTML(f, i){
   return `<input type="text" data-i="${i}" autocomplete="off" spellcheck="false" placeholder="${f.ph || ''}">`;
 }
 
-function makeCard(p){
+function makeCard(p, opt){
+  opt = opt || {};
   const el = document.createElement('div');
-  el.className = 'prob' + (p.ex ? ' ex' : ''); el.id = 'p-' + p.id;
+  const asEx = opt.mode === 'example';
+  const solHTML = (window.LESSON_SOL && LESSON_SOL[p.id]) || p.sol || '';
+  const steps = solHTML.split(/<br\s*\/?>/).map(x => x.trim()).filter(Boolean);
+  el.className = 'prob' + (p.ex || asEx ? ' ex' : '') + (asEx ? ' worked' : ''); el.id = 'p-' + p.id;
   el.innerHTML =
     `<div class="ptop"><span class="ptag">${p.tag}</span><span class="lvl ${p.lv}">${p.lv}</span>
        <span class="pts">+${p.pt}점</span></div>
-     ${p.ex ? '<div class="exbar">📘 교과서 예제 — 먼저 스스로 풀고, 「풀이 보기」로 교과서 풀이와 비교해 보세요</div>' : ''}
+     ${asEx ? `<div class="exbar">📘 ${p.ex ? '교과서 예제' : '예제'} — 먼저 30초만 스스로 생각해 보고, 「👣 풀이 따라가기」로 한 단계씩 확인해요. 그다음 답 칸에 직접 써 보세요!</div>`
+       : p.ex ? '<div class="exbar">📘 교과서 예제 — 먼저 스스로 풀고, 「풀이 보기」로 교과서 풀이와 비교해 보세요</div>' : ''}
      <div class="q">${p.q}</div>
      ${p.fig ? `<div class="lab figbox" data-fig="${p.fig}"></div>` : ''}
      <div class="fields">` +
@@ -1353,11 +1628,12 @@ function makeCard(p){
      <div class="pbtns">
        <button class="btn main act-chk">정답 확인</button>
        <button class="btn hint act-hint">💡 힌트</button>
-       <button class="btn act-sol">📖 풀이 보기</button>
+       ${asEx ? '<button class="btn main2 act-step">👣 풀이 따라가기</button>' : '<button class="btn act-sol">📖 풀이 보기</button>'}
        <button class="askbtn act-ask">❓ 이 문제에 질문하기</button>
      </div>
      <div class="verdict"></div><div class="hintbox"></div><div class="keybox"></div>
-     <div class="solbox"><div class="st">📖 풀이</div>${p.sol || ''}</div>
+     ${asEx ? `<div class="stepbox">${steps.map((x, i) => `<div class="stp" data-i="${i}"><span class="sn">${i + 1}</span><div>${x}</div></div>`).join('')}</div>` : ''}
+     <div class="solbox"><div class="st">📖 풀이</div>${solHTML}</div>
      <div class="askhost"></div>`;
 
   ST[p.id] = { solved:false, tries:0, hints:0, got:p.fs.map(f => f.t === 'multi' ? [] : null) };
@@ -1422,7 +1698,15 @@ function makeCard(p){
   }
   $('.act-chk', el).onclick  = grade;
   $('.act-hint', el).onclick = () => showHint(false);
-  $('.act-sol', el).onclick  = e => {
+  if (asEx) $('.act-step', el).onclick = e => {
+    const box = $('.stepbox', el), next = $('.stp:not(.on)', box);
+    box.classList.add('on');
+    if (next){ next.classList.add('on'); tex(next); next.scrollIntoView({ behavior:'smooth', block:'nearest' }); if (window.SND) SND.hint(); }
+    const left = $$('.stp:not(.on)', box).length;
+    e.target.textContent = left ? `👣 다음 단계 (${left}단계 남음)` : '✅ 풀이 끝! 이제 답 칸에 직접 써 보세요';
+    if (!left){ e.target.disabled = true; showKey(); }
+  };
+  if (!asEx) $('.act-sol', el).onclick  = e => {
     sb.classList.toggle('on');
     e.target.textContent = sb.classList.contains('on') ? '풀이 접기' : '📖 풀이 보기';
     if (sb.classList.contains('on')){ showKey(); tex(sb); }
@@ -1626,6 +1910,216 @@ function launchFW(rounds, withConfetti){
 
 
 ;
+/* 자동 생성 (tools/build_lex.py) : 교과서·안내서 말뭉치에서 Kiwi로 뽑은 명사 사전 1081개 */
+const TM_LEX = "가게 가격 가능 가로 가로선 가로축 가운데 가정 갈래 갈릴레이 감소 강력 강연 강의 강조 개방 개수 개형 거대 거듭제곱 거리 거미줄 거북이 거울 거울상 거짓 거짓말 걱정 건너편 건축 걸음 검사 검색 검증 게임 결국 결론 결정 결합 결합법칙 경사 경산 경우의수 경제학 경주 경찰 경험 경험치 계단 계란 계산 계산기 계수 고대 고등학교 고민 고양이 고육지책 고전 고향 곡명 곡선 곤란 곰돌이 곱셈 공감 공감순 공개 공기 공식 공역 공인 공장 공정 공집합 공통 공통점 공학 과속 과자 과정 과제 과학 과학자 관계 관련 관련성 관점 관찰 괄호 광고 광장 괘종시계 괴물 교과서 교사 교실 교육 교점 교탁 교통사고 교향곡 교환 교환법칙 구간 구급차 구매 구별 구석 구스타프 구역 구조 구체 구하기 국적 권율 규칙 그네 그때 그래프 그래프개형 그래프용지 그래픽 그래핑 그리스 그리스어 그림 극한 근거 근사값 근삿값 근처 근호 글자 금액 금지 급수 기계 기관 기기 기록 기법 기본 기술 기억 기온 기울기 기원전 기적 기준 기차 기체 기초 기타 기호 길이 김민형 김시민 꼭짓점 꼴의 꾸러미 끝점 나눗셈 나라 나머지 날씨 납득 낱말 내비게이션 내연 넓이 노선 노선도 노트 노트북 논리 논의 논쟁 논제 논증 높이 눈물 뉴턴 느린 다리 다항식 다항함수 단계 단면 단속 단순 단원 단위 단정 단추 달러 달리기 담당 당시 당연 대각선 대결 대단원 대신 대우 대응 대응표 대입 대첩 대칭 대칭이동 대칭점 대칭축 대표 대화 더위키 더하기 덕분 덧셈 데이터 도구 도로 도서관 도움 도움말 도입 도전 도착 도플러 독일 독일어 동경이 동그라미 동시 동안 동의 동작 동전 돼도 둘레 등급 등불 등속 등시성 등장 디리클레 디자인 라면 라틴 라틴어 랜덤 러시아 레벨 레시피 레온하르트 로그인 로마 로버트 루이스 루트 르죈 리스트 마라톤 마무리 마법 마스터 마시기 마우스 마음 마이너스 마찬가지 마찰 마크 만족 망원경 머리 머릿속 먹기 먹어라 멀티 메모 메시지 메타 멘트 면허 명제 모눈 모델 모둠 모순 모습 모양 모음 모형 목록 목소리 목숨 목적 목적지 목표 몰입도 몸무게 무게 무기 무리 무리수 무리식 무리함수 무시 무한 무한대 무한집합 묶음 문어 문의 문자 문항 물리 물체 미래 미만 미분 미션 미술 미적분 미터 믿음 바깥 바다 바람개비 바코드 바퀴 박수 반대 반례 반론 반박 반복 반비례 반사 반응 반전 반지름 반쪽 발견 발문 발전 발표 밧줄 방식 방정식 방향 배경 배달 백과 버섯 버스 버튼 번호 범위 법정 법칙 베토벤 변량 변수 변형 변화 변환 별표 병렬 보기 보안 보일 복선 복습 복호화 본질 봉지 봉투 부등식 부분집합 부정 부족 부피 부호 분류 분모 분석 분수 분수식 분수함수 분위기 분의 분자 분포 불가능 불꽃놀이 불리 불편 브레이크 블록 블룸 비교 비례 비밀 비밀번호 비법 비분수 비용 비율 비즈네르 비창 비행기 빈칸 빨간 빨강 뺄셈 사각 사고 사냥 사다리 사람 사례 사분 사분면 사용 사이 사이렌 사이먼 사이언스 사이트 사인 사전 사진 산술 살인 삼각 삼차함수 삽살개 상관 상상 상수 상수함수 상수항 상위 상자 상태 상품 상하 생일 생활 서문 서버 서식지 서점 서클 선물 선생 선수 선택 섭씨 성공 성당 성립 성우 성적 성질 성찰 세계 세금 세기 세로 세로선 세로축 세상 세제곱 셀카 소개 소리 소멸 소모량 소설 소수 소품 속도 속도계 속력 손가락 손바닥 쇼핑 수고 수수께끼 수수료 수식 수심 수에토니우스 수은 수준 수지 수직 수평선 수학 수학사 수학자 숙제 순간 순서 순서쌍 숫자 슈베르트 스마트폰 스키 스키드 스키드마크 스톱워치 스트로 스티븐 스피커 슬라이더 습관 승부 시각 시간 시계 시늉 시대 시상 시속 시연 시작 시작점 시험 식이 신기 신발 신호 실근 실내화 실력 실생활 실수 실시간 실제 실패 실험 실험실 십자 쌍곡선 쓰나미 쓸모 씨앗 아리스토텔레스 아버지 아우구스투스 아이디어 아이스크림 아킬레스 안과 안내서 안전 안쪽 알파벳 암호 암호화 압력 앞문 앞부분 애벌레 앨리스 약분 약속 약수 양말 양변 양손 양수 양자 양쪽 어려 언어 얼굴 엄마 업적 에너지 에세이 에프 엑셀 엔진 엘렌버그 여부 여왕 여유 여행 역량 역사 역설 역수 역할 역함수 연결 연계 연관 연구 연기 연도 연료 연비 연산 연속 연습 열기 열쇠 열전 열정 영상 영어 영역 영웅 영향 영화 예고 예상 예시 예정 예제 예측 오각 오늘날 오답 오랫동안 오른쪽 오스트리아 오일러 오차 온도 와이파이 완벽 완성 왕복 왜지 외부 왼쪽 요금 요금제 요리 요약 요청 용돈 용어 우리나라 우리말 우선순위 우연 우주 우편 우편번호 운동 운명 운전 움직임 웃음 웅덩이 워드클라우드 원론 원리 원문 원서식지 원소 원점 원주 위성 위쪽 위치 위키 위키독스 위험 유도 유로 유리 유리관 유리수 유리식 유리함수 유리화 유한 유형 율리우스 은행 음료 음성 음수 음악 의견 의심 의존 이동 이득 이때 이면서 이면지 이번 이분법 이사 이상 이순신 이암블리 이야기 이어도 이어폰 이용 이자 이쪽저쪽 이차함수 이탈리아어 이하 익명 익힘책 인공지능 인도양 인수 인수분해 인정 인터넷 일과 일대일 일대일대응 일대일함수 일반 일상 일정 일차식 일차함수 일차항 일치 읽기 임의 임진왜란 입력 입문 입장 자국 자동 자동차 자료 자리 자물쇠 자연 자연수 자연학 자음 자판기 작가 작곡가 작동 작위 잔소리 장면 장비 장점 재료 재판 저금 저울 저자 저작 저장 저항 적분 적용 전기 전달 전류 전설 전압 전쟁 전제 절반 절편 점검 점근선 점선 점수 점원 접선 접점 정답 정렬 정류장 정리 정밀도 정보 정비례 정사각형 정수 정의 정의역 정확 제곱 제곱근 제논 제동 제목 제자리 제한 조각 조건 조사 조심 조절 조화 조화평균 존재 존중 종교 종류 종이 좌우 좌표 좌표평면 주가 주기 주먹 주목 주변 주소 주의 주인공 주장 주제 주행 준비 중간 중단원 중심 중요 중학교 즐거움 증가 증거 증명 지구 지름 지붕 지우개 지적 지점 지진 지하철 지호 지휘관 직관 직렬 직사각형 직선 직전 진도 진돗개 진동 진동수 진술 진자 진주 진폭 진행 질문왕 질문지 집안 집중 집합 짝꿍 차량 차수 차시 차이 차이점 차이콥스키 착각 찬성 참고 창의 채택 처리 천장 철학자 첫머리 청소 체크 초과 초기 초록 초속 초점 촛불 총거리 총시간 최고 최고차항 최대 최댓값 최소 최솟값 추론 추정 추천 축과 축소 출동 출력 출발 출발점 출석 출석번호 출처 충격 충고 충돌 측정 측정값 치역 친구 친구들 칠판 칭찬 칭호 카드 카메라 카이사르 캐럴 캐릭터 캡슐 컴퓨터 케이크 코드북 코딩 코사인 코스 코치 콘센트 쿠폰 퀴즈 크기 크레인 키케로 타이머 타이어 타일 탈락 탐구 태블릿 택배 택시 테스트 토끼 토론 토의 토종 통계 통과 통분 통장 통째 투표 특별 특정 특징 파도 판단 판매량 판별 판별식 판정 패턴 퍼포먼스 페르마 페터 편리 편지 편집 평가 평균 평균속력 평면 평생 평행 평행이동 포물선 포스트잇 포인트 포함 폭발 폭탄 폴리 폴리그래프 표시 표준 표준형 표현 풀이 품절 풍산 풍산개 풍선 프로그래밍 프로그램 피타고라스 필기 필수 필요 필요충분조건 하나씩 하루 하이브리드 하지 학교 학번 학생 학습 학파 한계 한글 한산도 한자 한쪽 할아버지 할인 할인율 함수 함숫값 함정 합성 합성함수 항등식 항등함수 해결 해당 해독 해석 해시 해안 해외 해외여행 해일 해커 해킹 핵심 핸드폰 행주 헷갈 현대 현상 현실 혈액 혈액형 형성 형식 혼란 혼자 홀수 화면 화살 화살표 화씨 화학 확대 확률 확인 확장 환율 환전 활동 활용 황제 회수 회전 효과 효율 후반 휴대폰 히파소스 히파수스 힌트";
+
+;
+/* ===================================================================
+   🔤 질문 텍스트 마이닝 엔진 — 「텍스트 마이닝 파이썬 1~5」의 흐름을 브라우저에서
+   ① 정규식 정제 (노트1 re.sub : 이메일·주소·숫자·특수문자·ㅋㅋ/ㅠㅠ 제거)
+   ② 수학 기호 보호 (y=x, f⁻¹, g∘f, x축 …은 지우기 전에 낱말로 꺼내 둠)
+   ③ 띄어쓰기·표기 통일 = 동일화 (노트1 stemming : 역 함수→역함수, 학생들→학생, 함수값→함숫값)
+   ④ 형태소 분석 (노트2 KoNLPy nouns 역할) : 어절마다 「사전 명사 최장일치 + 조사·어미·접사 검증」
+        - 사전 = 교과서·안내서 말뭉치를 Kiwi 형태소 분석기로 미리 분석해 뽑은 명사 (tmlex.js)
+        - 「대응하면, 이동시키면, 필요해요」처럼 하다·되다·시키다 용언은 어근 명사(대응·이동·필요)를 남김
+        - 조사가 여러 개 붙어도(에서는, 으로도, 들의) 떼어 냄
+   ⑤ 불용어 사전 + 한 글자 제거 (노트1 stopwords, 노트3 len(x)>1) — 단, 식·값·근·축은 수학 용어라 남김
+   ⑥ 빈도 (노트3 Counter · value_counts) → 워드클라우드 (generate_from_frequencies)
+   ⑦ 동시출현 (노트4 count[a, b] : 한 질문 안에 함께 나온 두 낱말) → 단어 연결망 (노트5 networkx)
+   =================================================================== */
+const TM_MATH = ('함수 정의역 공역 치역 대응 함숫값 그래프 일대일함수 일대일대응 항등함수 상수함수 합성함수 역함수 교환법칙 결합법칙 '+
+ '순서쌍 좌표 좌표평면 직선 곡선 대칭 대칭이동 평행이동 원점 기울기 절편 일차함수 이차함수 삼차함수 다항함수 다항식 유리식 유리함수 무리식 무리함수 '+
+ '분수식 분수함수 분수 분모 분자 약분 통분 점근선 쌍곡선 포물선 반비례 정비례 제곱근 근호 루트 유리화 실수 정수 자연수 유리수 무리수 음수 양수 '+
+ '집합 원소 부분집합 사분면 증가 감소 최댓값 최솟값 범위 조건 부등식 방정식 교점 변수 상수 계수 차수 항등식 '+
+ '암호 해독 암호화 복호화 카이사르 해시 비밀번호 환율 환전 할인 쿠폰 세금 우편번호 연비 속력 속도 평균 평균속력 '+
+ '도플러 진동수 저항 병렬 압력 부피 보일 진자 주기 길이 쓰나미 해일 수심 무게 지름 반지름 밧줄 거리 시간 '+
+ '무한대 무한집합 오일러 디리클레 앨리스 갈릴레이 제논 아킬레스 거북이 무한 극한 연속 기계 입력 출력 규칙 관계 변화 의존 이상 이하 미만 초과 '+
+ '차이 순서 거울 화살표 나머지 평면 높이 크기 온도 비례 개형 꼭짓점 대칭축 대칭점 접점 접선 '+
+ '역수 제곱 세제곱 거듭제곱 나눗셈 곱셈 덧셈 뺄셈 공식 계산 그래프개형 가로축 세로축 정의 성질 위치 방향 이동 확대 축소 회전 반사').split(/\s+/);
+const TM_EXTRA = ('학생 사람 친구들 학교 생활 일상 실생활 예시 예제 정답 오답 풀이 그림 모양 기준 원리 특징 영향 패턴 공통점 차이점 '+
+ '자판기 휴대폰 핸드폰 스마트폰 게임 음악 영화 사진 셀카 카메라 자동차 버스 지하철 기차 비행기 택시 이어폰 가격 요금 돈 용돈 할인율 '+
+ '양말 신발 옷 단추 상자 택배 주소 번호 학번 이름 비밀 열쇠 자물쇠 통장 은행 이자 저금 '+
+ '날씨 기온 바다 파도 지진 타이어 브레이크 운동 속도계 시계 거울상 좌우 상하 반전 '+
+ '책 작가 소설 이야기 주인공 토끼 여왕 고양이 철학자 과학자 수학자 역사 실험 증명 반례 근거 주장 반론 의견 입장 찬성 반대 토론 토의 '+
+ '컴퓨터 인공지능 프로그램 코딩 데이터 그래픽 미술 디자인 건축 다리 도로 경사 계단 빛 소리 전기 전류 전압 물 공기 '+
+ '필요 중요 가능 불가능 정확 존재 성립 표현 비교 구별 판단 예측 연결 이용 사용 적용 변환 결정 대입 정리 증명 확인 해결 발견 연관 상관 구간 단원 대단원 중단원 수학 과학 인수 인수분해 표준 표준형 실제 현실 현대 결론 효율 비용 우연 '+
+ '스키드마크 경험치 요금제 판매량 몸무게 아이스크림 노선도 캐릭터 레벨 경우의수 확률 통계 그래프용지 모눈 화살 짝 쌍 묶음 짝꿍 대응표 표').split(/\s+/);
+const TM_STOP = ('왜 어떻게 무엇 뭐 뭘 뭔가 무슨 어떤 어느 어디 언제 누가 누구 얼마 얼마나 몇 어째서 웬 '+
+ '이거 그거 저거 이것 그것 저것 여기 거기 저기 이런 그런 저런 이렇게 그렇게 저렇게 이게 그게 저게 이건 그건 요거 '+
+ '나 너 저 제 내 우리 저희 너희 자기 자신 본인 그 이 '+
+ '그리고 그런데 그래서 하지만 근데 그러면 그럼 그러니까 또 또는 혹은 및 즉 왜냐하면 때문 때문에 그래도 그러나 아니면 '+
+ '정말 진짜 너무 아주 매우 조금 좀 많이 잘 더 덜 다시 항상 늘 계속 먼저 바로 그냥 혹시 만약 만일 같이 함께 모두 다 전부 각각 서로 '+
+ '아직 이미 벌써 자꾸 갑자기 원래 보통 대부분 주로 특히 오직 꼭 반드시 과연 대체 도대체 가장 제일 별로 전혀 거의 약간 대충 대략 '+
+ '역시 어쩌면 아마 혹은 한번 하나 둘 셋 두 세 네 여러 모든 각 매번 언제나 가끔 자주 이제 지금 나중 요즘 방금 '+
+ '것 거 수 등 때 점 곳 중 안 밖 위 아래 앞 뒤 쪽 번 개 가지 경우 정도 부분 내용 방법 문제 질문 선생님 쌤 '+
+ '이름 결과 뜻 의미 이해 설명 궁금 궁금증 생각 공부 수업 오늘 내일 어제 다음 처음 마지막 이유 개념 느낌 기분 '+
+ '얘기 말 글 단어 문장 답변 대답 상황 사실 자체 전체 일부 대해 관해 통해 위해 대한 관한 의해 '+
+ '있다 없다 하다 되다 이다 아니다 같다 다르다 모르다 알다 싶다 보다 주다 오다 가다 '+
+ '결국 실제로 인당 남은 아니라 아닌 아니 따라 수도 개의 신고 정도로 배로 안이 차례 다른 같은 어떤것 무엇인가 무엇일까 뭔지 왜냐 아무 아무것 누구나 그것들').split(/\s+/);
+const MATH_TERMS = TM_MATH, MATH_SET = new Set(TM_MATH);            // ai.js · 수학 용어만 보기에서 씀
+const STOPWORDS = new Set(TM_STOP);
+const TM_ONE = new Set(['식', '값', '근', '축', '역', '곱', '몫', '합', '차', '선', '원', '비', '각', '변', '해', '점', '키']);   // 한 글자 명사(조사가 붙을 때만 인정)
+const TM_ONE_KEEP = new Set(['식', '값', '근', '축', '역', '곱', '몫', '합', '키']);                                        // 한 글자지만 핵심어로 남김
+const TM_LEXSET = new Set([...((typeof TM_LEX !== 'undefined' ? TM_LEX : '').split(' '))
+  .filter(w => !(w.length === 2 && TM_ONE.has(w[0]) && /^[이은을의에도만과로]$/.test(w[1]))), ...TM_MATH, ...TM_EXTRA, ...TM_STOP].filter(w => w.length >= 2));
+const TM_JOSA = ['으로부터','에서부터','에게서는','으로서','으로써','에게서','한테서','이라도','이든지','이라는','이라고','이라면','이란','에서는','에서도','에서의','으로는','으로도','으로의',
+  '에게는','에게도','까지는','까지도','부터는','처럼은','보다는','보다도','이나마','에서','에게','한테','께서','까지','부터','처럼','보다','마다','조차','마저','밖에','이나','이랑','이며','으로',
+  '에선','에는','에도','에의','으론','라는','라고','라면','이요','하고','과','와','은','는','이','가','을','를','에','의','로','도','만','나','랑','요','야','든','란','엔','론','께','며','고','씩','쯤','뿐'];
+const TM_PRED = /^(하|해|했|할|한|함|합|되|돼|됐|될|된|됨|됩|시키|시켜|시킨|시킬|시켰|시킴|당하|당해|당한|스럽|스러|스런|적|같|없|있|답|롭|드리|받)/;
+const TM_COP = /^(이|인|일|임|입|였|이었|이에|이예|예요|에요|예|이라|라|이야|야|이지|지|이고|이며|이면|면|이니|니|이죠|죠|인데|인지|인가|일까|일지|이냐|냐|이잖|잖|이네|네|이군|이래|래|인듯|이든|든|이었|였)/;
+const TM_SPACED = [[/일대일\s*대응/g,'일대일대응'],[/일대일\s*함수/g,'일대일함수'],[/(^|[^가-힣])역\s+함수/g,'$1역함수'],[/합성\s+함수/g,'합성함수'],
+  [/항등\s+함수/g,'항등함수'],[/상수\s+함수/g,'상수함수'],[/유리\s+함수/g,'유리함수'],[/무리\s+함수/g,'무리함수'],[/분수\s+함수/g,'분수함수'],[/점근\s*선/g,'점근선'],
+  [/평행\s+이동/g,'평행이동'],[/대칭\s+이동/g,'대칭이동'],[/좌표\s+평면/g,'좌표평면'],[/평균\s+속력/g,'평균속력'],[/함수\s*값/g,'함숫값'],[/교환\s+법칙/g,'교환법칙'],
+  [/결합\s+법칙/g,'결합법칙'],[/정의\s+역/g,'정의역'],[/이차\s+함수/g,'이차함수'],[/일차\s+함수/g,'일차함수'],[/최대\s*값/g,'최댓값'],[/최소\s*값/g,'최솟값'],[/꼭지점/g,'꼭짓점'],
+  [/핸드폰|휴대전화/g,'휴대폰']];
+const TM_SYN = { 함수값:'함숫값', 그래프개형:'개형', 최대값:'최댓값', 최소값:'최솟값', 꼭지점:'꼭짓점', 친구들:'친구', 핸드폰:'휴대폰', 스마트폰:'휴대폰' };
+
+/* ① 정제 + ② 수학 기호 꺼내기 */
+function tmClean(text){
+  let t = String(text || '');
+  const sym = [];
+  const grab = (re, f) => { t = t.replace(re, (...m) => { sym.push(f(m)); return ' '; }); };
+  t = t.replace(/https?:\/\/\S+|www\.\S+/g, ' ').replace(/[A-Za-z0-9._+-]+@[A-Za-z0-9-]+\.[A-Za-z.]+/g, ' ');
+  t = t.replace(/\\circ/g, '∘').replace(/\\sqrt/g, '√').replace(/\\(frac|left|right|dfrac|cdot|times|le|ge|ne)/g, ' ').replace(/\\\(|\\\)|\\\[|\\\]/g, ' ');
+  grab(/\b([fgh])\s*(?:\^\s*\{?\s*-\s*1\s*\}?|⁻¹|-1(?![0-9]))/g, m => m[1] + '⁻¹');
+  grab(/(?:^|[^a-z])([fgh])\s*(?:∘|ㅇ|°)\s*([fgh])(?![a-z])/gi, m => m[1].toLowerCase() + '∘' + m[2].toLowerCase());
+  grab(/\by\s*=\s*x(?![0-9a-z²^])/gi, () => 'y=x');
+  grab(/\b([xy])\s*(축|절편|좌표|값)/gi, m => m[1].toLowerCase() + m[2]);
+  t = t.replace(/√/g, ' 루트 ');
+  t = t.replace(/[ㄱ-ㅎㅏ-ㅣ]+/g, ' ');                       // ㅋㅋ ㅠㅠ ㅇㅇ
+  TM_SPACED.forEach(([re, to]) => { t = t.replace(re, to); });
+  t = t.replace(/[^가-힣\s]/g, ' ').replace(/_/g, ' ');       // \W+ → 공백, 숫자·영문 제거
+  t = t.replace(/([가-힣])\1{2,}/g, '$1$1');                   // 같은 글자 3번 이상 반복 줄이기
+  return { t, sym };
+}
+/* ④ 어절 분석 */
+function tmIsJosa(r, d){
+  if (r === '') return true;
+  if ((d || 0) > 3) return false;
+  if (!d && r.startsWith('들') && tmIsJosa(r.slice(1), 1)) return true;
+  for (const j of TM_JOSA) if (r.startsWith(j) && tmIsJosa(r.slice(j.length), (d || 0) + 1)) return true;
+  return false;
+}
+function tmSeg(w, depth){
+  if (depth > 3) return null;
+  for (let L = Math.min(w.length, 10); L >= 1; L--){
+    const p = w.slice(0, L), r = w.slice(L);
+    if (L === 1){ if (TM_ONE.has(p) && r && (tmIsJosa(r) || /^(이다|이에요|이야|인가|일까|인지)/.test(r) || (/[곱합]/.test(p) && /^(하|해|했|할|한)/.test(r)))) return [p]; continue; }
+    if (!TM_LEXSET.has(p)) continue;
+    if (tmIsJosa(r)) return [p];
+    if (/^(하|해|했|할|한|함|합|되|돼|됐|될|된|됨|시키|시켜|시킨)/.test(r)) return [p];   // 존재하지 → 존재 (「하지」를 명사로 읽지 않게)
+    const s = tmSeg(r, depth + 1);
+    if (s) return [p, ...s];                                    // 복합 명사 : 역함수그래프 → 역함수 + 그래프
+    if (TM_PRED.test(r) || TM_COP.test(r)) return [p];          // 대응하면 → 대응, 함수인가요 → 함수
+  }
+  return null;
+}
+const TM_BADEND = /[다요까죠지고서며니네게면려워져쳐혀겨봐줘래한는던든운른을된될할갈올볼줄쓸클날랑럼듯씩쯤데록]$/;
+const tmJong = ch => { const c = ch.charCodeAt(0) - 0xAC00; return c >= 0 && c < 11172 ? c % 28 : -1; };   // 받침 번호 (ㄴ=4, ㄹ=8, ㅁ=16)
+const TM_STEMEND = /[하되리르우이히기치키주보오가내져워잡찾먹같많작높넓좋싫읽믿얻쉽렵깝겁갑럽춥덥꾸]$/;
+function tmUnknown(w){
+  const ok = (s, strict) => s.length >= 2 && s.length <= 7 && !STOPWORDS.has(s) && !TM_BADEND.test(s) && !(strict && TM_STEMEND.test(s));
+  const SAFE = ['에서는','에서도','에게는','으로는','으로도','에서','에게','에는','에도','으로','까지','부터','처럼','보다','이랑','에','가','를','의','와','과','로'];
+  for (const j of SAFE) if (w.endsWith(j) && ok(w.slice(0, -j.length), j === '가' || j === '를' || j === '로') && !/[만도은는을를의]$/.test(w.slice(0, -j.length))) return w.slice(0, -j.length);
+  for (const j of ['은','이','을','도','만']){            // 「는」은 용언 관형형(바꾸는·늘어나는)과 구별이 어려워 쓰지 않음
+    const s = w.slice(0, -1);
+    if (w.endsWith(j) && ok(s, true) && (j === '도' || j === '만' || tmJong(s[s.length - 1]) > 0) && !/[어아여해워]$/.test(s)) return s;
+  }
+  const last = w[w.length - 1], jg = tmJong(last);
+  if (ok(w, true) && !/[이히리게만도은는을를가에의와과로요야어아여워와들나해라]$/.test(w) && jg !== 4 && jg !== 8 && jg !== 16) return w;   // 조사 없이 홀로 쓴 낯선 낱말 : 용언 관형형(-ㄴ·-ㄹ·-ㅁ)·연결어미 모양이면 버림
+  return '';
+}
+function tmWord(raw){
+  let w = raw;
+  if (w.length < 1) return [];
+  if (w === '식' || w === '값') return [w];
+  const s = tmSeg(w, 0);
+  if (s) return s;
+  const u = tmUnknown(w);
+  return u ? [u] : [];
+}
+/* ⑤ 낱말 목록 — tokenize(글, 수학 용어만?) */
+function tokenize(text, onlyMath){
+  const { t, sym } = tmClean(text);
+  const out = [];
+  t.split(/\s+/).forEach(raw => {
+    if (!raw) return;
+    tmWord(raw).forEach(n => {
+      n = TM_SYN[n] || n;
+      if (n.length > 1 && n.endsWith('들') && TM_LEXSET.has(n.slice(0, -1))) n = n.slice(0, -1);   // 학생들 → 학생
+      if (STOPWORDS.has(n)) return;
+      if (n.length < 2 && !TM_ONE_KEEP.has(n)) return;
+      if (onlyMath && !MATH_SET.has(n) && !TM_ONE_KEEP.has(n)) return;
+      out.push(n);
+    });
+  });
+  return out.concat(sym);
+}
+/* ⑥ 빈도 · ⑦ 동시출현 */
+function tmFreq(texts, opt){
+  opt = opt || {};
+  const f = {};
+  texts.forEach(x => tokenize(x, opt.math).forEach(w => { if (!opt.hide || !opt.hide.has(w)) f[w] = (f[w] || 0) + 1; }));
+  return Object.entries(f).sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
+}
+function tmPairs(texts, opt){
+  opt = opt || {};
+  const c = {};
+  texts.forEach(x => {
+    const s = [...new Set(tokenize(x, opt.math))].filter(w => !opt.hide || !opt.hide.has(w)).sort();
+    for (let i = 0; i < s.length; i++) for (let j = i + 1; j < s.length; j++){ const k = s[i] + '\u0001' + s[j]; c[k] = (c[k] || 0) + 1; }
+  });
+  return Object.entries(c).map(([k, n]) => [...k.split('\u0001'), n]).sort((a, b) => b[2] - a[2]);
+}
+/* 🕸️ 단어 연결망 (노트5 networkx spring layout을 작게 구현) */
+function drawNet(host, freq, pairs, opt){
+  opt = opt || {};
+  const W = host.clientWidth || 600, H = opt.h || 360;
+  const E = pairs.filter(p => p[2] >= (opt.min || 1)).slice(0, opt.edges || 40);
+  const names = [...new Set(E.flatMap(e => [e[0], e[1]]))].slice(0, 30);
+  if (!E.length || names.length < 2){ host.innerHTML = `<div class="state">한 질문 안에 함께 나온 낱말이 아직 부족해요. 질문이 더 모이면 연결망이 그려져요 🕸️</div>`; return; }
+  const fq = Object.fromEntries(freq), mx = Math.max(...names.map(n => fq[n] || 1));
+  const N = names.map((n, i) => ({ n, x: W / 2 + Math.cos(i * 2.4) * (40 + i * 6), y: H / 2 + Math.sin(i * 2.4) * (30 + i * 4), vx: 0, vy: 0, f: fq[n] || 1 }));
+  const idx = Object.fromEntries(N.map((o, i) => [o.n, i]));
+  const L = E.filter(e => e[0] in idx && e[1] in idx).map(e => ({ a: idx[e[0]], b: idx[e[1]], w: e[2] }));
+  const mw = Math.max(...L.map(l => l.w));
+  for (let it = 0; it < 260; it++){
+    const k = 0.9 * (1 - it / 260);
+    for (let i = 0; i < N.length; i++) for (let j = i + 1; j < N.length; j++){
+      const a = N[i], b = N[j]; let dx = a.x - b.x, dy = a.y - b.y, d2 = dx * dx + dy * dy + 0.01, d = Math.sqrt(d2);
+      const r = 2600 / d2; a.vx += dx / d * r; a.vy += dy / d * r; b.vx -= dx / d * r; b.vy -= dy / d * r;
+    }
+    L.forEach(l => { const a = N[l.a], b = N[l.b], dx = b.x - a.x, dy = b.y - a.y, d = Math.sqrt(dx * dx + dy * dy) + 0.01, s = (d - 90) * 0.02 * (0.6 + l.w / mw);
+      a.vx += dx / d * s; a.vy += dy / d * s; b.vx -= dx / d * s; b.vy -= dy / d * s; });
+    N.forEach(o => { o.vx += (W / 2 - o.x) * 0.004; o.vy += (H / 2 - o.y) * 0.006; o.x += o.vx * k; o.y += o.vy * k; o.vx *= 0.5; o.vy *= 0.5;
+      o.x = Math.max(40, Math.min(W - 40, o.x)); o.y = Math.max(22, Math.min(H - 22, o.y)); });
+  }
+  const col = n => MATH_SET.has(n) || TM_ONE_KEEP.has(n) || /[⁻∘=]|[xy](축|절편|좌표|값)/.test(n) ? '#7d5fe0' : '#ff6fa3';
+  host.innerHTML = `<svg viewBox="0 0 ${W} ${H}" width="100%" height="${H}" role="img" aria-label="단어 연결망">
+    ${L.map(l => `<line x1="${N[l.a].x.toFixed(1)}" y1="${N[l.a].y.toFixed(1)}" x2="${N[l.b].x.toFixed(1)}" y2="${N[l.b].y.toFixed(1)}" stroke="#b9a8f0" stroke-opacity="${(0.25 + 0.6 * l.w / mw).toFixed(2)}" stroke-width="${(1 + 4 * l.w / mw).toFixed(1)}"><title>${esc(N[l.a].n)} — ${esc(N[l.b].n)} : ${l.w}번 함께</title></line>`).join('')}
+    ${N.map(o => { const r = 6 + 14 * Math.sqrt(o.f / mx); return `<g><circle cx="${o.x.toFixed(1)}" cy="${o.y.toFixed(1)}" r="${r.toFixed(1)}" fill="${col(o.n)}" fill-opacity=".85"><title>${esc(o.n)} · ${o.f}회</title></circle>
+      <text x="${o.x.toFixed(1)}" y="${(o.y - r - 3).toFixed(1)}" text-anchor="middle" font-size="${(11 + 5 * o.f / mx).toFixed(1)}" font-weight="900" fill="#3b3363" paint-order="stroke" stroke="#fff" stroke-width="3">${esc(o.n)}</text></g>`; }).join('')}
+  </svg>`;
+}
+/* 한 번에 : 빈도(freq) · 나온 글 수(df) · 동시출현(pairs) */
+function tmStats(texts, opt){
+  opt = opt || {};
+  const f = {}, df = {}, c = {};
+  let docs = 0;
+  texts.forEach(x => {
+    const tk = tokenize(x, opt.math).filter(w => !opt.hide || !opt.hide.has(w));
+    if (!tk.length) return;
+    docs++;
+    tk.forEach(w => { f[w] = (f[w] || 0) + 1; });
+    const s = [...new Set(tk)].sort();
+    s.forEach(w => { df[w] = (df[w] || 0) + 1; });
+    for (let i = 0; i < s.length; i++) for (let j = i + 1; j < s.length; j++){ const k = s[i] + '\u0001' + s[j]; c[k] = (c[k] || 0) + 1; }
+  });
+  return { docs, freq:Object.entries(f).sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0])), df,
+    pairs:Object.entries(c).map(([k, n]) => [...k.split('\u0001'), n]).sort((a, b) => b[2] - a[2]) };
+}
+
+;
 /* ===================================================================
    질문 탐구 교실 — 로그인 · 질문 · 공감 · 답글 · 응답 저장 · 워드클라우드
    모든 통신은 Supabase RPC(SECURITY DEFINER)로만 오간다
@@ -1667,8 +2161,10 @@ async function enter(no, name){
   paintMe(); msg.textContent = ''; closeGate();
   SND.boot(); SND.hint();
   if (changed){ Object.keys(MINE).forEach(k => delete MINE[k]); clearForms(); }
+  if (changed || BCLS === 'all') BCLS = null;
   try{ await rpc('qf_checkin', { p_no:no, p_name:name }); netState(true); }catch(e){ netState(false); }
   await Promise.all([loadBoard(), loadMine()]);
+  if (typeof CUR !== 'undefined' && CUR === 'group' && window.gpLoad) gpLoad();
   return true;
 }
 function needLogin(){
@@ -1686,7 +2182,25 @@ async function loadBoard(){
   }catch(e){ netState(false); }
   refreshLists();
 }
+/* ---------- 🏫 반별 보기 (명렬표 : 2026학년도 1학년, 학번 1반번호 5자리) ---------- */
+const ROSTER = { grade:1, base:'2026.6.4.', size:{ 1:28, 2:28, 3:28, 4:29 } };      // 수업 반 현원 (이름은 넣지 않음)
+const clsOf = no => { const m = /^\s*(\d)(\d{2})(\d{2})\s*$/.exec(String(no || '')); return m ? String(+m[2]) : ''; };
+let BCLS = null;                                   // null = 아직 안 정함, 'all' = 전체
+const clsLabel = () => !BCLS || BCLS === 'all' ? '모든 반' : BCLS + '반';
+function boardRows(){ return !BCLS || BCLS === 'all' ? BOARD : BOARD.filter(p => String(p.cls || '') === BCLS); }
+function paintClsBars(){
+  const has = BOARD.some(p => p.cls);
+  const cls = [...new Set(['1', '2', '3', '4', ...BOARD.map(p => String(p.cls || '')).filter(Boolean)])].sort((a, b) => a - b);
+  if (has && BCLS === null && ME.no){ const m = clsOf(ME.no); BCLS = cls.includes(m) ? m : 'all'; }
+  $$('.clsbar').forEach(bar => {
+    bar.hidden = !has; if (!has) return;
+    bar.innerHTML = `<span class="clslab">🏫 반별로 보기</span>` + [['all', '전체']].concat(cls.map(c => [c, c + '반' + (c === clsOf(ME.no) ? ' (우리 반)' : '')]))
+      .map(([v, t]) => `<button type="button" class="fbtn${BCLS === v ? ' on' : ''}" data-c="${v}">${t}</button>`).join('');
+    $$('[data-c]', bar).forEach(b => b.onclick = () => { BCLS = b.dataset.c; refreshLists(); });
+  });
+}
 function refreshLists(){
+  paintClsBars();
   LISTS.forEach(l => { if (document.body.contains(l.host)) l.draw(); });
   if (window.paintScore) paintScore();
   if (window.drawClouds) drawClouds();
@@ -1759,6 +2273,7 @@ function mountComposer(host, o){
     try{
       const row = await rpc('qf_post', { p_lesson:LESSON.code, p_kind:o.kind, p_ref:o.ref || null, p_parent:null,
         p_body:body, p_level:lv, p_qtype:ty, p_no:ME.no, p_name:ME.name });
+      if (!row.cls && BOARD.some(p => p.cls)) row.cls = clsOf(ME.no);
       BOARD.unshift(row); netState(true);
       ta.value = ''; manualLv = manualTy = false; lv = 'what'; ty = 'closed'; paintSeg();
       msg.className = 'cmsg ok'; msg.textContent = '질문이 올라갔어요! 질문하는 사람이 가장 많이 배워요 ✨';
@@ -1781,7 +2296,7 @@ function mountComposer(host, o){
   if (!o.nolist){
     const ml = $('.minilist', box);
     LISTS.push({ host:ml, draw:() => {
-      const rows = BOARD.filter(p => p.kind === o.kind && (!o.ref || p.ref === o.ref));
+      const rows = boardRows().filter(p => p.kind === o.kind && (!o.ref || p.ref === o.ref));
       renderPosts(ml, rows.slice(0, o.max || 4), { compact:true,
         empty:'아직 질문이 없어요. 첫 질문의 주인공이 되어 볼까요?', more: rows.length > (o.max || 4) ? rows.length : 0 });
     }});
@@ -1832,6 +2347,7 @@ function renderPosts(host, rows, o){
       try{
         const row = await rpc('qf_post', { p_lesson:LESSON.code, p_kind:'reply', p_ref:null, p_parent:id,
           p_body:b, p_level:null, p_qtype:null, p_no:ME.no, p_name:ME.name });
+        if (!row.cls && BOARD.some(p => p.cls)) row.cls = clsOf(ME.no);
         BOARD.unshift(row); inp.value = ''; SND.hint(); refreshLists();
         $$(`.qi[data-id="${id}"] .replies`).forEach(x => x.classList.add('on'));
       }catch(e){ snack('답글을 달지 못했어요: ' + e.message); }
@@ -1909,76 +2425,9 @@ function logAttempt(id, correct, tries, hints){
     p_correct:correct, p_tries:tries, p_hints:hints }).catch(() => {});
 }
 
-/* ===================================================================
-   ☁️ 워드클라우드 — 핵심 단어만 (조사 · 어미 · 부사 · 의문사 제거)
-   =================================================================== */
-const MATH_TERMS = ('함수 정의역 공역 치역 대응 함숫값 그래프 일대일함수 일대일대응 항등함수 상수함수 합성함수 역함수 교환법칙 결합법칙 '+
- '순서쌍 좌표 좌표평면 직선 대칭 대칭이동 평행이동 원점 기울기 절편 일차함수 이차함수 다항함수 다항식 유리식 유리함수 무리식 무리함수 '+
- '분수식 분모 분자 약분 통분 점근선 쌍곡선 반비례 정비례 제곱근 근호 루트 유리화 실수 정수 자연수 유리수 무리수 음수 양수 '+
- '집합 원소 부분집합 사분면 증가 감소 최댓값 최솟값 범위 조건 부등식 방정식 교점 식 변수 상수 계수 차수 '+
- '암호 해독 암호화 복호화 카이사르 해시 비밀번호 환율 환전 할인 쿠폰 세금 우편번호 연비 속력 속도 평균 평균속력 '+
- '도플러 진동수 저항 병렬 압력 부피 보일 진자 주기 길이 쓰나미 해일 수심 무게 지름 밧줄 거리 시간 '+
- '오일러 디리클레 앨리스 갈릴레이 제논 아킬레스 거북이 무한 극한 연속 기계 입력 출력 규칙 관계 변화 의존 이상 이하 미만 초과 '+
- '차이 순서 역 거울 짝 화살표 나머지 평면 단면 높이 키 크기 온도 비례 그래프개형 개형').split(/\s+/);
-const MATH_SET = new Set(MATH_TERMS);
-const STOPWORDS = new Set(('왜 어떻게 무엇 뭐 뭘 뭔가 무슨 어떤 어느 어디 언제 누가 누구 얼마 얼마나 몇 '+
- '이거 그거 저거 이것 그것 저것 여기 거기 저기 이런 그런 저런 이렇게 그렇게 저렇게 '+
- '나 너 저 제 내 우리 저희 너희 자기 '+
- '그리고 그런데 그래서 하지만 근데 그러면 그러니까 또 또는 혹은 및 즉 왜냐하면 때문 때문에 '+
- '정말 진짜 너무 아주 매우 조금 좀 많이 잘 더 덜 다시 항상 늘 계속 먼저 바로 그냥 혹시 만약 만일 같이 함께 모두 다 전부 각각 서로 '+
- '아직 이미 벌써 자꾸 갑자기 원래 보통 대부분 주로 특히 오직 꼭 반드시 과연 대체 도대체 '+
- '것 거 수 등 때 점 곳 중 안 밖 위 아래 앞 뒤 쪽 번 개 가지 경우 정도 부분 내용 방법 문제 질문 선생님 친구 '+
- '따로 배로 배밖 안이 정도로 이름 결과 '+
- '이해 설명 궁금 생각 공부 수업 오늘 다음 처음 마지막 이유 의미 뜻 개념 '+
- '있다 없다 하다 되다 이다 아니다 같다 다르다 모르다 알다 싶다 보다 주다 오다 가다').split(/\s+/));
-const JOSA = ['으로부터','에서부터','이라는','이라고','이라면','이지만','으로서','으로써','에서는','에게서','에서도','으로는','으로도',
-  '에서','에게','한테','까지','부터','처럼','보다','마다','조차','이나','이며','이고','으로','라는','라고','에는','에도','와는','과는','와의','과의',
-  '들의','들이','들을','들은','들도','이랑','랑','은','는','이','가','을','를','에','의','로','와','과','도','만','나','야','요'];
-const ENDINGS = ['합니까','습니까','입니까','할까요','일까요','될까요','인가요','건가요','나요','까요','는지','은지','을지','는데','은데',
-  '해요','하죠','이죠','예요','이에요','어요','아요','네요','데요','세요','지요','죠','하면','되면','이면','하고','해서','되서','돼서','하는',
-  '되는','하다','한다','된다','했다','됐다','이다','되어','되나','하나','하지','되지','같은','같아','있는','없는','있나','없나','있을','없을',
-  '있어','없어','싶어','싶은','줘요','주세요','려요','워요','래요','봐요','돼요','져요','쳐요','겨요','혀요','하게','되게','했는데','였는데','인데','인지','일지','할지','될지'];
-const SPACED = [[/일대일\s*대응/g,'일대일대응'],[/일대일\s*함수/g,'일대일함수'],[/역\s+함수/g,'역함수'],[/합성\s+함수/g,'합성함수'],
-  [/항등\s+함수/g,'항등함수'],[/상수\s+함수/g,'상수함수'],[/유리\s+함수/g,'유리함수'],[/무리\s+함수/g,'무리함수'],[/점근\s+선/g,'점근선'],
-  [/평행\s+이동/g,'평행이동'],[/대칭\s+이동/g,'대칭이동'],[/좌표\s+평면/g,'좌표평면'],[/평균\s+속력/g,'평균속력'],[/함수\s+값/g,'함숫값']];
-function stripTail(w){
-  for (let k = 0; k < 2; k++){
-    let cut = false;
-    for (const j of JOSA) if (w.endsWith(j) && (w.length > j.length + 1 || (w.length > j.length && MATH_SET.has(w.slice(0, -j.length))))){ w = w.slice(0, -j.length); cut = true; break; }
-    if (!cut) break;
-  }
-  return w;
-}
-function tokenize(text, onlyMath){
-  let t = String(text || '');
-  SPACED.forEach(([re, to]) => { t = t.replace(re, to); });
-  t = t.replace(/\\\(|\\\)|\\[a-z]+/g, ' ').replace(/[^가-힣a-zA-Z0-9\s]/g, ' ');
-  const out = [];
-  t.split(/\s+/).forEach(raw => {
-    if (!/[가-힣]/.test(raw)) return;                           // 한글 없는 토큰(수식 조각) 제외
-    let w = raw.replace(/[a-zA-Z0-9]/g, '');
-    if (!w) return;
-    if (MATH_SET.has(w)){ out.push(w); return; }
-    const s = stripTail(w);
-    if (MATH_SET.has(s)){ out.push(s); return; }
-    // 용언 · 어미로 끝나면 버린다
-    if (ENDINGS.some(e => w.endsWith(e) || s.endsWith(e))) return;
-    if (/(하|되|있|없|같|싶|않|못|봐|줘|했|됐|겠|었|았)$/.test(s)) return;
-    if (/[다요까죠지고서며니네게면려워져쳐혀겨봐줘래한는야른닌던]$/.test(s) && !MATH_SET.has(s)) return;
-    if (STOPWORDS.has(s) || STOPWORDS.has(w) || s.length < 2 || s.length > 9) return;
-    // 접두 수학어가 붙은 복합어는 수학어로 (예: 역함수의값 → 역함수)
-    const pre = MATH_TERMS.find(m => m.length >= 2 && s.startsWith(m) && s.length - m.length <= 2);
-    if (pre){ out.push(pre); return; }
-    if (!onlyMath) out.push(s);
-  });
-  return out;
-}
+/* ☁️ 워드클라우드 — 낱말 분석은 tm.js (텍스트 마이닝 엔진) */
 const HIDE = new Set();
-function freqOf(texts, onlyMath){
-  const f = {};
-  texts.forEach(t => tokenize(t, onlyMath).forEach(w => { if (!HIDE.has(w)) f[w] = (f[w] || 0) + 1; }));
-  return Object.entries(f).sort((a,b) => b[1] - a[1]).slice(0, 44);
-}
+function freqOf(texts, onlyMath, top){ return tmFreq(texts, { math:onlyMath, hide:HIDE }).slice(0, top || 44); }
 const CCOL = ['#ff5f9e','#9b7cf6','#2bbf9e','#3aa6f2','#ffaa2b','#f0647c','#7d8cf5','#14b8a6'];
 function drawCloud(host, freq, opt){
   opt = opt || {};
@@ -1991,7 +2440,7 @@ function drawCloud(host, freq, opt){
   const meas = document.createElement('span'); meas.style.cssText = 'position:absolute;visibility:hidden;font-weight:900;white-space:nowrap';
   host.appendChild(meas);
   freq.forEach(([w, n], i) => {
-    const size = Math.round(15 + (mx === mn ? 14 : (n - mn) / (mx - mn) * 30));
+    const sc = opt.scale || 1, size = Math.round((15 + (mx === mn ? 14 : (n - mn) / (mx - mn) * 30)) * sc);
     meas.style.fontSize = size + 'px'; meas.textContent = w;
     const bw = meas.offsetWidth + 6, bh = meas.offsetHeight + 2;
     for (let k = 0; k < 900; k++){
@@ -2004,7 +2453,7 @@ function drawCloud(host, freq, opt){
       const s = document.createElement('span');
       s.textContent = w; s.title = `${w} · ${n}회 (클릭하면 숨기기)`;
       s.style.cssText = `left:${x}px;top:${y}px;font-size:${size}px;color:${CCOL[i % CCOL.length]};opacity:${0.62 + 0.38*(n-mn+1)/(mx-mn+1)}`;
-      if (opt.hideable !== false) s.onclick = () => { HIDE.add(w); if (window.drawClouds) drawClouds(); snack(`「${w}」를 이 화면의 구름에서 숨겼어요`); };
+      if (opt.hideable !== false) s.onclick = () => { HIDE.add(w); if (opt.onHide) opt.onHide(); else if (window.drawClouds) drawClouds(); snack(`「${w}」를 이 화면의 구름에서 숨겼어요`); };
       host.appendChild(s);
       break;
     }
@@ -2541,6 +2990,594 @@ function bootNote(){
   };
   bindCoach('noteCoach', putSeedNote);
   window.addEventListener('beforeunload', () => { if (_nT){ clearTimeout(_nT); noteSave(false); } });
+}
+
+;
+/* ===================================================================
+   👥 소그룹 — 반마다 모둠 5개. ❓질문 방 · 💬토론 방 · 📝해결 결과 → 🌟 모두에게 공유
+   📤 나의 활동 기록 : 내가 한 질문 · 해결 · 의견 · 역할을 선생님께 보냄 (교과세특 근거)
+   =================================================================== */
+const GROLES = ['모둠장 (진행·시간 관리)', '질문 리더 (질문 다듬기)', '해결사 (풀이·설명)', '기록이 (해결 결과 정리)', '발표자 (공유·발표)', '반론가 (다른 관점 제시)', '자료 탐색가 (예시·근거 찾기)'];
+const GSTART = ['저는 ~라고 생각해요. 왜냐하면', '~에 동의해요. 덧붙이면', '~와 생각이 달라요. 그 이유는', '만약 ~라면 어떻게 될까요?', '정리하면 우리 모둠의 결론은'];
+const GP = { board:null, grp:0, rows:[], view:'q', all:false, res:[], focusQ:null, t:null };
+const myCls = () => clsOf(ME.no);
+
+function pageGroup(){
+  return `
+  <div class="card">
+    <h2><span class="chip">👥 소그룹</span><span id="gpTitle">우리 반 모둠 방</span></h2>
+    <p class="lead">반마다 <b>5개 모둠 방</b>이 있어요. 내 모둠에 들어가서 <b>❓ 질문 방</b>에서 질문을 올리고 서로 💡 해결 아이디어를 달아 주고,
+      <b>💬 토론 방</b>에서 의견을 나눈 뒤, <b>📝 해결 결과</b>를 정리해 모든 친구에게 공유해요. 다른 모둠 방은 들어가서 구경할 수 있어요.</p>
+    <div class="gpgrid" id="gpGrid"><div class="state">학번과 이름으로 입장하면 우리 반 모둠이 보여요.</div></div>
+  </div>
+  <div class="card gproom" id="gpRoom" hidden>
+    <h2><span class="chip" id="gpChip">1모둠</span><span id="gpRoomTitle">모둠 방</span>
+      <button type="button" class="btn" id="gpClose" style="margin-left:auto;padding:6px 14px">✕ 닫기</button></h2>
+    <div class="gpmem" id="gpMem"></div>
+    <div class="filters gptabs" id="gpTabs">
+      <button type="button" class="fbtn on" data-v="q">❓ 질문 방</button><button type="button" class="fbtn" data-v="chat">💬 토론 방</button>
+      <button type="button" class="fbtn" data-v="res">📝 해결 결과 쓰기</button></div>
+    <div id="gpBody"></div>
+  </div>
+  <div class="card">
+    <h2><span class="chip">🌟 모두의 해결 결과</span>모둠이 함께 해결한 질문</h2>
+    <div class="filters" id="gpResScope"><button type="button" class="fbtn on" data-v="cls">우리 반</button><button type="button" class="fbtn" data-v="all">모든 반</button></div>
+    <div id="gpResList" class="gpres"></div>
+  </div>
+  <div class="card" id="gpMine">
+    <h2><span class="chip">📤 나의 활동 기록</span>선생님께 보내기</h2>
+    <p class="lead" style="margin-top:0">오늘 수업에서 <b>내가 한 질문, 해결한 방법, 토의에서 낸 의견, 맡은 역할</b>을 정리해 선생님께 보내요.
+      이 기록과 사이트에 남은 활동(질문 · 해결 아이디어 · 토론 · 결과)이 모여 <b>나의 성장 기록</b>이 돼요.</p>
+    <div class="gpstat" id="gpMyStat"></div>
+    <div class="ff"><label>🎭 내가 맡은 역할</label><select data-k="role" class="inp"><option value="">— 골라 주세요 —</option>${GROLES.map(r => `<option>${r}</option>`).join('')}</select></div>
+    <div class="ff"><label>🙋 역할을 맡아 내가 한 일</label><textarea data-k="did" rows="2" placeholder="예) 모둠원 질문 4개를 What → How·Why → If 순서로 다시 정리하고, 해결이 안 된 질문을 토론 방에 올렸다."></textarea></div>
+    <div class="ff"><label>❓ 가장 의미 있었던 나의 질문과 해결한 방법</label><textarea data-k="best" rows="3" placeholder="예) 「역함수의 그래프는 왜 y=x에 대칭일까?」 → 점 (a, b)와 (b, a)를 찍어 보고 중점이 y=x 위에 있음을 확인해서 해결했다."></textarea></div>
+    <div class="ff"><label>💬 토의·토론에서 내가 낸 의견</label><textarea data-k="opinion" rows="2" placeholder="예) 식이 없어도 대응만 분명하면 함수라는 의견을 냈고, 자판기 예시를 근거로 들었다."></textarea></div>
+    <div class="ff"><label>🌱 활동 뒤 새로 생긴 질문이나 다짐</label><textarea data-k="next" rows="2" placeholder="예) 정의역을 바꾸면 역함수가 생기는 다른 함수도 찾아보고 싶다."></textarea></div>
+    <div class="crow"><button type="button" class="btn main save">📤 선생님께 보내기</button><span class="saved"></span></div>
+  </div>`;
+}
+
+/* ---------- 데이터 ---------- */
+async function gpLoad(){
+  if (!ME.no){ return; }
+  if (!myCls()){ $('#gpGrid').innerHTML = `<div class="state">소그룹은 <b>학번 5자리</b>(예 : 10315)로 입장해야 반을 알 수 있어요. 오른쪽 위 「바꾸기」로 다시 입장해 주세요.</div>`; return; }
+  try{ GP.board = await rpc('qf_group_board', { p_lesson:LESSON.code, p_no:ME.no }); }catch(e){ $('#gpGrid').innerHTML = `<div class="state">불러오지 못했어요 : ${esc(e.message)}</div>`; return; }
+  gpPaintBoard();
+  if (GP.grp) gpLoadRoom();
+  gpLoadResults();
+  gpPaintMyStat();
+}
+function gpPaintBoard(){
+  const B = GP.board; if (!B) return;
+  $('#gpTitle').textContent = `${B.cls}반 모둠 방 ${B.my_grp ? `· 나는 ${B.my_grp}모둠` : '· 아직 모둠에 들어가지 않았어요'}`;
+  $('#gpGrid').innerHTML = B.groups.map(g => `
+    <div class="gpcard${B.my_grp === g.grp ? ' mine' : ''}">
+      <div class="gph"><b>${g.grp}모둠</b>${B.my_grp === g.grp ? '<span class="gpme">우리 모둠</span>' : ''}</div>
+      <div class="gpm">${g.members.length ? g.members.map(n => `<span>${esc(n)}</span>`).join('') : '<i>아직 아무도 없어요</i>'}</div>
+      <div class="gpn"><span>❓ ${g.q}</span><span>✅ ${g.solved}</span><span>💬 ${g.chats}</span><span>📝 ${g.results}</span></div>
+      <div class="gpb">${B.my_grp === g.grp ? `<button type="button" class="btn main" data-open="${g.grp}">들어가기 ▶</button>`
+        : `<button type="button" class="btn" data-open="${g.grp}">👀 구경하기</button><button type="button" class="btn" data-join="${g.grp}">이 모둠에 들어가기</button>`}</div>
+    </div>`).join('');
+  $$('[data-open]', $('#gpGrid')).forEach(b => b.onclick = () => gpOpen(+b.dataset.open));
+  $$('[data-join]', $('#gpGrid')).forEach(b => b.onclick = async () => {
+    const g = +b.dataset.join;
+    if (GP.board.my_grp && !confirm(`${GP.board.my_grp}모둠에서 ${g}모둠으로 옮길까요?\n(이미 쓴 글은 원래 모둠 방에 남아요)`)) return;
+    try{ await rpc('qf_group_join', { p_no:ME.no, p_name:ME.name, p_grp:g }); snack(`👥 ${g}모둠에 들어왔어요!`); SND.levelUp && SND.levelUp(); GP.grp = g; await gpLoad(); gpOpen(g); }
+    catch(e){ snack(e.message, 3000); }
+  });
+}
+function gpOpen(g){
+  GP.grp = g; GP.view = 'q'; GP.focusQ = null;
+  $('#gpRoom').hidden = false;
+  $$('#gpTabs .fbtn').forEach(x => x.classList.toggle('on', x.dataset.v === 'q'));
+  gpLoadRoom();
+  setTimeout(() => $('#gpRoom').scrollIntoView({ behavior:'smooth', block:'start' }), 60);
+}
+async function gpLoadRoom(quiet){
+  if (!GP.grp) return;
+  try{ GP.rows = await rpc('qf_room', { p_lesson:LESSON.code, p_no:ME.no, p_grp:GP.grp }) || []; }catch(e){ GP.rows = []; }
+  const busy = $$('#gpBody input, #gpBody textarea').some(el => el.value.trim() || el === document.activeElement);
+  if (!quiet || !busy) gpPaintRoom();
+}
+const gpMineRoom = () => GP.board && GP.board.my_grp === GP.grp;
+function gpPaintRoom(){
+  const g = (GP.board.groups || []).find(x => x.grp === GP.grp) || { members:[] };
+  $('#gpChip').textContent = GP.grp + '모둠';
+  $('#gpRoomTitle').textContent = gpMineRoom() ? '우리 모둠 방' : '다른 모둠 방 (구경 중 — 글은 내 모둠 방에만 쓸 수 있어요)';
+  $('#gpMem').innerHTML = '👥 ' + (g.members.length ? g.members.map(esc).join(' · ') : '아직 아무도 없어요');
+  const B = $('#gpBody'), Q = GP.rows.filter(r => r.kind === 'q'), R = GP.rows.filter(r => r.kind === 'r'), C = GP.rows.filter(r => r.kind === 'chat'), RS = GP.rows.filter(r => r.kind === 'result');
+  const can = gpMineRoom();
+  if (GP.view === 'q'){
+    B.innerHTML = `${can ? `<div class="gpcomp"><textarea id="gpQIn" rows="2" maxlength="600" placeholder="모둠에 던질 질문을 써요. (무엇? → 왜·어떻게? → 만약 ~라면?)"></textarea>
+        <button type="button" class="btn main" id="gpQGo">❓ 질문 올리기</button></div>` : ''}
+      <div class="gpqs">${Q.length ? Q.slice().reverse().map(q => { const rs = R.filter(r => r.parent_id === q.id), lv = detectLevel(q.body);
+        return `<div class="gpq${q.solved ? ' solved' : ''}">
+          <div class="gpqh"><span class="lvtag ${lv}">${LVS[lv]}</span><b>${esc(q.name)}</b><small>${ago(q.created_at)}</small>${q.solved ? '<span class="gpok">✅ 해결</span>' : '<span class="gpwait">🤔 해결 중</span>'}</div>
+          <div class="gpqb">${esc(q.body)}</div>
+          ${rs.map(r => `<div class="gpr">💡 <b>${esc(r.name)}</b> ${esc(r.body)} <small>${ago(r.created_at)}</small></div>`).join('')}
+          ${q.teacher_reply ? `<div class="treply"><b>🧑‍🏫 선생님</b> ${esc(q.teacher_reply)}</div>` : ''}
+          ${can ? `<div class="gpra"><input class="inp" placeholder="💡 해결 아이디어나 힌트를 달아 주세요" maxlength="500" data-r="${q.id}">
+            <button type="button" class="btn" data-rs="${q.id}">달기</button>
+            <button type="button" class="btn" data-solve="${q.id}">${q.solved ? '↺ 해결 취소' : '✅ 해결됨'}</button>
+            <button type="button" class="btn" data-tores="${q.id}">📝 결과로 정리</button></div>` : ''}
+        </div>`; }).join('') : '<div class="state">아직 질문이 없어요. 첫 질문을 올려 보세요! ❓</div>'}</div>`;
+    if (can){
+      $('#gpQGo').onclick = () => gpPost('q', null, $('#gpQIn').value, null, () => { $('#gpQIn').value = ''; });
+      $$('[data-rs]', B).forEach(b => b.onclick = () => { const inp = $(`[data-r="${b.dataset.rs}"]`, B); gpPost('r', +b.dataset.rs, inp.value, null, () => { inp.value = ''; }); });
+      $$('[data-r]', B).forEach(i => i.onkeydown = e => { if (e.key === 'Enter') $(`[data-rs="${i.dataset.r}"]`, B).click(); });
+      $$('[data-solve]', B).forEach(b => b.onclick = async () => { try{ await rpc('qf_room_solve', { p_id:+b.dataset.solve, p_no:ME.no }); gpLoadRoom(); }catch(e){ snack(e.message); } });
+      $$('[data-tores]', B).forEach(b => b.onclick = () => { GP.focusQ = +b.dataset.tores; GP.view = 'res'; $$('#gpTabs .fbtn').forEach(x => x.classList.toggle('on', x.dataset.v === 'res')); gpPaintRoom(); });
+    }
+  }
+  if (GP.view === 'chat'){
+    B.innerHTML = `<div class="gpchat" id="gpChat">${C.length ? C.map(m => `<div class="gpmsg${m.mine ? ' me' : ''}"><b>${esc(m.name)}</b><span>${esc(m.body)}</span><small>${ago(m.created_at)}</small></div>`).join('')
+        : '<div class="state">토론 방이 조용해요. 질문 방에서 해결이 안 된 질문을 가져와 의견을 나눠 보세요 💬</div>'}</div>
+      ${can ? `<div class="gpstarts">${GSTART.map(s => `<button type="button" class="chipb" data-st="${esc(s)}">${esc(s)}</button>`).join('')}</div>
+      <div class="gpcomp"><textarea id="gpCIn" rows="2" maxlength="600" placeholder="내 의견과 그 이유를 써요. 친구 의견에 동의·반대할 때는 이유를 꼭!"></textarea>
+        <button type="button" class="btn main" id="gpCGo">💬 보내기</button></div>` : ''}`;
+    const box = $('#gpChat'); box.scrollTop = box.scrollHeight;
+    if (can){
+      $$('[data-st]', B).forEach(b => b.onclick = () => { const t = $('#gpCIn'); t.value = (t.value ? t.value + ' ' : '') + b.dataset.st + ' '; t.focus(); });
+      $('#gpCGo').onclick = () => gpPost('chat', null, $('#gpCIn').value, null, () => { $('#gpCIn').value = ''; });
+      $('#gpCIn').onkeydown = e => { if (e.key === 'Enter' && !e.shiftKey){ e.preventDefault(); $('#gpCGo').click(); } };
+    }
+  }
+  if (GP.view === 'res'){
+    B.innerHTML = `${can ? `<div class="gpform">
+        <div class="ff"><label>어떤 질문을 해결했나요?</label><select id="gpRq" class="inp"><option value="">(질문 방의 질문 고르기 — 없으면 아래에 직접)</option>
+          ${Q.map(q => `<option value="${q.id}"${GP.focusQ === q.id ? ' selected' : ''}>${esc(q.body.slice(0, 60))}</option>`).join('')}</select></div>
+        <div class="ff"><label>❓ 질문</label><textarea id="gpRqt" rows="2" maxlength="400" placeholder="해결한 질문을 써요"></textarea></div>
+        <div class="ff"><label>🛠 해결 과정 (어떤 방법으로? 누가 어떤 아이디어를?)</label><textarea id="gpRhow" rows="4" maxlength="1200" placeholder="예) 그래프를 그려 보고, 점 (a, b)와 (b, a)를 비교했다. 지민이가 중점을 구해 보자고 해서 …"></textarea></div>
+        <div class="ff"><label>✅ 결론</label><textarea id="gpRans" rows="2" maxlength="500" placeholder="우리 모둠의 답을 한두 문장으로"></textarea></div>
+        <div class="ff"><label>🌱 새로 생긴 질문</label><textarea id="gpRnext" rows="2" maxlength="400" placeholder="해결하고 나니 궁금해진 것"></textarea></div>
+        <button type="button" class="btn main" id="gpRGo">🌟 모두에게 공유하기</button></div>` : '<div class="state">해결 결과는 모둠원만 쓸 수 있어요. 아래 「모두의 해결 결과」에서 이 모둠의 결과를 볼 수 있어요.</div>'}
+      ${RS.length ? `<h3 style="margin-top:14px">📝 이 모둠이 공유한 결과</h3>${RS.slice().reverse().map(gpResCard).join('')}` : ''}`;
+    if (can){
+      const sel = $('#gpRq'), qt = $('#gpRqt');
+      const fill = () => { const q = Q.find(x => x.id === +sel.value); if (q) qt.value = q.body; };
+      sel.onchange = fill; fill();
+      $('#gpRGo').onclick = () => {
+        const d = { q:qt.value.trim(), how:$('#gpRhow').value.trim(), ans:$('#gpRans').value.trim(), next:$('#gpRnext').value.trim() };
+        if (!d.q || !d.how || !d.ans){ snack('질문 · 해결 과정 · 결론을 모두 써 주세요'); return; }
+        gpPost('result', +sel.value || null, `질문 : ${d.q}\n해결 : ${d.how}\n결론 : ${d.ans}${d.next ? '\n새 질문 : ' + d.next : ''}`, d, () => {
+          ['#gpRqt', '#gpRhow', '#gpRans', '#gpRnext'].forEach(s => $(s).value = ''); GP.focusQ = null; snack('🌟 해결 결과를 모두에게 공유했어요!'); gpLoadResults(); });
+      };
+    }
+  }
+}
+async function gpPost(kind, parent, body, data, done){
+  if (needLogin()) return;
+  body = String(body || '').trim(); if (!body){ snack('내용을 써 주세요'); return; }
+  try{
+    await rpc('qf_room_post', { p_lesson:LESSON.code, p_no:ME.no, p_name:ME.name, p_grp:GP.grp, p_kind:kind, p_parent:parent, p_body:body, p_data:data });
+    SND.hint(); if (done) done(); await gpLoadRoom(); gpPaintMyStat();
+    try{ GP.board = await rpc('qf_group_board', { p_lesson:LESSON.code, p_no:ME.no }); gpPaintBoard(); }catch(e){}
+  }catch(e){ snack(e.message, 3000); }
+}
+function gpResCard(r){
+  const d = r.data || {};
+  return `<div class="gprc"><div class="gprh"><span class="chip">${r.cls ? r.cls + '반 ' : ''}${r.grp}모둠</span><small>${esc(r.name)} · ${ago(r.created_at)}</small>
+      ${r.id && r.likes != null ? `<button type="button" class="gplike${r.liked ? ' on' : ''}" data-like="${r.id}">❤ ${r.likes || 0}</button>` : ''}</div>
+    <div class="gprq">❓ ${esc(d.q || r.q_body || '')}</div>
+    <div class="gprb"><b>🛠 해결 과정</b> ${esc(d.how || r.body)}</div>
+    ${d.ans ? `<div class="gprb"><b>✅ 결론</b> ${esc(d.ans)}</div>` : ''}
+    ${d.next ? `<div class="gprb"><b>🌱 새 질문</b> ${esc(d.next)}</div>` : ''}
+    ${r.teacher_reply ? `<div class="treply"><b>🧑‍🏫 선생님</b> ${esc(r.teacher_reply)}</div>` : ''}</div>`;
+}
+async function gpLoadResults(){
+  if (!ME.no || !myCls()) return;
+  try{ GP.res = await rpc('qf_results', { p_lesson:LESSON.code, p_no:ME.no, p_all:GP.all }) || []; }catch(e){ GP.res = []; }
+  const L = $('#gpResList');
+  L.innerHTML = GP.res.length ? GP.res.map(gpResCard).join('') : '<div class="state">아직 공유된 해결 결과가 없어요. 우리 모둠이 첫 번째가 되어 볼까요? 🌟</div>';
+  $$('[data-like]', L).forEach(b => b.onclick = async () => { try{ const o = await rpc('qf_room_like', { p_id:+b.dataset.like, p_no:ME.no }); b.classList.toggle('on', o.liked); b.textContent = '❤ ' + o.likes; }catch(e){ snack(e.message); } });
+}
+function gpPaintMyStat(){
+  const box = $('#gpMyStat'); if (!box) return;
+  const myQ = BOARD.filter(p => p.mine && p.kind !== 'reply' && p.kind !== 'free'), mine = GP.rows.filter(r => r.mine);
+  const n = k => mine.filter(r => r.kind === k).length, lv = k => myQ.filter(p => p.level === k).length;
+  box.innerHTML = `<span>🙋 수업 질문 <b>${myQ.length}</b> (What ${lv('what')} · How·Why ${lv('howwhy')} · If ${lv('if')})</span>
+    <span>❓ 모둠 질문 <b>${n('q')}</b></span><span>💡 해결 아이디어 <b>${n('r')}</b></span><span>💬 토론 의견 <b>${n('chat')}</b></span><span>📝 해결 결과 <b>${n('result')}</b></span>`;
+}
+function bootGroup(){
+  if (!$('#pg-group')) return;
+  seg($('#gpTabs'), v => { GP.view = v; gpPaintRoom(); });
+  seg($('#gpResScope'), v => { GP.all = v === 'all'; gpLoadResults(); });
+  $('#gpClose').onclick = () => { $('#gpRoom').hidden = true; GP.grp = 0; };
+  bindForm($('#gpMine'), 'portfolio');
+  clearInterval(GP.t);
+  GP.t = setInterval(() => { if (!document.hidden && CUR === 'group' && ME.no) { if (GP.grp && GP.view !== 'res') gpLoadRoom(true); } }, 9000);
+}
+
+;
+/* ===================================================================
+   🧑‍🏫 선생님 : 👥 소그룹 보기 · 📋 개인별 활동 기록 → 교과세특 초안
+   세특 초안은 사이트에 남은 기록만 근거로, 기재요령(500자=1500byte, 명사형 종결, 주어 생략,
+   수식·수치·상품명 직접 기입 금지, 부정 표현 금지)에 맞춰 규칙으로 만든다. 선생님이 반드시 확인·수정.
+   =================================================================== */
+let TG = null, TPF = null, tPfOpen = {};
+async function tGroupData(force){
+  if (!force && TG && TG.lesson === TL) return TG;
+  const d = await rpc('qf_teacher_groups', { p_pass:TP, p_lesson:TL });
+  TG = { lesson:TL, members:d.members || [], posts:d.posts || [] };
+  if (typeof tApplyCls === 'function') tApplyCls();
+  return TG;
+}
+
+/* ---------- 👥 소그룹 (선생님) ---------- */
+async function tGroups(V){
+  V.innerHTML = '<p class="lead">소그룹 기록을 불러오는 중…</p>';
+  let d; try{ d = await tGroupData(true); }catch(e){ V.innerHTML = `<p class="cmsg err">${esc(e.message)}</p>`; return; }
+  const cls = tCls === 'all' ? [...new Set(d.members.map(m => String(m.cls)).concat(d.posts.map(p => String(p.cls))))].filter(c => ['1','2','3','4'].includes(c)).sort() : tCls === 'etc' ? [] : [tCls];
+  const show = cls.length ? cls : ['1','2','3','4'];
+  const P = d.posts, K = (c, g, k) => P.filter(p => String(p.cls) === c && p.grp === g && p.kind === k);
+  V.innerHTML = `<p class="lead">반마다 5개 모둠의 <b>질문 · 해결 아이디어 · 토론 · 해결 결과</b>를 그대로 보여 줘요. 결과에 피드백을 남기면 학생 화면 「모두의 해결 결과」에 「🧑‍🏫 선생님」으로 보여요.
+      <button type="button" class="btn" id="tgCsv" style="margin-left:8px;padding:4px 12px">⬇ 소그룹 기록 CSV</button></p>
+    ${show.map(c => `<h3 class="tgcls">${c}반</h3><div class="tggrid">${[1,2,3,4,5].map(g => {
+      const mem = d.members.filter(m => String(m.cls) === c && m.grp === g), Q = K(c, g, 'q'), C = K(c, g, 'chat'), RS = K(c, g, 'result'), R = K(c, g, 'r');
+      const who = no => { const m = mem.find(x => x.student_no === no); return m ? m.name : no; };
+      return `<div class="tgcard"><div class="tgh"><b>${g}모둠</b><small>${mem.map(m => esc(m.student_no + ' ' + m.name)).join(', ') || '아직 없음'}</small></div>
+        <div class="gpn"><span>❓ ${Q.length}</span><span>✅ ${Q.filter(q => q.solved).length}</span><span>💡 ${R.length}</span><span>💬 ${C.length}</span><span>📝 ${RS.length}</span></div>
+        <details${Q.length ? ' open' : ''}><summary>❓ 질문과 해결 아이디어</summary>${Q.map(q => `<div class="tgq">${q.solved ? '✅' : '🤔'} <b>${esc(q.name)}</b> ${esc(q.body)}
+          ${P.filter(r => r.kind === 'r' && r.parent_id === q.id).map(r => `<div class="tgr">💡 ${esc(r.name)} : ${esc(r.body)} <button type="button" class="rpdel" data-gdel="${r.id}">✕</button></div>`).join('')}
+          <button type="button" class="rpdel" data-gdel="${q.id}" title="삭제">✕</button></div>`).join('') || '<i>없음</i>'}</details>
+        <details><summary>💬 토론 방 (${C.length})</summary>${C.map(m => `<div class="tgr"><b>${esc(m.name)}</b> ${esc(m.body)} <small>${ago(m.created_at)}</small> <button type="button" class="rpdel" data-gdel="${m.id}">✕</button></div>`).join('') || '<i>없음</i>'}</details>
+        <details${RS.length ? ' open' : ''}><summary>📝 해결 결과 (${RS.length})</summary>${RS.map(r => { const x = r.data || {};
+          return `<div class="tgres"><div>❓ ${esc(x.q || '')}</div><div>🛠 ${esc(x.how || r.body)}</div>${x.ans ? `<div>✅ ${esc(x.ans)}</div>` : ''}<small>${esc(who(r.student_no))} · ❤ ${r.likes}</small>
+            ${r.teacher_reply ? `<div class="treply"><b>피드백</b> ${esc(r.teacher_reply)}</div>` : ''}
+            <div class="tact"><button data-gfb="${r.id}">💬 피드백</button><button class="del" data-gdel="${r.id}">🗑</button></div></div>`; }).join('') || '<i>없음</i>'}</details></div>`; }).join('')}</div>`).join('')}`;
+  $$('[data-gdel]', V).forEach(b => b.onclick = async () => { if (!confirm('이 글을 삭제할까요? 되돌릴 수 없어요.')) return;
+    try{ await rpc('qf_teacher_gact', { p_pass:TP, p_id:+b.dataset.gdel, p_action:'delete', p_text:null }); snack('🗑 삭제했어요'); tGroups(V); }catch(e){ snack(e.message); } });
+  $$('[data-gfb]', V).forEach(b => b.onclick = async () => { const r = P.find(x => x.id === +b.dataset.gfb), t = prompt('모둠의 해결 결과에 남길 피드백 (비우면 삭제)', r.teacher_reply || ''); if (t === null) return;
+    try{ await rpc('qf_teacher_gact', { p_pass:TP, p_id:r.id, p_action:'reply', p_text:t }); snack('💬 피드백을 남겼어요'); tGroups(V); }catch(e){ snack(e.message); } });
+  $('#tgCsv').onclick = () => {
+    const rows = [['반','모둠','종류','학번','이름','내용','해결 과정','결론','해결됨','공감','선생님 피드백','시간']];
+    P.filter(p => show.includes(String(p.cls))).forEach(p => rows.push([p.cls, p.grp, { q:'질문', r:'해결 아이디어', chat:'토론', result:'해결 결과' }[p.kind], p.student_no, p.name,
+      (p.data && p.data.q) || p.body, (p.data && p.data.how) || '', (p.data && p.data.ans) || '', p.kind === 'q' ? (p.solved ? 'O' : '') : '', p.likes, p.teacher_reply || '', p.created_at]));
+    csvDown(rows, `소그룹_${TL}_${tClsName()}.csv`);
+  };
+}
+
+/* ---------- 📋 개인별 기록 ---------- */
+const LNAME = { f1:'함수의 뜻과 그래프', f2:'합성함수', f3:'역함수', r1:'유리함수', r2:'유리함수의 그래프', r3:'무리함수' };
+const LVW = { what:1, howwhy:2, if:3 };
+function stRecord(P, s){
+  const no = s.student_no, mine = a => a.filter(x => x.student_no === no);
+  const posts = mine(P.posts), g = mine(P.gposts), resp = mine(P.responses);
+  const R = it => resp.filter(r => r.item === it || (it instanceof RegExp && it.test(r.item)));
+  return {
+    no, name:s.name,
+    qs:posts.filter(p => !['reply','free'].includes(p.kind)),          // 자유 질문방(익명)은 세특 근거에서 뺀다
+    replies:posts.filter(p => p.kind === 'reply'),
+    gq:g.filter(x => x.kind === 'q'), gr:g.filter(x => x.kind === 'r'), gchat:g.filter(x => x.kind === 'chat'), gres:g.filter(x => x.kind === 'result'),
+    grp:(P.groups || []).find(x => x.student_no === no),
+    port:R('portfolio'), debate:R('debate'), after:R('debate_after'), talk:R(/^talk\d$/), reflect:R('reflect'),
+    notes:mine(P.notes || []), evals:mine(P.evals || []), solved:(P.solved || []).find(x => x.student_no === no),
+    saved:(P.seteuk || []).find(x => x.student_no === no)
+  };
+}
+/* 낱말 고르기 : 텍스트 마이닝 엔진으로 수학 핵심어만 (수식·기호는 빼고 한글 개념어만) */
+const PERSONW = new Set(['오일러','디리클레','앨리스','갈릴레이','제논','아킬레스','거북이','카이사르','보일','거울','기계','입력','출력']);
+const GENERIC = new Set(['함수','그래프','관계','식','값','조건','범위','변화','규칙','입력','출력','순서','차이','거리','시간','이상','이하','정의','계산','공식','위치','방향','이동','성질']);
+function stTopics(texts, n){
+  const f = {};
+  texts.forEach(t => tokenize(t, true).filter(w => /^[가-힣]{2,}$/.test(w) && !PERSONW.has(w)).forEach(w => { f[w] = (f[w] || 0) + (GENERIC.has(w) ? 1 : 3); }));
+  const top = Object.entries(f).sort((a, b) => b[1] - a[1]).slice(0, (n || 2) + 2).map(x => x[0]).filter(w => !GENERIC.has(w)).slice(0, n || 2);
+  return top.filter(w => !GENERIC.has(w));                // 「함수」「순서」처럼 흔한 말만 있으면 주제로 쓰지 않음
+}
+const jong = w => { const c = w.charCodeAt(w.length - 1) - 0xAC00; return c >= 0 && c < 11172 && c % 28 !== 0; };
+const JO = (w, a, b) => w + (jong(w) ? a : b);                    // 와/과, 을/를, 은/는, 으로/로
+const andJoin = ws => ws.length === 2 ? JO(ws[0], '과', '와') + ' ' + ws[1] : ws[0] || '';
+const stPick = (arr, seed) => arr[Math.abs(seed) % arr.length];
+const hashNo = s => [...String(s)].reduce((a, c) => (a * 31 + c.charCodeAt(0)) | 0, 7);
+const neisBytes = s => new TextEncoder().encode(String(s || '')).length;
+
+function stDraft(r, salt){
+  const h = hashNo(r.no) + (salt || 0) * 7919;
+  const lv = k => r.qs.filter(q => q.level === k).length;
+  const S = [];
+  // ① 대표 문장 — 기록에서 가장 두드러진 특성
+  const role = (r.port.map(p => p.body.role).filter(Boolean).pop() || '').replace(/\s*\(.*\)/, '');
+  const chatWhy = r.gchat.filter(m => /왜냐하면|이유|근거|때문|반례|동의|생각이 달/.test(m.body)).length;
+  const trait = lv('if') >= 2 || (lv('if') >= 1 && lv('if') >= lv('what')) ? 'if'
+    : lv('howwhy') >= 2 ? 'why' : r.gres.length ? 'collab' : chatWhy >= 2 || r.talk.length >= 2 ? 'talk' : 'steady';
+  const LEAD = {
+    if:['주어진 조건을 바꾸어 보며 개념이 성립하는 범위를 스스로 따져 보는 탐구 태도가 일관되게 나타남.',
+        '‘만약 조건이 달라진다면’이라는 물음으로 개념의 경계를 넓혀 가는 사고가 두드러짐.',
+        '익숙한 결론에 머물지 않고 조건을 비틀어 새로운 상황을 상상해 보는 질문을 즐겨 만듦.'],
+    why:['공식을 그대로 받아들이기보다 성립하는 이유를 끝까지 묻고 근거를 찾아 설명하려는 태도가 분명함.',
+         '배운 내용마다 그 까닭을 되물으며 개념 사이의 연결을 스스로 확인하는 학습 습관이 자리 잡음.',
+         '정의에서 출발해 결론이 나오는 과정을 따져 묻는 질문으로 개념을 깊이 있게 이해함.'],
+    collab:['모둠에서 나온 질문을 함께 해결하고 그 과정을 정리해 학급과 나누는 일에 앞장서며 협력적 탐구를 이끎.',
+            '모둠원의 생각을 모아 해결 과정을 글로 정리하고 공유하는 데 꾸준히 기여함.'],
+    talk:['친구의 의견에 근거를 들어 동의하거나 다른 관점을 제시하며 토의를 깊게 만드는 데 기여함.',
+          '토의 장면에서 자신의 생각을 근거와 함께 밝히고 다른 의견을 경청하며 생각을 다듬어 감.'],
+    steady:['수업의 각 단계에서 스스로 질문을 만들고 확인 문제를 꾸준히 해결하며 함수 단원의 개념을 차근차근 쌓아 감.',
+            '개념을 익힌 뒤 예제와 문제로 확인하고 궁금한 점을 질문으로 남기는 학습 흐름을 성실하게 이어 감.',
+            '새로 배운 개념을 자신의 말로 다시 정리하고 궁금한 점을 질문으로 표현하며 이해를 넓혀 감.']
+  };
+  S.push({ k:'lead', t:stPick(LEAD[trait], h) });
+  // ② 질문 활동 — 가장 수준 높은 질문 하나
+  const best = r.qs.slice().sort((a, b) => ((b.picked ? 6 : 0) + (LVW[b.level] || 1) * 2 + Math.min(b.votes || 0, 5) * 0.6 + Math.min(String(b.body).length / 60, 1))
+                                        - ((a.picked ? 6 : 0) + (LVW[a.level] || 1) * 2 + Math.min(a.votes || 0, 5) * 0.6 + Math.min(String(a.body).length / 60, 1)))[0];
+  if (best){
+    const tp = stTopics([best.body], 2), lesson = LNAME[best.lesson] || '함수';
+    const kind = { if:'조건을 바꾸어 결과를 예측하는 질문', howwhy:'성립하는 이유를 묻는 질문', what:'개념의 뜻을 정확히 확인하는 질문' }[best.level] || '질문';
+    const about = tp.length ? `${andJoin(tp)}${tp.length === 2 ? '의 관계' : ''}에 대해 ` : '';
+    let tail = best.picked ? '학급 공동 탐구 질문으로 채택되어 친구들과 함께 답을 찾아가는 계기를 만듦'
+      : (best.votes || 0) >= 3 ? '많은 친구의 공감을 얻어 함께 탐구할 질문으로 이어짐'
+      : lv('what') && lv('if') ? '사실을 확인하는 질문에서 출발해 조건을 바꾸는 질문까지 스스로 수준을 높여 감'
+      : lv('howwhy') && lv('what') ? '뜻을 확인하는 질문을 이유를 묻는 질문으로 발전시키며 생각을 깊게 함'
+      : '질문 사다리를 따라 자신의 질문을 다듬어 감';
+    S.push({ k:'q', t:`‘${lesson}’ 수업에서 ${about}${kind}을 만들고, ${tail}.` });
+  }
+  // ③ 소그룹 — 역할 · 해결 아이디어 · 해결 결과
+  if (r.gq.length || r.gr.length || r.gres.length || role){
+    const res = r.gres[r.gres.length - 1], how = res ? stTopics([res.data && res.data.how || res.body, res.data && res.data.ans || ''], 2) : [];
+    let t = `소그룹 활동에서 ${role ? JO(role, '을', '를') + ' 맡아 ' : ''}`;
+    const parts = [];
+    if (r.gq.length) parts.push('모둠에 탐구할 질문을 제기하고');
+    if (r.gr.length) parts.push(r.gr.length >= 3 ? '모둠원의 질문마다 해결의 실마리가 되는 아이디어를 제시하였으며' : '모둠원의 질문에 해결 아이디어를 보태었으며');
+    if (res) parts.push(`${how.length ? JO(andJoin(how), '을', '를') + ' 근거로 ' : ''}질문을 해결한 과정과 결론을 정리하여 학급 전체에 공유함`);
+    else parts.push(stPick(['모둠이 함께 답을 찾아가는 과정에 참여함', '모둠원과 해결 방법을 나누며 답을 찾아가는 과정에 힘을 보탬', '모둠의 해결 과정에 참여해 생각을 주고받음'], h >> 5));
+    S.push({ k:'grp', t:t + parts.join(' ') + '.' });
+  }
+  // ③-2 학생이 보낸 「나의 활동 기록」 : 의미 있었던 질문과 해결 방법
+  const pb = r.port.map(p => p.body).filter(b => b.best).pop();
+  if (pb){ const t = stTopics([pb.best], 2), o = stTopics([pb.opinion || ''], 1);
+    S.push({ k:'port', t:`활동을 돌아보며 가장 의미 있었던 질문으로 ${t.length ? andJoin(t) + '에 관한 물음' : '스스로 만든 물음'}을 꼽고 해결한 방법을 자신의 말로 정리했으며${o.length ? `, 토의에서는 ${JO(o[0], '을', '를')} 중심으로 의견을 밝힘` : ', 토의에서 낸 의견과 맡은 역할을 스스로 점검함'}.` }); }
+  // ④ 토의·토론
+  const db = r.debate[r.debate.length - 1], af = r.after[r.after.length - 1];
+  if (db && db.body && (db.body.reason || db.body.stance)){
+    const st = { pro:'찬성', con:'반대', mid:'신중한' }[db.body.stance] || '자신의';
+    const why = stTopics([db.body.reason || '', db.body.rebut || ''], 2);
+    const changed = af && af.body && af.body.stance && af.body.stance !== db.body.stance;
+    S.push({ k:'deb', t:`${stPick(['책 속 토론에서', '고전 속 장면을 다룬 토론에서', '수학사 속 논쟁을 다룬 토론에서'], h >> 4)} ${st} 입장을 세워 ${why.length ? JO(andJoin(why), '을', '를') + ' 근거로 ' : '근거를 들어 '}주장을 펼쳤고, ${changed ? stPick(['토론 뒤 상대의 논거를 받아들여 자신의 생각을 새롭게 정리함', '토론을 거치며 입장을 다시 검토하고 달라진 생각의 근거를 스스로 밝힘', '상대 논거의 설득력을 인정하고 자신의 판단을 수정한 이유를 정리함'], h >> 2)
+      : db.body.rebut ? stPick(['예상되는 반론에 대한 재반론까지 준비하며 논리를 다듬음', '상대가 내세울 반론을 미리 짐작해 답변을 마련하며 주장을 단단하게 함', '반대 의견을 먼저 검토하고 이에 답하는 논리를 세워 토론에 참여함'], h >> 2)
+      : stPick(['상대 의견의 타당성을 따져 보며 자신의 논리를 보완함', '친구의 근거를 경청하고 자신의 주장과 비교하며 생각을 정교하게 함', '다른 입장의 근거를 검토하며 자신의 주장이 성립하는 조건을 되짚음'], h >> 2)}.` });
+  } else if (chatWhy >= 2 || r.talk.length){
+    const tp = stTopics(r.gchat.map(m => m.body).concat(r.talk.map(t => t.body.a || '')), 2);
+    S.push({ k:'deb', t:`토의 과정에서 ${tp.length ? andJoin(tp) + '에 관한 ' : ''}자신의 생각을 이유와 함께 밝히고, 친구의 의견에 동의하거나 다른 관점을 덧붙이며 결론을 함께 이끌어 냄.` });
+  }
+  // ⑤ 학습 관리 (짧게)
+  const sub = r.notes.some(n => n.submitted), solved = r.solved ? +r.solved.solved : 0;
+  if (sub || solved >= 6) S.push({ k:'self', t: sub && solved >= 6 ? '코넬 노트로 개념을 정리하고 스스로 만든 질문지로 이해를 점검했으며, 막힌 문제는 단계별 힌트를 활용해 끝까지 해결함.'
+    : sub ? '코넬 노트로 개념을 자신의 말로 정리하고 노트를 바탕으로 스스로 질문지를 만들어 이해를 점검함.'
+    : '중단원과 대단원 문제를 차례로 해결하며 막힌 지점을 질문으로 바꾸어 스스로 풀어 냄.' });
+  // ⑥ 발전 가능성
+  const nexts = r.port.map(p => p.body.next).concat(r.gres.map(x => x.data && x.data.next), r.reflect.map(x => [x.body.m1, x.body.m2, x.body.m3, x.body.myq].join(' '))).filter(Boolean);
+  const nt = stTopics(nexts, 2);
+  S.push({ k:'next', t: nt.length ? `활동을 마친 뒤 ${andJoin(nt)}에 대한 새로운 질문을 스스로 세우며 탐구를 이어 가려는 의지를 보임.`
+    : stPick(['배운 개념을 다른 함수의 성질로 넓혀 탐구해 갈 것이 기대됨.', '스스로 만든 질문을 실마리로 다음 단원의 개념까지 탐구를 넓혀 갈 가능성이 큼.', '질문으로 배우는 경험을 바탕으로 수학적 대상을 깊이 있게 탐구해 갈 것이 기대됨.'], h >> 3) });
+  // 기록이 거의 없는 학생 : 기본 내용만 (첫 문장이 서로 다르게)
+  if (!best && !r.gq.length && !r.gr.length && !r.gres.length && !db){
+    const base = stPick(['함수 단원에서 대응의 뜻과 여러 가지 함수를 구별하는 기준을 익히고, 예제의 풀이 과정을 따라가며 개념을 차근차근 확인함.',
+                       '합성함수와 역함수의 의미를 그림과 화살표로 정리하며 개념 사이의 관계를 살펴보는 학습을 이어 감.',
+                       '유리함수와 무리함수의 그래프를 평행이동으로 그려 보는 활동을 통해 그래프의 모양과 식의 관계를 익힘.'], h);
+    return [S[0].t, base, '확인 문제를 반복해 풀며 개념을 적용하는 절차를 몸에 익히고, 다음 활동에서 스스로 질문을 만들어 보겠다는 계획을 세움.', S[S.length - 1].t].join(' ');
+  }
+  // 1500byte 이내로 (덜 중요한 문장부터 뺌)
+  let out = S.map(x => x.t);
+  for (const drop of ['self', 'port', 'deb', 'next']){ if (neisBytes(out.join(' ')) <= 1500) break; const i = S.findIndex(x => x.k === drop); if (i >= 0){ S.splice(i, 1); out = S.map(x => x.t); } }
+  return out.join(' ');
+}
+const SETEUK_CHECK = ['미제출','제출하지 않','미완성','완성하지 못','아쉬','부족','못했','틀린','포기','역량','GeoGebra','지오지브라','Desmos','파이썬','엑셀','ChatGPT'];
+function stCheck(t){
+  const b = neisBytes(t), bad = SETEUK_CHECK.filter(w => t.includes(w));
+  const formula = /[=<>^√]|\\\(|[a-z]\s*\(\s*x\s*\)/.test(t);
+  return { b, bad, formula, ok:b <= 1500 && !bad.length && !formula };
+}
+
+async function tSeteuk(V){
+  const c = tCls === 'all' || tCls === 'etc' ? 0 : +tCls;
+  V.innerHTML = '<p class="lead">6차시 전체 기록을 모으는 중…</p>';
+  try{ TPF = await rpc('qf_teacher_portfolio', { p_pass:TP, p_cls:c }); }catch(e){ V.innerHTML = `<p class="cmsg err">${esc(e.message)}</p>`; return; }
+  const RL = (typeof RLIST !== 'undefined' && RLIST && c && RLIST[String(c)]) ? RLIST[String(c)] : null;
+  let studs = TPF.students.filter(s => tCls !== 'etc' || !['1','2','3','4'].includes(clsOf(s.student_no)));
+  if (RL) RL.forEach(([no, nm]) => { if (!studs.some(s => s.student_no === no)) studs.push({ student_no:no, name:nm }); });
+  studs.sort((a, b) => a.student_no.localeCompare(b.student_no));
+  const recs = studs.map(s => stRecord(TPF, s));
+  V.innerHTML = `<div class="stguide"><b>📋 개인별 활동 기록 · 교과세특 초안</b>
+      <p>6차시 전체에서 학생이 남긴 <b>질문(수준) · 소그룹 질문과 해결 아이디어 · 토론 방 의견 · 해결 결과 · 맡은 역할(📤 나의 활동 기록) · 책 속 토론 · 노트 · 문제 해결</b>을 모아 학생별로 보여 주고,
+      그 기록만을 근거로 교과 세부능력 및 특기사항 <b>초안</b>을 만들어요. (자유 질문방의 익명 글은 근거에서 빼요.)</p>
+      <ul><li>기재요령 : 500자(<b>1500byte</b>) 이내 · 명사형 종결(~함, ~임) · 주어 생략 · 수식과 수치·상품명 직접 기입 금지 · 부정 표현 금지 · 역량은 이름이 아니라 활동으로 드러나게</li>
+      <li>초안은 규칙으로 만든 <b>출발점</b>이에요. 학생 기록과 대조해 고치고 「💾 저장」하면 다음에도 그대로 불러와요. NEIS 입력 전 꼭 직접 확인해 주세요.</li></ul>
+      <div class="crow"><button type="button" class="btn main" id="stAll">✨ 저장 안 된 학생 모두 초안 만들기</button><button type="button" class="btn" id="stCsv">⬇ 세특 CSV (엑셀)</button><button type="button" class="btn" id="stRecCsv">⬇ 개인별 활동 기록 CSV</button>
+      <small>${tClsName()} · ${recs.length}명${RL ? ' (명렬표 기준)' : ''}</small></div></div>
+    <div class="stlist">${recs.map((r, i) => stCard(r, i)).join('') || '<p class="lead">아직 기록이 없어요.</p>'}</div>`;
+  const paint = (i, t) => { const box = $(`#st-${i}`), ck = stCheck(t); $('textarea', box).value = t;
+    $('.stb', box).innerHTML = `${ck.b} / 1500 byte ${ck.b > 1500 ? '⚠️ 초과' : '✓'}${ck.bad.length ? ` · ⚠️ 확인할 말 : ${ck.bad.join(', ')}` : ''}${ck.formula ? ' · ⚠️ 수식·기호가 있어요' : ''}`; $('.stb', box).classList.toggle('warn', !ck.ok); };
+  recs.forEach((r, i) => paint(i, r.saved ? r.saved.body : stDraft(r)));
+  $$('.stlist textarea', V).forEach((ta, i) => ta.oninput = () => paint(i, ta.value));
+  $$('[data-regen]', V).forEach(b => b.onclick = () => { const i = +b.dataset.regen; b._s = (b._s || 0) + 1; paint(i, stDraft(recs[i], b._s)); });
+  $$('[data-save]', V).forEach(b => b.onclick = async () => { const i = +b.dataset.save, r = recs[i], t = $(`#st-${i} textarea`).value.trim();
+    try{ await rpc('qf_teacher_seteuk_save', { p_pass:TP, p_no:r.no, p_name:r.name, p_body:t }); r.saved = { body:t }; snack(`💾 ${r.no} ${r.name} 세특을 저장했어요`); $(`#st-${i} .stsv`).textContent = '💾 저장됨'; }catch(e){ snack(e.message); } });
+  $$('[data-copy]', V).forEach(b => b.onclick = () => { const t = $(`#st-${b.dataset.copy} textarea`).value; navigator.clipboard && navigator.clipboard.writeText(t).then(() => snack('📋 복사했어요 — NEIS에 붙여 넣으세요')); });
+  $('#stAll').onclick = () => { recs.forEach((r, i) => { if (!r.saved) paint(i, stDraft(r)); }); snack('✨ 저장 안 된 학생의 초안을 새로 만들었어요'); };
+  $('#stCsv').onclick = () => { const rows = [['학번','이름','과목','세특','글자수','바이트수(NEIS)','저장 여부']];
+    recs.forEach((r, i) => { const t = $(`#st-${i} textarea`).value; rows.push([r.no, r.name, '공통수학2', t, t.length, neisBytes(t), r.saved ? '저장됨' : '초안']); });
+    csvDown(rows, `교과세특_공통수학2_${tClsName()}.csv`); };
+  $('#stRecCsv').onclick = () => { const rows = [['학번','이름','모둠','역할','수업 질문(수준)','소그룹 질문','해결 아이디어','토론 방 의견','해결 결과','책 속 토론','나의 활동 기록(자기 기록)','해결한 문제 수']];
+    recs.forEach(r => rows.push([r.no, r.name, r.grp ? r.grp.cls + '반 ' + r.grp.grp + '모둠' : '', r.port.map(p => p.body.role).filter(Boolean).join(' / '),
+      r.qs.map(q => `[${LNAME[q.lesson] || q.lesson} · ${LVS[q.level] || ''}] ${q.body}`).join('\n'), r.gq.map(x => x.body).join('\n'), r.gr.map(x => x.body).join('\n'), r.gchat.map(x => x.body).join('\n'),
+      r.gres.map(x => (x.data && `${x.data.q} → ${x.data.how} → ${x.data.ans}`) || x.body).join('\n'), r.debate.map(d => `${STN[d.body.stance] || ''} ${d.body.reason || ''}`).join('\n'),
+      r.port.map(p => `[${LNAME[p.lesson]}] 한 일: ${p.body.did || ''} / 질문·해결: ${p.body.best || ''} / 의견: ${p.body.opinion || ''} / 다음: ${p.body.next || ''}`).join('\n'), r.solved ? r.solved.solved : 0]));
+    csvDown(rows, `개인별활동기록_${tClsName()}.csv`); };
+}
+function stCard(r, i){
+  const lv = k => r.qs.filter(q => q.level === k).length;
+  const li = (arr, f) => arr.length ? `<ul>${arr.slice(-6).map(x => `<li>${f(x)}</li>`).join('')}</ul>` : '<i>없음</i>';
+  return `<div class="stcard" id="st-${i}">
+    <div class="sth"><b>${esc(r.no)} ${esc(r.name)}</b>${r.grp ? `<span class="chip">${r.grp.cls}반 ${r.grp.grp}모둠</span>` : ''}
+      <small>질문 ${r.qs.length} (What ${lv('what')} · How·Why ${lv('howwhy')} · If ${lv('if')}) · 모둠 질문 ${r.gq.length} · 해결 아이디어 ${r.gr.length} · 토론 ${r.gchat.length} · 해결 결과 ${r.gres.length} · 문제 ${r.solved ? r.solved.solved : 0}</small></div>
+    <div class="stcols"><details class="strec"><summary>🔎 활동 기록 보기</summary>
+      <h5>🙋 수업에서 한 질문</h5>${li(r.qs, q => `<span class="lvtag ${q.level}">${LVS[q.level] || ''}</span> ${esc(q.body)} <small>${LNAME[q.lesson] || ''}${q.picked ? ' · 📌채택' : ''}${q.votes ? ' · ❤' + q.votes : ''}</small>`)}
+      <h5>👥 소그룹 질문 · 💡 해결 아이디어</h5>${li(r.gq.concat(r.gr), x => `${x.kind === 'q' ? '❓' : '💡'} ${esc(x.body)}`)}
+      <h5>💬 토론 방 의견</h5>${li(r.gchat, x => esc(x.body))}
+      <h5>📝 해결 결과</h5>${li(r.gres, x => esc((x.data && `${x.data.q} → ${x.data.how} → ${x.data.ans}`) || x.body))}
+      <h5>📤 나의 활동 기록 (학생이 보낸 것)</h5>${li(r.port, p => `<b>${LNAME[p.lesson] || ''}</b> 역할 : ${esc(p.body.role || '-')} · 한 일 : ${esc(p.body.did || '-')} · 질문과 해결 : ${esc(p.body.best || '-')} · 의견 : ${esc(p.body.opinion || '-')}`)}
+      <h5>⚖️ 책 속 토론</h5>${li(r.debate, d => `${STN[d.body.stance] || ''} ${esc(d.body.reason || '')}`)}
+    </details>
+    <div class="stw"><textarea rows="7" spellcheck="false"></textarea>
+      <div class="stbar"><span class="stb"></span><span class="stsv">${r.saved ? '💾 저장됨' : '초안'}</span>
+        <button type="button" class="btn" data-regen="${i}">🔄 다른 표현</button><button type="button" class="btn" data-copy="${i}">📋 복사</button><button type="button" class="btn main" data-save="${i}">💾 저장</button></div></div></div>
+  </div>`;
+}
+
+;
+/* ===================================================================
+   🎞️ 살아 움직이는 교과서 — Higgsfield 모션 그래픽 + 화면 움직임
+   🎬 동기 유발 영상 — 유튜브 「수학 개념극장」 (누르면 바로 재생)
+   =================================================================== */
+/* 수학 개념극장 : https://www.youtube.com/@수학개념극장 */
+const YT = {
+  f1:[{ id:'AKRL7kISVtU', si:'_f46IVBzBxRew7HY', t:'자판기로 이해하는 함수의 규칙', tag:'함수의 뜻과 그래프' }],
+  f2:[{ id:'uSFswnCTuIk', si:'KyZ5b1nOrPXvyNVZ', t:'함수 두 개를 연결하면? 순서가 중요한 이유', tag:'합성함수' }],
+  f3:[{ id:'cgTQkzUMSR8', si:'UegMXElqegMT1oM7', t:'결과에서 처음 입력을 되찾을 수 있을까?', tag:'역함수' }],
+  r1:[{ id:'6zI7Qwz-dJI', si:'tOmGYFU567igeGuP', t:'이어폰값을 끝없이 나누면 0원이 될까?', tag:'유리함수와 점근선', short:true }],
+  r2:[],                                   // 앞 차시(r1) 영상과 겹쳐서 동기 유발 영상을 두지 않음
+  r3:[{ id:'1e6GBPpAYCk', si:'RQifRSAhVlUxp7Hy', t:'타이어 자국으로 속력을 추정하는 수학', tag:'무리함수의 그래프', short:true }]
+};
+const ytList = () => YT[LESSON.code] || [];
+
+function ytCard(){
+  const L = ytList(); if (!L.length) return '';
+  return `<div class="card ytmot">
+    <h2><span class="chip">🎬 동기 유발</span>먼저 영상으로 궁금증을 깨워요</h2>
+    <p class="lead" style="margin-top:0">「수학 개념극장」의 짧은 영상이에요. <b>화면을 누르면 바로 재생</b>돼요. 보면서 「어? 왜 그렇지?」 싶은 순간을 기억했다가 아래 질문 쏟아내기에 써 보세요.</p>
+    <div class="ytgrid">${L.map(v => `
+      <div class="ytbox${v.short ? ' short' : ''}">
+        <button type="button" class="ytplay" data-id="${v.id}" data-si="${v.si || ''}" aria-label="${esc(v.t)} 재생">
+          <img src="https://i.ytimg.com/vi/${v.id}/hqdefault.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+          <span class="ytbtn"><i></i></span>${v.short ? '<span class="ytshort">Shorts</span>' : ''}</button>
+        <div class="ytmeta"><b>${esc(v.t)}</b><span>${esc(v.tag)} · 수학 개념극장</span>
+          <a href="https://www.youtube.com/watch?v=${v.id}" target="_blank" rel="noopener">유튜브에서 보기 ↗</a></div>
+      </div>`).join('')}</div></div>`;
+}
+/* 유튜브 퍼가기 주소(youtube.com/embed)로 재생. 파일(file://)로 열면 유튜브가 「출처」를 확인할 수 없어
+   재생 오류(오류 153)가 나므로, 그때는 유튜브 창을 새로 열어 보여 준다. */
+const ytEmbed = (id, si) => `https://www.youtube.com/embed/${id}?${si ? 'si=' + si + '&' : ''}autoplay=1&rel=0&playsinline=1` +
+  (/^https?:$/.test(location.protocol) ? '&origin=' + encodeURIComponent(location.origin) : '');
+function bindYT(root){
+  $$('.ytplay', root || document).forEach(b => b.onclick = () => {
+    const id = b.dataset.id, si = b.dataset.si || '';
+    if (!/^https?:$/.test(location.protocol)){
+      window.open(`https://www.youtube.com/watch?v=${id}`, '_blank', 'noopener');
+      snack('컴퓨터에 저장된 파일로 열면 유튜브가 화면 안 재생을 막아요. 유튜브 창으로 열었어요 (깃허브 주소로 열면 이 자리에서 바로 재생돼요).');
+      return;
+    }
+    const f = document.createElement('iframe');
+    f.src = ytEmbed(id, si);
+    f.title = 'YouTube video player';
+    f.setAttribute('frameborder', '0');
+    f.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+    f.referrerPolicy = 'strict-origin-when-cross-origin';
+    f.allowFullscreen = true;
+    b.replaceWith(f);
+  });
+}
+
+/* ---------- 🎞️ 모션 그래픽 (Higgsfield 생성 영상, 화면에 보일 때만 불러옴) ----------
+   ※ 윈도우의 「애니메이션 효과」가 꺼진 컴퓨터(학교 PC에 흔함)는 브라우저가 prefers-reduced-motion 을 켜서
+     예전에는 영상이 아예 재생되지 않았다. 이제는 기본으로 재생하고, 머리말의 🎞️ 단추로 각자 끌 수 있다. */
+const VID = (typeof MOV !== 'undefined') ? MOV : {};
+const MOTION_KEY = 'qf_motion';
+let MOTION_ON = (() => { try { return localStorage.getItem(MOTION_KEY) !== 'off'; } catch (e) { return true; } })();
+document.documentElement.classList.toggle('motion-off', !MOTION_ON);
+
+function mg(key, cls, cap){
+  if (!VID[key]) return '';
+  return `<div class="mg ld ${cls || ''}"><video data-src="${VID[key]}" muted autoplay loop playsinline disablepictureinpicture preload="none" aria-hidden="true"></video>` +
+    `<button type="button" class="mgtap" tabindex="-1" aria-label="움직이는 그림 재생"><i>▶</i><span>눌러서 움직이기</span></button>` +
+    `${cap ? `<span class="mgcap">${cap}</span>` : ''}</div>`;
+}
+const _mgPend = new Set();
+const mgBox = v => v.closest('.mg') || v.closest('.stage') || v.parentNode;
+function mgState(v, s){
+  const m = mgBox(v); if (!m) return;
+  m.classList.toggle('tap', s === 'tap'); m.classList.toggle('on', s === 'on');
+  if (s === 'on'){ m.classList.remove('ld'); v.classList.add('ready'); }
+}
+function mgPlay(v){
+  if (!MOTION_ON || !v) return;
+  v.muted = true; v.defaultMuted = true; v.playsInline = true;
+  v.setAttribute('muted', ''); v.setAttribute('playsinline', '');
+  if (!v.getAttribute('src') && v.dataset.src){ v.src = v.dataset.src; v.load(); }
+  let p; try { p = v.play(); } catch (e) { p = null; }
+  if (p && p.then) p.then(() => { _mgPend.delete(v); mgState(v, 'on'); })
+    .catch(err => { if (!err || err.name !== 'NotAllowedError') return; _mgPend.add(v); mgState(v, 'tap'); });
+}
+let _mgIO = null;
+function bindMG(root){
+  const list = $$('video[data-src]', root || document);
+  if (!('IntersectionObserver' in window)){ list.forEach(mgPlay); return; }
+  if (!_mgIO) _mgIO = new IntersectionObserver(es => es.forEach(e => {
+    const v = e.target; v._vis = e.isIntersecting;
+    if (e.isIntersecting) mgPlay(v); else if (!v.paused) v.pause();
+  }), { rootMargin:'160px' });
+  list.forEach(v => {
+    if (v._mg) return; v._mg = 1; _mgIO.observe(v);
+    v.addEventListener('playing', () => mgState(v, 'on'));
+    v.addEventListener('loadeddata', () => { const m = mgBox(v); if (m) m.classList.remove('ld'); v.classList.add('ready'); });
+    v.addEventListener('error', () => {              // 잠깐 끊긴 것일 수 있으니 한 번 더 불러 보고, 그래도 안 되면 조용히 숨김
+      if (!v._retry){ v._retry = 1; setTimeout(() => { v.removeAttribute('src'); mgPlay(v); }, 1500); return; }
+      _mgPend.delete(v); mgState(v, ''); const m = v.closest('.mg'); if (m) m.classList.add('fail');
+      else { v.style.display = 'none'; const b = mgBox(v); b && b.classList.add('mgdead'); }
+    });
+    const t = mgBox(v) && mgBox(v).querySelector('.mgtap');
+    if (t) t.onclick = ev => { ev.stopPropagation(); if (!MOTION_ON) setMotion(true); mgPlay(v); };
+  });
+}
+/* 자동 재생이 막힌 브라우저 : 화면을 처음 누르거나 키를 누르는 순간 다시 재생 */
+['pointerdown', 'keydown', 'touchstart'].forEach(ev => addEventListener(ev, () => {
+  if (_mgPend.size) [..._mgPend].forEach(v => { if (v._vis) mgPlay(v); });
+}, { passive:true }));
+document.addEventListener('visibilitychange', () => {
+  if (!document.hidden && MOTION_ON) $$('video[data-src]').forEach(v => { if (v._vis && v.paused) mgPlay(v); });
+});
+function setMotion(on){
+  MOTION_ON = !!on;
+  try { localStorage.setItem(MOTION_KEY, on ? 'on' : 'off'); } catch (e) {}
+  document.documentElement.classList.toggle('motion-off', !on);
+  $$('video[data-src]').forEach(v => { if (!on){ v.pause(); mgState(v, ''); } else if (v._vis) mgPlay(v); });
+  if (!on) $$('.rv').forEach(el => el.classList.add('in'));
+  paintMotionBtn();
+}
+function paintMotionBtn(){
+  const b = $('#mvBtn'); if (!b) return;
+  b.textContent = MOTION_ON ? '🎞️' : '⏸️'; b.classList.toggle('off', !MOTION_ON);
+  b.title = MOTION_ON ? '움직이는 그림 끄기' : '움직이는 그림 켜기';
+  b.setAttribute('aria-pressed', MOTION_ON ? 'true' : 'false');
+}
+function bootMotion(){
+  const tools = $('.hdtools');
+  if (tools && !$('#mvBtn')){
+    const b = document.createElement('button'); b.id = 'mvBtn'; b.type = 'button'; b.className = 'sndbtn mvbtn';
+    b.onclick = () => { setMotion(!MOTION_ON); snack(MOTION_ON ? '🎞️ 움직이는 그림을 켰어요.' : '⏸️ 움직이는 그림을 껐어요. 다시 누르면 켜져요.'); };
+    const snd = $('#sndBtn'); snd ? tools.insertBefore(b, snd) : tools.appendChild(b);
+  }
+  paintMotionBtn();
+  bumpScores();
+}
+/* 점수가 바뀌면 통통 튀기 */
+function bumpScores(){
+  if (!('MutationObserver' in window)) return;
+  $$('.score .sc .v').forEach(el => {
+    if (el._bump) return; el._bump = 1; let last = el.textContent;
+    new MutationObserver(() => { if (el.textContent === last) return; last = el.textContent;
+      const c = el.closest('.sc'); c.classList.remove('bump'); void c.offsetWidth; c.classList.add('bump'); })
+      .observe(el, { childList:true, characterData:true, subtree:true });
+  });
+}
+
+/* ---------- 화면 움직임 : 카드가 차례로 떠오르기 ---------- */
+let _rvIO = null;
+function bindReveal(root){
+  if (!('IntersectionObserver' in window) || !MOTION_ON) return;
+  if (!_rvIO) _rvIO = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting){ e.target.classList.add('in'); _rvIO.unobserve(e.target); } }), { rootMargin:'0px 0px -40px 0px' });
+  $$('.lsec .card, .lsec .prob, .qexi, .roadmap .road button, #probList .prob, .ytbox', root || document).forEach((el, i) => {
+    if (el._rv) return; el._rv = 1; el.classList.add('rv'); el.style.setProperty('--d', ((i % 6) * 60) + 'ms'); _rvIO.observe(el);
+  });
 }
 
 ;
@@ -3128,6 +4165,51 @@ LABS.r3g08 = h => graphFigs(h, [{ t:'', w:300, xr:[-4,5], yr:[-2,4], d:P => { P.
 LABS.r2g01 = h => graphFigs(h, [{ t:'', w:320, xr:[-5,4], yr:[-6,4], d:P => { P.fn(x => 2/x, '#c7c2d2', { lw:1.6 }); P.line(-1,-6,-1,4,'#3aa6f2'); P.line(-5,-2,4,-2,'#3aa6f2'); P.fn(x => 2/(x+1) - 2, '#2a9ad8'); P.dot(0,0,'#ff5f9e'); } }]);
 LABS.r3g01 = h => graphFigs(h, [{ t:'', w:320, xr:[-1,7], yr:[-1,5], d:P => { P.fn(x => Math.sqrt(2*x), '#c7c2d2', { lw:1.6 }); P.fn(x => Math.sqrt(2*x - 4) + 1, '#2a9ad8'); P.dot(2,1,'#ff5f9e','(2, 1)'); } }]);
 
+/* ---------- 교과서 검증 후 추가한 문항의 그림 (중단원 · 대단원 · 익힘책 · 스스로 확인하기) ---------- */
+LABS.f1m102 = h => mapFig(h, [{ t:'', X:[1,2,3], Y:ABCD, arrows:[[1,'d'],[2,'a'],[3,'b']] }]);
+LABS.f3m110 = h => mapFig(h, [{ t:'f', X:[0,1,2], Y:['ㄱ','ㄴ','ㄷ'], arrows:[[0,'ㄷ'],[1,'ㄱ'],[2,'ㄴ']] }]);
+LABS.f3m114 = h => mapFig(h, [{ t:'f', X:[2,3,4], Y:[2,3,4], yl:'X', arrows:[[2,4],[3,2],[4,3]] }, { t:'g', X:[2,3,4], Y:[2,3,4], yl:'X', arrows:[[2,2],[3,4],[4,3]] }]);
+LABS.f3m130 = h => mapFig(h, [{ t:'f', X:[1,3,5], Y:[1,3,5], yl:'X', arrows:[[1,3],[3,5],[5,1]] }, { t:'g', X:[1,3,5], Y:[1,3,5], yl:'X', arrows:[[1,5],[3,3],[5,1]] }]);
+function letterAxes(P, xs, names){        // 눈금 대신 a, b, c … 글자를 축에 적는다
+  xs.forEach((v, i) => { P.text(v - 0.08, -0.32, names[i], '#4a3f5c', 'italic 13px Georgia,serif'); P.text(-0.42, v - 0.08, names[i], '#4a3f5c', 'italic 13px Georgia,serif'); });
+}
+LABS.f3g114 = h => graphFigs(h, [{ t:'', w:300, xr:[-0.8,5], yr:[-0.8,5], d:P => {
+  const f = x => x * x / 4, a = 1, b = 2, c = Math.sqrt(8), d = Math.sqrt(4 * c), e = Math.sqrt(4 * d);
+  P.fn(x => x, '#4a3f5c', { lw:1.4 }); P.fn(f, '#e8603c', { dom:[-0.8, 4.6] });
+  [[b, a], [c, b], [d, c], [e, d]].forEach(([x, y]) => { P.line(x, 0, x, Math.max(y, x)); P.line(0, y, Math.max(x, y), y); });
+  P.line(0, e, e, e); letterAxes(P, [a, b, c, d, e], ['a', 'b', 'c', 'd', 'e']);
+  P.text(3.2, 4.7, 'y=f(x)', '#e8603c'); P.text(4.1, 4.3, 'y=x'); } }]);
+LABS.f3g130 = h => graphFigs(h, [{ t:'', w:300, xr:[-0.8,5], yr:[-0.8,5], d:P => {
+  const a = 1, b = 2, c = 3, d = 3.6, e = 4;
+  const lin = pts => x => { for (let i = 1; i < pts.length; i++) if (x <= pts[i][0]) { const [x0, y0] = pts[i - 1], [x1, y1] = pts[i]; return y0 + (y1 - y0) * (x - x0) / (x1 - x0); } return NaN; };
+  P.fn(x => x, '#4a3f5c', { lw:1.4 });
+  P.fn(lin([[0,0],[b,a],[c,b],[e,e],[4.4,5.2]]), '#e8603c', { dom:[0, 4.4] });
+  P.fn(lin([[0,0],[a,b],[b,c],[c,d],[e,e],[4.8,4.3]]), '#2a9ad8', { dom:[0, 4.8] });
+  [[a, b], [b, c], [c, d]].forEach(([x, y]) => { P.line(x, 0, x, y); P.line(0, y, x, y); });
+  P.line(b, 0, b, b); P.line(c, 0, c, c); P.line(d, 0, d, d); P.line(0, a, b, a); P.line(0, e, e, e); P.line(e, 0, e, e);
+  letterAxes(P, [a, b, c, d, e], ['a', 'b', 'c', 'd', 'e']);
+  P.text(2.6, 4.75, 'y=f(x)', '#e8603c'); P.text(4.1, 3.6, 'y=g(x)', '#2a9ad8'); P.text(4.2, 4.6, 'y=x'); } }]);
+LABS.f1g130 = h => graphFigs(h, [
+  { t:'①', d:P => P.fn(x => -x * x + 2, '#2a9ad8') },
+  { t:'②', d:P => P.fn(x => Math.abs(x), '#2a9ad8') },
+  { t:'③', xr:[-0.5,4.5], yr:[-0.5,4], d:P => [[1,1],[2,2],[3,3],[4,2]].forEach(p => P.dot(p[0], p[1], '#2a9ad8')) },
+  { t:'④', d:P => P.fn(x => 1.5, '#2a9ad8') },
+  { t:'⑤', d:P => P.fn(x => x < 0 ? 0.35 * x - 1 : 1.3 * x - 1, '#2a9ad8') }]);
+LABS.f1g140 = h => graphFigs(h, [
+  { t:'ㄱ', d:P => P.fn(x => 2, '#2a9ad8') },
+  { t:'ㄴ', d:P => { P.fn(x => x, '#2a9ad8', { dom:[0, 4] }); P.fn(x => -x, '#2a9ad8', { dom:[0, 4] }); } },
+  { t:'ㄷ', d:P => P.line(1.5, -3, 1.5, 4, '#2a9ad8', [], 2.6) },
+  { t:'ㄹ', xr:[-3.5,3.5], yr:[-1.5,2.5], d:P => { for (let k = -3; k <= 2; k++){ P.fn(x => x - k, '#2a9ad8', { dom:[k, k + 0.999] }); P.dot(k, 0, '#2a9ad8'); P.dot(k + 1, 1, '#2a9ad8', '', true); } } }]);
+LABS.r3g132 = h => graphFigs(h, [{ t:'', w:280, xr:[-1,7], yr:[-1,5], d:P => {
+  P.fn(x => Math.sqrt(x - 1.5) + 1, '#2a9ad8', { dom:[1.5, 7] }); P.line(1.5, 0, 1.5, 1); P.line(0, 1, 1.5, 1); P.dot(1.5, 1, '#2a9ad8');
+  P.text(2.2, 4.2, 'y=√(a(x+b))+c', '#2a9ad8'); } }]);
+LABS.r3g141 = h => graphFigs(h, [{ t:'', w:300, xr:[-0.3,3], yr:[-0.3,3], d:P => {
+  const t = 4 / 9;
+  P.fn(x => 2 * Math.sqrt(x), '#2a9ad8', { dom:[0, 2.2] }); P.fn(x => Math.sqrt(x), '#2bbf9e', { dom:[0, 3] });
+  [[t, 0, t, 2 * Math.sqrt(t)], [t, 2 * Math.sqrt(t), 4 * t, 2 * Math.sqrt(t)], [4 * t, 2 * Math.sqrt(t), 4 * t, 0]].forEach(l => P.line(l[0], l[1], l[2], l[3], '#e8603c', [], 2));
+  P.text(t - 0.18, 2 * Math.sqrt(t) + 0.08, 'A'); P.text(4 * t + 0.04, 2 * Math.sqrt(t) + 0.1, 'D'); P.text(t - 0.05, -0.22, 'B'); P.text(4 * t - 0.05, -0.22, 'C');
+  P.text(1.3, 2.75, 'y=2√x', '#2a9ad8'); P.text(2.2, 1.95, 'y=√x', '#2bbf9e'); } }]);
+
 ;
 /* ===================================================================
    질문 탐구 교실 — 차시 화면 그리기 (LESSON 데이터 → 탭)
@@ -3173,8 +4255,27 @@ function paintScore(){
 function pageStart(){
   const L = LESSON;
   return `
+
   ${IMGS[L.code + '_hero'] ? `<div class="scene"><div class="stage"><img src="${IMGS[L.code + '_hero']}" alt="" onerror="this.style.minHeight='260px'">
+    ${VID[L.code + '_hero'] ? `<video class="herov" data-src="${VID[L.code + '_hero']}" muted autoplay loop playsinline disablepictureinpicture preload="none" aria-hidden="true"></video>
+      <span class="herotag">🎞️ AI 모션 그래픽</span><button type="button" class="mgtap" tabindex="-1" aria-label="움직이는 그림 재생"><i>▶</i><span>눌러서 움직이기</span></button>` : ''}
     <div class="glare"></div><div class="cap"><div class="tt"><b>${L.title}</b><span>${L.unit} · ${L.pages}</span></div><div class="badge3d">${L.no}차시 ❓</div></div></div></div>` : ''}
+  ${ytCard()}
+  <div class="card roadmap">
+    <h2><span class="chip">학습 길잡이</span>🗺️ 오늘은 이렇게 공부해요</h2>
+    <div class="road">
+      <button type="button" data-go="start"><b>1</b>🎯 질문 열기<small>질문 초점 · 질문 쏟아내기</small></button>
+      <button type="button" data-go="concept"><b>2</b>📘 개념 학습<small>개념 → 예제 → 확인 문제 → 질문</small></button>
+      <button type="button" data-go="note"><b>3</b>📝 개념 노트<small>코넬 노트 · 나의 질문지</small></button>
+      <button type="button" data-go="problem"><b>4</b>✏️ 실력 다지기<small>중단원 · 대단원 · 익힘책</small></button>
+      <button type="button" data-go="life"><b>5</b>🌍 실생활 수학<small>생활 속 질문</small></button>
+      <button type="button" data-go="book"><b>6</b>📚 책 속 토론<small>성우 낭독 · 토의 · 토론</small></button>
+      <button type="button" data-go="plaza"><b>7</b>🗳️ 질문 광장<small>공감 3표 · 답글</small></button>
+      <button type="button" data-go="group"><b>8</b>👥 소그룹<small>모둠 질문 · 토론 · 해결 결과</small></button>
+      <button type="button" data-go="reflect"><b>9</b>🪞 성찰<small>나의 활동 기록 보내기</small></button>
+    </div>
+    <p class="lead" style="margin:8px 0 0;font-size:.84rem">각 화면 맨 아래 「다음 단계 ▶」를 누르면 순서대로 이동해요. 언제든 궁금한 것은 💬 자유 질문방에!</p>
+  </div>
   <div class="focus">
     <div class="fl">💭 질문 초점 · 오늘 우리를 질문하게 만드는 한 문장</div>
     <div class="ft">${L.focus}</div>
@@ -3206,7 +4307,6 @@ function pageStart(){
       <div class="step how"><h4>2단계 · How · Why</h4>원리·관계를 묻는 질문<br><small>「왜 ~일까? 어떻게 ~할까?」</small></div>
       <div class="step if"><h4>3단계 · If</h4>조건을 바꿔 상상하는 질문<br><small>「만약 ~라면 어떻게 될까?」</small></div>
     </div>
-    <div class="flow">${L.flow.map((f,i) => `<span><b>${i+1}</b>${f}</span>`).join('')}</div>
   </div>
 
   <div class="card">
@@ -3222,22 +4322,84 @@ function pageStart(){
 }
 
 /* ---------- 🧠 개념 탐구 ---------- */
+/* 개념마다 「개념 → 예제 → 확인 문제 → 질문」 순서로 배우도록 문항을 묶는다.
+   묶이지 않은 문항(중단원·대단원·익힘책)은 「✏️ 실력 다지기」에 나온다. */
+const FLOW = {
+  f1:{ c1:{ ex:'f1-p1', chk:['f1-p2'] }, c2:{ ex:'f1-p3', chk:['f1-p13','f1-p4','f1-p9'] }, c3:{ ex:'f1-p5', chk:[] },
+       c4:{ ex:'f1-p6', chk:['f1-p14','f1-p7'] }, c5:{ ex:'f1-p8', chk:['f1-p10'] } },
+  f2:{ c1:{ ex:'f2-p1', chk:[] }, c2:{ ex:'f2-e1', chk:['f2-p2','f2-p3'] }, c3:{ ex:'f2-p4', chk:['f2-p7','f2-p9'] } },
+  f3:{ c1:{ ex:'f3-p1', chk:['f3-p2'] }, c2:{ ex:'f3-p4', chk:['f3-p14','f3-p5','f3-p8','f3-p10'] }, c3:{ ex:'f3-e1', chk:['f3-p3','f3-p7'] },
+       c4:{ ex:'f3-p20', chk:['f3-p6','f3-p11'] } },
+  r1:{ c1:{ ex:'r1-p1', chk:[] }, c2:{ ex:'r1-p2', chk:['r1-p3','r1-p7'] }, c3:{ ex:'r1-p4', chk:[] }, c4:{ ex:'r1-p5', chk:['r1-p6'] } },
+  r2:{ c1:{ ex:'r2-e1', chk:['r2-p2'] }, c2:{ ex:'r2-p1', chk:['r2-p3','r2-p5'] }, c3:{ ex:'r2-p7', chk:['r2-p9','r2-p6'] } },
+  r3:{ c2:{ ex:'r3-p1', chk:['r3-p2','r3-p13','r3-p3','r3-p8'] }, c3:{ ex:'r3-p5', chk:['r3-p14','r3-p4','r3-p15','r3-p11'] }, c4:{ ex:'r3-e1', chk:['r3-p16','r3-p6','r3-p7','r3-p9'] } }
+};
+const flowOf = id => ((FLOW[LESSON.code] || {})[id]) || { ex:null, chk:[] };
+const inFlow = () => { const set = new Set(); Object.values(FLOW[LESSON.code] || {}).forEach(f => { if (f.ex) set.add(f.ex); f.chk.forEach(x => set.add(x)); }); return set; };
+const probById = id => LESSON.problems.find(p => p.id === id);
+const LVNAME = { what:'What · 사실', howwhy:'How·Why · 이해', if:'If · 창의' };
+
+/* ---------- 📘 개념 학습 : 개념 → 예제 → 확인 문제 → 질문 ---------- */
 function pageConcept(){
-  return LESSON.cards.map(c => `
-    <div class="card" id="cc-${c.id}">
-      <h2><span class="chip">${c.tag}</span>${c.title}</h2>
-      <div class="clearfix">${photo(LESSON.code + '_' + c.id, true)}${c.html}</div>
-      ${c.lab ? `<div class="lab" data-lab="${c.lab}"></div>` : ''}
-      ${c.prompts ? `<div class="tip">🤔 <b>생각을 여는 질문</b><br>${c.prompts.map(p => '· ' + p).join('<br>')}</div>` : ''}
-      <div class="askhost" data-ref="${c.id}"></div>
-    </div>`).join('');
+  const C = LESSON.cards, N = C.length;
+  const step = (n, t, done) => `<span class="lstep${done ? ' on' : ''}"><b>${n}</b>${t}</span>`;
+  return `
+  <div class="card lguide">
+    <h2><span class="chip">개념 학습</span>개념 하나씩, 차근차근</h2>
+    <p class="lead">개념마다 <b>① 개념 이해 → ② 예제로 익히기 → ③ 확인 문제 → ④ 질문하기</b> 순서로 공부해요. 한 개념을 끝내면 맨 아래 「다음 개념 ▶」을 눌러요.</p>
+    <div class="lnav" id="lnav">${C.map((c, i) => `<button type="button" class="lchip" data-i="${i}"><span class="ln">${i + 1}</span>${c.title}<span class="lck">✓</span></button>`).join('')}</div>
+    <div class="lprog"><div id="lprogBar"></div></div>
+  </div>
+  ${C.map((c, i) => {
+    const F = flowOf(c.id), ex = F.ex && probById(F.ex), chk = F.chk.map(probById).filter(Boolean), poly = /^poly/.test(c.lab || '');
+    const qx = (window.LESSON_QEX && LESSON_QEX[c.id]) || [];
+    return `<section class="lsec" data-i="${i}" id="ls-${c.id}">
+      <div class="lhead"><span class="lcount">개념 ${i + 1} / ${N}</span><b>${c.title}</b>
+        <span class="lsteps">${step('①', '개념', true)}${ex ? step('②', '예제') : ''}${chk.length ? step('③', '확인 문제') : ''}${step(ex ? (chk.length ? '④' : '③') : '②', '질문')}</span></div>
+      <div class="card" id="cc-${c.id}">
+        <h2><span class="chip">${poly ? '🎲 활동' : '① 개념 이해'}</span>${c.title}</h2>
+        ${mg(LESSON.code + '_' + c.id, 'concept', '🎞️ 살아 움직이는 교과서 · AI 모션 그래픽')}
+        <div class="clearfix">${photo(LESSON.code + '_' + c.id, true)}${c.html}</div>
+        ${c.lab ? `<div class="lab" data-lab="${c.lab}"></div>` : ''}
+        ${c.prompts && c.prompts.length ? `<div class="tip">🤔 <b>읽으면서 생각해 봐요</b><br>${c.prompts.map(p => '· ' + p).join('<br>')}</div>` : ''}
+      </div>
+      ${ex ? `<div class="card"><h2><span class="chip">② 예제로 익히기</span>풀이를 따라가며 방법 익히기${mg('mg_ex', 'mini')}</h2><div class="exhost" data-p="${ex.id}"></div></div>` : ''}
+      ${chk.length ? `<div class="card"><h2><span class="chip">${ex ? '③' : '②'} 확인 문제</span>이번엔 혼자 힘으로! (${chk.length}문제)${mg('mg_prob', 'mini')}</h2>
+        <p class="lead" style="margin-top:0">막히면 💡 힌트를 보고, 그래도 모르겠으면 <b>❓ 이 문제에 질문하기</b>로 어디서 막혔는지 질문해요.</p>
+        <div class="chkhost" data-ps="${chk.map(p => p.id).join(',')}"></div></div>` : ''}
+      <div class="card qcard"><h2><span class="chip">${ex ? (chk.length ? '④' : '③') : '②'} 질문하기</span>이 개념, 무엇이 궁금한가요?${mg('mg_q', 'mini')}</h2>
+        <div class="miniladder"><span class="what">What<small>무엇일까?</small></span><i>→</i><span class="how">How·Why<small>왜·어떻게?</small></span><i>→</i><span class="if">If<small>만약 ~라면?</small></span></div>
+        ${qx.length ? `<details class="qex"><summary>💡 질문이 잘 안 떠오르면 — 질문 사다리 예시 보기</summary>
+          ${qx.map(q => `<div class="qexi"><span class="lvtag ${q.lv}">${LVNAME[q.lv]}</span> ${q.q}</div>`).join('')}
+          <small>예시를 그대로 쓰지 말고, 낱말 하나라도 바꿔 <b>나만의 질문</b>으로 만들어 보세요.</small></details>` : ''}
+        <div class="cask" data-ref="${c.id}"></div>
+      </div>
+      <div class="lfoot">
+        ${i > 0 ? `<button type="button" class="btn lprev" data-go="${i - 1}">◀ 이전 개념</button>` : '<span></span>'}
+        ${i < N - 1 ? `<button type="button" class="btn main lnext" data-go="${i + 1}">다음 개념 ▶ ${C[i + 1].title}</button>`
+                    : `<button type="button" class="btn main" onclick="go('note')">📝 개념 노트로 정리하러 가기 ▶</button>`}
+      </div>
+    </section>`; }).join('')}`;
+}
+let LIDX = 0;
+function showLearn(i, scroll){
+  const secs = $$('#pg-concept .lsec'); if (!secs.length) return;
+  LIDX = Math.max(0, Math.min(secs.length - 1, i));
+  secs.forEach(s => s.classList.toggle('on', +s.dataset.i === LIDX));
+  $$('#lnav .lchip').forEach(b => { const k = +b.dataset.i; b.classList.toggle('on', k === LIDX); if (k === LIDX) b.classList.add('seen'); });
+  $('#lprogBar').style.width = ((LIDX + 1) / secs.length * 100) + '%';
+  try{ localStorage.setItem('qf_learn_' + LESSON.code, LIDX); }catch(e){}
+  setTimeout(() => { mountLabs(); bindTilt(); tex(secs[LIDX]); bindMG(secs[LIDX]); bindReveal(secs[LIDX]); }, 30);
+  if (scroll) $('#pg-concept').scrollIntoView({ behavior:'smooth', block:'start' });
 }
 
-/* ---------- ✏️ 문제 탐구 ---------- */
+/* ---------- ✏️ 실력 다지기 ---------- */
 function pageProblem(){
-  return `<div class="card"><h2><span class="chip">문제 탐구</span>풀고, 막히면 질문하기</h2>
-    <p class="lead">맞히면 🎆 불꽃놀이, 틀리면 💡 단계별 힌트가 열려요. 힌트를 다 봐도 모르겠다면 <b>❓ 이 문제에 질문하기</b>로
-    친구들에게 물어보세요. <b>「어디서 막혔는지」를 질문으로 만드는 것</b>이 오늘의 진짜 실력입니다.</p></div>
+  return `<div class="card"><h2><span class="chip">실력 다지기</span>중단원 · 대단원 · 익힘책 문제로 한 걸음 더${mg('mg_prob', 'mini')}</h2>
+    <p class="lead">「📘 개념 학습」에서 개념별 예제와 확인 문제를 풀었다면, 이제 여러 개념을 함께 쓰는 문제에 도전해요.
+    맞히면 🎆 불꽃놀이, 틀리면 💡 단계별 힌트가 열려요. 힌트를 다 봐도 모르겠다면 <b>❓ 이 문제에 질문하기</b> —
+    <b>「어디서 막혔는지」를 질문으로 만드는 것</b>이 진짜 실력이에요.</p></div>
+    ${LESSON.summary ? `<div class="card sumcard"><h2><span class="chip">${LESSON.summary.tag}</span>${LESSON.summary.title}</h2>${LESSON.summary.html}</div>` : ''}
     <div id="probList"></div>`;
 }
 
@@ -3401,6 +4563,7 @@ function pagePlaza(){
     <h2><span class="chip">질문 광장</span>우리 반의 모든 질문</h2>
     <p class="lead">친구의 질문을 읽고 <b>가장 탐구하고 싶은 질문 3개</b>에 ❤를 눌러요 (영역마다 3개). 답을 알 것 같으면 💬 답글로 생각을 나눠요.
       <b>📌 선생님 채택</b> 질문은 다음 활동의 탐구 질문이 됩니다.</p>
+    <div class="filters clsbar" id="pzCls" hidden></div>
     <div class="filters" id="pzKind">
       <button class="fbtn on" data-v="all">전체</button><button class="fbtn" data-v="concept">🧠 개념</button>
       <button class="fbtn" data-v="problem">✏️ 문제</button><button class="fbtn" data-v="life">🌍 실생활</button>
@@ -3414,10 +4577,12 @@ function pagePlaza(){
     <div id="pzList"></div>
   </div>
   <div class="card">
-    <h2><span class="chip">질문 구름</span>우리 반 질문 속 핵심 단어</h2>
+    <h2><span class="chip">질문 구름</span><span id="pzCloudTitle">우리 반 질문 속 핵심 단어</span></h2>
     <div class="filters" id="pzCloudMode"><button class="fbtn on" data-v="all">핵심어 전체</button><button class="fbtn" data-v="math">수학 용어만</button></div>
     <div class="cloud" id="pzCloud"></div>
-    <div class="cloudnote">조사·어미·부사·의문사(왜, 어떻게…)는 빼고 <b>핵심 단어만</b> 셉니다. 단어를 누르면 이 화면에서 숨길 수 있어요.</div>
+    <div class="cloudnote">위의 「전체 · 개념 · 문제 · 실생활 · 책」 버튼을 누르면 그 질문들만의 구름으로 바뀌어요. 형태소 분석으로 조사·어미·부사·의문사(왜, 어떻게…)를 떼어 내고 <b>핵심 명사만</b> 셉니다. 단어를 누르면 숨길 수 있어요.</div>
+    <h2 style="margin-top:16px"><span class="chip">많이 나온 단어</span>TOP 8</h2>
+    <div id="pzBars"></div>
   </div>`;
 }
 
@@ -3430,6 +4595,7 @@ function pageFree(){
       <b>친구들에게는 완전 익명</b>이에요. 선생님 화면에서도 기본은 「익명」으로 보이고, 욕설·괴롭힘 같은 <b>생활지도가 필요할 때만</b> 선생님이 작성자를 확인하거나 글을 숨길 수 있어요.</p>
     <div id="freeAsk"></div>
   </div>
+  <div class="filters clsbar" id="frCls" hidden></div>
   <div class="card">
     <h2><span class="chip">워드클라우드</span>우리가 어디서 막히는지 한눈에</h2>
     <div class="filters" id="frCloudMode"><button class="fbtn on" data-v="all">핵심어 전체</button><button class="fbtn" data-v="math">수학 용어만</button></div>
@@ -3450,8 +4616,8 @@ function pageRes(){
   return `
   <div class="card"><h2><span class="chip">유튜브</span>영상으로 보고, 질문으로 남기기</h2>
     <p class="lead">영상을 보다가 「어? 왜 그렇지?」 하는 순간을 놓치지 마세요. 그 순간이 질문의 재료예요.<br><small style="color:var(--ink3)">📺 학원·인터넷 강의 강사의 문제 풀이 강의는 싣지 않고, 방송·과학 이야기·실험 영상만 골랐어요.</small></p>
-    ${L.videos.length ? '' : `<div class="tip">🎬 이 차시는 개념 강의 영상 대신, 아래 <b>인터넷 도구</b>로 직접 만져 보고 질문을 만들어요. 선생님이 고른 영상이 있으면 수업 시간에 함께 봐요.</div>`}
-    <div class="vgrid">${L.videos.map(v => `
+    ${(L.videos.length || ytList().length) ? '' : `<div class="tip">🎬 이 차시는 개념 강의 영상 대신, 아래 <b>인터넷 도구</b>로 직접 만져 보고 질문을 만들어요. 선생님이 고른 영상이 있으면 수업 시간에 함께 봐요.</div>`}
+    <div class="vgrid">${[...ytList().filter((v, i, a) => a.findIndex(x => x.id === v.id) === i).map(v => ({ id:v.id, t:v.t + ' (수학 개념극장)', d:'동기 유발 영상 — 질문 열기 탭에서 바로 재생', tag:v.tag })), ...L.videos].map(v => `
       <a class="vcard" href="https://www.youtube.com/watch?v=${v.id}" target="_blank" rel="noopener">
         <div class="vthumb"><div class="ph">🎬</div>
           <img src="https://i.ytimg.com/vi/${v.id}/hqdefault.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
@@ -3520,12 +4686,13 @@ function pageTeacher(){
    =================================================================== */
 const TABS = [
   { id:'start',   label:'🎯 질문 열기',  html:pageStart },
-  { id:'concept', label:'🧠 개념 탐구',  html:pageConcept },
+  { id:'concept', label:'📘 개념 학습',  html:pageConcept },
   { id:'note',    label:'📝 개념 노트',  html:pageNote },
-  { id:'problem', label:'✏️ 문제 탐구',  html:pageProblem },
+  { id:'problem', label:'✏️ 실력 다지기', html:pageProblem },
   { id:'life',    label:'🌍 실생활 수학', html:pageLife },
   { id:'book',    label:'📚 책 속 질문·토론', html:pageBook },
   { id:'plaza',   label:'🗳️ 질문 광장',  html:pagePlaza },
+  { id:'group',   label:'👥 소그룹',     html:pageGroup },
   { id:'free',    label:'💬 자유 질문방', html:pageFree },
   { id:'res',     label:'🎬 자료실',     html:pageRes },
   { id:'reflect', label:'🪞 성찰',       html:pageReflect },
@@ -3538,8 +4705,9 @@ function go(id){
   $$('.page').forEach(s => s.classList.toggle('on', s.id === 'pg-' + id));
   $$('.tab').forEach(b => b.classList.toggle('on', b.dataset.p === id));
   scrollTo({ top:0, behavior:'smooth' });
-  setTimeout(() => { drawClouds(); mountLabs(); bindTilt(); bindHScroll($('#pg-' + id)); }, 50);
+  setTimeout(() => { drawClouds(); mountLabs(); bindTilt(); bindHScroll($('#pg-' + id)); bindMG($('#pg-' + id)); bindReveal($('#pg-' + id)); }, 50);
   try{ localStorage.setItem('qf_tab_' + LESSON.code, id); }catch(e){}
+  if (id === 'group' && window.gpLoad) gpLoad();
   const on = document.querySelector('.tab.on'), bar = $('#tabbar');
   if (on && bar && bar.scrollWidth > bar.clientWidth + 2){
     bar.scrollTo({ left: on.offsetLeft - (bar.clientWidth - on.offsetWidth) / 2, behavior:'smooth' });
@@ -3596,7 +4764,7 @@ function bindHScroll(root){
 
 let pzKind = 'all', pzSort = 'new', pzCloud = 'all', frCloud = 'all';
 function plazaRows(){
-  let rows = BOARD.filter(p => p.kind !== 'reply' && p.kind !== 'free');
+  let rows = boardRows().filter(p => p.kind !== 'reply' && p.kind !== 'free');
   if (pzKind !== 'all') rows = rows.filter(p => p.kind === pzKind);
   if (pzSort === 'vote') rows = rows.slice().sort((a,b) => (b.votes||0) - (a.votes||0));
   if (pzSort === 'pick') rows = rows.filter(p => p.picked);
@@ -3605,11 +4773,13 @@ function plazaRows(){
 }
 function drawClouds(){
   if (CUR === 'plaza'){
-    const rows = BOARD.filter(p => p.kind !== 'free');
-    drawCloud($('#pzCloud'), freqOf(rows.map(p => p.body), pzCloud === 'math'));
+    const rows = boardRows().filter(p => p.kind !== 'free' && p.kind !== 'reply' && (pzKind === 'all' || p.kind === pzKind));
+    const fq = freqOf(rows.map(p => p.body), pzCloud === 'math');
+    drawCloud($('#pzCloud'), fq); if ($('#pzBars')) drawBars($('#pzBars'), fq);
+    const t = $('#pzCloudTitle'); if (t) t.textContent = `${clsLabel()} ${{ all:'모든', concept:'개념', problem:'문제', life:'실생활', book:'책 속' }[pzKind] || ''} 질문 속 핵심 단어`;
   }
   if (CUR === 'free'){
-    const rows = BOARD.filter(p => p.kind === 'free');
+    const rows = boardRows().filter(p => p.kind === 'free');
     const fq = freqOf(rows.map(p => p.body), frCloud === 'math');
     drawCloud($('#frCloud'), fq); drawBars($('#frBars'), fq);
   }
@@ -3664,10 +4834,21 @@ function bootPages(){
 
   $('#tabbar').innerHTML = TABS.map(t => `<button class="tab" data-p="${t.id}">${t.label}</button>`).join('');
   $('#pages').innerHTML = TABS.map(t => `<section class="page" id="pg-${t.id}"><div class="netbad">⚠️ 서버에 연결되지 않았어요. 인터넷 연결을 확인해 주세요. (적은 글은 지워지지 않아요)</div>${t.html()}</section>`).join('');
+  // 탭 아래 「이전 · 다음 단계」 — 학습 흐름이 끊기지 않도록
+  const ORDER = TABS.filter(t => t.id !== 'teacher');
+  ORDER.forEach((t, i) => {
+    if (t.id === 'concept') return;
+    const pg = $('#pg-' + t.id), prev = ORDER[i - 1], next = ORDER[i + 1];
+    pg.insertAdjacentHTML('beforeend', `<div class="pagenav">${prev ? `<button type="button" class="btn" data-go="${prev.id}">◀ ${prev.label}</button>` : '<span></span>'}
+      ${next ? `<button type="button" class="btn main" data-go="${next.id}">다음 단계 ▶ ${next.label}</button>` : '<span></span>'}</div>`);
+  });
+  $$('.pagenav [data-go]').forEach(b => b.onclick = () => go(b.dataset.go));
+  $$('.roadmap [data-go]').forEach(b => b.onclick = () => go(b.dataset.go));
   $$('.tab').forEach(b => b.onclick = () => go(b.dataset.p));
   initTabScroll();
   bindNarr($('#pg-book'));
-  bootNote();
+  bootMotion(); bindYT(); bindMG(); bindReveal();
+  bootNote(); bootGroup();
   bindCoach('startCoach', seed => { const ta = $('#startAsk textarea'); if (!ta) return; ta.value = seed + ' '; ta.focus(); ta.dispatchEvent(new Event('input')); ta.scrollIntoView({ behavior:'smooth', block:'center' }); });
 
   // 시작 탭
@@ -3680,15 +4861,24 @@ function bootPages(){
     window._qt = setInterval(() => { left--; paint(); if (left <= 0){ clearInterval(window._qt); $('#qtLeft').textContent = '⏰ 끝! 이제 질문을 분류해요'; SND.levelUp(); } }, 1000);
   };
   // 개념 · 실생활 질문 상자
-  $$('#pg-concept .askhost').forEach(h => mountComposer(h, { kind:'concept', ref:h.dataset.ref, refLabel:REFNAME[h.dataset.ref], chips:L.concepts,
+  $$('#pg-concept .cask').forEach(h => mountComposer(h, { kind:'concept', ref:h.dataset.ref, refLabel:REFNAME[h.dataset.ref], chips:L.concepts,
     ph:'이 개념에 대해 궁금한 점을 질문으로! (무엇? → 왜·어떻게? → 만약?)' }));
+  // 개념 학습 : 예제 · 확인 문제
+  $$('#pg-concept .exhost').forEach(h => { const p = probById(h.dataset.p); if (p) h.appendChild(makeCard(p, { mode:'example' })); });
+  $$('#pg-concept .chkhost').forEach(h => h.dataset.ps.split(',').forEach(id => { const p = probById(id); if (p) h.appendChild(makeCard(p)); }));
+  $$('#lnav .lchip').forEach(b => b.onclick = () => showLearn(+b.dataset.i, false));
+  $$('#pg-concept .lfoot [data-go]').forEach(b => b.onclick = () => showLearn(+b.dataset.go, true));
+  let li0 = 0; try{ li0 = +(localStorage.getItem('qf_learn_' + LESSON.code) || 0); }catch(e){}
+  showLearn(li0, false);
   $$('#pg-life .askhost').forEach(h => mountComposer(h, { kind:'life', ref:h.dataset.ref, refLabel:REFNAME[h.dataset.ref], chips:L.concepts,
     ph:'이 상황에서 수학이 어떻게 쓰이는지, 다른 상황이라면 어떨지 질문해 보세요.' }));
   // 문제
   const pl = $('#probList');
-  let grp = null;
-  L.problems.forEach(p => {
-    if (p.grp && p.grp !== grp){ grp = p.grp; const h = document.createElement('div'); h.className = 'grphead';
+  let grp = null, g0 = null; const G = {};
+  L.problems.forEach(p => { if (p.grp) g0 = p.grp; G[p.id] = g0; });
+  const used = inFlow();
+  L.problems.filter(p => !used.has(p.id)).forEach(p => {
+    if (G[p.id] && G[p.id] !== grp){ grp = G[p.id]; const h = document.createElement('div'); h.className = 'grphead';
       h.innerHTML = `<span>${grp === '교과서 예제' ? '📘 ' : grp === '교과서 문제' ? '✏️ ' : '🏆 '}${grp}</span>`; pl.appendChild(h); }
     pl.appendChild(makeCard(p));
   });
@@ -3719,20 +4909,20 @@ function bootPages(){
     const rows = plazaRows();
     renderPosts($('#pzList'), rows, { showKind:true, showRef:true, rank:pzSort === 'vote',
       empty: pzSort === 'mine' ? '아직 내 질문이 없어요.' : '아직 질문이 없어요.' });
-    const all = BOARD.filter(p => p.kind !== 'reply' && p.kind !== 'free' && (pzKind === 'all' || p.kind === pzKind));
+    const all = boardRows().filter(p => p.kind !== 'reply' && p.kind !== 'free' && (pzKind === 'all' || p.kind === pzKind));
     const c = { what:0, howwhy:0, if:0 }; all.forEach(p => { if (c[p.level] != null) c[p.level]++; });
     const T = all.length || 1;
     $('#pzLv').innerHTML = `<div class="a" style="width:${c.what/T*100}%">${c.what ? 'What ' + c.what : ''}</div>`+
       `<div class="b" style="width:${c.howwhy/T*100}%">${c.howwhy ? 'How·Why ' + c.howwhy : ''}</div>`+
       `<div class="c" style="width:${c.if/T*100}%">${c.if ? 'If ' + c.if : ''}</div>`;
-    const myv = BOARD.filter(p => p.voted && (pzKind === 'all' || p.kind === pzKind)).length;
-    $('#pzStat').innerHTML = `질문 <b>${all.length}</b>개 · 답글 <b>${BOARD.filter(p => p.kind === 'reply').length}</b>개 · 내가 누른 공감 <b>${myv}</b>개 (영역별 3개까지)`;
+    const myv = boardRows().filter(p => p.voted && (pzKind === 'all' || p.kind === pzKind)).length;
+    $('#pzStat').innerHTML = `${clsLabel()} 질문 <b>${all.length}</b>개 · 답글 <b>${boardRows().filter(p => p.kind === 'reply').length}</b>개 · 내가 누른 공감 <b>${myv}</b>개 (영역별 3개까지)`;
   }});
   // 자유 질문방
   mountComposer($('#freeAsk'), { kind:'free', anon:true, title:'익명 질문', nolist:true,
     ph:'무엇이든 물어보세요. 이름은 친구들에게 보이지 않아요.' });
   LISTS.push({ host:$('#frRank'), draw:() => {
-    const rows = BOARD.filter(p => p.kind === 'free').sort((a,b) => (b.votes||0) - (a.votes||0) || new Date(b.created_at) - new Date(a.created_at));
+    const rows = boardRows().filter(p => p.kind === 'free').sort((a,b) => (b.votes||0) - (a.votes||0) || new Date(b.created_at) - new Date(a.created_at));
     renderPosts($('#frRank'), rows, { rank:true, empty:'첫 익명 질문을 기다리고 있어요 💬' });
   }});
   // 성찰
@@ -3756,7 +4946,7 @@ const ALL_LESSONS = [
   ['r1','3-2 유리·무리함수 · 1차시 유리식과 유리함수'], ['r2','3-2 유리·무리함수 · 2차시 유리함수의 그래프 활용'], ['r3','3-2 유리·무리함수 · 3차시 무리함수']
 ];
 const tRef = id => (TL === LESSON.code ? REFNAME[id] : (window.LESSON_META && LESSON_META[TL] && LESSON_META[TL].ref[id])) || id;
-let TP = '', TD = null, TL = '', tView = 'posts', tKind = 'all', tReveal = false, TN = null, tAiMode = 'all';
+let TP = '', TD = null, TDALL = null, tCls = 'all', TL = '', tView = 'posts', tKind = 'all', tReveal = false, TN = null, tAiMode = 'all';
 
 function bootTeacher(){
   $('#tLesson').innerHTML = ALL_LESSONS.map(([k,t]) => `<option value="${k}"${k === LESSON.code ? ' selected' : ''}>${t}</option>`).join('');
@@ -3768,10 +4958,35 @@ async function tLoad(pass, lesson){
   if (!pass){ m.className = 'cmsg err'; m.textContent = '암호를 입력하세요.'; return; }
   m.className = 'cmsg'; m.textContent = '불러오는 중…';
   try{
-    TD = await rpc('qf_teacher', { p_pass:pass, p_lesson:lesson });
+    TDALL = await rpc('qf_teacher', { p_pass:pass, p_lesson:lesson }); TG = null; tApplyCls();
     TP = pass; TL = lesson; TN = null; m.className = 'cmsg ok'; m.textContent = '✓ 열렸어요';
     $('#tBody').style.display = 'block'; tRender();
   }catch(e){ m.className = 'cmsg err'; m.textContent = e.message.includes('암호') ? '암호가 올바르지 않습니다.' : '불러오지 못했어요: ' + e.message; }
+}
+/* ---------- 🏫 반별 보기 : 학번(1반번호)의 가운데 두 자리로 반을 나눔 ---------- */
+const inCls = no => tCls === 'all' || (tCls === 'etc' ? !['1','2','3','4'].includes(clsOf(no)) : clsOf(no) === tCls);
+function tApplyCls(){
+  const D = TDALL || {};
+  TD = Object.assign({}, D, { posts:(D.posts || []).filter(p => inCls(p.student_no)), students:(D.students || []).filter(x => inCls(x.student_no)),
+    responses:(D.responses || []).filter(r => inCls(r.student_no)), attempts:(D.attempts || []).filter(a => inCls(a.student_no)),
+    gposts:(typeof TG !== 'undefined' && TG && TG.lesson === TL ? TG.posts : []).filter(g => inCls(g.student_no)) });
+}
+const tClsName = () => tCls === 'all' ? '전체 반' : tCls === 'etc' ? '기타 학번' : tCls + '반';
+let RLIST = null;                                         // 선생님 컴퓨터에만 저장되는 명렬표 { '1':[[학번,이름],…] }
+try{ RLIST = JSON.parse(localStorage.getItem('qf_roster') || 'null'); }catch(e){}
+function tClsBar(){
+  const st = (TDALL && TDALL.students) || [];
+  const n = c => st.filter(x => clsOf(x.student_no) === c).length;
+  const etc = st.filter(x => !['1','2','3','4'].includes(clsOf(x.student_no))).length;
+  const size = c => (RLIST && RLIST[c] ? RLIST[c].length : ROSTER.size[c]);
+  return `<div class="tclsbar"><b>🏫 반 선택</b>
+    <button type="button" class="tcls${tCls === 'all' ? ' on' : ''}" data-c="all">전체<small>${st.length}명 참여</small></button>
+    ${['1','2','3','4'].map(c => `<button type="button" class="tcls${tCls === c ? ' on' : ''}" data-c="${c}">${c}반<small>${n(c)} / ${size(c)}명</small><i style="width:${Math.min(100, n(c) / size(c) * 100).toFixed(0)}%"></i></button>`).join('')}
+    ${etc ? `<button type="button" class="tcls${tCls === 'etc' ? ' on' : ''}" data-c="etc">기타 학번<small>${etc}명</small></button>` : ''}
+    <button type="button" class="tcls roster" id="tRoster" title="명렬표 엑셀(.xlsx)을 불러오면 반별 미참여 학생을 볼 수 있어요. 파일은 이 컴퓨터에만 저장돼요.">📋 명렬표 ${RLIST ? '다시 ' : ''}불러오기</button>
+    <input type="file" id="tRosterFile" accept=".xlsx,.xls,.csv" hidden></div>
+    <p class="tclsnote">학번 5자리의 가운데 두 자리로 반을 나눠요 (예 : 1<b>03</b>15 → 3반). 「${tClsName()}」을 고르면 아래의 질문·학생별·토의·토론·성찰·문제·워드클라우드·노트·코치 기록과 CSV가 모두 그 반만으로 바뀌어요.
+    ${RLIST ? '📋 불러온 명렬표가 이 컴퓨터에 저장되어 있어 「학생별」에서 미참여 학생도 보여요.' : `반 인원은 ${ROSTER.base} 명렬표 기준이에요.`}</p>`;
 }
 const nameOf = no => { const s = (TD.students || []).find(x => x.student_no === no); return s ? s.name : ''; };
 const RESP = (item) => (TD.responses || []).filter(r => r.item === item);
@@ -3787,7 +5002,7 @@ function tRender(){
   const lname = (ALL_LESSONS.find(l => l[0] === TL) || ['',''])[1];
   $('#tBody').innerHTML = `
   <div class="card">
-    <h2><span class="chip">${esc(lname)}</span>한눈에 보기 <button class="btn" id="tRe" type="button" style="margin-left:auto;padding:6px 14px">↻ 새로고침</button></h2>
+    <h2><span class="chip">${esc(lname)}</span>${tCls === 'all' ? '' : `<span class="chip cls">${tClsName()}</span>`}한눈에 보기 <button class="btn" id="tRe" type="button" style="margin-left:auto;padding:6px 14px">↻ 새로고침</button></h2>
     <div class="tiles">
       <div class="tile"><div class="k">참여 학생</div><div class="v">${studs.length}</div></div>
       <div class="tile"><div class="k">질문 (답글)</div><div class="v">${Q.length} <small style="font-size:.8rem">(${R.length})</small></div></div>
@@ -3796,8 +5011,9 @@ function tRender(){
       <div class="tile"><div class="k">What · How·Why · If</div><div class="v" style="font-size:1.05rem">${lv('what')} · ${lv('howwhy')} · ${lv('if')}</div></div>
       <div class="tile"><div class="k">문제 해결률</div><div class="v">${solvedRate}%</div></div>
     </div>
+    ${tClsBar()}
     <div class="tsub">
-      ${[['posts','💬 질문 전체'],['students','👩‍🎓 학생별'],['debate','⚖️ 토의·토론'],['reflect','🪞 성찰'],['poly','🕵️ 폴리그래프'],['probs','✏️ 문제'],['cloud','☁️ 워드클라우드'],['notes','📝 노트 수합'],['ai','🧠 질문 코치 기록']]
+      ${[['posts','💬 질문 전체'],['students','👩‍🎓 학생별'],['debate','⚖️ 토의·토론'],['reflect','🪞 성찰'],['poly','🕵️ 폴리그래프'],['probs','✏️ 문제'],['cloud','☁️ 워드클라우드·빈도'],['groups','👥 소그룹'],['seteuk','📋 개인 기록·세특'],['notes','📝 노트 수합'],['ai','🧠 질문 코치 기록']]
         .map(([k,t]) => `<button class="fbtn${tView === k ? ' on' : ''}" data-v="${k}">${t}</button>`).join('')}
       <button class="btn" id="tCsv" type="button" style="margin-left:auto;padding:6px 14px">⬇ CSV 내려받기</button>
     </div>
@@ -3808,6 +5024,9 @@ function tRender(){
     <input class="inp" id="tNew" type="password" autocomplete="new-password" data-lpignore="true" placeholder="새 암호 (4자 이상)" style="max-width:200px">
     <button class="btn" id="tPw" type="button">바꾸기</button></div><div class="cmsg" id="tPwMsg"></div></div>`;
   $('#tRe').onclick = () => tLoad(TP, TL);
+  $$('.tcls[data-c]').forEach(b => b.onclick = () => { tCls = b.dataset.c; tApplyCls(); tRender(); });
+  $('#tRoster').onclick = () => $('#tRosterFile').click();
+  $('#tRosterFile').onchange = e => { const f = e.target.files[0]; if (f) tReadRoster(f); };
   $$('.tsub .fbtn').forEach(b => b.onclick = () => { tView = b.dataset.v; tRender(); });
   $('#tCsv').onclick = tCSV;
   $('#tPw').onclick = async () => {
@@ -3822,7 +5041,9 @@ function tRender(){
   if (tView === 'reflect') tReflect(V);
   if (tView === 'poly') tPoly(V);
   if (tView === 'probs') tProbs(V);
-  if (tView === 'cloud') tCloud(V, Q);
+  if (tView === 'cloud') tCloud(V);
+  if (tView === 'groups') tGroups(V);
+  if (tView === 'seteuk') tSeteuk(V);
   if (tView === 'notes') tNotes(V);
   if (tView === 'ai') tAI(V);
   setTimeout(() => bindHScroll($('#pg-teacher')), 30);
@@ -3890,7 +5111,40 @@ function tStudents(V, Q, R){
         <td>${l('what')} / ${l('howwhy')} / <b style="color:#e8558c">${l('if')}</b></td><td>${R.filter(p => p.student_no === s.student_no).length}</td>
         <td>${my.reduce((a,p) => a + p.votes, 0)}</td><td>${db ? STN[db.body.stance] || '-' : '-'} → ${da ? STN[da.body.stance] || '-' : '-'}</td>
         <td>${rf ? '✅' : '—'}</td><td>${sv} / ${(window.LESSON_META && LESSON_META[TL] ? LESSON_META[TL].probs : '?')}</td><td>${new Date(s.last_seen).toLocaleString('ko-KR',{month:'numeric',day:'numeric',hour:'2-digit',minute:'2-digit'})}</td></tr>`;
-    }).join('') || '<tr><td colspan="10">아직 참여한 학생이 없어요</td></tr>'}</table></div>`;
+    }).join('') || '<tr><td colspan="10">아직 참여한 학생이 없어요</td></tr>'}</table></div>${tAbsent()}`;
+}
+function tAbsent(){
+  if (!RLIST) return `<p class="lead" style="font-size:.84rem;margin-top:8px">📋 위쪽 「명렬표 불러오기」로 학교 명렬표 엑셀을 불러오면, 반마다 <b>아직 들어오지 않은 학생</b>과 <b>명렬표와 이름이 다른 학번</b>을 여기에서 볼 수 있어요.</p>`;
+  const cl = tCls === 'all' ? ['1','2','3','4'] : tCls === 'etc' ? [] : [tCls];
+  const st = TD.students || [];
+  return cl.map(c => { const R0 = RLIST[c] || []; const miss = R0.filter(([no]) => !st.some(x => x.student_no === no));
+    const odd = st.filter(x => clsOf(x.student_no) === c).filter(x => { const r = R0.find(([no]) => no === x.student_no); return !r || r[1] !== x.name; });
+    return `<div class="tabsent"><b>${c}반</b> 참여 ${R0.length - miss.length} / ${R0.length}명
+      ${miss.length ? `<div>🙋 아직 안 들어온 학생 (${miss.length}) : ${miss.map(([no, nm]) => `<span>${esc(no)} ${esc(nm)}</span>`).join('')}</div>` : '<div>🎉 모두 참여했어요</div>'}
+      ${odd.length ? `<div class="odd">⚠️ 명렬표와 학번·이름이 다른 입장 : ${odd.map(x => { const r = R0.find(([no]) => no === x.student_no); return `<span>${esc(x.student_no)} ${esc(x.name)}${r ? ` (명렬표 : ${esc(r[1])})` : ' (명렬표에 없는 학번)'}</span>`; }).join('')}</div>` : ''}</div>`; }).join('');
+}
+/* 명렬표 엑셀 읽기 — 파일은 서버로 보내지 않고 이 브라우저(localStorage)에만 저장 */
+async function tReadRoster(file){
+  try{
+    let rows;
+    if (/\.csv$/i.test(file.name)) rows = (await file.text()).split(/\r?\n/).map(l => l.split(','));
+    else {
+      if (!window.XLSX){ snack('엑셀 읽기 도구를 불러오는 중…'); await new Promise((ok, no) => { const sc = document.createElement('script'); sc.src = 'https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js'; sc.onload = ok; sc.onerror = () => no(new Error('엑셀 읽기 도구를 불러오지 못했어요 (인터넷 확인)')); document.head.appendChild(sc); }); }
+      const wb = XLSX.read(await file.arrayBuffer(), { type:'array' });
+      const name = wb.SheetNames.find(n => /^1\s*학년/.test(n)) || wb.SheetNames[0];
+      rows = XLSX.utils.sheet_to_json(wb.Sheets[name], { header:1, raw:false, defval:'' });
+    }
+    const out = {};
+    rows.forEach(r => r.forEach((v, i) => {
+      const no = String(v).trim(), nm = String(r[i + 1] || '').trim(), note = String(r[i + 2] || '');
+      if (/^1\d{4}$/.test(no) && nm && !/^\d+$/.test(nm) && !/자퇴|전출|퇴학|제적/.test(note)){ const c = clsOf(no); if (['1','2','3','4'].includes(c)) (out[c] = out[c] || []).push([no, nm]); }
+    }));
+    const tot = Object.values(out).reduce((a, b) => a + b.length, 0);
+    if (!tot) throw new Error('1학년 1~4반 학번(1반번호 5자리)과 이름을 찾지 못했어요');
+    RLIST = out; try{ localStorage.setItem('qf_roster', JSON.stringify(out)); }catch(e){}
+    snack(`📋 명렬표를 불러왔어요 : ${['1','2','3','4'].map(c => `${c}반 ${(out[c] || []).length}명`).join(' · ')} (이 컴퓨터에만 저장)`);
+    tRender();
+  }catch(e){ snack('명렬표를 읽지 못했어요 : ' + e.message); }
 }
 
 function tDebate(V){
@@ -3935,25 +5189,89 @@ function tProbs(V){
         <td>${(a.reduce((x,y) => x + +y.tries, 0) / a.length).toFixed(1)}</td><td>${a.reduce((x,y) => x + (+y.hints || 0), 0)}</td></tr>`; }).join('')
       || '<tr><td colspan="6">아직 기록이 없어요</td></tr>'}</table></div>`;
 }
-function tCloud(V, Q){
-  V.innerHTML = `<div class="filters" id="tcm"><button class="fbtn on" data-v="all">핵심어 전체</button><button class="fbtn" data-v="math">수학 용어만</button></div>
-    <div class="cloud" id="tCloudBox" style="height:340px"></div><div id="tBars" style="margin-top:12px"></div>`;
-  let mode = 'all';
-  const draw = () => { const fq = freqOf(Q.map(p => p.body), mode === 'math'); drawCloud($('#tCloudBox'), fq); drawBars($('#tBars'), fq); };
-  seg($('#tcm'), v => { mode = v; draw(); });
-  setTimeout(draw, 30);
+/* ---------- ☁️ 워드클라우드 · 빈도 · 단어 연결망 (영역별 · 반별) ---------- */
+const TSRC = [['all','💬 전체 질문'],['concept','🧠 개념'],['problem','✏️ 문제'],['life','🌍 실생활'],['book','📚 책 속'],['free','🔒 자유 질문방'],['gq','👥 소그룹 질문·해결'],['gchat','👥 소그룹 토론·결과'],['talk','💭 토의'],['debate','⚖️ 토론'],['reflect','🪞 성찰']];
+let tSrc = 'all', tMath = false;
+function tTexts(src, D){
+  const Q = (D.posts || []).filter(p => p.kind !== 'reply' && !p.hidden), RS = f => (D.responses || []).filter(r => f(r.item));
+  if (src === 'all') return Q.map(p => p.body);
+  if (['concept','problem','life','book','free'].includes(src)) return Q.filter(p => p.kind === src).map(p => p.body);
+  if (src === 'gq') return (D.gposts || []).filter(g => g.kind === 'q' || g.kind === 'r').map(g => g.body);
+  if (src === 'gchat') return (D.gposts || []).filter(g => g.kind === 'chat' || g.kind === 'result').map(g => g.data && g.data.how ? [g.data.q, g.data.how, g.data.ans].join(' ') : g.body);
+  if (src === 'talk') return RS(i => /^talk\d$/.test(i)).map(r => r.body.a || '');
+  if (src === 'debate') return RS(i => i === 'debate').map(r => [r.body.reason, r.body.rebut, r.body.ask].filter(Boolean).join(' '))
+    .concat(RS(i => i === 'debate_after').map(r => r.body.change || ''));
+  if (src === 'reflect') return RS(i => i === 'reflect').map(r => ['core','myq','s3','s2','s1','m1','m2','m3'].map(k => r.body[k] || '').join(' '));
+  return [];
 }
+const clsData = c => { const D = TDALL || {}, f = x => clsOf(x.student_no) === c;
+  return { posts:(D.posts || []).filter(f), responses:(D.responses || []).filter(f), gposts:(typeof TG !== 'undefined' && TG && TG.lesson === TL ? TG.posts : []).filter(f) }; };
+function tCloud(V){
+  if (!TG || TG.lesson !== TL){ tGroupData().catch(() => { TG = { lesson:TL, members:[], posts:[] }; }).then(() => { tApplyCls(); if (tView === 'cloud') tCloud(V); }); return; }
+  const srcName = (TSRC.find(x => x[0] === tSrc) || ['', ''])[1];
+  const opt = { math:tMath, hide:HIDE };
+  const st = tmStats(tTexts(tSrc, TD), opt);
+  const tot = st.freq.reduce((a, b) => a + b[1], 0);
+  V.innerHTML = `<div class="filters" id="tcSrc">${TSRC.map(([k, t]) => `<button class="fbtn${tSrc === k ? ' on' : ''}" data-v="${k}">${t} <small>${tTexts(k, TD).filter(x => String(x).trim()).length}</small></button>`).join('')}</div>
+    <div class="filters" id="tcm"><button class="fbtn${tMath ? '' : ' on'}" data-v="all">핵심어 전체</button><button class="fbtn${tMath ? ' on' : ''}" data-v="math">수학 용어만</button>
+      ${HIDE.size ? `<button class="fbtn" id="tcUnhide" type="button">↺ 숨긴 낱말 ${HIDE.size}개 되돌리기</button>` : ''}
+      <button class="btn" id="tcCsv" type="button" style="margin-left:auto;padding:6px 14px">⬇ 빈도표 CSV (영역 × 반)</button></div>
+    <div class="tcgrid">
+      <div><h3>☁️ ${srcName} 워드클라우드 <small>· ${tClsName()} · 글 ${st.docs}개 · 낱말 ${tot}개</small></h3>
+        <div class="cloud" id="tCloudBox" style="height:360px"></div>
+        <div class="cloudnote">낱말을 누르면 구름·빈도표·연결망에서 함께 숨겨져요 (예 : 모든 질문에 들어가는 「함수」를 빼고 보기).</div></div>
+      <div><h3>📊 낱말 빈도 TOP 30</h3>
+        <div class="tscroll" style="max-height:400px"><table class="tt tfreq"><tr><th>순위</th><th>낱말</th><th>빈도</th><th>비율</th><th>나온 글</th></tr>
+        ${st.freq.slice(0, 30).map(([w, n], i) => `<tr><td class="num">${i + 1}</td><td><b>${esc(w)}</b>${MATH_SET.has(w) ? ' <span class="mtag">수학</span>' : ''}</td><td class="num">${n}</td>
+          <td><div class="fbar"><i style="width:${(n / st.freq[0][1] * 100).toFixed(0)}%"></i></div>${(n / tot * 100).toFixed(1)}%</td><td class="num">${st.df[w]} / ${st.docs}</td></tr>`).join('') || '<tr><td colspan="5">아직 글이 없어요</td></tr>'}</table></div></div>
+    </div>
+    <h3>🕸️ 단어 연결망 <small>· 한 글 안에 함께 나온 낱말 (선이 굵을수록 자주 함께)</small></h3>
+    <div class="tnet" id="tNet"></div>
+    <div class="tpairs">${st.pairs.slice(0, 12).map(([a, b, n]) => `<span>${esc(a)} — ${esc(b)} <b>${n}</b></span>`).join('') || ''}</div>
+    <h3>🏫 반별 비교 <small>· ${srcName} (반 선택과 관계없이 1~4반을 나란히)</small></h3>
+    <div class="tcmp">${['1','2','3','4'].map(c => `<div><h4>${c}반 <small id="tcmpN${c}"></small></h4><div class="cloud" id="tcmp${c}" style="height:210px"></div></div>`).join('')}</div>
+    <h3>🗂️ 영역별 한눈에 <small>· ${tClsName()} · 많이 나온 낱말 5개 (누르면 그 영역으로)</small></h3>
+    <div class="tsrcgrid">${TSRC.slice(1).map(([k, t]) => { const s2 = tmStats(tTexts(k, TD), opt);
+      return `<button type="button" class="tsrc${tSrc === k ? ' on' : ''}" data-v="${k}"><b>${t}</b><small>글 ${s2.docs}개</small>
+        <span>${s2.freq.slice(0, 5).map(([w, n]) => `<em>${esc(w)} ${n}</em>`).join('') || '<em class="none">아직 없어요</em>'}</span></button>`; }).join('')}</div>
+    <details class="tmhow"><summary>🔤 워드클라우드는 이렇게 만들어요 (텍스트 마이닝 5단계)</summary>
+      <ol><li><b>정제</b> (정규표현식) : 주소·이메일·숫자·특수문자·ㅋㅋ/ㅠㅠ를 지우고, 그 전에 <code>y=x</code>, <code>f⁻¹</code>, <code>g∘f</code>, <code>x축</code> 같은 수학 기호는 낱말로 따로 꺼내 둡니다.</li>
+      <li><b>동일화</b> : 「역 함수 → 역함수」, 「함수값 → 함숫값」, 「학생들 → 학생」처럼 띄어쓰기·표기·복수를 하나로 맞춥니다.</li>
+      <li><b>형태소 분석</b> (KoNLPy의 nouns 역할) : 교과서·안내서를 Kiwi 형태소 분석기로 분석해 만든 명사 사전(${TM_LEXSET.size}개)으로 어절마다 가장 긴 명사를 찾고, 뒤에 붙은 조사(은·는·에서는·으로도…)와 어미를 떼어 냅니다. 「대응하면 · 이동시키면 · 필요해요」는 어근 명사 「대응 · 이동 · 필요」를 남겨요.</li>
+      <li><b>불용어 제거</b> : 왜·어떻게·정말·그냥·것·수·문제·질문 같은 낱말 ${STOPWORDS.size}개와 한 글자 낱말을 뺍니다 (식·값·근·축은 수학 용어라 남김).</li>
+      <li><b>빈도 · 동시출현</b> : 낱말 수를 세어(Counter) 구름 크기를 정하고, 한 글 안에 함께 나온 두 낱말의 쌍을 세어 단어 연결망을 그립니다.</li></ol>
+      <p>같은 분석을 파이썬(KoNLPy · wordcloud · networkx)으로 하고 싶다면 교사용 폴더의 <b>질문_텍스트마이닝.ipynb</b>에 위의 「⬇ CSV 내려받기」 파일을 넣어 실행하세요.</p></details>`;
+  const redraw = () => tCloud(V);
+  $$('#tcSrc .fbtn, .tsrc', V).forEach(b => b.onclick = () => { tSrc = b.dataset.v; redraw(); });
+  $$('#tcm .fbtn[data-v]', V).forEach(b => b.onclick = () => { tMath = b.dataset.v === 'math'; redraw(); });
+  if ($('#tcUnhide')) $('#tcUnhide').onclick = () => { HIDE.clear(); redraw(); };
+  $('#tcCsv').onclick = tFreqCSV;
+  setTimeout(() => {
+    drawCloud($('#tCloudBox'), st.freq.slice(0, 50), { onHide:redraw, empty:`${srcName}에 아직 글이 없어요 ☁️` });
+    drawNet($('#tNet'), st.freq, st.pairs, { h:380 });
+    ['1','2','3','4'].forEach(c => { const s3 = tmStats(tTexts(tSrc, clsData(c)), opt); $('#tcmpN' + c).textContent = `글 ${s3.docs}개`;
+      drawCloud($('#tcmp' + c), s3.freq.slice(0, 22), { scale:.62, onHide:redraw, empty:'아직 없어요' }); });
+  }, 30);
+}
+function tFreqCSV(){
+  const rows = [['차시','반','영역','순위','낱말','빈도','나온 글 수','전체 글 수']];
+  [['전체', TDALL || {}]].concat(['1','2','3','4'].map(c => [c + '반', clsData(c)])).forEach(([cn, D]) =>
+    TSRC.forEach(([k, t]) => { const s2 = tmStats(tTexts(k, D), { math:tMath, hide:HIDE });
+      s2.freq.slice(0, 100).forEach(([w, n], i) => rows.push([TL, cn, t.replace(/^\S+\s/, ''), i + 1, w, n, s2.df[w], s2.docs])); }));
+  csvDown(rows, `낱말빈도_${TL}.csv`);
+}
+const RESPNAME = it => /^talk\d$/.test(it) ? '토의' : it === 'debate' ? '토론' : it === 'debate_after' ? '토론 후' : it === 'reflect' ? '성찰' : it === 'poly' ? '폴리그래프' : '응답';
 function tCSV(){
-  const lines = [['종류','차시','시간','학번','이름','항목','수준','유형','내용','공감','선생님답변']];
-  (TD.posts || []).forEach(p => lines.push([KINDS[p.kind] || (p.kind === 'reply' ? '답글' : p.kind), TL, p.created_at, p.student_no, p.name,
+  const lines = [['종류','차시','반','시간','학번','이름','항목','수준','유형','내용','공감','선생님답변']];
+  (TD.posts || []).forEach(p => lines.push([KINDS[p.kind] || (p.kind === 'reply' ? '답글' : p.kind), TL, clsOf(p.student_no), p.created_at, p.student_no, p.name,
     (p.ref ? tRef(p.ref) : '') || (p.parent_id ? '답글→' + p.parent_id : ''), LVS[p.level] || '', p.qtype || '', p.body, p.votes, p.teacher_reply || '']));
-  (TD.responses || []).forEach(r => lines.push(['응답', TL, r.updated_at, r.student_no, r.name, r.item, '', '',
+  (TD.responses || []).forEach(r => lines.push([RESPNAME(r.item), TL, clsOf(r.student_no), r.updated_at, r.student_no, r.name, r.item, '', '',
     Object.entries(r.body).map(([k,v]) => `${k}: ${v}`).join(' | '), '', '']));
-  (TD.attempts || []).forEach(a => lines.push(['문제', TL, a.at, a.student_no, a.name, tRef(a.problem_id), '', '', a.solved ? '해결' : '미해결', a.tries, '']));
+  (TD.attempts || []).forEach(a => lines.push(['문제풀이', TL, clsOf(a.student_no), a.at, a.student_no, a.name, tRef(a.problem_id), '', '', a.solved ? '해결' : '미해결', a.tries, '']));
   const csv = '﻿' + lines.map(r => r.map(v => `"${String(v == null ? '' : v).replace(/"/g,'""')}"`).join(',')).join('\r\n');
   const a = document.createElement('a');
   a.href = URL.createObjectURL(new Blob([csv], { type:'text/csv;charset=utf-8' }));
-  a.download = `질문탐구_${TL}_${new Date().toISOString().slice(0,10)}.csv`; a.click();
+  a.download = `질문탐구_${TL}_${tClsName()}_${new Date().toISOString().slice(0,10)}.csv`; a.click();
 }
 
 
@@ -3969,7 +5287,7 @@ const evalTotal = o => { const sc = (o && o.scores) || {}; return ['open','conce
 async function tNotes(V){
   V.innerHTML = '<p class="lead">노트를 불러오는 중…</p>';
   let d; try{ d = await tNoteData(); }catch(e){ V.innerHTML = `<p class="cmsg err">${esc(e.message)}</p>`; return; }
-  const N = d.notes, sub = N.filter(n => n.submitted).length;
+  const N = d.notes.filter(n => inCls(n.student_no)), sub = N.filter(n => n.submitted).length;
   const scores = N.map(n => n.ai && n.ai.r && +n.ai.r.score).filter(x => x >= 0);
   const qAll = N.flatMap(n => n.questions || []);
   const lvc = k => qAll.filter(q => q.level === k).length;
@@ -4001,13 +5319,13 @@ async function tNotes(V){
     const rows = [['학번','이름','제출','수정 시각','단서·질문','필기','요약','손글씨','질문지(수준)','코치 노트 점수','코치가 찾은 빠진 개념']];
     N.forEach(n => rows.push([n.student_no, n.name, n.submitted ? '제출' : '작성 중', n.updated_at, n.cue, n.body, n.summary, n.sketch ? '있음' : '',
       (n.questions || []).map(q => `[${LVN2[q.level] || ''}] ${q.q}`).join(' / '), n.ai && n.ai.r ? n.ai.r.score : '', n.ai && n.ai.r ? (n.ai.r.missing || []).join(', ') : '']));
-    csvDown(rows, `노트_${TL}.csv`);
+    csvDown(rows, `노트_${TL}_${tClsName()}.csv`);
   };
 }
 async function tAI(V){
   V.innerHTML = '<p class="lead">질문 코치 기록을 불러오는 중…</p>';
   let d; try{ d = await tNoteData(); }catch(e){ V.innerHTML = `<p class="cmsg err">${esc(e.message)}</p>`; return; }
-  const A = d.ai, by = {};
+  const A = d.ai.filter(a => inCls(a.student_no)), by = {};
   const nameOf = no => { const s = (TD.students || []).find(x => x.student_no === no); return s ? s.name : ((d.notes.find(n => n.student_no === no) || {}).name || ''); };
   A.forEach(a => { const o = by[a.student_no] = by[a.student_no] || { n:0, ev:[], cr:0, co:0, no:0 };
     o.n++; if (a.mode === 'evaluate') o.ev.push(evalTotal(a.output)); if (a.mode === 'creative') o.cr++; if (a.mode === 'coach') o.co++; if (a.mode === 'note') o.no++; });
@@ -4034,7 +5352,7 @@ async function tAI(V){
   $('#taiCsv').onclick = () => {
     const rows = [['시각','학번','이름','기능','학생 글','결과(JSON)']];
     A.forEach(a => rows.push([a.created_at, a.student_no, nameOf(a.student_no), MD[a.mode] || a.mode, a.input, JSON.stringify(a.output)]));
-    csvDown(rows, `질문코치기록_${TL}.csv`);
+    csvDown(rows, `질문코치기록_${TL}_${tClsName()}.csv`);
   };
 }
 function csvDown(rows, name){
