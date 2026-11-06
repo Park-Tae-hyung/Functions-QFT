@@ -600,6 +600,101 @@ table.mini th{background:var(--lav-s)}
 .netbad{background:#fff0f5;border:2px solid #ffc8da;color:#d6407a;border-radius:14px;padding:8px 13px;font-size:.84rem;font-weight:800;margin:10px 0;display:none}
 .netbad.on{display:block}
 
+/* ---------- 🤖 AI 질문 코치 ---------- */
+.aibar{display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin-top:8px}
+.aib{border:1.5px solid #dccfff;background:linear-gradient(180deg,#fff,#f6f2ff);color:#6a4bd6;font-family:inherit;font-size:.8rem;font-weight:900;
+  padding:6px 12px;border-radius:999px;cursor:pointer;transition:.15s}
+.aib:hover{transform:translateY(-1px);box-shadow:0 4px 10px rgba(125,95,224,.18)}.aib:disabled{opacity:.5;cursor:wait}
+.aib.post{border-color:#ffd0e1;color:#d0346a;background:#fff}
+.aist{font-size:.8rem;color:var(--ink3);font-weight:700}
+.aiout{display:none;margin-top:10px}.aiout.on{display:block}
+.aicard{background:linear-gradient(135deg,#fbf9ff,#fff6fa);border:2px solid #ebe1ff;border-radius:18px;padding:12px 14px;box-shadow:0 6px 16px rgba(125,95,224,.1)}
+.aibadge{display:inline-block;font-size:.7rem;font-weight:900;border-radius:999px;padding:2px 10px;margin-bottom:6px}
+.aibadge.ai{background:linear-gradient(90deg,#4f7cff,#a46bff);color:#fff}.aibadge.rule{background:#eef0f6;color:#6c7088}
+.aitop{display:flex;gap:14px;align-items:center;margin-bottom:6px}
+.aiscore{flex:0 0 74px;height:74px;border-radius:50%;background:conic-gradient(var(--lav) 0 100%);background:radial-gradient(circle,#fff 58%,transparent 60%),conic-gradient(#a98cff,#ff7ba9);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1}
+.aiscore b{font-size:1.5rem;color:#5a3fc0}.aiscore small{font-size:.66rem;color:var(--ink3);font-weight:800}
+.aibars{display:grid;grid-template-columns:1fr 1fr;gap:2px 14px;margin-top:6px;font-size:.78rem}
+.aibars div{display:flex;justify-content:space-between;gap:6px}.aibars i{font-style:normal;color:#f5a623;letter-spacing:1px}
+.aih{font-weight:900;font-size:.84rem;color:#5a3fc0;margin:8px 0 4px}
+.ailn{font-size:.88rem;border-radius:12px;padding:6px 10px;margin-top:6px;background:#fff}
+.ailn.good{background:#e9f9f2}.ailn.imp{background:#fff4e0}.ailn.hint{background:#eef3ff}.ailn.warn{background:#ffeef1}
+.idea{background:#fff;border-radius:14px;padding:8px 10px;margin-top:6px;display:flex;flex-direction:column;gap:3px}
+.idea b{color:#5a3fc0;font-size:.86rem}.idea span{font-size:.8rem;color:var(--ink2)}.idea small{color:var(--ink3);font-size:.76rem}
+.seedbtn{display:block;text-align:left;width:100%;border:1.5px dashed #b9e6cf;background:#f3fcf7;color:#11795c;font-family:inherit;font-size:.86rem;font-weight:800;
+  border-radius:12px;padding:6px 10px;margin-top:4px;cursor:pointer}
+.seedbtn:hover{background:#e3f8ee}
+.asks{margin:4px 0;padding-left:20px;font-size:.9rem}.asks li{margin:3px 0}
+.qrow{font-size:.86rem;background:#fff;border-radius:10px;padding:5px 8px;margin-top:4px}.qrow small{display:block;color:var(--ink3)}
+.coach{background:linear-gradient(135deg,#f6f3ff,#fff)}
+.coach .cin{width:100%;min-height:70px;border:2px solid var(--line2);border-radius:14px;padding:10px 12px;font:inherit;resize:vertical}
+.lvtag:empty{display:none}
+
+/* ---------- 📝 개념 노트 ---------- */
+.nstat{display:flex;gap:10px;align-items:center;flex-wrap:wrap;font-size:.84rem;font-weight:800;color:var(--ink2);margin-bottom:8px}
+.nsub{border-radius:999px;padding:2px 10px;background:#eef0f6;color:#6c7088;font-size:.76rem;font-weight:900}.nsub.on{background:#dcf7ee;color:#11795c}
+.ntools{display:flex;flex-wrap:wrap;gap:5px;align-items:center;margin-bottom:6px}
+.ntl{font-size:.72rem;font-weight:900;color:var(--ink3);margin-right:2px}
+.nsym{border:1.5px solid var(--line2);background:#fff;border-radius:8px;padding:2px 9px;font-family:'Times New Roman',serif;font-size:.95rem;cursor:pointer;min-width:34px}
+.nsym:hover{border-color:var(--lav)}
+.cornell{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2.2fr);grid-template-areas:"cue body" "sum sum";gap:0;border:2px solid #c9b8ff;border-radius:16px;overflow:hidden;margin-top:6px;background:#fff}
+.ccue{grid-area:cue;border-right:2px solid #c9b8ff;background:#fbf9ff}.cbody{grid-area:body}.csum{grid-area:sum;border-top:2px solid #c9b8ff;background:#fffaf2}
+.cornell label{display:block;font-size:.76rem;font-weight:900;color:#5a3fc0;padding:8px 12px 0}
+.cornell textarea{width:100%;border:0;background:transparent;font:inherit;font-size:.95rem;line-height:1.75;padding:6px 12px 10px;resize:vertical;outline:none;
+  background-image:repeating-linear-gradient(transparent 0 calc(1.75em - 1px),#ece6fb calc(1.75em - 1px) 1.75em);background-attachment:local}
+.ccue textarea,.cbody textarea{min-height:320px}.csum textarea{min-height:110px}
+.cornell textarea:focus{background-color:#fffef8}
+.ptools{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-bottom:8px}
+.pcol{width:28px;height:28px;border-radius:50%;cursor:pointer;border:3px solid #fff;box-shadow:0 0 0 2px var(--line2)}.pcol.on{box-shadow:0 0 0 3px var(--lav)}
+.psep{width:1px;height:24px;background:var(--line2);margin:0 4px}
+.pw,.ptool{border:1.5px solid var(--line2);background:#fff;border-radius:999px;padding:4px 11px;font-family:inherit;font-size:.78rem;font-weight:800;cursor:pointer;color:var(--ink2)}
+.pw.on,.ptool.on{background:var(--lav);border-color:var(--lav);color:#fff}
+.pad{position:relative;border:2px solid #c9b8ff;border-radius:16px;overflow:hidden;background:#fff;touch-action:none}
+.pad.grid{background-image:linear-gradient(#eef0f8 1px,transparent 1px),linear-gradient(90deg,#eef0f8 1px,transparent 1px);background-size:4.1667% 6.25%}
+.pad.axis::before,.pad.axis::after{content:'';position:absolute;background:#b8bdd6;pointer-events:none}
+.pad.axis::before{left:0;right:0;top:50%;height:2px}.pad.axis::after{top:0;bottom:0;left:50%;width:2px}
+.pad canvas{display:block;width:100%;height:auto;aspect-ratio:3/2;touch-action:none;cursor:crosshair;position:relative;z-index:1}
+.nq{border:2px solid var(--line);border-radius:16px;padding:10px 12px;margin-bottom:10px;background:#fff}
+.nqh{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px}.nqh b{font-size:.9rem;color:var(--ink)}
+.nposted{font-size:.72rem;font-weight:900;color:#d0346a}
+.nq textarea{width:100%;min-height:58px;border:2px solid var(--line2);border-radius:12px;padding:8px 10px;font:inherit;resize:vertical}
+.nqa{display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin-top:6px}
+.btn.ai{background:linear-gradient(90deg,#4f7cff,#a46bff);color:#fff;border-color:transparent}
+.nsubmit{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:14px;padding-top:12px;border-top:2px dashed var(--line)}
+.nsubmit small{color:var(--ink3)}
+@media (max-width:720px){
+  .cornell{grid-template-columns:1fr;grid-template-areas:"body" "cue" "sum"}.ccue{border-right:0;border-top:2px solid #c9b8ff}
+  .ccue textarea{min-height:140px}.cbody textarea{min-height:240px}.aibars{grid-template-columns:1fr}
+}
+
+/* ---------- 선생님 : 노트 수합 ---------- */
+.tnotes{display:grid;grid-template-columns:repeat(auto-fill,minmax(420px,1fr));gap:12px}
+.tnote{border:2px solid var(--line);border-radius:16px;padding:10px 12px;background:#fff;break-inside:avoid}
+.tnh{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px}.tnh small{color:var(--ink3)}
+.aiscore-s{margin-left:auto;font-size:.74rem;font-weight:900;background:#efe9ff;color:#5a3fc0;border-radius:999px;padding:2px 10px}
+.tcor{display:grid;grid-template-columns:1fr 2fr;border:1.5px solid #ddd2ff;border-radius:10px;overflow:hidden;font-size:.84rem}
+.tcor>div,.tsum,.tqs{padding:6px 8px}.tcue{background:#fbf9ff;border-right:1.5px solid #ddd2ff}
+.tnote label{display:block;font-size:.68rem;font-weight:900;color:#5a3fc0}
+.tsum{background:#fffaf2;border-radius:10px;margin-top:6px;font-size:.84rem}
+.tsk{display:block;margin-top:6px;border:1.5px solid var(--line);border-radius:10px;overflow:hidden}.tsk img{display:block;width:100%}
+.tqs{font-size:.84rem;margin-top:4px}.tqs div{margin:2px 0}
+.tai{font-size:.78rem;background:#fff4e0;border-radius:8px;padding:4px 8px;margin-top:6px}
+@media (max-width:560px){ .tnotes{grid-template-columns:1fr} }
+@media print{
+  body.printnotes > *:not(.wrap){display:none !important}
+  body.printnotes .page:not(#pg-teacher), body.printnotes #pg-teacher > .card:not(:first-of-type), body.printnotes .tiles, body.printnotes .tsub, body.printnotes .filters, body.printnotes nav{display:none !important}
+  body.printnotes .tnotes{grid-template-columns:1fr 1fr}
+}
+.tdelbar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:6px 0 8px;font-size:.8rem;font-weight:800}
+.tdelbar small{color:var(--ink3);font-weight:600}
+.tdel{border:1.5px solid #ffc4cf;background:#fff4f6;color:#d0344f;font-family:inherit;font-weight:900;font-size:.8rem;border-radius:999px;padding:5px 12px;cursor:pointer}
+.tdel:disabled{opacity:.45;cursor:default}
+.tact button.del{color:#d0344f;border-color:#ffc4cf}
+.rpdel{border:0;background:#ffe9ed;color:#d0344f;border-radius:999px;font-size:.66rem;font-weight:900;padding:0 6px;cursor:pointer;margin-left:4px}
+.aibadge.engine{background:linear-gradient(90deg,#1fb48a,#3cc9a0);color:#fff}
+.aibadge.device{background:linear-gradient(90deg,#4f7cff,#a46bff);color:#fff}
+
 /* ===================================================================
    교과서 스타일 + 입체감 + 큰 글씨 · 큰 수식
    =================================================================== */
@@ -1607,11 +1702,14 @@ function mountComposer(host, o){
       <span style="flex:1"></span>
       <button class="btn main send" type="button">질문 올리기 🚀</button>
     </div>
+    <div class="aibar"><button class="aib ev" type="button">🧠 질문 평가받기</button><button class="aib cr" type="button">🚀 창의적으로 키우기</button><span class="aist"></span></div>
+    <div class="aiout"></div>
     <div class="cmsg"></div>
     <div class="nudge"></div>
     ${o.nolist ? '' : '<div class="minilist"></div>'}`;
   host.appendChild(box);
   const ta = $('textarea', box), msg = $('.cmsg', box), ng = $('.nudge', box);
+  if (window.bindAIComposer) bindAIComposer(box, o);
   let lv = 'what', ty = 'closed', manualLv = false, manualTy = false;
   const paintSeg = () => {
     $$('.lv button', box).forEach(b => b.classList.toggle('on', b.dataset.v === lv));
@@ -1736,6 +1834,7 @@ async function loadMine(){
   if (!ME.no) return;
   try{ Object.assign(MINE, await rpc('qf_mine', { p_lesson:LESSON.code, p_no:ME.no }) || {}); }catch(e){}
   fillForms();
+  if (window.loadNote) loadNote();
 }
 const FORMS = [];
 function bindForm(host, item, onLoad){
@@ -1895,6 +1994,530 @@ function drawBars(host, freq){
   const mx = top[0][1];
   host.innerHTML = `<div class="bars">` + top.map(([w, n]) =>
     `<div class="bar"><div class="bl">${esc(w)}</div><div class="bt"><div style="width:${(n/mx*100).toFixed(1)}%"></div></div><div class="bn">${n}</div></div>`).join('') + `</div>`;
+}
+
+;
+/* ===================================================================
+   🧠 질문 코치 — 평가 · 창의적으로 키우기 · 나만의 질문 찾기 · 노트 점검
+   API 키 · 외부 AI 없이 작동한다. 이 사이트에 들어 있는 「질문 코치 엔진」
+   (차시별 개념 사전 + 오개념 사전 + 질문 분석 규칙)이 학생 기기 안에서 바로 분석한다.
+   결과는 선생님 화면에서 볼 수 있도록 기록한다.
+   =================================================================== */
+const AI_CRIT = [['open','정답 하나로 끝나지 않는다'],['concept','수학 개념을 쓴다'],['change','조건을 바꾸어 본다'],['curious','친구도 궁금해한다'],['inquiry','탐구로 이어진다']];
+
+/* ---------- 차시별 개념 사전 ---------- */
+const KB = {
+  f1:{ nums:['정의역의 원소 개수','공역의 원소 개수'], conds:['정의역','공역','대응 규칙','원소의 개수','그래프 모양'], links:['자판기','우편번호','혈액형','출석번호','랜덤 뽑기'],
+    miscon:[[/(치역|공역)\s*(은|는|이|가)?\s*(공역|치역)\s*(과|와)\s*(항상\s*)?같/,'치역과 공역이 항상 같다고 썼나요? 치역은 공역의 부분집합이라 다를 수 있어요.'],
+      [/일대일\s*함수\s*(는|은|면)\s*(모두|항상|무조건)?\s*일대일\s*대응/,'일대일함수라고 모두 일대일대응은 아니에요. 치역=공역 조건을 다시 확인해 보세요.'],
+      [/(식|공식)\s*(이|가)\s*(있어야|꼭\s*있어야|필요)/,'함수에 꼭 식이 있어야 하나요? 교과서 정의를 다시 읽어 보세요.']] },
+  f2:{ nums:['일차함수의 기울기','상수항'], conds:['두 함수의 순서','함수의 종류','정의역','안쪽 함수','합성하는 함수의 개수'], links:['양말과 신발','할인과 쿠폰','환전','사진 회전과 반전','요리 순서'],
+    miscon:[[/교환\s*법칙\s*(이|은)?\s*(성립한다|성립해|된다|돼요|가능)/,'합성함수에서 교환법칙이 항상 성립한다고 썼나요? 일반적으로는 성립하지 않아요.'],
+      [/g\s*[∘o]\s*f\D{0,12}g\s*(를|을|부터)?\s*먼저/,'g∘f에서 무엇을 먼저 계산하는지 다시 확인해 보세요. (안쪽부터!)'],
+      [/결합\s*법칙\s*(이|은)?\s*(성립하지|안\s*돼|안\s*된)/,'결합법칙이 성립하지 않는다고 썼나요? 세 함수의 합성에서 괄호 위치를 바꿔 다시 확인해 보세요.']] },
+  f3:{ nums:['기울기','정의역의 범위'], conds:['일대일대응 조건','정의역 제한','증가·감소','합성 순서','대칭축'], links:['카이사르 암호','비밀번호 해시','섭씨·화씨 변환','양말·신발 벗기'],
+    miscon:[[/역수|1\s*\/\s*f|분의\s*1/,'f⁻¹을 역수 1/f로 생각했나요? 역함수는 「거꾸로 대응」이에요.'],
+      [/(모든|어떤|아무)\s*함수(는|든|나)?\s*(다\s*)?역함수(가|를)?\s*(있|존재|가지)/,'모든 함수에 역함수가 있다고 썼나요? 일대일대응일 때만 있어요.'],
+      [/교점\s*(은|이)?\s*(항상|무조건|반드시)\s*y\s*=\s*x/,'함수와 역함수의 교점이 항상 y=x 위에 있을까요? 감소함수일 때를 확인해 보세요.']] },
+  r1:{ nums:['k','x'], conds:['k의 부호','k의 크기','분모가 0이 되는 값','정의역'], links:['연비','보일의 법칙','1인당 비용','함께 일하기'],
+    miscon:[[/분모\s*(가|는)?\s*0\s*(이)?\s*(될\s*수\s*있|돼도|되어도|이어도)/,'분모가 0이 될 수 있다고 썼나요? 유리식에서 분모는 0이 될 수 없어요.'],
+      [/(k\s*[<＜]\s*0|k가\s*음수).{0,15}(제?\s*1\s*,?\s*3\s*사분면)/,'k가 음수일 때 지나는 사분면을 다시 확인해 보세요.'],
+      [/(약분|나누면).{0,20}(같은\s*함수|똑같)/,'약분한 식과 원래 식의 정의역이 같은지 확인해 보세요.']] },
+  r2:{ nums:['올 때 속력','p'], conds:['p, q의 값','k의 부호','갈 때·올 때 속력','이동 방향'], links:['왕복 여행','도플러 효과','병렬 저항','마라톤 구간 속력'],
+    miscon:[[/x\s*[-−]\s*\d.{0,15}왼쪽|빼면\s*왼쪽/,'x−p 꼴일 때 이동 방향을 다시 확인해 보세요. (x=p에서 분모가 0)'],
+      [/평균\s*속력.{0,25}(50|산술\s*평균|더해서\s*(2|둘)로)/,'왕복 평균 속력을 두 속력의 산술평균으로 구했나요? 총거리÷총시간으로 다시 계산해 보세요.'],
+      [/점근선.{0,10}(하나|1개)뿐/,'y=k/(x−p)+q의 점근선은 몇 개인지 다시 확인해 보세요.']] },
+  r3:{ nums:['실의 길이','a'], conds:['a의 부호','근호 앞의 부호','시작점','근호 안의 식','실의 길이'], links:['진자','지진 해일','스키드 마크','쇠밧줄'],
+    miscon:[[/근호\s*안.{0,10}(음수|마이너스).{0,10}(돼|된다|가능|괜찮)/,'실수 범위에서 근호 안이 음수가 될 수 있다고 썼나요? 다시 확인해 보세요.'],
+      [/√\s*\(?\s*x\s*(\^?2|²)\s*\)?\s*=\s*x(?!\|)/,'√(x²)=x 라고 썼나요? x가 음수일 때를 확인해 보세요. (√(x²)=|x|)'],
+      [/4\s*배.{0,12}4\s*배.{0,8}(느리|길)/,'실 길이를 4배로 하면 주기도 4배일까요? 제곱근 관계를 다시 확인해 보세요.']] }
+};
+const kb = () => KB[LESSON.code] || { nums:['값'], conds:['조건'], links:['생활'], miscon:[] };
+
+/* ---------- 작은 도구 ---------- */
+const hasBatchim = w => { const c = (w || '').trim().slice(-1).charCodeAt(0); return c >= 0xAC00 && c <= 0xD7A3 ? (c - 0xAC00) % 28 !== 0 : null; };
+const J = (w, a, b) => { const h = hasBatchim(w); return w + (h === null ? `${a}(${b})` : h ? a : b); };   // J('함수','은','는') → 함수는
+const pick = (arr, k) => arr[Math.abs(k) % arr.length];
+const hashOf = t => [...t].reduce((h, c) => (h * 31 + c.charCodeAt(0)) | 0, 7);
+function termsIn(t){
+  const flat = t.replace(/\s/g, '');
+  const all = [...new Set([...(LESSON.concepts || []), ...MATH_TERMS])].filter(w => w.length >= 2);
+  return all.filter(w => flat.includes(w.replace(/\s/g, ''))).sort((a, b) => b.length - a.length);
+}
+const shuffle = a => { const b = a.slice(); for (let i = b.length - 1; i > 0; i--){ const j = Math.floor(Math.random() * (i + 1)); [b[i], b[j]] = [b[j], b[i]]; } return b; };
+
+/* ---------- 🧠 질문 코치 엔진 ---------- */
+const ENGINE = {
+  analyze(t){
+    const terms = termsIn(t), K = kb();
+    const mathExpr = /[∘√⁻²³≠≤≥]|[fghFGH]\s*\(|(^|[^a-zA-Z])[fghxyk]([^a-zA-Z]|$)|\d|=/.test(t);
+    const lessonWord = K.conds.concat(K.links).some(c => t.includes(c.split(/[ (·,]/)[0]));
+    const onTopic = terms.length > 0 || mathExpr || lessonWord;
+    const isQ = /\?|까\s*$|까요|나요|가요|니\s*$|는가|인가|일까|을까|ㄹ까|어떻게|왜|무엇|뭐|어디|언제|얼마|몇|누구|어느/.test(t);
+    const condWord = /만약|만일|라면|다면|바뀌|바꾸|달라지|없다면|아니라면|대신|늘리|줄이|커지|작아지|0이면|음수|양수/.test(t);
+    let lv = detectLevel(t), fakeIf = false;
+    if (lv === 'if' && !(condWord && onTopic)) { fakeIf = true; lv = /왜|어떻게|이유|차이|관계/.test(t) ? 'howwhy' : 'what'; }
+    const compare = /관계|비교|차이|다를|같을|같아|달라|다른\s*점|같은\s*점/.test(t);
+    const openW = /왜|어떻게|어떤|무엇이\s*다|차이|관계|언제|어디까지|얼마나|무슨\s*일|어떻게\s*될|설명/.test(t) || compare;
+    const open = isQ && (lv !== 'what' || openW);
+    const trivial = /(뜻|정의)(이|가|은|는)?\s*(뭐|무엇)/.test(t) && t.length < 22;
+    const general = /항상|모든|언제나|반드시|일반|어떤\s*경우|조건/.test(t);
+    return { terms, mathExpr, onTopic, isQ, lv, fakeIf, open, trivial, general, compare, condWord, len:t.replace(/\s/g, '').length };
+  },
+  evaluate(t){
+    const A = ENGINE.analyze(t), K = kb(), term = A.terms[0] || (LESSON.concepts || ['함수'])[0];
+    const cond = pick(K.conds.filter(c => !t.includes(c)), hashOf(t)) || K.conds[0];
+    const concrete = A.terms.length || A.mathExpr || K.links.some(l => t.includes(l.split(' ')[0]));
+    const sc = {
+      open: A.open ? 2 : (A.isQ && A.len >= 12 ? 1 : 0),
+      concept: Math.min(2, A.terms.length + (A.mathExpr ? 1 : 0)),
+      change: A.lv === 'if' ? 2 : (A.condWord || A.general ? 1 : 0),
+      curious: !A.onTopic ? 0 : A.trivial ? 1 : Math.min(2, (A.len >= 10 ? 1 : 0) + (A.len <= 120 && concrete ? 1 : 0)),
+      inquiry: A.open && (A.terms.length || A.mathExpr) ? (A.lv === 'if' || A.general || A.compare ? 2 : 1) : (A.open ? 1 : 0)
+    };
+    if (!A.isQ) Object.keys(sc).forEach(k => sc[k] = Math.min(sc[k], 1));
+    const best = AI_CRIT.slice().sort((a, b) => sc[b[0]] - sc[a[0]])[0][0];
+    const worst = AI_CRIT.slice().sort((a, b) => sc[a[0]] - sc[b[0]])[0][0];
+    const PR = { open:'답이 하나로 끝나지 않는 열린 질문이라 친구들과 이야기가 이어질 수 있어요.',
+      concept:`「${term}」 같은 수학 용어를 정확히 써서 무엇을 묻는지 분명해요.`,
+      change:'조건을 바꾸어 보는 질문이라 새로운 탐구로 이어질 수 있어요.',
+      curious:'친구들도 「어? 정말?」 하고 궁금해할 만한 질문이에요.', inquiry:'직접 계산하거나 그래프로 확인해 볼 수 있는 탐구 질문이에요.' };
+    const IM = { open:'「예/아니요」나 한 낱말로 답이 끝나서 대화가 금방 멈출 수 있어요.',
+      concept:'오늘 배운 수학 용어가 들어가면 무엇을 묻는지 더 분명해져요.',
+      change:'지금은 주어진 상황 그대로를 묻고 있어요. 조건을 하나 바꾸면 질문이 넓어져요.',
+      curious:'조금 더 구체적인 예(숫자, 특정 함수, 생활 장면)를 넣으면 친구들도 궁금해해요.',
+      inquiry:'답을 확인할 방법(계산, 그래프, 실험)이 보이게 쓰면 탐구로 이어져요.' };
+    let hint;
+    if (!A.onTopic) hint = '오늘 수업과 연결된 질문으로 바꿔 볼까요? 질문 초점 문장을 다시 읽고, 오늘 배운 낱말을 하나 넣어 물어보세요.';
+    else if (!A.isQ) hint = `지금은 진술문(설명하는 문장)이에요. QFT 규칙 4 — 「~일까?」, 「왜 ~일까?」처럼 질문으로 바꿔 볼까요?`;
+    else if (A.fakeIf) hint = `「라면」이 붙어 있지만 무엇을 바꾸는지가 빠졌어요. 「만약 ${J(cond, '이', '가')} 달라진다면 ${J(term, '은', '는')} …」처럼 바꿀 조건을 분명히 써 볼까요?`;
+    else if (A.lv === 'what') hint = A.trivial ? `뜻을 확인했다면, 「왜 ${J(term, '을', '를')} 그렇게 정했을까?」처럼 이유를 물어볼까요?` : `「왜」나 「어떻게」를 붙여 이유나 방법을 묻는 질문으로 바꿔 볼까요? (예: 왜 ${J(term, '은', '는')} … 일까?)`;
+    else if (A.lv === 'howwhy') hint = `「만약 ${J(cond, '이', '가')} 바뀐다면 …」을 붙이면 If 질문이 돼요.`;
+    else hint = `멋진 If 질문이에요! 친구가 직접 확인할 수 있게 바꾼 조건을 구체적인 예(숫자, 예: \\(f(x)=2x\\) 같은 특정 함수)로 정해 볼까요?`;
+    const praise = !A.onTopic ? '생각을 질문으로 적어 본 것 자체가 좋은 출발이에요.' : PR[best];
+    return { level:A.lv, open:A.open, scores:sc, praise, improve: sc[worst] >= 2 ? '거의 완벽해요! 친구 질문에 답글로 생각을 나눠 보세요.' : IM[worst],
+      hint, next: A.lv === 'what' ? 'howwhy' : 'if', terms:A.terms.slice(0, 4), fakeIf:A.fakeIf };
+  },
+  creative(t){
+    const A = ENGINE.analyze(t), K = kb(), term = A.terms[0] || (LESSON.concepts || ['함수'])[0];
+    const conds = shuffle(K.conds.filter(c => !t.includes(c))), link = pick(shuffle(K.links), 1), c1 = conds[0] || K.conds[0];
+    const num = pick(shuffle(K.nums), 0);
+    const prop = /법칙|대칭|일대일|성립|같|다르/.test(term + t);
+    const pool = [
+      { method:'조건 바꾸기', why:'조건을 바꾸면 성질이 어디까지 유지되는지 알 수 있어요.', seed:`만약 ${J(c1, '이', '가')} 달라진다면 ${J(term, '은', '는')} …` },
+      { method:'반대로 뒤집기', why:'반대 경우를 찾으면 개념의 경계가 보여요.', seed: prop ? `거꾸로, 이 성질이 깨지는 경우는 …` : `${J(term, '이', '가')} 되지 않는 경우(반례)는 …` },
+      { method:'일반화하기', why:'한 예에서 찾은 규칙이 언제나 맞는지 확인하게 돼요.', seed:`모든 ${term}에 대해서도 항상 …` },
+      { method:'생활과 연결하기', why:'생활 장면과 연결하면 친구들도 궁금해해요.', seed:`${link}에서 ${J(term, '은', '는')} …` },
+      { method:'극단으로 보내기', why:'아주 크거나 0에 가까운 값을 넣으면 숨은 성질이 드러나요.', seed:`${J(num, '을', '를')} 아주 크게 하거나 0에 가깝게 하면 …` }];
+    const ideas = shuffle(pool).slice(0, 3).map(i => ({ ...i, example:'' }));
+    return { ideas, tip:'씨앗을 눌러 끝을 내 말로 채우면 나만의 질문이 돼요. 그대로 쓰지 말고 조금씩 바꿔 보세요!' };
+  },
+  coach(t){
+    const A = ENGINE.analyze(t), K = kb(), term = A.terms[0] || (LESSON.concepts || ['함수'])[0];
+    const confused = /모르|헷갈|이해가?\s*안|어려|이상|왜지|잘\s*안/.test(t);
+    const link = pick(K.links, hashOf(t)), cond = pick(K.conds, hashOf(t) + 1);
+    return {
+      mirror: confused ? `「${t.slice(0, 36)}${t.length > 36 ? '…' : ''}」 — 어딘가 걸리는 부분이 있군요. 걸린다는 건 좋은 질문이 가까이 있다는 신호예요.`
+                       : `「${t.slice(0, 36)}${t.length > 36 ? '…' : ''}」에 대해 생각하고 있군요.`,
+      asks: [
+        A.terms.length ? `「${term}」의 뜻을 내 말로 한 문장으로 말해 보면, 어느 부분에서 멈칫하나요?` : '그 생각에서 가장 이상하다고 느낀 낱말 하나를 고른다면 무엇인가요?',
+        `그 생각이 언제나 맞을까요? ${J(cond, '을', '를')} 바꿔 보면 어떻게 될지 예를 하나 들어 볼까요?`,
+        `${link}처럼 생활 속 장면으로 바꾸면 무엇이 같고 무엇이 다를까요?` ],
+      starters: [ `왜 ${J(term, '은', '는')} …`, `만약 ${J(cond, '이', '가')} 바뀐다면 …` ],
+      cheer: '질문을 완성하지 않아도 괜찮아요. 위 질문 중 하나에 답해 보면 나만의 질문이 저절로 나와요.' };
+  },
+  note(qtext, ex){
+    const n = ex.note || {}, K = kb(), all = [n.cue, n.body, n.summary].join('\n'), flat = all.replace(/\s/g, '');
+    const need = LESSON.concepts || [], have = need.filter(w => flat.includes(w.replace(/\s/g, ''))), miss = need.filter(w => !have.includes(w));
+    const hasDef = /뜻|정의|이란|란\s|:/.test(n.body || ''), hasEx = /예\)|예시|예를|예:|예 :|보기/.test(all), hasWarn = /주의|조심|헷갈|아니|다르/.test(all);
+    const sumN = (n.summary || '').split(/\n|(?<=[다요])\.\s*/).map(x => x.trim()).filter(x => x.length > 3).length;
+    const qs = (qtext || '').split('\n').map(s => s.trim()).filter(Boolean);
+    const check = K.miscon.filter(([re]) => re.test(all)).map(([, m]) => m);
+    const good = [];
+    if (have.length) good.push(`핵심 개념 ${have.slice(0, 4).join(', ')}${have.length > 4 ? ' …' : ''}을(를) 노트에 담았어요.`);
+    if (hasDef && hasEx) good.push('정의와 예시를 함께 정리해서 이해가 단단해요.');
+    if (!hasDef) check.push('필기 칸에 개념의 「정의」를 한 줄로 적어 보세요.');
+    if (!hasEx) check.push('정의 아래에 예시를 하나 붙이면 기억이 오래가요.');
+    if (!hasWarn && flat.length > 40) check.push('헷갈리기 쉬운 점(주의)을 한 줄 적어 두면 시험 전에 큰 도움이 돼요.');
+    const qlv = qs.map(q => ENGINE.analyze(q).lv);
+    const QT = { what:'사실 확인 질문이에요. 「왜」를 붙여 한 칸 올려 볼까요?', howwhy:'이유를 묻는 좋은 질문이에요. 조건을 바꾸면 If 질문이 돼요.', if:'조건을 바꾼 창의 질문이에요! 바꿀 값을 구체적으로 정해 보세요.' };
+    const seeds = miss.slice(0, 2).map(w => ({ level:'what', starter:`${J(w, '은', '는')} …` }));
+    if (!qlv.includes('howwhy')) seeds.push({ level:'howwhy', starter:`왜 ${J(have[0] || need[0] || '함수', '은', '는')} …` });
+    if (!qlv.includes('if')) seeds.push({ level:'if', starter:`만약 ${J(pick(K.conds, flat.length), '이', '가')} 바뀐다면 …` });
+    const score = Math.min(10, Math.round(have.length / Math.max(1, need.length) * 4) + (hasDef ? 1 : 0) + (hasEx ? 1 : 0) + (hasWarn ? 1 : 0)
+      + Math.min(1, sumN / 3) + Math.min(2, new Set(qlv).size * 0.7) - Math.min(2, K.miscon.filter(([re]) => re.test(all)).length));
+    return { good, missing:miss.slice(0, 4), check:check.slice(0, 4),
+      questions: qs.map((q, i) => ({ q, level:qlv[i], tip:QT[qlv[i]] })), seeds:seeds.slice(0, 3),
+      summary_tip: sumN < 3 ? '요약 칸을 「1. 정의 2. 성질 3. 생활 예」처럼 세 문장으로 채워 보세요.' : '요약에 「왜 그런지」를 한 문장 더 넣으면 완벽해요.',
+      score: Math.max(0, Math.round(score)) };
+  }
+};
+
+/* ---------- 묻기 → 엔진 분석, 그리고 선생님 화면용 기록 ---------- */
+async function askAI(mode, text, extra){
+  extra = extra || {};
+  await new Promise(r => setTimeout(r, 350));            // 「생각하는 중」 표시가 보이도록 잠깐
+  const res = { src:'engine', model:'engine-v1', r:ENGINE[mode](text, extra) };
+  if (ME.no){
+    rpc('qf_ai_save', { p_lesson:LESSON.code, p_no:ME.no, p_mode:mode,
+      p_input: mode === 'note' ? JSON.stringify({ ...(extra.note || {}), questions:text }).slice(0, 4000) : text,
+      p_output:res.r, p_model:res.model }).catch(() => {});
+  }
+  return res;
+}
+
+/* ---------- 결과 그리기 ---------- */
+const LVTXT = { what:'What · 사실', howwhy:'How·Why · 이해', if:'If · 창의' };
+function aiBadge(res){
+  return `<span class="aibadge engine" title="이 사이트에 들어 있는 차시별 개념 사전과 질문 분석 규칙으로 분석했어요. API 키나 외부 AI를 쓰지 않아요.">🧠 질문 코치 엔진 · 자동 분석</span>`;
+}
+const LIST = a => (Array.isArray(a) ? a : []).filter(Boolean);
+function renderEval(res){
+  const r = res.r || {}, sc = r.scores || {};
+  const tot = AI_CRIT.reduce((s, [k]) => s + (+sc[k] || 0), 0);
+  return `<div class="aicard">${aiBadge(res)}
+    <div class="aitop"><div class="aiscore"><b>${tot}</b><small>/ 10</small></div>
+      <div><span class="lvtag ${esc(r.level || 'what')}">${LVTXT[r.level] || r.level || ''}</span> <span class="tytag ${r.open ? 'open' : 'closed'}">${r.open ? '열린 질문' : '닫힌 질문'}</span>
+      <div class="aibars">${AI_CRIT.map(([k, t]) => `<div><span>${t}</span><i>${'★'.repeat(+sc[k] || 0)}${'☆'.repeat(2 - (+sc[k] || 0))}</i></div>`).join('')}</div></div></div>
+    ${r.praise ? `<div class="ailn good">👍 ${esc(r.praise)}</div>` : ''}${r.improve ? `<div class="ailn imp">🔧 ${esc(r.improve)}</div>` : ''}
+    ${r.hint ? `<div class="ailn hint">🪜 <b>한 칸 올리기 실마리</b> ${esc(r.hint)}</div>` : ''}</div>`;
+}
+function renderCreative(res){
+  const r = res.r || {};
+  return `<div class="aicard">${aiBadge(res)}<div class="aih">🚀 이렇게 키워 볼 수 있어요 — 씨앗을 누르면 질문 칸에 들어가요</div>
+    ${LIST(r.ideas).map(i => `<div class="idea"><b>${esc(i.method || '')}</b><span>${esc(i.why || '')}</span>
+      <button type="button" class="seedbtn" data-seed="${esc(i.seed || '')}">🌱 ${esc(i.seed || '')}</button>
+      ${i.example ? `<small>참고 예시 : ${esc(i.example)}</small>` : ''}</div>`).join('')}
+    ${r.tip ? `<div class="ailn hint">💡 ${esc(r.tip)}</div>` : ''}</div>`;
+}
+function renderCoach(res){
+  const r = res.r || {};
+  return `<div class="aicard">${aiBadge(res)}${r.mirror ? `<div class="ailn">🪞 ${esc(r.mirror)}</div>` : ''}
+    <div class="aih">🤔 코치가 되묻는 질문</div><ol class="asks">${LIST(r.asks).map(a => `<li>${esc(a)}</li>`).join('')}</ol>
+    <div class="aih">🌱 이렇게 시작해 보세요 (눌러서 이어 쓰기)</div>
+    ${LIST(r.starters).map(s => `<button type="button" class="seedbtn" data-seed="${esc(s)}">🌱 ${esc(s)}</button>`).join('')}
+    ${r.cheer ? `<div class="ailn good">✨ ${esc(r.cheer)}</div>` : ''}</div>`;
+}
+function renderNoteAI(res){
+  const r = res.r || {};
+  return `<div class="aicard">${aiBadge(res)}
+    <div class="aitop"><div class="aiscore"><b>${+r.score || 0}</b><small>/ 10</small></div><div class="aih" style="margin:0">📒 노트 완성도</div></div>
+    ${LIST(r.good).length ? `<div class="ailn good">👍 ${LIST(r.good).map(esc).join(' / ')}</div>` : ''}
+    ${LIST(r.missing).length ? `<div class="ailn imp">🧩 <b>빠진 핵심 개념</b> ${LIST(r.missing).map(esc).join(', ')}</div>` : ''}
+    ${LIST(r.check).length ? `<div class="ailn warn">🔍 <b>다시 확인해 볼 부분</b><br>${LIST(r.check).map(esc).join('<br>')}</div>` : ''}
+    ${LIST(r.questions).length ? `<div class="aih">❓ 내 질문지 점검</div>${LIST(r.questions).map(q => `<div class="qrow"><span class="lvtag ${esc(q.level || 'what')}">${LVTXT[q.level] || ''}</span> ${esc(q.q || '')}<small>${esc(q.tip || '')}</small></div>`).join('')}` : ''}
+    ${LIST(r.seeds).length ? `<div class="aih">🌱 노트에서 출발하는 질문 씨앗 (눌러서 질문지에 넣기)</div>${LIST(r.seeds).map(s => `<button type="button" class="seedbtn" data-seed="${esc(s.starter || '')}">🌱 ${esc(s.starter || '')}</button>`).join('')}` : ''}
+    ${r.summary_tip ? `<div class="ailn hint">✍️ ${esc(r.summary_tip)}</div>` : ''}</div>`;
+}
+
+/* ---------- 질문 상자에 붙이기 ---------- */
+function bindAIComposer(box, o){
+  const ta = $('textarea', box), out = $('.aiout', box), st = $('.aist', box);
+  const run = async (mode) => {
+    if (needLogin()) return;
+    const t = ta.value.trim();
+    if (t.length < 4){ st.textContent = '질문을 먼저 4자 이상 적어 보세요.'; return; }
+    st.textContent = mode === 'evaluate' ? '🧠 질문을 살펴보는 중…' : '🧠 아이디어를 찾는 중…';
+    $$('.aib', box).forEach(b => b.disabled = true);
+    const res = await askAI(mode, t, { ref:o.refLabel || '' });
+    $$('.aib', box).forEach(b => b.disabled = false); st.textContent = '';
+    out.innerHTML = mode === 'evaluate' ? renderEval(res) : renderCreative(res);
+    out.classList.add('on'); tex(out); bindSeeds(out, ta);
+    if (mode === 'evaluate' && window.SND) SND.hint();
+  };
+  $('.aib.ev', box).onclick = () => run('evaluate');
+  $('.aib.cr', box).onclick = () => run('creative');
+}
+function bindSeeds(host, ta){
+  $$('.seedbtn', host).forEach(b => b.onclick = () => {
+    const s = b.dataset.seed.replace(/…$/, '').trim();
+    if (typeof ta === 'function'){ ta(s); return; }
+    ta.value = s + ' '; ta.focus(); ta.setSelectionRange(ta.value.length, ta.value.length); ta.dispatchEvent(new Event('input'));
+    ta.scrollIntoView({ behavior:'smooth', block:'center' });
+  });
+}
+
+/* ---------- 🧭 나만의 질문 찾기 (코치) ---------- */
+function coachCard(id, target){
+  return `<div class="card coach" id="${id}" data-target="${target || ''}">
+    <h2><span class="chip">🧠 질문 코치</span>나만의 질문 찾기</h2>
+    <p class="lead">아직 질문이 잘 안 떠오르나요? 지금 드는 <b>느낌·헷갈리는 점·떠오른 생각</b>을 아무렇게나 적어 보세요.
+      코치는 질문을 대신 만들어 주지 않아요. 대신 <b>되물어서</b> 여러분이 스스로 질문을 만들 수 있게 도와줘요.</p>
+    <textarea class="cin" maxlength="400" placeholder="예: 식이 없는 함수가 잘 상상이 안 돼요 / 왜 순서가 중요한지 모르겠어요"></textarea>
+    <div class="crow"><span class="aist"></span><span style="flex:1"></span><button class="btn main cgo" type="button">🧭 코치에게 묻기</button></div>
+    <div class="aiout"></div></div>`;
+}
+function bindCoach(id, putSeed){
+  const c = document.getElementById(id); if (!c) return;
+  const ta = $('.cin', c), out = $('.aiout', c), st = $('.aist', c);
+  $('.cgo', c).onclick = async () => {
+    if (needLogin()) return;
+    const t = ta.value.trim();
+    if (t.length < 4){ st.textContent = '조금만 더 적어 볼까요?'; return; }
+    st.textContent = '🧠 코치가 생각하는 중…'; $('.cgo', c).disabled = true;
+    const res = await askAI('coach', t);
+    $('.cgo', c).disabled = false; st.textContent = '';
+    out.innerHTML = renderCoach(res); out.classList.add('on'); tex(out); bindSeeds(out, putSeed);
+  };
+}
+
+;
+/* ===================================================================
+   📝 개념 노트 — 코넬 노트(단서 · 필기 · 요약) + 손글씨 + 노트로 만든 질문지
+   입력하면 자동 저장되어 선생님 화면에 수합된다.
+   =================================================================== */
+const NOTE = { cue:'', body:'', summary:'', questions:[], ai:null, submitted:false, sketchDirty:false, loadedFor:'' };
+const NSYM = ['∘','⁻¹','√','²','³','≠','≤','≥','→','⇔','∈','⊂','∞','½','π','×','÷','±','|x|','f(x)','g(f(x))','y=x'];
+const QSLOT = [['what','① 확인 질문 (What)','노트를 보고 사실을 확인하는 질문 — 예: ○○의 뜻은 무엇일까?'],
+  ['howwhy','② 이해 질문 (How·Why)','이유·방법·관계를 묻는 질문 — 예: 왜 ○○일까? ○○와 △△는 어떤 관계일까?'],
+  ['if','③ 창의 질문 (If)','조건을 바꾸어 보는 질문 — 예: 만약 ○○가 바뀐다면 어떻게 될까?']];
+
+function pageNote(){
+  return `
+  <div class="card">
+    <h2><span class="chip">개념 노트</span>📝 나만의 코넬 노트</h2>
+    <p class="lead">오른쪽 <b>필기</b> 칸에 개념을 내 말로 정리하고, 왼쪽 <b>단서·질문</b> 칸에 핵심 낱말과 질문을, 아래 <b>요약</b> 칸에 세 문장 정리를 써요.
+      쓰는 즉시 <b>자동 저장</b>되고 선생님께 모여요. 다 쓰면 「📤 선생님께 제출」을 눌러 주세요.</p>
+    <div class="nstat"><span id="nSave">✏️ 아직 저장 전</span><span id="nSub" class="nsub"></span></div>
+    <div class="ntools"><span class="ntl">개념 넣기</span>${(LESSON.concepts || []).map(w => `<button type="button" class="qchip nins" data-w="${esc(w)}">${esc(w)}</button>`).join('')}</div>
+    <div class="ntools"><span class="ntl">기호</span>${NSYM.map(w => `<button type="button" class="nsym nins" data-w="${esc(w)}">${esc(w)}</button>`).join('')}</div>
+    <div class="cornell">
+      <div class="ccue"><label>🔑 단서 · 핵심 질문</label><textarea id="nCue" maxlength="4000" placeholder="핵심 낱말, 헷갈린 점, 떠오른 질문&#10;예) 정의역 vs 공역?&#10;    치역 ⊂ 공역 — 왜?"></textarea></div>
+      <div class="cbody"><label>✍️ 필기 — 개념을 내 말로</label><textarea id="nBody" maxlength="8000" placeholder="정의 → 예시 → 주의할 점 순서로 써 보세요.&#10;예) 함수 : X의 각 원소에 Y의 원소가 오직 하나씩 대응&#10;    예시) 학생 → 출석번호&#10;    주의) Y에 남는 원소가 있어도 함수!"></textarea></div>
+      <div class="csum"><label>📌 요약 — 오늘 배운 것을 세 문장으로</label><textarea id="nSum" maxlength="2000" placeholder="1. …&#10;2. …&#10;3. …"></textarea></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2><span class="chip">손글씨</span>✍️ 그래프 · 식 · 그림 노트</h2>
+    <p class="lead">태블릿 펜이나 손가락, 마우스로 그래프와 식을 직접 그려요. 펜을 쓰면 손바닥이 닿아도 그려지지 않아요. 손을 떼면 자동 저장돼요.</p>
+    <div class="ptools">
+      <span class="pcol on" data-c="#22223b" style="background:#22223b"></span><span class="pcol" data-c="#2f6fdf" style="background:#2f6fdf"></span>
+      <span class="pcol" data-c="#e2465b" style="background:#e2465b"></span><span class="pcol" data-c="#1fa37a" style="background:#1fa37a"></span>
+      <span class="psep"></span>
+      <button type="button" class="pw" data-w="2">가늘게</button><button type="button" class="pw on" data-w="4">보통</button><button type="button" class="pw" data-w="8">굵게</button>
+      <span class="psep"></span>
+      <button type="button" class="ptool" id="pEraser">🧽 지우개</button><button type="button" class="ptool" id="pUndo">↶ 되돌리기</button>
+      <button type="button" class="ptool" id="pGrid">▦ 모눈</button><button type="button" class="ptool" id="pAxis">✛ 좌표축</button><button type="button" class="ptool" id="pClear">🗑 모두 지우기</button>
+    </div>
+    <div class="pad grid" id="pPad"><canvas id="pCv" width="1200" height="800"></canvas></div>
+  </div>
+
+  <div class="card">
+    <h2><span class="chip">질문지</span>❓ 노트로 만든 나의 질문지</h2>
+    <p class="lead">내 노트를 다시 읽고 질문 사다리 순서로 질문을 만들어요. 질문을 쓰면 수준이 자동으로 표시돼요. 마음에 드는 질문은 질문 광장에도 올릴 수 있어요.</p>
+    <div id="nQs"></div>
+    <div class="crow"><button type="button" class="btn" id="nAddQ">＋ 질문 더 쓰기</button><span style="flex:1"></span>
+      <span class="aist" id="nAiSt"></span><button type="button" class="btn ai" id="nAi">🧠 노트·질문지 점검</button></div>
+    <div class="aiout" id="nAiOut"></div>
+    <div class="nsubmit"><button type="button" class="btn main" id="nSubmit">📤 선생님께 제출</button>
+      <small>제출한 뒤에도 고쳐 쓸 수 있어요. 고친 내용도 자동으로 선생님께 다시 모여요.</small></div>
+  </div>
+  ${coachCard('noteCoach', 'note')}`;
+}
+
+/* ---------- 질문지 ---------- */
+function drawNoteQs(){
+  const host = $('#nQs'); if (!host) return;
+  while (NOTE.questions.length < 3) NOTE.questions.push({ q:'', level:'', posted:false });
+  host.innerHTML = NOTE.questions.map((x, i) => {
+    const slot = QSLOT[i], lv = x.q ? detectLevel(x.q) : '';
+    return `<div class="nq" data-i="${i}"><div class="nqh"><b>${slot ? slot[1] : `질문 ${i + 1}`}</b>
+        <span class="lvtag ${lv}">${lv ? LVTXT[lv] : ''}</span>${x.posted ? '<span class="nposted">🗳️ 광장에 올림</span>' : ''}</div>
+      <textarea maxlength="300" placeholder="${esc(slot ? slot[2] : '자유롭게 질문을 더 써 보세요')}">${esc(x.q)}</textarea>
+      <div class="nqa"><button type="button" class="aib ev">🧠 평가</button><button type="button" class="aib cr">🚀 창의적으로</button>
+        ${x.posted ? '' : '<button type="button" class="aib post">🗳️ 광장에 올리기</button>'}<span class="aist"></span></div><div class="aiout"></div></div>`;
+  }).join('');
+  $$('.nq', host).forEach(el => {
+    const i = +el.dataset.i, ta = $('textarea', el), tag = $('.lvtag', el);
+    ta.oninput = () => { NOTE.questions[i].q = ta.value; const lv = ta.value.trim() ? detectLevel(ta.value) : '';
+      NOTE.questions[i].level = lv; tag.className = 'lvtag ' + lv; tag.textContent = lv ? LVTXT[lv] : ''; noteDirty(); };
+    bindAIComposer(el, { refLabel:'개념 노트 질문지' });
+    const pb = $('.aib.post', el);
+    if (pb) pb.onclick = async () => {
+      if (needLogin()) return;
+      const q = ta.value.trim(); if (q.length < 4){ snack('질문을 4자 이상 써 주세요'); return; }
+      try{
+        const lv = detectLevel(q);
+        const row = await rpc('qf_post', { p_lesson:LESSON.code, p_kind:'concept', p_ref:'note', p_parent:null, p_body:q,
+          p_level:lv, p_qtype: lv === 'what' ? 'closed' : 'open', p_no:ME.no, p_name:ME.name });
+        BOARD.unshift(row); NOTE.questions[i].posted = true; refreshLists(); drawNoteQs(); noteSave(true);
+        celebrate(0, 1, '🗳️ 질문 광장에 올렸어요!');
+      }catch(e){ snack(e.message); }
+    };
+  });
+}
+function putSeedNote(s){
+  let i = NOTE.questions.findIndex(x => !x.q.trim());
+  if (i < 0){ NOTE.questions.push({ q:'', level:'', posted:false }); i = NOTE.questions.length - 1; }
+  NOTE.questions[i].q = s + ' '; drawNoteQs();
+  const ta = $(`#nQs .nq[data-i="${i}"] textarea`); if (ta){ ta.focus(); ta.setSelectionRange(ta.value.length, ta.value.length); ta.scrollIntoView({ behavior:'smooth', block:'center' }); }
+  noteDirty();
+}
+
+/* ---------- 저장 ---------- */
+let _nT = null, _nBusy = false, _nAgain = false;
+function noteDirty(){
+  const s = $('#nSave'); if (s) s.textContent = '✏️ 쓰는 중…';
+  try{ localStorage.setItem('qf_note_' + LESSON.code + '_' + ME.no, JSON.stringify({ cue:$('#nCue').value, body:$('#nBody').value, summary:$('#nSum').value, questions:NOTE.questions })); }catch(e){}
+  clearTimeout(_nT); _nT = setTimeout(() => noteSave(false), 1500);
+}
+async function noteSave(submit, ai){
+  if (!ME.no) return;
+  if (_nBusy){ _nAgain = true; return; }
+  _nBusy = true;
+  const s = $('#nSave');
+  let sketch = 'keep';
+  if (NOTE.sketchDirty){ sketch = PAD.empty() ? '' : PAD.export(); NOTE.sketchDirty = false; }
+  try{
+    const r = await rpc('qf_note_save', { p_lesson:LESSON.code, p_no:ME.no, p_name:ME.name,
+      p_cue:$('#nCue').value, p_body:$('#nBody').value, p_summary:$('#nSum').value, p_sketch:sketch,
+      p_questions:NOTE.questions.filter(x => x.q.trim()).map(x => ({ q:x.q.trim(), level:detectLevel(x.q), posted:!!x.posted })),
+      p_ai: ai || null, p_submit: !!submit });
+    NOTE.submitted = r.submitted;
+    const t = new Date(r.updated_at);
+    if (s) s.textContent = `✅ 자동 저장됨 ${t.getHours()}:${String(t.getMinutes()).padStart(2, '0')}`;
+    paintSub(); netState(true);
+  }catch(e){
+    if (sketch !== 'keep') NOTE.sketchDirty = true;
+    if (s) s.textContent = '⚠️ 저장 실패 — ' + e.message + ' (이 기기에는 임시 보관 중)';
+    netState(false);
+  }
+  _nBusy = false;
+  if (_nAgain){ _nAgain = false; noteSave(false); }
+}
+function paintSub(){ const b = $('#nSub'); if (b){ b.textContent = NOTE.submitted ? '📤 제출 완료' : '작성 중'; b.classList.toggle('on', NOTE.submitted); } }
+
+async function loadNote(){
+  if (!ME.no || !$('#nCue')) return;
+  if (NOTE.loadedFor === ME.no) return;
+  NOTE.loadedFor = ME.no;
+  let d = null;
+  try{ d = await rpc('qf_note_get', { p_lesson:LESSON.code, p_no:ME.no }); }catch(e){}
+  let local = null;
+  try{ local = JSON.parse(localStorage.getItem('qf_note_' + LESSON.code + '_' + ME.no) || 'null'); }catch(e){}
+  const src = d || local || {};
+  $('#nCue').value = src.cue || ''; $('#nBody').value = src.body || ''; $('#nSum').value = src.summary || '';
+  NOTE.questions = (src.questions || []).map(x => ({ q:x.q || '', level:x.level || '', posted:!!x.posted }));
+  NOTE.submitted = !!(d && d.submitted); NOTE.ai = d && d.ai;
+  PAD.reset(d && d.sketch);
+  drawNoteQs(); paintSub();
+  if (d && d.updated_at){ const t = new Date(d.updated_at); $('#nSave').textContent = `✅ 저장됨 ${t.getMonth() + 1}/${t.getDate()} ${t.getHours()}:${String(t.getMinutes()).padStart(2, '0')}`; }
+  if (NOTE.ai && NOTE.ai.r){ const o = $('#nAiOut'); o.innerHTML = renderNoteAI(NOTE.ai); o.classList.add('on'); tex(o); bindSeeds(o, putSeedNote); }
+  // 서버보다 이 기기의 임시본이 더 길면 (오프라인으로 쓴 경우) 다시 저장
+  if (local && (!d || (local.body || '').length > (d.body || '').length)){
+    $('#nCue').value = local.cue || ''; $('#nBody').value = local.body || ''; $('#nSum').value = local.summary || '';
+    if (local.questions) NOTE.questions = local.questions; drawNoteQs(); noteSave(false);
+  }
+}
+
+/* ---------- 손글씨 판 ---------- */
+const PAD = (() => {
+  let cv, ctx, base = null, strokes = [], cur = null, color = '#22223b', width = 4, eraser = false, sawPen = false, axis = false;
+  function size(){ return { w:cv.width, h:cv.height }; }
+  function redraw(){
+    ctx.clearRect(0, 0, cv.width, cv.height);
+    if (base) ctx.drawImage(base, 0, 0, cv.width, cv.height);
+    strokes.forEach(drawStroke);
+  }
+  function drawStroke(s){
+    ctx.save();
+    ctx.globalCompositeOperation = s.erase ? 'destination-out' : 'source-over';
+    ctx.strokeStyle = s.c; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+    const p = s.p;
+    if (p.length === 1){ ctx.beginPath(); ctx.arc(p[0][0], p[0][1], s.w * (s.erase ? 4 : 1) * (0.5 + p[0][2]) / 2, 0, 7); ctx.fillStyle = s.c; ctx.fill(); }
+    for (let i = 1; i < p.length; i++){
+      ctx.beginPath(); ctx.lineWidth = s.w * (s.erase ? 4 : 1) * (0.5 + (p[i][2] || .5));
+      ctx.moveTo(p[i - 1][0], p[i - 1][1]); ctx.lineTo(p[i][0], p[i][1]); ctx.stroke();
+    }
+    ctx.restore();
+  }
+  function pos(e){ const r = cv.getBoundingClientRect(); return [(e.clientX - r.left) * cv.width / r.width, (e.clientY - r.top) * cv.height / r.height, e.pressure && e.pointerType === 'pen' ? e.pressure : .5]; }
+  function init(){
+    cv = $('#pCv'); if (!cv) return; ctx = cv.getContext('2d');
+    cv.addEventListener('pointerdown', e => {
+      if (e.pointerType === 'pen') sawPen = true;
+      if (sawPen && e.pointerType === 'touch') return;          // 손바닥 무시
+      if (needLogin()) return;
+      cv.setPointerCapture(e.pointerId);
+      cur = { c:color, w:width, erase:eraser, p:[pos(e)] }; strokes.push(cur); drawStroke(cur); e.preventDefault();
+    });
+    cv.addEventListener('pointermove', e => {
+      if (!cur) return;
+      const evs = e.getCoalescedEvents ? e.getCoalescedEvents() : [e];
+      evs.forEach(ev => cur.p.push(pos(ev)));
+      const p = cur.p, n = p.length;
+      ctx.save(); ctx.globalCompositeOperation = cur.erase ? 'destination-out' : 'source-over';
+      ctx.strokeStyle = cur.c; ctx.lineCap = 'round';
+      for (let i = Math.max(1, n - evs.length); i < n; i++){ ctx.beginPath(); ctx.lineWidth = cur.w * (cur.erase ? 4 : 1) * (0.5 + p[i][2]); ctx.moveTo(p[i - 1][0], p[i - 1][1]); ctx.lineTo(p[i][0], p[i][1]); ctx.stroke(); }
+      ctx.restore(); e.preventDefault();
+    });
+    const end = () => { if (!cur) return; cur = null; if (strokes.length > 60){ flatten(); } NOTE.sketchDirty = true; noteDirty(); };
+    cv.addEventListener('pointerup', end); cv.addEventListener('pointercancel', end); cv.addEventListener('pointerleave', end);
+    $$('.pcol').forEach(b => b.onclick = () => { $$('.pcol').forEach(x => x.classList.toggle('on', x === b)); color = b.dataset.c; eraser = false; $('#pEraser').classList.remove('on'); });
+    $$('.pw').forEach(b => b.onclick = () => { $$('.pw').forEach(x => x.classList.toggle('on', x === b)); width = +b.dataset.w; });
+    $('#pEraser').onclick = () => { eraser = !eraser; $('#pEraser').classList.toggle('on', eraser); };
+    $('#pUndo').onclick = () => { if (strokes.length){ strokes.pop(); redraw(); NOTE.sketchDirty = true; noteDirty(); } else snack('더 되돌릴 수 없어요'); };
+    $('#pClear').onclick = () => { if (!confirmClear()) return; base = null; strokes = []; redraw(); NOTE.sketchDirty = true; noteDirty(); };
+    $('#pGrid').onclick = () => { $('#pPad').classList.toggle('grid'); $('#pGrid').classList.toggle('on', $('#pPad').classList.contains('grid')); };
+    $('#pAxis').onclick = () => { axis = !axis; $('#pPad').classList.toggle('axis', axis); $('#pAxis').classList.toggle('on', axis); };
+    $('#pGrid').classList.add('on');
+  }
+  let _clr = 0;
+  function confirmClear(){ const now = Date.now(); if (now - _clr < 2500) return true; _clr = now; snack('한 번 더 누르면 모두 지워져요'); return false; }
+  function flatten(){ const c2 = document.createElement('canvas'); c2.width = cv.width; c2.height = cv.height; c2.getContext('2d').drawImage(cv, 0, 0); base = c2; strokes = []; }
+  return {
+    init,
+    reset(src){ if (!cv) return; strokes = []; base = null; redraw();
+      if (src){ const img = new Image(); img.onload = () => { const c2 = document.createElement('canvas'); c2.width = cv.width; c2.height = cv.height; const g = c2.getContext('2d'); g.drawImage(img, 0, 0, cv.width, cv.height);
+        // 저장본의 흰 배경을 투명으로
+        const d = g.getImageData(0, 0, c2.width, c2.height), a = d.data; for (let i = 0; i < a.length; i += 4) if (a[i] > 245 && a[i + 1] > 245 && a[i + 2] > 245) a[i + 3] = 0; g.putImageData(d, 0, 0);
+        base = c2; redraw(); }; img.src = src; } },
+    empty(){ return !base && !strokes.length; },
+    export(){
+      const out = document.createElement('canvas'); out.width = cv.width; out.height = cv.height;
+      const g = out.getContext('2d'); g.fillStyle = '#fff'; g.fillRect(0, 0, out.width, out.height); g.drawImage(cv, 0, 0);
+      let url = out.toDataURL('image/webp', .72);
+      if (!url.startsWith('data:image/webp')) url = out.toDataURL('image/jpeg', .8);
+      if (url.length > 850000){ const s = document.createElement('canvas'); s.width = 800; s.height = 533; s.getContext('2d').drawImage(out, 0, 0, 800, 533); url = s.toDataURL('image/jpeg', .7); }
+      return url;
+    }
+  };
+})();
+
+function bootNote(){
+  if (!$('#nCue')) return;
+  $$('#nCue, #nBody, #nSum').forEach(t => t.addEventListener('input', noteDirty));
+  let lastTa = $('#nBody');
+  $$('#nCue, #nBody, #nSum').forEach(t => t.addEventListener('focus', () => lastTa = t));
+  $$('.nins').forEach(b => b.onclick = () => {
+    const ta = lastTa, w = b.dataset.w, p = ta.selectionStart ?? ta.value.length;
+    ta.value = ta.value.slice(0, p) + w + ta.value.slice(ta.selectionEnd ?? p); ta.focus();
+    ta.setSelectionRange(p + w.length, p + w.length); noteDirty();
+  });
+  PAD.init();
+  drawNoteQs();
+  $('#nAddQ').onclick = () => { if (NOTE.questions.length >= 12){ snack('질문은 12개까지 쓸 수 있어요'); return; } NOTE.questions.push({ q:'', level:'', posted:false }); drawNoteQs(); };
+  $('#nAi').onclick = async () => {
+    if (needLogin()) return;
+    const note = { cue:$('#nCue').value, body:$('#nBody').value, summary:$('#nSum').value };
+    if ((note.body + note.cue + note.summary).trim().length < 10){ $('#nAiSt').textContent = '노트를 조금 더 쓴 다음 점검받아요.'; return; }
+    $('#nAiSt').textContent = '🧠 노트를 읽는 중…'; $('#nAi').disabled = true;
+    const qs = NOTE.questions.map(x => x.q.trim()).filter(Boolean).join('\n');
+    const res = await askAI('note', qs, { note });
+    $('#nAi').disabled = false; $('#nAiSt').textContent = '';
+    const o = $('#nAiOut'); o.innerHTML = renderNoteAI(res); o.classList.add('on'); tex(o); bindSeeds(o, putSeedNote);
+    NOTE.ai = { src:res.src, reason:res.reason || '', model:res.model || '', r:res.r, at:new Date().toISOString() };
+    noteSave(false, NOTE.ai);
+  };
+  $('#nSubmit').onclick = async () => {
+    if (needLogin()) return;
+    if (($('#nBody').value + $('#nCue').value).trim().length < 10 && PAD.empty()){ snack('노트를 조금 더 쓴 다음 제출해요 🙂'); return; }
+    clearTimeout(_nT); await noteSave(true);
+    if (NOTE.submitted) celebrate(0, 1, '📤 노트 제출 완료!');
+  };
+  bindCoach('noteCoach', putSeedNote);
+  window.addEventListener('beforeunload', () => { if (_nT){ clearTimeout(_nT); noteSave(false); } });
 }
 
 ;
@@ -2571,7 +3194,8 @@ function pageStart(){
       <span class="lead" style="margin:0">모둠 활동이라면 기록자도 질문을 만들어요. 다 올린 뒤에 「🗳️ 질문 광장」에서 <b>우선순위 3개</b>를 공감으로 골라요.</span>
     </div>
     <div id="startAsk"></div>
-  </div>`;
+  </div>
+  ${coachCard('startCoach', 'start')}`;
 }
 
 /* ---------- 🧠 개념 탐구 ---------- */
@@ -2874,6 +3498,7 @@ function pageTeacher(){
 const TABS = [
   { id:'start',   label:'🎯 질문 열기',  html:pageStart },
   { id:'concept', label:'🧠 개념 탐구',  html:pageConcept },
+  { id:'note',    label:'📝 개념 노트',  html:pageNote },
   { id:'problem', label:'✏️ 문제 탐구',  html:pageProblem },
   { id:'life',    label:'🌍 실생활 수학', html:pageLife },
   { id:'book',    label:'📚 책 속 질문·토론', html:pageBook },
@@ -3019,6 +3644,8 @@ function bootPages(){
   $$('.tab').forEach(b => b.onclick = () => go(b.dataset.p));
   initTabScroll();
   bindNarr($('#pg-book'));
+  bootNote();
+  bindCoach('startCoach', seed => { const ta = $('#startAsk textarea'); if (!ta) return; ta.value = seed + ' '; ta.focus(); ta.dispatchEvent(new Event('input')); ta.scrollIntoView({ behavior:'smooth', block:'center' }); });
 
   // 시작 탭
   mountComposer($('#startAsk'), { kind:'concept', ref:'focus', refLabel:'질문 초점', chips:L.concepts, max:6,
@@ -3106,7 +3733,7 @@ const ALL_LESSONS = [
   ['r1','3-2 유리·무리함수 · 1차시 유리식과 유리함수'], ['r2','3-2 유리·무리함수 · 2차시 유리함수의 그래프 활용'], ['r3','3-2 유리·무리함수 · 3차시 무리함수']
 ];
 const tRef = id => (TL === LESSON.code ? REFNAME[id] : (window.LESSON_META && LESSON_META[TL] && LESSON_META[TL].ref[id])) || id;
-let TP = '', TD = null, TL = '', tView = 'posts', tKind = 'all', tReveal = false;
+let TP = '', TD = null, TL = '', tView = 'posts', tKind = 'all', tReveal = false, TN = null, tAiMode = 'all';
 
 function bootTeacher(){
   $('#tLesson').innerHTML = ALL_LESSONS.map(([k,t]) => `<option value="${k}"${k === LESSON.code ? ' selected' : ''}>${t}</option>`).join('');
@@ -3119,7 +3746,7 @@ async function tLoad(pass, lesson){
   m.className = 'cmsg'; m.textContent = '불러오는 중…';
   try{
     TD = await rpc('qf_teacher', { p_pass:pass, p_lesson:lesson });
-    TP = pass; TL = lesson; m.className = 'cmsg ok'; m.textContent = '✓ 열렸어요';
+    TP = pass; TL = lesson; TN = null; m.className = 'cmsg ok'; m.textContent = '✓ 열렸어요';
     $('#tBody').style.display = 'block'; tRender();
   }catch(e){ m.className = 'cmsg err'; m.textContent = e.message.includes('암호') ? '암호가 올바르지 않습니다.' : '불러오지 못했어요: ' + e.message; }
 }
@@ -3147,7 +3774,7 @@ function tRender(){
       <div class="tile"><div class="k">문제 해결률</div><div class="v">${solvedRate}%</div></div>
     </div>
     <div class="tsub">
-      ${[['posts','💬 질문 전체'],['students','👩‍🎓 학생별'],['debate','⚖️ 토의·토론'],['reflect','🪞 성찰'],['poly','🕵️ 폴리그래프'],['probs','✏️ 문제'],['cloud','☁️ 워드클라우드']]
+      ${[['posts','💬 질문 전체'],['students','👩‍🎓 학생별'],['debate','⚖️ 토의·토론'],['reflect','🪞 성찰'],['poly','🕵️ 폴리그래프'],['probs','✏️ 문제'],['cloud','☁️ 워드클라우드'],['notes','📝 노트 수합'],['ai','🧠 질문 코치 기록']]
         .map(([k,t]) => `<button class="fbtn${tView === k ? ' on' : ''}" data-v="${k}">${t}</button>`).join('')}
       <button class="btn" id="tCsv" type="button" style="margin-left:auto;padding:6px 14px">⬇ CSV 내려받기</button>
     </div>
@@ -3173,6 +3800,8 @@ function tRender(){
   if (tView === 'poly') tPoly(V);
   if (tView === 'probs') tProbs(V);
   if (tView === 'cloud') tCloud(V, Q);
+  if (tView === 'notes') tNotes(V);
+  if (tView === 'ai') tAI(V);
   setTimeout(() => bindHScroll($('#pg-teacher')), 30);
 }
 
@@ -3181,26 +3810,45 @@ function tPosts(V, Q){
   let rows = tKind === 'all' ? Q : Q.filter(p => p.kind === tKind);
   V.innerHTML = `<div class="filters">${kinds.map(([k,t]) => `<button class="fbtn${tKind === k ? ' on' : ''}" data-k="${k}">${t}</button>`).join('')}
     <label style="font-size:.8rem;font-weight:800;margin-left:auto"><input type="checkbox" id="tRv"${tReveal ? ' checked' : ''}> 익명 질문 작성자 보기 (생활지도용)</label></div>
-    <div class="tscroll"><table class="tt"><tr><th>시간</th><th>종류</th><th>수준</th><th>질문</th><th>학생</th><th>❤</th><th>답글</th><th>관리</th></tr>
+    <div class="tdelbar"><label><input type="checkbox" id="tAll"> 보이는 질문 모두 선택</label>
+      <button type="button" class="tdel" id="tDelSel" disabled>🗑 선택한 질문 삭제 (0)</button>
+      <small>삭제하면 그 질문의 답글·공감도 함께 지워지고 되돌릴 수 없어요. 잠깐 감추려면 「숨기기」를 쓰세요.</small></div>
+    <div class="tscroll"><table class="tt"><tr><th></th><th>시간</th><th>종류</th><th>수준</th><th>질문</th><th>학생</th><th>❤</th><th>답글</th><th>관리</th></tr>
     ${rows.map(p => {
       const anon = p.kind === 'free' && !tReveal;
       const reps = (TD.posts || []).filter(r => r.kind === 'reply' && r.parent_id === p.id);
-      return `<tr${p.hidden ? ' style="opacity:.4"' : ''}><td>${new Date(p.created_at).toLocaleString('ko-KR',{month:'numeric',day:'numeric',hour:'2-digit',minute:'2-digit'})}</td>
+      return `<tr${p.hidden ? ' style="opacity:.4"' : ''}><td><input type="checkbox" class="tsel" data-id="${p.id}"></td><td>${new Date(p.created_at).toLocaleString('ko-KR',{month:'numeric',day:'numeric',hour:'2-digit',minute:'2-digit'})}</td>
         <td>${KINDS[p.kind] || p.kind}${p.ref ? `<br><small>${esc(tRef(p.ref))}</small>` : ''}</td>
         <td><span class="lvtag ${p.level}">${LVS[p.level] || '-'}</span> <span class="tytag ${p.qtype}">${p.qtype === 'open' ? '열린' : '닫힌'}</span></td>
         <td class="wrap">${p.picked ? '📌 ' : ''}${esc(p.body)}${p.teacher_reply ? `<div class="treply"><b>답변</b> ${esc(p.teacher_reply)}</div>` : ''}
-          ${reps.map(r => `<div class="rp">↳ ${esc(r.body)} <small>${esc(r.student_no || '')} ${esc(r.name || '')}</small></div>`).join('')}</td>
+          ${reps.map(r => `<div class="rp">↳ ${esc(r.body)} <small>${esc(r.student_no || '')} ${esc(r.name || '')}</small> <button type="button" class="rpdel" data-id="${r.id}" title="이 답글 삭제">✕</button></div>`).join('')}</td>
         <td>${anon ? '🔒 익명' : esc((p.student_no || '') + ' ' + (p.name || ''))}</td><td class="num">${p.votes}</td><td>${reps.length}</td>
         <td><div class="tact"><button data-a="reply" data-id="${p.id}">답변</button><button data-a="pick" data-id="${p.id}">${p.picked ? '채택 취소' : '📌 채택'}</button>
-          <button data-a="hide" data-id="${p.id}">${p.hidden ? '보이기' : '숨기기'}</button></div></td></tr>`;
-    }).join('') || '<tr><td colspan="8">아직 질문이 없어요</td></tr>'}</table></div>
+          <button data-a="hide" data-id="${p.id}">${p.hidden ? '보이기' : '숨기기'}</button><button data-a="delete" data-id="${p.id}" class="del">🗑 삭제</button></div></td></tr>`;
+    }).join('') || '<tr><td colspan="9">아직 질문이 없어요</td></tr>'}</table></div>
     <p class="lead" style="margin-top:8px;font-size:.84rem">📌 채택한 질문은 학생 화면에 표시되어 다음 활동의 <b>탐구 질문</b>이 됩니다. 답변은 학생들의 질문 아래에 「🧑‍🏫 선생님」으로 보입니다. (질문이 휘발되지 않도록 꼭 피드백해 주세요)</p>`;
   $$('[data-k]', V).forEach(b => b.onclick = () => { tKind = b.dataset.k; tRender(); });
   $('#tRv').onchange = e => { tReveal = e.target.checked; tRender(); };
+  const after = async () => { await tLoad(TP, TL); if (TL === LESSON.code) loadBoard(); };
+  const selIds = () => $$('.tsel', V).filter(c => c.checked).map(c => +c.dataset.id);
+  const paintSel = () => { const n = selIds().length; $('#tDelSel').disabled = !n; $('#tDelSel').textContent = `🗑 선택한 질문 삭제 (${n})`; };
+  $$('.tsel', V).forEach(c => c.onchange = paintSel);
+  $('#tAll').onchange = e => { $$('.tsel', V).forEach(c => c.checked = e.target.checked); paintSel(); };
+  $('#tDelSel').onclick = async () => {
+    const ids = selIds(); if (!ids.length) return;
+    if (!confirm(`선택한 질문 ${ids.length}개를 삭제할까요?\n답글과 공감도 함께 지워지고 되돌릴 수 없어요.`)) return;
+    try{ const n = await rpc('qf_teacher_delete', { p_pass:TP, p_ids:ids }); snack(`🗑 ${n}개를 삭제했어요`); await after(); }catch(e){ snack(e.message); }
+  };
+  $$('.rpdel', V).forEach(b => b.onclick = async () => {
+    if (!confirm('이 답글을 삭제할까요? 되돌릴 수 없어요.')) return;
+    try{ await rpc('qf_teacher_act', { p_pass:TP, p_post:+b.dataset.id, p_action:'delete', p_text:null }); snack('🗑 답글을 삭제했어요'); await after(); }catch(e){ snack(e.message); }
+  });
   $$('.tact button', V).forEach(b => b.onclick = async () => {
     const id = +b.dataset.id, a = b.dataset.a; let txt = null;
     if (a === 'reply'){ const p = Q.find(x => x.id === id); txt = prompt('학생 질문에 남길 답변 (비우면 답변 삭제)', p.teacher_reply || ''); if (txt === null) return; }
-    try{ await rpc('qf_teacher_act', { p_pass:TP, p_post:id, p_action:a, p_text:txt }); await tLoad(TP, TL); if (TL === LESSON.code) loadBoard(); }
+    if (a === 'delete'){ const p = Q.find(x => x.id === id), nr = (TD.posts || []).filter(r => r.parent_id === id).length;
+      if (!confirm(`이 질문을 삭제할까요?\n「${(p.body || '').slice(0, 40)}」${nr ? `\n답글 ${nr}개도 함께 지워져요.` : ''}\n되돌릴 수 없어요.`)) return; }
+    try{ await rpc('qf_teacher_act', { p_pass:TP, p_post:id, p_action:a, p_text:txt }); if (a === 'delete') snack('🗑 질문을 삭제했어요'); await after(); }
     catch(e){ snack(e.message); }
   });
 }
@@ -3283,6 +3931,93 @@ function tCSV(){
   const a = document.createElement('a');
   a.href = URL.createObjectURL(new Blob([csv], { type:'text/csv;charset=utf-8' }));
   a.download = `질문탐구_${TL}_${new Date().toISOString().slice(0,10)}.csv`; a.click();
+}
+
+
+/* ---------- 📝 노트 수합 · 🧠 질문 코치 기록 ---------- */
+async function tNoteData(){
+  if (TN && TN.lesson === TL) return TN;
+  const d = await rpc('qf_teacher_notes', { p_pass:TP, p_lesson:TL });
+  TN = { lesson:TL, notes:d.notes || [], ai:d.ai || [] };
+  return TN;
+}
+const LVN2 = { what:'What', howwhy:'How·Why', if:'If' };
+const evalTotal = o => { const sc = (o && o.scores) || {}; return ['open','concept','change','curious','inquiry'].reduce((a, k) => a + (+sc[k] || 0), 0); };
+async function tNotes(V){
+  V.innerHTML = '<p class="lead">노트를 불러오는 중…</p>';
+  let d; try{ d = await tNoteData(); }catch(e){ V.innerHTML = `<p class="cmsg err">${esc(e.message)}</p>`; return; }
+  const N = d.notes, sub = N.filter(n => n.submitted).length;
+  const scores = N.map(n => n.ai && n.ai.r && +n.ai.r.score).filter(x => x >= 0);
+  const qAll = N.flatMap(n => n.questions || []);
+  const lvc = k => qAll.filter(q => q.level === k).length;
+  V.innerHTML = `<div class="tiles">
+      <div class="tile"><div class="k">노트 쓴 학생</div><div class="v">${N.length}</div></div>
+      <div class="tile"><div class="k">제출 · 작성 중</div><div class="v" style="font-size:1.05rem">${sub} · ${N.length - sub}</div></div>
+      <div class="tile"><div class="k">손글씨 노트</div><div class="v">${N.filter(n => n.sketch).length}</div></div>
+      <div class="tile"><div class="k">질문지 질문</div><div class="v">${qAll.length}</div></div>
+      <div class="tile"><div class="k">What · How·Why · If</div><div class="v" style="font-size:1.05rem">${lvc('what')} · ${lvc('howwhy')} · ${lvc('if')}</div></div>
+      <div class="tile"><div class="k">코치 노트 점수 평균</div><div class="v">${scores.length ? (scores.reduce((a, b) => a + b, 0) / scores.length).toFixed(1) : '-'}</div></div></div>
+    <div class="filters"><button class="fbtn" id="tnPrint" type="button">🖨 노트 모아 인쇄</button><button class="fbtn" id="tnCsv" type="button">⬇ 노트·질문지 CSV</button>
+      <button class="fbtn" id="tnRe" type="button">↻ 새로 불러오기</button></div>
+    <div class="tnotes">${N.length ? N.map(n => `
+      <div class="tnote">
+        <div class="tnh"><b>${esc(n.student_no)} ${esc(n.name || '')}</b><span class="nsub${n.submitted ? ' on' : ''}">${n.submitted ? '📤 제출' : '작성 중'}</span>
+          <small>${new Date(n.updated_at).toLocaleString('ko-KR', { month:'numeric', day:'numeric', hour:'2-digit', minute:'2-digit' })}</small>
+          ${n.ai && n.ai.r ? `<span class="aiscore-s">코치 ${+n.ai.r.score || 0}/10</span>` : ''}</div>
+        <div class="tcor"><div class="tcue"><label>단서·질문</label>${esc(n.cue || '').replace(/\n/g, '<br>') || '<i>비어 있음</i>'}</div>
+          <div class="tbody2"><label>필기</label>${esc(n.body || '').replace(/\n/g, '<br>') || '<i>비어 있음</i>'}</div></div>
+        <div class="tsum"><label>요약</label>${esc(n.summary || '').replace(/\n/g, '<br>') || '<i>비어 있음</i>'}</div>
+        ${n.sketch ? `<a class="tsk" href="#" data-no="${esc(n.student_no)}" title="크게 보기"><img src="${n.sketch}" alt="손글씨 노트"></a>` : ''}
+        ${(n.questions || []).length ? `<div class="tqs"><label>질문지</label>${n.questions.map(q => `<div><span class="lvtag ${esc(q.level)}">${LVN2[q.level] || ''}</span> ${esc(q.q)}${q.posted ? ' <small>🗳️</small>' : ''}</div>`).join('')}</div>` : ''}
+        ${n.ai && n.ai.r && (n.ai.r.missing || []).length ? `<div class="tai">🧩 코치가 찾은 빠진 개념 : ${n.ai.r.missing.map(esc).join(', ')}</div>` : ''}
+      </div>`).join('') : '<p class="lead">아직 노트를 쓴 학생이 없어요.</p>'}</div>`;
+  $$('.tsk', V).forEach(a => a.onclick = e => { e.preventDefault(); const w = window.open(''); if (w){ w.document.write(`<title>${a.dataset.no} 손글씨 노트</title><img src="${a.querySelector('img').src}" style="max-width:100%">`); } });
+  $('#tnRe').onclick = () => { TN = null; tNotes(V); };
+  $('#tnPrint').onclick = () => { document.body.classList.add('printnotes'); setTimeout(() => { print(); document.body.classList.remove('printnotes'); }, 100); };
+  $('#tnCsv').onclick = () => {
+    const rows = [['학번','이름','제출','수정 시각','단서·질문','필기','요약','손글씨','질문지(수준)','코치 노트 점수','코치가 찾은 빠진 개념']];
+    N.forEach(n => rows.push([n.student_no, n.name, n.submitted ? '제출' : '작성 중', n.updated_at, n.cue, n.body, n.summary, n.sketch ? '있음' : '',
+      (n.questions || []).map(q => `[${LVN2[q.level] || ''}] ${q.q}`).join(' / '), n.ai && n.ai.r ? n.ai.r.score : '', n.ai && n.ai.r ? (n.ai.r.missing || []).join(', ') : '']));
+    csvDown(rows, `노트_${TL}.csv`);
+  };
+}
+async function tAI(V){
+  V.innerHTML = '<p class="lead">질문 코치 기록을 불러오는 중…</p>';
+  let d; try{ d = await tNoteData(); }catch(e){ V.innerHTML = `<p class="cmsg err">${esc(e.message)}</p>`; return; }
+  const A = d.ai, by = {};
+  const nameOf = no => { const s = (TD.students || []).find(x => x.student_no === no); return s ? s.name : ((d.notes.find(n => n.student_no === no) || {}).name || ''); };
+  A.forEach(a => { const o = by[a.student_no] = by[a.student_no] || { n:0, ev:[], cr:0, co:0, no:0 };
+    o.n++; if (a.mode === 'evaluate') o.ev.push(evalTotal(a.output)); if (a.mode === 'creative') o.cr++; if (a.mode === 'coach') o.co++; if (a.mode === 'note') o.no++; });
+  const MD = { evaluate:'질문 평가', creative:'창의적으로', coach:'질문 코치', note:'노트 점검' };
+  const list = A.filter(a => tAiMode === 'all' || a.mode === tAiMode);
+  const brief = a => { const o = a.output || {};
+    if (a.mode === 'evaluate') return `<b>${evalTotal(o)}/10</b> ${LVN2[o.level] || ''} · ${esc(o.hint || o.improve || '')}`;
+    if (a.mode === 'creative') return (o.ideas || []).map(i => esc(i.method || '')).join(' · ');
+    if (a.mode === 'coach') return (o.asks || []).slice(0, 2).map(esc).join(' / ');
+    return `노트 ${+o.score || 0}/10 · 빠진 개념 ${(o.missing || []).map(esc).join(', ')}`; };
+  V.innerHTML = `<p class="lead">학생이 질문 코치(평가 · 창의적으로 · 나만의 질문 찾기 · 노트 점검)를 쓴 기록이에요. 평가 점수는 좋은 질문 5기준 합계(10점)예요. 질문 코치는 사이트에 들어 있는 분석 엔진으로, API 키나 외부 AI를 쓰지 않아요.</p>
+    <div class="tscroll"><table class="tt"><tr><th>학번</th><th>이름</th><th>코치 사용</th><th>질문 평가 (평균 / 최고)</th><th>창의적으로</th><th>코치</th><th>노트 점검</th></tr>
+    ${Object.entries(by).sort((a, b) => a[0].localeCompare(b[0])).map(([no, o]) => `<tr><td>${esc(no)}</td><td>${esc(nameOf(no))}</td><td>${o.n}</td>
+      <td>${o.ev.length ? (o.ev.reduce((a, b) => a + b, 0) / o.ev.length).toFixed(1) + ' / ' + Math.max(...o.ev) : '-'}</td><td>${o.cr}</td><td>${o.co}</td><td>${o.no}</td></tr>`).join('') || '<tr><td colspan="7">아직 기록이 없어요.</td></tr>'}
+    </table></div>
+    <div class="filters" id="taiMode" style="margin-top:12px">${[['all','전체'], ...Object.entries(MD)].map(([k, t]) => `<button class="fbtn${tAiMode === k ? ' on' : ''}" data-v="${k}">${t}</button>`).join('')}
+      <button class="fbtn" id="taiCsv" type="button">⬇ 코치 기록 CSV</button></div>
+    <div class="tscroll"><table class="tt"><tr><th>시각</th><th>학생</th><th>기능</th><th>학생이 보낸 글</th><th>결과 요약</th></tr>
+    ${list.slice(0, 300).map(a => `<tr><td>${new Date(a.created_at).toLocaleString('ko-KR', { month:'numeric', day:'numeric', hour:'2-digit', minute:'2-digit' })}</td>
+      <td>${esc(a.student_no)} ${esc(nameOf(a.student_no))}</td><td>${MD[a.mode] || a.mode}</td><td style="white-space:normal;min-width:220px">${esc((a.mode === 'note' ? '(노트) ' : '') + (a.input || '').slice(0, 160))}</td>
+      <td style="white-space:normal;min-width:260px">${brief(a)}</td></tr>`).join('')}</table></div>`;
+  tex(V);
+  $$('#taiMode .fbtn[data-v]', V).forEach(b => b.onclick = () => { tAiMode = b.dataset.v; tAI(V); });
+  $('#taiCsv').onclick = () => {
+    const rows = [['시각','학번','이름','기능','학생 글','결과(JSON)']];
+    A.forEach(a => rows.push([a.created_at, a.student_no, nameOf(a.student_no), MD[a.mode] || a.mode, a.input, JSON.stringify(a.output)]));
+    csvDown(rows, `질문코치기록_${TL}.csv`);
+  };
+}
+function csvDown(rows, name){
+  const csv = '\ufeff' + rows.map(r => r.map(v => '"' + String(v == null ? '' : v).replace(/"/g, '""') + '"').join(',')).join('\r\n');
+  const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([csv], { type:'text/csv;charset=utf-8' })); a.download = name; document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(a.href), 2000);
 }
 
 </script>
