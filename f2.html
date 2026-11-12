@@ -1077,6 +1077,201 @@ table.mini th{background:var(--lav-s)}
 .pad.ro canvas{cursor:default}
 .twnone{font-size:.82rem;color:var(--ink3);margin:0}
 
+/* ---------- ✌️ 노트 확대·축소·이동 · ⛶ 전체 화면 ---------- */
+.inkv{position:relative;width:100%;aspect-ratio:5/3;border:2px solid #c9b8ff;border-radius:16px;overflow:hidden;background:#e6e8f0;touch-action:none}
+.inkv canvas{position:absolute;inset:0;width:100%;height:100%;display:block;touch-action:none}
+.inkv .ifg{cursor:crosshair}.inkv.moving .ifg{cursor:grab}
+.izoom{position:absolute;right:8px;top:8px;display:flex;flex-direction:column;gap:4px;z-index:2}
+.izoom button,.gtzoom button{width:32px;height:32px;border-radius:9px;border:1.5px solid var(--line2);background:rgba(255,255,255,.92);font-weight:900;cursor:pointer;font-size:1rem;line-height:1;padding:0}
+.gtzoom .gtmv.on{background:var(--lav);color:#fff;border-color:var(--lav)}
+.izl{position:absolute;left:8px;bottom:6px;z-index:2;font-size:.72rem;font-weight:900;color:#5a3fc0;background:rgba(255,255,255,.9);border-radius:8px;padding:1px 7px}.izl:empty{display:none}
+.inkhelp{font-size:.72rem;color:var(--ink3);margin:6px 2px 0}
+.twibig{display:block;width:100%;height:auto;border:2px solid #c9b8ff;border-radius:14px}
+.inkhost.fs,.gt.fs{position:fixed;inset:0;z-index:9990;background:#fffdf8;padding:12px 14px;overflow:auto}
+.inkhost.fs{display:flex;flex-direction:column}
+.inkhost.fs .inkv{width:min(100%,calc((100dvh - 120px) * 5 / 3));margin:0 auto;flex:none}
+.inkhost.fs .ptools{justify-content:center}
+.gt.fs{grid-template-columns:minmax(220px,300px) minmax(0,1fr);align-items:center}
+.gt.fs .gtview{width:min(100%,calc((100dvh - 30px) * 1.5));margin:0 auto}
+.gt.fs .gtzoom button{width:40px;height:40px;font-size:1.15rem}
+@media (max-width:760px){ .gt.fs{grid-template-columns:1fr;align-items:start} }
+html.fslock,html.fslock body{overflow:hidden}
+:fullscreen.inkhost,:fullscreen.gt{width:100%;height:100%}
+
+/* ---------- 📡 실시간 학생 화면 ---------- */
+.twmode{display:inline-flex;border:2px solid var(--lav);border-radius:999px;overflow:hidden}
+.twmode button{border:0;background:#fff;color:#5a3fc0;font-family:inherit;font-weight:900;font-size:.82rem;padding:6px 14px;cursor:pointer}
+.twmode button.on{background:var(--lav);color:#fff}
+.lvgrid{grid-template-columns:repeat(auto-fill,minmax(250px,1fr))}
+.lvtile[data-st=on]{border-color:#7fd9b3;box-shadow:0 0 0 3px rgba(31,163,122,.12)}
+.lvtile[data-st=away]{opacity:.7}
+.lvdot{width:10px;height:10px;border-radius:50%;flex:none;background:#c9cbd8}
+.lvdot.on{background:#1fa37a;box-shadow:0 0 0 0 rgba(31,163,122,.6);animation:lvpulse 1.6s infinite}
+.lvdot.idle{background:#f0b400}.lvdot.away{background:#9aa0b8}
+@keyframes lvpulse{70%{box-shadow:0 0 0 7px rgba(31,163,122,0)}100%{box-shadow:0 0 0 0 rgba(31,163,122,0)}}
+@media (prefers-reduced-motion:reduce){.lvdot.on{animation:none}}
+.lvwhere{display:flex;flex-wrap:wrap;gap:4px 6px;align-items:center;font-size:.78rem;line-height:1.35}
+.lvwhere b{color:var(--ink)}
+.lvtab{font-size:.7rem;font-weight:900;color:#5a3fc0;background:#f1ecff;border-radius:999px;padding:1px 8px;white-space:nowrap}
+.lvact{font-size:.74rem;font-weight:800;color:var(--ink2)}
+.lvact.ink,.lvact.graph,.lvact.note,.lvact.typing{color:#d0346a}
+.lvscr{display:flex;flex-direction:column;gap:5px;border-radius:12px;background:#fbfaff;border:1px dashed #d9d0f5;padding:6px;min-height:60px}
+.lvempty{font-size:.76rem;color:var(--ink3);padding:6px 4px}
+.lvtyping{display:flex;flex-wrap:wrap;gap:4px;font-size:.78rem;color:#7a4a00;background:#fff7e3;border-radius:10px;padding:5px 7px}
+.lvtyping span{background:#fff;border-radius:7px;padding:0 6px;border:1px solid #f0d28a}
+.lvnow{border-color:#7fd9b3 !important;background:#f7fffb !important}
+.lvnowh{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:8px;font-size:.9rem}
+.lvbig{display:flex;flex-direction:column;gap:8px}
+.twnote.big{max-height:none;font-size:.9rem}
+.twbody h3 small{font-size:.74rem;color:var(--ink3);font-weight:700;margin-left:6px}
+.lvhist{list-style:none;padding:0;margin:0;display:grid;gap:8px}
+.lvhist li{display:flex;gap:10px;background:#fff;border:1.5px solid var(--line);border-radius:14px;padding:8px 12px;font-size:.86rem}
+.lvhist .lvhi{font-size:1.1rem}.lvhist b{margin-right:8px}.lvhist small{color:var(--ink3)}
+.lvhist li > div{flex:1;min-width:0;word-break:break-word}
+
+/* ---------- ⚔️ 팀별 대결 : 줄다리기 ---------- */
+.btrules{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 12px}
+.btrules span{font-size:.78rem;font-weight:700;background:#f4f0ff;color:#4a3a8a;border-radius:999px;padding:4px 11px}
+.btset{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:14px;align-items:start}
+.btteams{display:grid;gap:6px}
+.btteam{display:grid;grid-template-columns:28px minmax(0,.8fr) minmax(0,1.4fr);gap:6px;align-items:center}
+.btteam i{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;font-style:normal;font-weight:900;color:#fff}
+.btteam .inp{padding:7px 10px;font-size:.88rem;min-width:0}
+.c0 i,.btslot.c0,.btwin.c0 b{--tc:#2f6fdf}.c1 i,.btslot.c1{--tc:#e2465b}.c2 i,.btslot.c2{--tc:#1fa37a}.c3 i,.btslot.c3{--tc:#e08a00}.c4 i,.btslot.c4{--tc:#9b59d0}
+.btteam i{background:var(--tc)}
+.btopts{display:grid;gap:10px;font-size:.84rem;font-weight:700;color:var(--ink2)}
+.btopts label{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.btopts .inp{padding:5px 8px;width:auto}.bttime{width:64px !important}
+.btchk input{width:18px;height:18px}
+.btbracket{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:16px 0 10px;align-items:center;background:linear-gradient(180deg,#f7f4ff,#fff);border-radius:18px;padding:12px}
+.btcol{display:grid;gap:10px}.btcol h4{margin:0;font-size:.82rem;color:#5a3fc0;text-align:center}
+.btmatch{border:2px solid var(--line2);border-radius:14px;background:#fff;padding:6px 8px;display:grid;gap:4px}
+.btmatch.now{border-color:var(--lav);box-shadow:0 0 0 4px rgba(125,95,224,.18)}
+.btmatch small{font-size:.68rem;color:var(--ink3);font-weight:800}
+.btmt{display:flex;justify-content:space-between;gap:6px;font-weight:800;font-size:.86rem;border-radius:8px;padding:3px 7px;background:#fafaff}
+.btmt.win{background:#e9f8f1;color:#13805c}.btmt.lose{opacity:.5;text-decoration:line-through}.btmt.tbd{color:var(--ink3);font-weight:600}
+.btmt em{font-style:normal}
+.btbye{border:2px dashed #d9d0f5;border-radius:14px;padding:6px 8px}.btbye small{font-size:.68rem;color:var(--ink3);font-weight:800}
+.btslot b{color:var(--tc)}
+.btcup{font-size:1.05rem;font-weight:900;text-align:center;border-radius:16px;padding:16px 8px;background:#fff7e3;color:#b07a00;border:2px dashed #f0d28a}
+.btcup.on{background:linear-gradient(135deg,#ffe48a,#ffb84d);color:#5a3500;border-style:solid;box-shadow:0 10px 26px rgba(255,170,0,.35)}
+.btbtns{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.btgo{font-size:1rem;padding:10px 20px}
+.btdone{font-weight:900;color:#b07a00;font-size:1.05rem}
+@media (max-width:760px){ .btset{grid-template-columns:1fr} .btbracket{grid-template-columns:1fr 1fr} }
+
+.btarena{position:relative;background:#cfe9ff;border-radius:24px;padding:10px;margin:0 0 16px;box-shadow:0 18px 40px rgba(40,80,160,.18);color:#1d2340;user-select:none;-webkit-user-select:none}
+.btarena.fs{position:fixed;inset:0;z-index:9990;border-radius:0;margin:0;overflow:auto;display:flex;flex-direction:column}
+.bttop{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.bttb{border:0;background:rgba(255,255,255,.85);border-radius:12px;padding:8px 12px;font-family:inherit;font-weight:900;cursor:pointer;color:#33407a}
+.btttl{display:flex;align-items:center;gap:10px;font-size:.95rem}
+.btdots{display:flex;gap:4px}
+.btdots i{font-style:normal;font-size:.72rem;font-weight:900;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.7);color:#7a86b8}
+.btdots i.now{background:#33407a;color:#fff;transform:scale(1.15)}.btdots i.done{background:#9fb4e6;color:#fff}.btdots i.ot{width:auto;padding:0 8px;border-radius:999px;background:#e2465b}
+.bttimer{flex:1;position:relative;height:28px;border-radius:999px;background:rgba(255,255,255,.7);overflow:hidden}
+.bttimer i{position:absolute;inset:0 auto 0 0;background:linear-gradient(90deg,#46c08a,#2fa7ff);transition:width .2s linear}
+.bttimer i.hot{background:linear-gradient(90deg,#ff7a59,#e2465b)}
+.bttimer b{position:absolute;inset:0;display:grid;place-items:center;font-size:1rem;font-weight:900;color:#1d2340}
+.btfield{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr) minmax(0,1fr);gap:10px;flex:1;min-height:0}
+.btside{order:0;background:rgba(255,255,255,.55);border-radius:20px;padding:10px;display:flex;flex-direction:column;gap:8px;border:3px solid transparent;transition:border-color .2s,background .2s}
+.btside.s1{order:2}.btmid{order:1}
+.btside.s0{--sc:#2f6fdf;--sb:#e6efff}.btside.s1{--sc:#e2465b;--sb:#ffe9ec}
+.btsh{display:flex;align-items:center;justify-content:space-between;gap:6px;background:var(--sc);color:#fff;border-radius:14px;padding:6px 12px}
+.btteamname{font-size:1.1rem}.btrunner{font-size:.82rem;font-weight:800;background:rgba(255,255,255,.22);border-radius:999px;padding:2px 10px}
+.btprob{background:#fff;border-radius:16px;padding:10px 12px;box-shadow:0 4px 12px rgba(0,0,0,.06);min-height:110px}
+.btsrc{font-size:.72rem;color:#7a86b8;font-weight:800;margin-bottom:4px;display:flex;gap:6px;align-items:center}
+.btq{font-size:1.02rem;line-height:1.65;font-weight:600}
+.btlv{display:inline-block;font-size:.72rem;font-weight:900;color:#fff;border-radius:999px;padding:1px 9px}
+.btlv.h{background:#1fa37a}.btlv.m{background:#e08a00}.btlv.s{background:#e2465b}
+.btans{background:var(--sb);border-radius:14px;padding:8px 12px;min-height:58px;display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.btdisp{font-size:1.6rem;font-weight:900;font-family:'Consolas',monospace;min-width:3ch;color:var(--sc)}
+.btdisp:empty::before{content:'답 입력';font-size:.9rem;color:#9aa3c7;font-family:inherit;font-weight:700}
+.btfb{font-size:.9rem;font-weight:900}
+.btsol{flex-basis:100%;font-size:.86rem;background:#fff;border-radius:10px;padding:6px 10px}.btsol small{display:block;color:var(--ink3);margin-top:2px}
+.btpad.keys{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.btpad button{border:0;border-radius:14px;background:#fff;font-family:inherit;font-size:1.3rem;font-weight:900;color:#2a3260;padding:10px 0;cursor:pointer;box-shadow:0 3px 0 rgba(0,0,0,.08);touch-action:manipulation}
+.btpad button:active{transform:translateY(2px);box-shadow:none}
+.btpad button.op{color:var(--sc)}.btpad button.fn{background:#eef0f8;font-size:1.05rem}.btpad button.go{background:var(--sc);color:#fff;font-size:1.05rem}
+.btpad.opts{display:grid;gap:6px}.btpad.opts button{font-size:1rem;text-align:left;padding:10px 12px}.btpad.opts button.sel{outline:3px solid var(--sc)}
+.btside.ok{border-color:#1fa37a;background:rgba(233,248,241,.9)}.btside.ok .btpad{opacity:.35;pointer-events:none}
+.btside.bad{border-color:#e2465b}.btside.wait .btpad{opacity:.45;pointer-events:none}
+.btside.reveal .btpad{opacity:.25;pointer-events:none}
+.btside.shake{animation:btshake .45s}
+@keyframes btshake{20%{transform:translateX(-8px)}40%{transform:translateX(8px)}60%{transform:translateX(-5px)}80%{transform:translateX(5px)}}
+.btmid{display:flex;flex-direction:column;align-items:center;gap:6px;justify-content:flex-start}
+.btscore{display:flex;align-items:center;gap:10px;font-size:2.4rem;font-weight:900}.btscore .s0{color:#2f6fdf}.btscore .s1{color:#e2465b}.btscore span{color:#7a86b8}
+.btlvl{display:flex;flex-direction:column;align-items:center;gap:2px}.btlvl .btlv{font-size:.95rem;padding:3px 14px}.btlvl small{font-size:.75rem;color:#5a6390;font-weight:800}
+.btrope{width:100%;max-width:560px;height:auto;overflow:visible}
+.btmidline{stroke:#33407a;stroke-width:2;stroke-dasharray:6 6}.btwinline{stroke-width:3;stroke-dasharray:3 5;opacity:.5}.btwinline.s0{stroke:#2f6fdf}.btwinline.s1{stroke:#e2465b}
+.btgrp{transition:transform .8s cubic-bezier(.3,1.4,.5,1)}
+.btman{transform-box:fill-box;transform-origin:50% 100%}
+.pull .btman{animation:btpull .8s ease}
+@keyframes btpull{30%{transform:rotate(-14deg)}60%{transform:rotate(-6deg)}}
+@media (prefers-reduced-motion:reduce){.btgrp{transition:none}.pull .btman,.btside.shake{animation:none}}
+.btmsg{min-height:1.6em;text-align:center;font-size:.95rem}.btmsg .c0{color:#2f6fdf}.btmsg .c1{color:#e2465b}
+.btnextb{font-size:1.05rem;padding:10px 22px}
+.btover{position:absolute;inset:0;background:rgba(20,30,70,.55);display:grid;place-items:center;border-radius:inherit;z-index:3}
+.btwin{background:#fff;border-radius:26px;padding:24px 34px;text-align:center;display:grid;gap:8px;box-shadow:0 30px 70px rgba(0,0,0,.35);animation:btpop .5s cubic-bezier(.3,1.6,.5,1)}
+.btwin small{color:var(--ink3);font-weight:800}.btwin h3{margin:0;font-size:1.8rem}
+.btwin > b{font-size:2.2rem}.btwin.c0 > b{color:#2f6fdf}.btwin.c1 > b{color:#e2465b}
+.btwin p{margin:0;font-weight:800}.btwin em{font-style:normal;font-size:1.3rem}
+@keyframes btpop{from{transform:scale(.6);opacity:0}}
+@media (max-width:860px){
+  .btfield{grid-template-columns:1fr 1fr}.btmid{order:-1;grid-column:1/3}.btside.s0{order:1}.btside.s1{order:2}
+  .btrope{max-width:420px}.btscore{font-size:1.8rem}.btq{font-size:.92rem}.btpad button{font-size:1.1rem;padding:8px 0}
+}
+@media (max-width:520px){ .btfield{grid-template-columns:1fr}.btmid{grid-column:auto} .bttop{flex-wrap:wrap} .btttl{order:3;flex-basis:100%} }
+
+/* ---------- 🎧 함수 DJ ---------- */
+.djwrap{background:#f7f6fb;border-radius:22px;padding:12px;border:2px solid #ece6fb}
+.djwrap.fs{position:fixed;inset:0;z-index:9990;border-radius:0;overflow:auto;background:#f7f6fb}
+.djtop{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:10px}
+.djplay{min-width:110px}.djplay.on{background:#22223b;border-color:#22223b}
+.djbpm{display:flex;align-items:center;gap:6px;font-size:.84rem;font-weight:800;color:var(--ink2)}.djbpm input{width:120px}
+.djfx{display:flex;gap:6px;flex-wrap:wrap}
+.djfx button{border:2px solid var(--line2);background:#fff;border-radius:12px;padding:6px 10px;font-family:inherit;font-weight:800;font-size:.82rem;cursor:pointer;touch-action:none;user-select:none;-webkit-user-select:none}
+.djfx button.on{background:#22223b;color:#fff;border-color:#22223b}
+.djfx kbd,.djhit kbd{font-family:inherit;font-size:.68rem;background:#eef0f8;color:#4a4668;border-radius:6px;padding:0 5px;border:1px solid #d6d9ea}
+.djrec.on{background:#e2465b;color:#fff;border-color:#e2465b;animation:djblink 1s infinite}
+@keyframes djblink{50%{opacity:.65}}
+.djstage{background:#fff;border-radius:16px;border:2px solid #e6e1f7;overflow:hidden}
+.djstage canvas{display:block;width:100%;height:auto;aspect-ratio:1200/520}
+.djlegend{display:flex;flex-wrap:wrap;gap:4px 14px;font-family:'Consolas',monospace;font-size:.76rem;color:var(--ink2);padding:6px 4px 10px}
+.djlegend i{display:inline-block;width:18px;height:3px;border-radius:2px;vertical-align:middle;margin-right:4px}
+.djpads{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px}
+.djpad{background:#fff;border-radius:16px;border:2px solid var(--line2);padding:8px;display:flex;flex-direction:column;gap:6px;transition:.15s;min-width:0}
+.djpad.on{border-color:var(--pc);box-shadow:0 0 0 3px color-mix(in srgb,var(--pc) 22%,transparent)}
+.djpad.beat .djhit{transform:scale(.97);filter:brightness(1.15)}
+.djhit{display:grid;grid-template-columns:auto 1fr;grid-template-rows:auto auto;gap:0 8px;align-items:center;text-align:left;border:0;border-radius:14px;padding:10px;background:#f1f2f8;color:var(--ink);font-family:inherit;cursor:pointer;min-height:70px;transition:transform .08s,background .15s;touch-action:manipulation}
+.djhit .djvi{grid-row:1/3;font-size:1.6rem}.djhit b{font-size:.95rem}.djhit small{font-size:.7rem;color:var(--ink3);font-weight:800}
+.djpad{position:relative}.djhit kbd{position:absolute;top:6px;right:8px;margin:0}
+.djpad.on .djhit{background:var(--pc);color:#fff}.djpad.on .djhit small{color:rgba(255,255,255,.85)}
+.djhit.press{transform:scale(.94)}
+.djmini{width:100%;height:auto;aspect-ratio:2/1;border-radius:10px;border:1px solid var(--line);cursor:pointer}
+.djfrow{display:flex;align-items:center;gap:4px}.djfrow span{font-family:'Times New Roman',serif;font-style:italic;font-weight:700;font-size:.85rem}
+.djf{flex:1;min-width:0;border:2px solid var(--line2);border-radius:9px;padding:5px 7px;font-family:'Consolas',monospace;font-size:.82rem}
+.djf:focus{outline:none;border-color:var(--pc)}
+.djdice{border:0;background:#f4f0ff;border-radius:8px;width:30px;height:30px;cursor:pointer;flex:none}
+.djv{border:1.5px solid var(--line2);border-radius:9px;padding:4px 6px;font-family:inherit;font-size:.8rem;background:#fff}
+.djerr{font-size:.7rem;color:#d0344f;font-weight:700}.djerr:empty{display:none}
+.djinfo{font-size:.68rem;color:var(--ink3);font-weight:700}
+.djtake{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:10px}.djtake:empty{display:none}.djtake audio{max-width:100%}
+.djhelp{font-size:.8rem;color:var(--ink2);line-height:1.7;margin:10px 2px 0}.djhelp code{background:#f4f0ff;border-radius:6px;padding:0 5px;color:#5a3fc0}
+@media (max-width:1000px){ .djpads{grid-template-columns:repeat(3,minmax(0,1fr))} }
+@media (max-width:560px){ .djpads{grid-template-columns:repeat(2,minmax(0,1fr))} .djbpm input{width:90px} }
+@media (min-width:1000px) and (min-height:640px){
+  .btarena.fs .btq{font-size:1.3rem}.btarena.fs .btprob{min-height:150px}
+  .btarena.fs .btpad button{font-size:1.75rem;padding:clamp(10px,2.4vh,22px) 0;border-radius:18px}
+  .btarena.fs .btpad.opts button{font-size:1.2rem}
+  .btarena.fs .btdisp{font-size:2.2rem}.btarena.fs .btans{min-height:78px}
+  .btarena.fs .btscore{font-size:3.4rem}.btarena.fs .btrope{max-width:680px}.btarena.fs .btteamname{font-size:1.35rem}
+}
+.djpad.on .djhit b{color:#fff}
+.djhit{grid-template-columns:auto minmax(0,1fr)}
+.djhit b{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;letter-spacing:-.02em}
+.djwrap.fs .djstage canvas{max-height:calc(100dvh - 330px);width:auto;max-width:100%;margin:0 auto}
+.djset{width:auto;padding:6px 8px;font-size:.82rem;max-width:230px}
+
 /* ===================================================================
    교과서 스타일 + 입체감 + 큰 글씨 · 큰 수식
    =================================================================== */
@@ -3932,8 +4127,9 @@ const wkCanDraw = () => !!ME.no || (typeof TM !== 'undefined' && TM.on);     // 
 const pad2 = n => String(n).padStart(2, '0');
 
 function wkStat(key, txt){ $$(`.wkst[data-st="${key}"]`).forEach(e => e.textContent = txt); }
-function wkTouch(key){
+function wkTouch(key, act){
   if (!ME.no) return;
+  if (window.lvNote) lvNote(key, act || 'note');
   const r = wkRec(key); r._t = Date.now();
   WK.dirty.add(key); wkStat(key, '✏️ 쓰는 중…'); wkBadges(key);
   try { localStorage.setItem(wkLS(key), JSON.stringify(r)); } catch (e) {}
@@ -4021,7 +4217,7 @@ const wkGraphBox = (key, open) => `<details class="wkbox" data-key="${key}" data
 const wkIsGraph = txt => WK_GRAPH_RE.test(String(txt || '').replace(/<[^>]+>/g, ''));
 function wkConceptCard(c, first){
   const g = wkIsGraph(c.title + ' ' + c.html) || !!c.lab;
-  return `<div class="card wkcard">
+  return `<div class="card wkcard" data-key="${c.id}">
     <h2><span class="chip">📝 내 노트</span>코넬 노트 · 그래프·식·그림 노트<span class="wkst" data-st="${c.id}"></span></h2>
     <p class="lead" style="margin-top:0">영상과 설명을 보고 이 개념을 <b>내 말로</b> 정리해요. 쓰는 즉시 자동 저장되고 선생님께 모여요.</p>
     ${first ? '<div id="wkLegacy"></div>' : ''}
@@ -4042,7 +4238,7 @@ function wkAnswer(p, got, all, tries){
   if (!ME.no) return;
   const r = wkRec(p.id);
   r.ans = { v:got.map(v => Array.isArray(v) ? v.map(String) : v == null ? '' : String(v).slice(0, 200)), ok:p.fs.map((f, i) => !!checkField(f, got[i])), all:!!all, n:tries };
-  wkTouch(p.id);
+  wkTouch(p.id, 'ans');
 }
 
 /* ---------- ✍️ 손글씨 판 (여러 개를 만들 수 있음, 선 좌표로 저장) ---------- */
@@ -4059,52 +4255,152 @@ function inkPaint(ctx, ink, sc){
   });
 }
 const inkPts = ink => ((ink && ink.s) || []).reduce((a, s) => a + s[3].length / 2, 0);
+/* 모눈 · 좌표축 (종이) — 화면과 선생님 화면이 같은 모양이 되도록 직접 그림. 한 칸 = 40 */
+function inkBg(g, ax, grid, z){
+  z = z || 1;
+  g.fillStyle = '#fff'; g.fillRect(0, 0, INK_W, INK_H);
+  if (grid !== false){ g.strokeStyle = '#e9ecf6'; g.lineWidth = 1.2 / Math.min(z, 3); g.beginPath();
+    for (let x = 40; x < INK_W; x += 40){ g.moveTo(x, 0); g.lineTo(x, INK_H); }
+    for (let y = 40; y < INK_H; y += 40){ g.moveTo(0, y); g.lineTo(INK_W, y); } g.stroke(); }
+  if (ax){ g.strokeStyle = '#aab0cc'; g.lineWidth = 2.5 / Math.min(z, 3); g.beginPath(); g.moveTo(0, INK_H / 2); g.lineTo(INK_W, INK_H / 2); g.moveTo(INK_W / 2, 0); g.lineTo(INK_W / 2, INK_H); g.stroke();
+    g.fillStyle = '#aab0cc'; g.font = 'italic 22px serif'; g.fillText('x', INK_W - 22, INK_H / 2 - 8); g.fillText('y', INK_W / 2 + 8, 22); }
+}
+/* 캔버스 하나에 종이 + 손글씨를 함께 (지우개가 모눈을 지우지 않도록 손글씨는 따로 그린 뒤 얹음) */
+function inkRender(cv, ink){
+  const g = cv.getContext('2d'), sc = cv.width / INK_W;
+  g.setTransform(sc, 0, 0, sc, 0, 0); inkBg(g, ink && ink.ax);
+  const o = document.createElement('canvas'); o.width = cv.width; o.height = cv.height;
+  inkPaint(o.getContext('2d'), ink, sc); g.setTransform(1, 0, 0, 1, 0, 0); g.drawImage(o, 0, 0);
+}
+/* ⛶ 전체 화면 : Fullscreen API, 안 되는 기기(아이폰 등)는 화면 가득 채우기로 대신 */
+function wkFS(el, after){
+  const doc = document, isFs = () => (doc.fullscreenElement || doc.webkitFullscreenElement) === el || el.classList.contains('fsfake');
+  if (isFs()){
+    if (el.classList.contains('fsfake')){ el.classList.remove('fsfake', 'fs'); doc.documentElement.classList.remove('fslock'); after && after(false); }
+    else (doc.exitFullscreen || doc.webkitExitFullscreen).call(doc);
+    return;
+  }
+  const fake = () => { el.classList.add('fsfake', 'fs'); doc.documentElement.classList.add('fslock'); after && after(true); };
+  const req = el.requestFullscreen || el.webkitRequestFullscreen;
+  if (!req) return fake();
+  try { const p = req.call(el); if (p && p.catch) p.catch(fake); } catch (e) { fake(); }
+}
+document.addEventListener('fullscreenchange', wkFSChange); document.addEventListener('webkitfullscreenchange', wkFSChange);
+function wkFSChange(){ const f = document.fullscreenElement || document.webkitFullscreenElement;
+  $$('.fs').forEach(el => { if (el !== f && !el.classList.contains('fsfake')){ el.classList.remove('fs'); el._fsAfter && el._fsAfter(false); } });
+  if (f && f._fsAfter){ f.classList.add('fs'); f._fsAfter(true); } }
+addEventListener('keydown', e => { if (e.key === 'Escape') $$('.fsfake').forEach(el => wkFS(el, el._fsAfter)); });
+
 function inkMount(host){
   const key = host.dataset.key; if (host._ink) return; host._ink = 1;
   host.innerHTML = `<div class="ptools">
       ${INK_COL.map((c, i) => `<span class="pcol${i ? '' : ' on'}" data-c="${i}" style="background:${c}"></span>`).join('')}<span class="psep"></span>
       <button type="button" class="pw" data-w="2">가늘게</button><button type="button" class="pw on" data-w="4">보통</button><button type="button" class="pw" data-w="8">굵게</button><span class="psep"></span>
       <button type="button" class="ptool i-er">🧽 지우개</button><button type="button" class="ptool i-un">↶ 되돌리기</button>
-      <button type="button" class="ptool i-gr on">▦ 모눈</button><button type="button" class="ptool i-ax">✛ 좌표축</button><button type="button" class="ptool i-cl">🗑 모두 지우기</button></div>
-    <div class="pad grid ink"><canvas width="${INK_W}" height="${INK_H}"></canvas></div>`;
-  const cv = $('canvas', host), ctx = cv.getContext('2d'), pad = $('.pad', host);
-  let strokes = [], cur = null, col = 0, wid = 4, er = false, sawPen = false, ax = false, clr = 0;
-  const redraw = () => { ctx.clearRect(0, 0, INK_W, INK_H); inkPaint(ctx, { s:strokes }, 1); };
-  const pos = e => { const r = cv.getBoundingClientRect(); return [Math.round((e.clientX - r.left) * INK_W / r.width), Math.round((e.clientY - r.top) * INK_H / r.height)]; };
-  const commit = () => { const r = wkRec(key); r.ink = { v:1, ax:ax ? 1 : 0, s:strokes }; wkTouch(key); };
+      <button type="button" class="ptool i-mv" title="켜면 한 손가락(마우스)으로 종이를 움직여요">✋ 이동</button>
+      <button type="button" class="ptool i-gr on">▦ 모눈</button><button type="button" class="ptool i-ax">✛ 좌표축</button><button type="button" class="ptool i-cl">🗑 모두 지우기</button>
+      <button type="button" class="ptool i-fs" title="전체 화면">⛶ 전체 화면</button></div>
+    <div class="inkv"><canvas class="ibg"></canvas><canvas class="ifg"></canvas>
+      <div class="izoom"><button type="button" data-z="in" title="확대">＋</button><button type="button" data-z="out" title="축소">－</button><button type="button" data-z="home" title="처음 크기">⌂</button></div>
+      <span class="izl"></span></div>
+    <p class="inkhelp">✌️ 두 손가락으로 벌리면 확대, 오므리면 축소, 함께 끌면 이동 · 펜을 쓰면 손가락 하나로도 이동 · 마우스는 Ctrl+휠로 확대</p>`;
+  const view = $('.inkv', host), bg = $('.ibg', host), cv = $('.ifg', host), ctx = cv.getContext('2d'), bctx = bg.getContext('2d');
+  let strokes = [], cur = null, curTouch = false, col = 0, wid = 4, er = false, sawPen = false, ax = false, grid = true, clr = 0, mv = false;
+  const V = { s:1, ox:0, oy:0, k:1 };
+  const ptrs = new Map(); let gest = null, pan = null, hold = false, raf = 0;
+  const setT = g => g.setTransform(V.k * V.s, 0, 0, V.k * V.s, -V.ox * V.k * V.s, -V.oy * V.k * V.s);
+  function clampV(){
+    V.s = Math.max(0.5, Math.min(6, V.s));
+    const vw = INK_W / V.s, vh = INK_H / V.s;
+    V.ox = vw >= INK_W ? (INK_W - vw) / 2 : Math.max(0, Math.min(INK_W - vw, V.ox));
+    V.oy = vh >= INK_H ? (INK_H - vh) / 2 : Math.max(0, Math.min(INK_H - vh, V.oy));
+  }
+  function redraw(){
+    bctx.setTransform(1, 0, 0, 1, 0, 0); bctx.fillStyle = '#e6e8f0'; bctx.fillRect(0, 0, bg.width, bg.height);
+    setT(bctx); inkBg(bctx, ax, grid, V.s); bctx.strokeStyle = '#c9b8ff'; bctx.lineWidth = 2 / V.s; if (V.s < 1) bctx.strokeRect(0, 0, INK_W, INK_H);
+    ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.clearRect(0, 0, cv.width, cv.height); setT(ctx); inkPaint(ctx, { s:strokes }, 1);
+    const z = $('.izl', host); z.textContent = Math.abs(V.s - 1) < 0.02 ? '' : Math.round(V.s * 100) + '%';
+  }
+  const later = () => { if (!raf) raf = requestAnimationFrame(() => { raf = 0; redraw(); }); };
+  function size(){
+    const w = view.clientWidth, h = view.clientHeight; if (!w || !h) return;
+    const dpr = Math.min(window.devicePixelRatio || 1, 2), W = Math.round(w * dpr), H = Math.round(h * dpr);
+    if (cv.width !== W || cv.height !== H){ cv.width = bg.width = W; cv.height = bg.height = H; }
+    V.k = W / INK_W; clampV(); redraw();
+  }
+  const dev = (x, y) => { const r = cv.getBoundingClientRect(); return [(x - r.left) * cv.width / r.width, (y - r.top) * cv.height / r.height]; };
+  const pos = e => { const d = dev(e.clientX, e.clientY); return [Math.round(d[0] / (V.k * V.s) + V.ox), Math.round(d[1] / (V.k * V.s) + V.oy)]; };
+  function zoomAt(f, dx, dy){                                     // 기기 좌표 (dx,dy) 아래의 점을 고정한 채 f배
+    const lx = dx / (V.k * V.s) + V.ox, ly = dy / (V.k * V.s) + V.oy;
+    V.s *= f; clampV(); V.ox = lx - dx / (V.k * V.s); V.oy = ly - dy / (V.k * V.s); clampV(); later();
+  }
+  const commit = () => { const r = wkRec(key); r.ink = { v:1, ax:ax ? 1 : 0, s:strokes }; wkTouch(key, 'ink'); };
+  const two = () => { const a = [...ptrs.values()]; return { d:Math.hypot(a[0].x - a[1].x, a[0].y - a[1].y) || 1, m:dev((a[0].x + a[1].x) / 2, (a[0].y + a[1].y) / 2) }; };
   cv.addEventListener('pointerdown', e => {
+    if (e.pointerType === 'touch'){
+      ptrs.set(e.pointerId, { x:e.clientX, y:e.clientY });
+      if (ptrs.size >= 2){                                        // ✌️ 두 손가락 : 확대·축소·이동
+        if (cur && curTouch){ strokes.pop(); cur = null; redraw(); }
+        pan = null; const t = two(); gest = { d0:t.d, m0:t.m, s0:V.s, ox0:V.ox, oy0:V.oy }; hold = true; e.preventDefault(); return;
+      }
+      if (hold) return;
+    }
     if (e.pointerType === 'pen') sawPen = true;
-    if (sawPen && e.pointerType === 'touch') return;             // 펜을 쓰는 동안 손바닥은 무시
+    try { cv.setPointerCapture(e.pointerId); } catch (er) {}
+    if (mv || e.button === 1 || (sawPen && e.pointerType === 'touch')){ pan = { id:e.pointerId, m:dev(e.clientX, e.clientY), ox:V.ox, oy:V.oy }; e.preventDefault(); return; }
     if (!wkCanDraw()){ needLogin(); return; }
-    cv.setPointerCapture(e.pointerId); const p = pos(e);
-    cur = [col, wid, er ? 1 : 0, [p[0], p[1]]]; strokes.push(cur); inkPaint(ctx, { s:[cur] }, 1); e.preventDefault();
+    const p = pos(e);
+    cur = [col, wid, er ? 1 : 0, [p[0], p[1]]]; curTouch = e.pointerType === 'touch'; strokes.push(cur); inkPaint(ctx, { s:[cur] }, 1); e.preventDefault();
   });
   cv.addEventListener('pointermove', e => {
+    if (ptrs.has(e.pointerId)) ptrs.set(e.pointerId, { x:e.clientX, y:e.clientY });
+    if (gest && ptrs.size >= 2){
+      const t = two(), lx = gest.m0[0] / (V.k * gest.s0) + gest.ox0, ly = gest.m0[1] / (V.k * gest.s0) + gest.oy0;
+      V.s = gest.s0 * t.d / gest.d0; clampV(); V.ox = lx - t.m[0] / (V.k * V.s); V.oy = ly - t.m[1] / (V.k * V.s); clampV(); later(); e.preventDefault(); return;
+    }
+    if (pan && pan.id === e.pointerId){ const m = dev(e.clientX, e.clientY); V.ox = pan.ox - (m[0] - pan.m[0]) / (V.k * V.s); V.oy = pan.oy - (m[1] - pan.m[1]) / (V.k * V.s); clampV(); later(); e.preventDefault(); return; }
     if (!cur) return;
     (e.getCoalescedEvents ? e.getCoalescedEvents() : [e]).forEach(ev => {
       const p = pos(ev), a = cur[3], n = a.length, dx = p[0] - a[n - 2], dy = p[1] - a[n - 1];
-      if (dx * dx + dy * dy < 9) return;
+      if (dx * dx + dy * dy < 9 / (V.s * V.s)) return;
       ctx.save(); ctx.globalCompositeOperation = cur[2] ? 'destination-out' : 'source-over'; ctx.strokeStyle = INK_COL[cur[0]]; ctx.lineCap = 'round';
       ctx.lineWidth = cur[1] * (cur[2] ? 4 : 1); ctx.beginPath(); ctx.moveTo(a[n - 2], a[n - 1]); ctx.lineTo(p[0], p[1]); ctx.stroke(); ctx.restore();
       a.push(p[0], p[1]);
     });
     e.preventDefault();
   });
-  const end = () => {
+  const end = e => {
+    ptrs.delete(e.pointerId);
+    if (gest && ptrs.size < 2) gest = null;
+    if (!ptrs.size) hold = false;
+    if (pan && pan.id === e.pointerId) pan = null;
     if (!cur) return; cur = null;
     if (inkPts({ s:strokes }) > INK_MAX){ strokes.pop(); redraw(); snack('노트가 가득 찼어요. 🧽 지우개나 🗑 로 정리한 뒤 이어서 써 주세요.'); return; }
     commit();
   };
   cv.addEventListener('pointerup', end); cv.addEventListener('pointercancel', end);
-  $$('.pcol', host).forEach(b => b.onclick = () => { $$('.pcol', host).forEach(x => x.classList.toggle('on', x === b)); col = +b.dataset.c; er = false; $('.i-er', host).classList.remove('on'); });
-  $$('.pw', host).forEach(b => b.onclick = () => { $$('.pw', host).forEach(x => x.classList.toggle('on', x === b)); wid = +b.dataset.w; });
-  $('.i-er', host).onclick = e => { er = !er; e.currentTarget.classList.toggle('on', er); };
+  cv.addEventListener('wheel', e => {
+    const d = dev(e.clientX, e.clientY);
+    if (e.ctrlKey || e.metaKey){ zoomAt(Math.exp(-e.deltaY * 0.004), d[0], d[1]); e.preventDefault(); }
+    else if (V.s > 1.01 || host.classList.contains('fs')){ V.ox += e.deltaX / V.s * 0.8; V.oy += e.deltaY / V.s * 0.8; clampV(); later(); e.preventDefault(); }
+  }, { passive:false });
+  $$('.izoom button', host).forEach(b => b.onclick = () => {
+    if (b.dataset.z === 'home'){ V.s = 1; V.ox = V.oy = 0; clampV(); later(); return; }
+    zoomAt(b.dataset.z === 'in' ? 1.4 : 1 / 1.4, cv.width / 2, cv.height / 2); });
+  $$('.pcol', host).forEach(b => b.onclick = () => { $$('.pcol', host).forEach(x => x.classList.toggle('on', x === b)); col = +b.dataset.c; er = false; $('.i-er', host).classList.remove('on'); setMv(false); });
+  $$('.pw', host).forEach(b => b.onclick = () => { $$('.pw', host).forEach(x => x.classList.toggle('on', x === b)); wid = +b.dataset.w; setMv(false); });
+  const setMv = v => { mv = v; $('.i-mv', host).classList.toggle('on', mv); view.classList.toggle('moving', mv); };
+  $('.i-mv', host).onclick = () => setMv(!mv);
+  $('.i-er', host).onclick = e => { er = !er; e.currentTarget.classList.toggle('on', er); setMv(false); };
   $('.i-un', host).onclick = () => { if (strokes.length){ strokes.pop(); redraw(); commit(); } else snack('더 되돌릴 수 없어요'); };
-  $('.i-gr', host).onclick = e => { pad.classList.toggle('grid'); e.currentTarget.classList.toggle('on', pad.classList.contains('grid')); };
-  $('.i-ax', host).onclick = e => { ax = !ax; pad.classList.toggle('axis', ax); e.currentTarget.classList.toggle('on', ax); if (strokes.length) commit(); };
+  $('.i-gr', host).onclick = e => { grid = !grid; e.currentTarget.classList.toggle('on', grid); redraw(); };
+  $('.i-ax', host).onclick = e => { ax = !ax; e.currentTarget.classList.toggle('on', ax); redraw(); if (strokes.length) commit(); };
   $('.i-cl', host).onclick = () => { const now = Date.now(); if (now - clr > 2500){ clr = now; snack('한 번 더 누르면 모두 지워져요'); return; } strokes = []; redraw(); commit(); };
+  host._fsAfter = on => { $('.i-fs', host).textContent = on ? '↙ 전체 화면 끝내기' : '⛶ 전체 화면'; setTimeout(size, 60); };
+  $('.i-fs', host).onclick = () => wkFS(host, host._fsAfter);
+  if ('ResizeObserver' in window) new ResizeObserver(size).observe(view); else addEventListener('resize', size);
   const api = { load(){ const k = (WK.data[key] || {}).ink; strokes = k && k.s ? k.s.map(s => [s[0], s[1], s[2], s[3].slice()]) : []; ax = !!(k && k.ax);
-    pad.classList.toggle('axis', ax); $('.i-ax', host).classList.toggle('on', ax); redraw(); } };
+    $('.i-ax', host).classList.toggle('on', ax); size(); redraw(); } };
   WK.pads[key] = api; api.load();
 }
 
@@ -4199,13 +4495,13 @@ function gtMount(host){
       <div class="gtrows"></div>
       <div class="gtkeys">${[['x²', '^2'], ['√( )', 'sqrt('], ['|x|', '|x|'], ['1/x', '1/x'], ['^', '^'], ['(', '('], [')', ')'], ['π', 'pi']].map(k => `<button type="button" class="nsym gtk" data-w="${k[1]}">${k[0]}</button>`).join('')}</div>
       <button type="button" class="btn gtadd">＋ 식 추가</button>
-      <p class="gthelp">예) <code>1/(x-1)+3</code> · <code>√(2x-4)+1</code> · <code>x^2-2x</code> · <code>|x|</code> · 세로선 <code>x=1</code> · 점 <code>(2,1)</code><br>그래프를 끌면 움직이고, ＋ － 로 크기를 바꿔요.</p></div>
+      <p class="gthelp">예) <code>1/(x-1)+3</code> · <code>√(2x-4)+1</code> · <code>x^2-2x</code> · <code>|x|</code> · 세로선 <code>x=1</code> · 점 <code>(2,1)</code><br>그래프를 끌면 움직이고(✋), 두 손가락으로 벌리면 확대 · 오므리면 축소, 🎯 를 켜면 누른 곳의 좌표를 읽어요.</p></div>
     <div class="gtview"><canvas width="900" height="600"></canvas>
-      <div class="gtzoom"><button type="button" data-z="in" title="확대">＋</button><button type="button" data-z="out" title="축소">－</button><button type="button" data-z="home" title="처음 크기">⌂</button></div>
+      <div class="gtzoom"><button type="button" data-z="in" title="확대">＋</button><button type="button" data-z="out" title="축소">－</button><button type="button" data-z="home" title="처음 크기">⌂</button><button type="button" class="gtmv on" title="✋ 이동 ↔ 🎯 좌표 읽기">✋</button><button type="button" class="gtfs" title="전체 화면">⛶</button></div>
       <div class="gtread"></div></div></div>`;
   const cv = $('canvas', host), rows = $('.gtrows', host), read = $('.gtread', host);
   let st = { f:[''], win:GT_WIN.slice() }, last = null, drag = null;
-  const save = () => { const r = wkRec(key); r.graph = { f:st.f.slice(), win:st.win.map(v => +v.toFixed(4)) }; wkTouch(key); };
+  const save = () => { const r = wkRec(key); r.graph = { f:st.f.slice(), win:st.win.map(v => +v.toFixed(4)) }; wkTouch(key, 'graph'); };
   const paint = () => { const errs = gtDraw(cv, st); $$('.gterr', rows).forEach((e, i) => e.textContent = errs[i] || ''); };
   function drawRows(){
     rows.innerHTML = st.f.map((v, i) => `<div class="gtrow"><i style="background:${GT_COL[i % GT_COL.length]}"></i><span>y =</span><input type="text" data-i="${i}" value="${esc(v)}" placeholder="${i ? '식을 하나 더' : 'x에 대한 식 (예: 2/(x+1)-2)'}" autocomplete="off" autocapitalize="off" spellcheck="false">
@@ -4220,21 +4516,50 @@ function gtMount(host){
   $('.gtadd', host).onclick = () => { if (st.f.length < 5){ st.f.push(''); drawRows(); const a = $$('input', rows); a[a.length - 1].focus(); } };
   $$('.gtk', host).forEach(b => b.onclick = () => { const inp = last && rows.contains(last) ? last : $('input', rows); const p = inp.selectionStart ?? inp.value.length, w = b.dataset.w;
     inp.value = inp.value.slice(0, p) + w + inp.value.slice(inp.selectionEnd ?? p); inp.focus(); inp.setSelectionRange(p + w.length, p + w.length); inp.oninput(); });
-  $$('.gtzoom button', host).forEach(b => b.onclick = () => {
-    if (b.dataset.z === 'home') st.win = GT_WIN.slice();
-    else { const k = b.dataset.z === 'in' ? 0.7 : 1 / 0.7, [a, c, d, e] = st.win, mx = (a + c) / 2, my = (d + e) / 2; st.win = [mx - (mx - a) * k, mx + (c - mx) * k, my - (my - d) * k, my + (e - my) * k]; }
-    paint(); if (st.f.some(x => x.trim())) save(); });
-  cv.addEventListener('pointerdown', e => { cv.setPointerCapture(e.pointerId); drag = { x:e.clientX, y:e.clientY, win:st.win.slice() }; });
+  const zoom = (k, fx, fy) => { const [a, c, d, e] = st.win, mx = a + (c - a) * fx, my = e - (e - d) * fy; st.win = [mx - (mx - a) * k, mx + (c - mx) * k, my - (my - d) * k, my + (e - my) * k]; paint(); };
+  $$('.gtzoom button[data-z]', host).forEach(b => b.onclick = () => {
+    if (b.dataset.z === 'home') { st.win = GT_WIN.slice(); paint(); } else zoom(b.dataset.z === 'in' ? 0.7 : 1 / 0.7, .5, .5);
+    if (st.f.some(x => x.trim())) save(); });
+  let mvOn = true; const mvb = $('.gtmv', host);
+  mvb.onclick = () => { mvOn = !mvOn; mvb.textContent = mvOn ? '✋' : '🎯'; mvb.classList.toggle('on', mvOn); cv.style.cursor = mvOn ? '' : 'crosshair'; };
+  const gtEl = $('.gt', host);
+  gtEl._fsAfter = on => { $('.gtfs', host).textContent = on ? '↙' : '⛶';
+    setTimeout(() => { if (on){ const dpr = Math.min(devicePixelRatio || 1, 2); cv.width = Math.round(cv.clientWidth * dpr); cv.height = Math.round(cv.width * 2 / 3); } else { cv.width = 900; cv.height = 600; } paint(); }, 80); };
+  $('.gtfs', host).onclick = () => wkFS(gtEl, gtEl._fsAfter);
+  function readAt(clientX, clientY, mark){
+    const r = cv.getBoundingClientRect(), [a, c, d, f] = st.win, x = a + (clientX - r.left) / r.width * (c - a), out = [];
+    if (mark) paint();
+    const g = cv.getContext('2d'), W = cv.width, H = cv.height;
+    st.f.forEach((src, i) => { try { const cc = gtCompile(src); if (cc && cc.kind === 'y'){ const y = cc.f(x); out.push(`<b style="color:${GT_COL[i % GT_COL.length]}">y = ${isFinite(y) ? +y.toFixed(2) : '없음'}</b>`);
+      if (mark && isFinite(y)){ g.fillStyle = GT_COL[i % GT_COL.length]; g.beginPath(); g.arc((x - a) / (c - a) * W, H - (y - d) / (f - d) * H, Math.max(5, W / 120), 0, 7); g.fill(); } } } catch (er) {} });
+    if (mark){ g.strokeStyle = 'rgba(90,63,192,.45)'; g.setLineDash([6, 6]); g.lineWidth = Math.max(1, W / 500); g.beginPath(); g.moveTo((x - a) / (c - a) * W, 0); g.lineTo((x - a) / (c - a) * W, H); g.stroke(); g.setLineDash([]); }
+    read.innerHTML = out.length ? `x = ${+x.toFixed(2)} 일 때 ` + out.join(' · ') : '';
+  }
+  const ptrs = new Map(); let gest = null;
+  const two = () => { const p = [...ptrs.values()], r = cv.getBoundingClientRect(); return { d:Math.hypot(p[0].x - p[1].x, p[0].y - p[1].y) || 1, fx:((p[0].x + p[1].x) / 2 - r.left) / r.width, fy:((p[0].y + p[1].y) / 2 - r.top) / r.height }; };
+  cv.addEventListener('pointerdown', e => {
+    try { cv.setPointerCapture(e.pointerId); } catch (er) {}
+    if (e.pointerType === 'touch'){ ptrs.set(e.pointerId, { x:e.clientX, y:e.clientY });
+      if (ptrs.size >= 2){ const t = two(); gest = { ...t, win:st.win.slice() }; drag = null; e.preventDefault(); return; } }
+    if (!mvOn){ drag = { read:1 }; readAt(e.clientX, e.clientY, true); return; }
+    drag = { x:e.clientX, y:e.clientY, win:st.win.slice() };
+  });
   cv.addEventListener('pointermove', e => {
-    const r = cv.getBoundingClientRect(), [a, c, d, f] = st.win;
+    if (ptrs.has(e.pointerId)) ptrs.set(e.pointerId, { x:e.clientX, y:e.clientY });
+    const r = cv.getBoundingClientRect();
+    if (gest && ptrs.size >= 2){ const t = two(), k = gest.d / t.d, [a, c, d, f] = gest.win;
+      const mx = a + (c - a) * gest.fx, my = f - (f - d) * gest.fy, w = (c - a) * k, h = (f - d) * k;     // 처음 두 손가락 가운데 점이 지금 가운데 점을 따라가도록
+      const na = mx - t.fx * w, nf = my + t.fy * h; st.win = [na, na + w, nf - h, nf]; paint(); e.preventDefault(); return; }
+    if (drag && drag.read){ readAt(e.clientX, e.clientY, true); return; }
     if (drag){ const dx = (e.clientX - drag.x) / r.width * (drag.win[1] - drag.win[0]), dy = (e.clientY - drag.y) / r.height * (drag.win[3] - drag.win[2]);
       st.win = [drag.win[0] - dx, drag.win[1] - dx, drag.win[2] + dy, drag.win[3] + dy]; paint(); return; }
-    const x = a + (e.clientX - r.left) / r.width * (c - a), out = [];
-    st.f.forEach((src, i) => { try { const cc = gtCompile(src); if (cc && cc.kind === 'y'){ const y = cc.f(x); out.push(`<b style="color:${GT_COL[i % GT_COL.length]}">y = ${isFinite(y) ? +y.toFixed(2) : '없음'}</b>`); } } catch (er) {} });
-    read.innerHTML = out.length ? `x = ${+x.toFixed(2)} 일 때 ` + out.join(' · ') : '';
+    if (e.pointerType === 'mouse') readAt(e.clientX, e.clientY, false);
   });
-  const up = () => { if (drag){ drag = null; if (st.f.some(x => x.trim())) save(); } };
-  cv.addEventListener('pointerup', up); cv.addEventListener('pointercancel', up); cv.addEventListener('pointerleave', () => { read.innerHTML = ''; });
+  const up = e => { ptrs.delete(e.pointerId); if (gest){ if (ptrs.size < 2){ gest = null; if (st.f.some(x => x.trim())) save(); } return; }
+    if (drag){ const wasRead = drag.read; drag = null; if (!wasRead && st.f.some(x => x.trim())) save(); } };
+  cv.addEventListener('pointerup', up); cv.addEventListener('pointercancel', up); cv.addEventListener('pointerleave', e => { if (e.pointerType === 'mouse' && !drag) read.innerHTML = ''; });
+  cv.addEventListener('wheel', e => { if (!(e.ctrlKey || e.metaKey || gtEl.classList.contains('fs'))) return; const r = cv.getBoundingClientRect();
+    zoom(Math.exp(e.deltaY * 0.004), (e.clientX - r.left) / r.width, (e.clientY - r.top) / r.height); e.preventDefault(); clearTimeout(gtEl._wt); gtEl._wt = setTimeout(() => { if (st.f.some(x => x.trim())) save(); }, 600); }, { passive:false });
   const api = { load(){ const g = (WK.data[key] || {}).graph; st = { f:g && g.f && g.f.length ? g.f.slice(0, 5) : [''], win:g && g.win && g.win.length === 4 ? g.win.slice() : GT_WIN.slice() }; drawRows(); paint(); } };
   WK.gts[key] = api; api.load();
 }
@@ -4265,7 +4590,7 @@ function bootWork(){
 /* ===================================================================
    🖥️ 선생님 : 학생 풀이 화면 — 항목(개념·문제)별로 전체 학생을 한눈에, 학생을 누르면 그 학생의 화면
    =================================================================== */
-const TW = { key:null, idx:[], rows:[], live:false, timer:null, order:[] };
+const TW = { key:null, idx:[], rows:[], live:false, timer:null, order:[], mode:'live' };
 let NAMES_HIDDEN = false; try { NAMES_HIDDEN = localStorage.getItem('qf_hide_names') === '1'; } catch (e) {}
 function namesApply(){ document.documentElement.classList.toggle('hide-names', NAMES_HIDDEN); $$('.namebtn').forEach(b => b.textContent = NAMES_HIDDEN ? '👀 학번·이름 보이기' : '🙈 학번·이름 가리기'); }
 function namesToggle(){ NAMES_HIDDEN = !NAMES_HIDDEN; try { localStorage.setItem('qf_hide_names', NAMES_HIDDEN ? '1' : '0'); } catch (e) {} namesApply(); }
@@ -4286,19 +4611,19 @@ function twKeys(){
   return keys;
 }
 async function tWork(V){
+  if (TW.mode === 'live' && window.tLive) return tLive(V);
   V.innerHTML = '<div class="state">학생 풀이를 불러오는 중…</div>';
   try { TW.idx = await rpc('qf_teacher_work_index', { p_pass:TP, p_lesson:TL }) || []; } catch (e) { V.innerHTML = `<div class="state">불러오지 못했어요: ${esc(e.message)}</div>`; return; }
   const keys = twKeys(), cnt = k => new Set(TW.idx.filter(x => x.key === k && inCls(x.student_no)).map(x => x.student_no)).size;
   if (!TW.key || !keys.includes(TW.key)) TW.key = keys.find(k => cnt(k) > 0) || keys[0] || null;
-  V.innerHTML = `<div class="twbar">
-      <b>🖥️ 학생 풀이 화면</b>
+  V.innerHTML = `${twModeBar('item')}<div class="twbar">
       <select class="inp" id="twKey">${keys.map(k => `<option value="${k}"${k === TW.key ? ' selected' : ''}>${esc(twLabel(k))} — ${cnt(k)}명</option>`).join('')}</select>
       <button type="button" class="btn" id="twRe" style="padding:6px 14px">↻ 새로고침</button>
       <label class="twlive"><input type="checkbox" id="twLive"${TW.live ? ' checked' : ''}> 15초마다 자동 새로고침</label>
-      ${nameBtn()}
     </div>
     <p class="tclsnote">항목을 고르면 「${tClsName()}」 학생 전체의 <b>고른 답 · 코넬 노트 · 손글씨 풀이 · 그래프</b>가 한 화면에 보여요. <b>학생 칸을 누르면 그 학생의 화면 전체</b>가 열려요. 수업 중 TV에 띄울 때는 「🙈 학번·이름 가리기」를 쓰세요.</p>
     <div id="twSum" class="twsum"></div><div id="twGrid" class="twgrid"></div>`;
+  twModeBind(V);
   $('#twKey').onchange = e => { TW.key = e.target.value; twLoad(); };
   $('#twRe').onclick = () => tWork(V);
   $('#twLive').onchange = e => { TW.live = e.target.checked; twTimer(); };
@@ -4331,7 +4656,7 @@ async function twLoad(quiet){
       ${d.graph ? `<canvas class="twgr" width="360" height="240" data-k="graph"></canvas><div class="twf">${(d.graph.f || []).filter(x => (x || '').trim()).map((x, j) => `<i style="color:${GT_COL[j % GT_COL.length]}">y = ${esc(x)}</i>`).join(' ')}</div>` : ''}
     </button>`; }).join('') || '<div class="state">아직 참여한 학생이 없어요.</div>';
   $$('.twtile', G).forEach(t => { const r = by[t.dataset.no], d = (r && r.data) || {};
-    const ic = $('.twink', t); if (ic){ const c = ic.getContext('2d'); if (d.ink.ax){ c.strokeStyle = '#b8bdd6'; c.beginPath(); c.moveTo(0, 108); c.lineTo(360, 108); c.moveTo(180, 0); c.lineTo(180, 216); c.stroke(); } inkPaint(c, d.ink, 360 / INK_W); }
+    const ic = $('.twink', t); if (ic) inkRender(ic, d.ink);
     const gc = $('.twgr', t); if (gc) gtDraw(gc, d.graph);
     t.onclick = () => twStudent(t.dataset.no); });
   tex(G);
@@ -4341,7 +4666,7 @@ async function twStudent(no){
   let m = $('#twModal');
   if (!m){ m = document.createElement('div'); m.id = 'twModal'; m.className = 'twmodal'; document.body.appendChild(m); m.addEventListener('click', e => { if (e.target === m) m.hidden = true; });
     addEventListener('keydown', e => { if (m.hidden) return; if (e.key === 'Escape') m.hidden = true; }); }
-  m.hidden = false; m.innerHTML = '<div class="twbox"><div class="state">학생 화면을 불러오는 중…</div></div>';
+  m.hidden = false; m.innerHTML = '<div class="twbox"><div class="state">학생 화면을 불러오는 중…</div></div>'; LVT.open = no;
   let rows = []; try { rows = await rpc('qf_teacher_work', { p_pass:TP, p_lesson:TL, p_key:null, p_no:no }) || []; } catch (e) { m.innerHTML = `<div class="twbox"><div class="state">불러오지 못했어요: ${esc(e.message)}</div></div>`; return; }
   const by = {}; rows.forEach(r => by[r.key] = r.data || {});
   const name = ((TD.students || []).find(s => s.student_no === no) || rows[0] || {}).name || '', i = TW.order.indexOf(no);
@@ -4351,7 +4676,7 @@ async function twStudent(no){
     const n = d.note, out = [];
     if (n && (n.cue || n.body || n.sum)) out.push(`<div class="cornell sm ro"><div class="ccue"><label>🔑 단서 · 핵심 질문</label><div class="rot">${esc(n.cue || '')}</div></div><div class="cbody"><label>✍️ 필기</label><div class="rot">${esc(n.body || '')}</div></div><div class="csum"><label>📌 요약</label><div class="rot">${esc(n.sum || '')}</div></div></div>`);
     if (d.ans) out.push(twAns(d.ans));
-    if (d.ink){ cvs.push(['ink', d.ink]); out.push(`<div class="twl">✍️ 손글씨 풀이</div><div class="pad grid${d.ink.ax ? ' axis' : ''} ink ro"><canvas width="${INK_W}" height="${INK_H}" data-cv="${cvs.length - 1}"></canvas></div>`); }
+    if (d.ink){ cvs.push(['ink', d.ink]); out.push(`<div class="twl">✍️ 손글씨 풀이</div><canvas class="twibig" width="${INK_W}" height="${INK_H}" data-cv="${cvs.length - 1}"></canvas>`); }
     if (d.graph){ cvs.push(['graph', d.graph]); out.push(`<div class="twl">📈 그래프 도구</div><div class="twf big">${(d.graph.f || []).filter(x => (x || '').trim()).map((x, j) => `<i style="color:${GT_COL[j % GT_COL.length]}">y = ${esc(x)}</i>`).join(' ')}</div><canvas class="twgbig" width="900" height="600" data-cv="${cvs.length - 1}"></canvas>`); }
     return out.join('');
   };
@@ -4365,11 +4690,1092 @@ async function twStudent(no){
   m.innerHTML = `<div class="twbox"><div class="twtop"><b>🖥️ ${whoTag(no, name, '학생 ' + (i + 1))} 의 화면</b><span class="chip">${esc((ALL_LESSONS.find(l => l[0] === TL) || ['', ''])[1])}</span>
       <span style="flex:1"></span><button type="button" class="btn" id="twPrev"${i > 0 ? '' : ' disabled'}>← 이전 학생</button><button type="button" class="btn" id="twNext"${i >= 0 && i < TW.order.length - 1 ? '' : ' disabled'}>다음 학생 →</button>
       ${nameBtn()}<button type="button" class="pb-ib" id="twX" title="닫기">✕</button></div>
-    <div class="twbody">${html || '<div class="state">이 학생은 아직 노트나 풀이를 남기지 않았어요.</div>'}</div></div>`;
-  $$('canvas[data-cv]', m).forEach(c => { const [k, d] = cvs[+c.dataset.cv]; if (k === 'ink') inkPaint(c.getContext('2d'), d, 1); else gtDraw(c, d); });
+    <div class="twbody"><h3>📡 지금 화면 <small>3초마다 바뀌어요</small></h3><section id="lvNow" class="lvnow"></section>
+      ${html ? '<h3 class="lvsep">📚 이 차시에 남긴 노트 · 풀이</h3>' + html : '<div class="state">이 학생은 아직 노트나 풀이를 남기지 않았어요.</div>'}${lvHistory(no)}</div></div>`;
+  lvModalNow(no);
+  $$('canvas[data-cv]', m).forEach(c => { const [k, d] = cvs[+c.dataset.cv]; if (k === 'ink') inkRender(c, d); else gtDraw(c, d); });
   $('#twX').onclick = () => m.hidden = true;
   $('#twPrev').onclick = () => twStudent(TW.order[i - 1]); $('#twNext').onclick = () => twStudent(TW.order[i + 1]);
   tex($('.twbody', m)); namesApply();
+}
+
+;
+/* ===================================================================
+   📡 실시간 학생 화면
+   · 학생 : 지금 보고 있는 탭 · 항목, 그 항목의 손글씨 · 그래프 · 노트 · 고르는 중인 답을
+           2.5초에 한 번까지 서버(qf_live)에 한 줄로 올림 (바뀐 것이 없으면 아주 짧게)
+   · 선생님 : 「🖥️ 학생 풀이 화면 › 📡 실시간」에서 3초마다 전체 학생의 지금 화면을 봄
+   =================================================================== */
+const LIV = { key:'', act:'view', last:0, timer:null, sig:'', sentKey:null, missing:false, act_t:0, hb:null, typing:{} };
+const LV_ACT = { view:'👀 보는 중', tab:'👀 보는 중', ink:'✍️ 손글씨 쓰는 중', graph:'📈 그래프 그리는 중', note:'📝 노트 쓰는 중', ans:'✅ 답 확인', typing:'⌨️ 답 고르는 중', away:'💤 화면을 떠남', back:'👀 돌아옴' };
+const lvOn = () => !!ME.no && !(typeof TM !== 'undefined' && TM.on) && !LIV.missing;
+
+function lvItemLabel(key){
+  if (!key) return '';
+  const ci = (LESSON.cards || []).findIndex(c => c.id === key);
+  if (ci >= 0){ const t = LESSON.cards[ci].title.replace(/<[^>]+>/g, ''); return `개념 ${ci + 1} · ` + (t.length <= 70 ? t : t.replace(/\\\(|\\\)/g, '').slice(0, 70)); }
+  const p = (LESSON.problems || []).find(p => p.id === key); if (p) return p.tag;
+  return key;
+}
+function lvNote(key, act){
+  if (!lvOn()) return;
+  if (act === 'view' && Date.now() - LIV.act_t < 5000) return;          // 쓰는 중에는 「보는 중」으로 덮지 않음
+  if (key != null) LIV.key = key;
+  LIV.act = act || 'view';
+  if (act && act !== 'view' && act !== 'tab') LIV.act_t = Date.now();
+  clearTimeout(LIV.timer);
+  LIV.timer = setTimeout(lvSend, Math.max(250, 2500 - (Date.now() - LIV.last)));
+}
+async function lvSend(){
+  if (!lvOn()) return;
+  LIV.last = Date.now();
+  const key = LIV.key || '';
+  let data = null;
+  if (key){
+    const r = (WK.data[key] && window.wkClean) ? wkClean(WK.data[key]) : {};
+    delete r._t;
+    if (LIV.typing[key]) r.typing = LIV.typing[key];
+    const sig = key + '|' + JSON.stringify(r);
+    if (sig !== LIV.sig || LIV.sentKey !== key){ data = r; LIV.sig = sig; }
+  } else if (LIV.sentKey !== '') data = {};
+  try {
+    await rpc('qf_live_put', { p_lesson:LESSON.code, p_no:ME.no, p_name:ME.name, p_tab:(typeof CUR === 'string' ? CUR : '').replace(/[^a-z]/g, '').slice(0, 12),
+      p_key:key, p_act:LIV.act, p_label:lvItemLabel(key).slice(0, 80), p_data:data });
+    LIV.sentKey = key;
+  } catch (e) {
+    LIV.sig = '';
+    if (/qf_live_put|function|schema cache|does not exist/i.test(e.message || '')) LIV.missing = true;     // 서버에 아직 기능이 없으면 조용히 멈춤
+  }
+}
+/* 지금 화면 가운데에 있는 개념·문제 */
+function lvVisibleKey(){
+  const pg = $('#pg-' + CUR); if (!pg) return '';
+  const mid = innerHeight / 2; let best = '', bd = 1e9;
+  $$('.prob[id^="p-"], .wkcard[data-key]', pg).forEach(el => {
+    const r = el.getBoundingClientRect(); if (!r.height || r.bottom < 0 || r.top > innerHeight) return;
+    const d = r.top <= mid && r.bottom >= mid ? 0 : Math.min(Math.abs(r.top - mid), Math.abs(r.bottom - mid));
+    if (d < bd){ bd = d; best = el.dataset.key || el.id.slice(2); }
+  });
+  return best;
+}
+function bootLive(){
+  let st = null;
+  addEventListener('scroll', () => { clearTimeout(st); st = setTimeout(() => {
+    if (!lvOn() || Date.now() - LIV.act_t < 5000) return;
+    const k = lvVisibleKey(); if (k !== LIV.key) lvNote(k, 'view'); }, 1200); }, { passive:true });
+  // 문제 칸에 답을 고르거나 쓰는 중
+  const typing = e => {
+    const p = e.target.closest && e.target.closest('.prob[id^="p-"]'); if (!p || !lvOn()) return;
+    const id = p.id.slice(2), v = [];
+    $$('input[type=text][data-i]', p).forEach(i => v[+i.dataset.i] = i.value.slice(0, 60));
+    $$('.opt.sel', p).forEach(o => { const i = +o.dataset.i; v[i] = (v[i] ? v[i] + ', ' : '') + o.textContent.trim().slice(0, 40); });
+    LIV.typing[id] = Array.from(v, x => x == null ? '' : x);
+    lvNote(id, 'typing');
+  };
+  document.addEventListener('input', typing, true);
+  document.addEventListener('click', e => setTimeout(() => typing(e), 0), true);
+  document.addEventListener('visibilitychange', () => { if (!lvOn()) return; LIV.act = document.hidden ? 'away' : 'back'; lvSend(); });
+  LIV.hb = setInterval(() => { if (lvOn() && !document.hidden && Date.now() - LIV.last > 25000) lvSend(); }, 5000);
+  setTimeout(() => { if (lvOn()) lvNote(lvVisibleKey(), 'tab'); }, 1500);
+}
+
+/* ===================== 🧑‍🏫 선생님 : 📡 실시간 화면 ===================== */
+const LVT = { rows:{}, since:null, timer:null, err:'', open:null, sortBy:'no' };
+const LV_TAB = () => Object.fromEntries((typeof TABS !== 'undefined' ? TABS : []).map(t => [t.id, t.label]));
+function lvAgeS(t){ return (Date.now() - new Date(t).getTime()) / 1000; }
+function lvState(r){
+  if (!r) return ['off', '접속 전'];
+  const s = lvAgeS(r.updated_at);
+  if (r.act === 'away') return ['away', '화면을 떠남 · ' + ago(r.updated_at)];
+  if (s < 35) return ['on', '지금 접속 중'];
+  if (s < 180) return ['idle', ago(r.updated_at)];
+  return ['off', ago(r.updated_at)];
+}
+async function tLive(V){
+  clearInterval(LVT.timer); LVT.rows = {}; LVT.since = null; LVT.err = '';
+  V.innerHTML = `${twModeBar('live')}
+    <p class="tclsnote">「${tClsName()}」 학생들이 <b>지금 보고 있는 탭 · 문제 · 개념</b>과 그 자리에서 <b>쓰고 있는 손글씨 · 그래프 · 노트 · 고르는 답</b>이 3초마다 바뀌어요.
+    <b>학생 칸을 누르면</b> 그 학생의 지금 화면을 크게 보고, 그동안 한 모든 활동(노트 · 풀이 · 질문 · 응답)을 함께 볼 수 있어요.</p>
+    <div id="lvSum" class="twsum"></div><div id="lvGrid" class="twgrid lvgrid"><div class="state">학생 화면을 불러오는 중…</div></div>`;
+  twModeBind(V);
+  $('#lvSort').onchange = e => { LVT.sortBy = e.target.value; lvPaint(); };
+  await lvPoll();
+  LVT.timer = setInterval(() => {
+    if (tView !== 'work' || TW.mode !== 'live' || CUR !== 'teacher' || !$('#lvGrid')){ clearInterval(LVT.timer); LVT.timer = null; return; }
+    lvPoll();
+  }, 3000);
+}
+async function lvPoll(){
+  let rows;
+  try { rows = await rpc('qf_teacher_live', { p_pass:TP, p_lesson:TL, p_since:LVT.since }) || []; LVT.err = ''; }
+  catch (e) {
+    LVT.err = /qf_teacher_live|function|schema cache|does not exist/i.test(e.message || '')
+      ? '서버에 「실시간 화면」 기능이 아직 없어요. 교사용 폴더의 <b>서버_업데이트_실시간화면.sql</b>을 Supabase SQL Editor에서 한 번 실행해 주세요. (그전에는 「📋 항목별 모아 보기」를 쓰세요)'
+      : '불러오지 못했어요: ' + esc(e.message);
+    lvPaint(); return;
+  }
+  rows.forEach(r => { LVT.rows[r.student_no] = r; if (!LVT.since || r.updated_at > LVT.since) LVT.since = r.updated_at; });
+  lvPaint();
+  const m = $('#twModal'); if (m && !m.hidden && LVT.open && rows.some(r => r.student_no === LVT.open)) lvModalNow(LVT.open);
+}
+function lvMini(r, big){
+  const d = r.data || {}, out = [];
+  const key = r.key, p = TL === LESSON.code && key ? (LESSON.problems || []).find(x => x.id === key) : null;
+  if (big && p) out.push(`<div class="twq">${p.q}</div>`);
+  if (d.typing && d.typing.some(x => x)) out.push(`<div class="lvtyping">⌨️ ${d.typing.map((v, i) => `<span>${p && p.fs[i] && p.fs[i].l ? esc(String(p.fs[i].l).replace(/<[^>]+>/g, '').slice(0, 14)) + ' ' : ''}<b>${esc(v) || '…'}</b></span>`).join('')}</div>`);
+  if (d.ans) out.push(twAns(d.ans));
+  const n = d.note; if (n && (n.cue || n.body || n.sum)) out.push(`<div class="twnote${big ? ' big' : ''}">${n.cue ? `<b>🔑</b> ${esc(big ? n.cue : n.cue.slice(0, 60))}<br>` : ''}${esc(big ? (n.body || '') : (n.body || '').slice(0, 160))}${n.sum ? `<br><b>📌</b> ${esc(n.sum)}` : ''}</div>`);
+  if (d.ink) out.push(`<canvas class="${big ? 'twibig' : 'twink'}" width="${big ? INK_W : 360}" height="${big ? INK_H : 216}" data-lk="ink"></canvas>`);
+  if (d.graph) out.push(`<canvas class="${big ? 'twgbig' : 'twgr'}" width="${big ? 900 : 360}" height="${big ? 600 : 240}" data-lk="graph"></canvas><div class="twf${big ? ' big' : ''}">${(d.graph.f || []).filter(x => (x || '').trim()).map((x, j) => `<i style="color:${GT_COL[j % GT_COL.length]}">y = ${esc(x)}</i>`).join(' ')}</div>`);
+  return out.join('');
+}
+function lvDraw(host, r){ const d = (r && r.data) || {};
+  $$('canvas[data-lk]', host).forEach(c => { if (c.dataset.lk === 'ink' && d.ink) inkRender(c, d.ink); else if (d.graph) gtDraw(c, d.graph); }); }
+function lvPaint(){
+  const G = $('#lvGrid'); if (!G) return;
+  if (LVT.err){ G.innerHTML = `<div class="state">${LVT.err}</div>`; $('#lvSum').innerHTML = ''; return; }
+  const studs = {}; (TD.students || []).forEach(s => studs[s.student_no] = s.name);
+  Object.values(LVT.rows).forEach(r => { if (inCls(r.student_no) && !(r.student_no in studs)) studs[r.student_no] = r.name; });
+  let nos = Object.keys(studs).sort();
+  if (LVT.sortBy === 'recent') nos.sort((a, b) => ((LVT.rows[b] || {}).updated_at || '').localeCompare((LVT.rows[a] || {}).updated_at || ''));
+  if (LVT.sortBy === 'item') nos.sort((a, b) => ((LVT.rows[a] || {}).key || '~').localeCompare((LVT.rows[b] || {}).key || '~') || a.localeCompare(b));
+  TW.order = nos;
+  const TBL = LV_TAB(), st = nos.map(no => lvState(LVT.rows[no])[0]);
+  const now = new Date();
+  $('#lvSum').innerHTML = `<span>🟢 지금 접속 ${st.filter(s => s === 'on').length}명</span><span>🟡 잠시 멈춤 ${st.filter(s => s === 'idle').length}명</span><span>💤 화면 떠남 ${st.filter(s => s === 'away').length}명</span><span>⚪ 접속 전·끊김 ${st.filter(s => s === 'off').length}명</span>
+    <span>🕒 ${now.getHours()}:${pad2(now.getMinutes())}:${pad2(now.getSeconds())} · 3초마다</span>`;
+  // 칸을 통째로 다시 만들지 않고 바뀐 칸만 고쳐서 깜빡이지 않게
+  const old = {}; $$('.twtile', G).forEach(t => old[t.dataset.no] = t);
+  if (!nos.length){ G.innerHTML = '<div class="state">아직 이 차시에 들어온 학생이 없어요.</div>'; return; }
+  if ($('.state', G)) G.innerHTML = '';
+  nos.forEach((no, i) => {
+    const r = LVT.rows[no], [s, stxt] = lvState(r);
+    const sig = r ? r.updated_at + s + (NAMES_HIDDEN ? 1 : 0) : 'none' + i;
+    let t = old[no];
+    if (!t){ t = document.createElement('button'); t.type = 'button'; t.className = 'twtile lvtile'; t.dataset.no = no; t.onclick = () => twStudent(no); }
+    G.appendChild(t);                                                  // 정렬 순서대로
+    if (t._sig === sig) { const sm = $('.twh small', t); if (sm) sm.textContent = stxt; return; }
+    t._sig = sig; t.classList.toggle('none', !r); t.dataset.st = s;
+    t.innerHTML = `<div class="twh"><i class="lvdot ${s}"></i>${whoTag(no, studs[no], '학생 ' + (i + 1))}<small>${stxt}</small></div>
+      ${r ? `<div class="lvwhere"><span class="lvtab">${esc((TBL[r.tab] || r.tab || '').replace(/^\S+\s/, ''))}</span>${r.label ? `<b>${esc(r.label)}</b>` : ''}</div>
+      <div class="lvact ${esc(r.act)}">${LV_ACT[r.act] || '👀 보는 중'}</div>
+      <div class="lvscr">${lvMini(r) || `<div class="lvempty">${r.key ? '아직 이 항목에 쓴 것이 없어요' : '목록 · 설명을 보는 중'}</div>`}</div>` : '<div class="lvempty">아직 이 차시에 들어오지 않았어요</div>'}`;
+    lvDraw(t, r);
+  });
+  Object.keys(old).forEach(no => { if (!nos.includes(no)) old[no].remove(); });
+  tex(G);
+}
+/* 학생 화면(모달) 맨 위 : 📡 지금 화면 */
+function lvModalNow(no){
+  const box = $('#lvNow'); if (!box) return;
+  const r = LVT.rows[no]; LVT.open = no;
+  if (!r){ box.innerHTML = '<div class="lvempty">실시간 기록이 아직 없어요. (학생이 이 차시 화면을 열면 나타나요)</div>'; return; }
+  const [s, stxt] = lvState(r), TBL = LV_TAB();
+  box.innerHTML = `<div class="lvnowh"><i class="lvdot ${s}"></i><b>${stxt}</b><span class="lvtab">${esc(TBL[r.tab] || r.tab || '')}</span>${r.label ? `<b>${esc(r.label)}</b>` : ''}<span class="lvact ${esc(r.act)}">${LV_ACT[r.act] || ''}</span></div>
+    <div class="lvbig">${lvMini(r, true) || '<div class="lvempty">이 항목에는 아직 쓴 것이 없어요.</div>'}</div>`;
+  lvDraw(box, r); tex(box);
+}
+/* 그동안의 활동 : 질문 · 답글 · 응답 · 소그룹 · 문제 시도 */
+function lvHistory(no){
+  if (!TD) return '';
+  const KN = { concept:'개념 질문', problem:'문제 질문', life:'실생활 질문', book:'책 질문', free:'자유 질문', reply:'답글', start:'첫 질문' };
+  const items = [];
+  (TD.posts || []).filter(p => p.student_no === no).forEach(p => items.push([p.created_at, '💬', (KN[p.kind] || p.kind) + (p.ref ? ' · ' + tRef(p.ref) : ''), esc(p.body) + (p.teacher_reply ? `<div class="treply"><b>답변</b> ${esc(p.teacher_reply)}</div>` : '')]));
+  (TD.responses || []).filter(r => r.student_no === no).forEach(r => items.push([r.updated_at, '🗒️', RESPNAME(r.item) + ' · ' + r.item, esc(Object.entries(r.body || {}).map(([k, v]) => `${k}: ${typeof v === 'string' ? v : JSON.stringify(v)}`).join(' | ').slice(0, 400))]));
+  (TD.gposts || []).filter(g => g.student_no === no).forEach(g => items.push([g.created_at, '👥', '소그룹 · ' + g.kind, esc(g.data && g.data.how ? [g.data.q, g.data.how, g.data.ans].join(' / ') : g.body)]));
+  (TD.attempts || []).filter(a => a.student_no === no).forEach(a => items.push([a.at, a.solved ? '✅' : '❌', '문제 · ' + tRef(a.problem_id), `${a.solved ? '해결' : '미해결'} · ${a.tries}번 시도${a.hints ? ' · 힌트 ' + a.hints + '개' : ''}`]));
+  items.sort((a, b) => String(b[0] || '').localeCompare(String(a[0] || '')));
+  if (!items.length) return '';
+  return `<h3>🗂️ 그동안의 활동 <small>${items.length}개 · 최근 순</small></h3><ol class="lvhist">${items.map(x => `<li><span class="lvhi">${x[1]}</span><div><b>${esc(x[2])}</b><small>${x[0] ? ago(x[0]) : ''}</small><div>${x[3]}</div></div></li>`).join('')}</ol>`;
+}
+
+/* 「🖥️ 학생 풀이 화면」 위쪽 : 📡 실시간 ↔ 📋 항목별 */
+function twModeBar(mode){
+  return `<div class="twbar"><b>🖥️ 학생 풀이 화면</b>
+    <div class="twmode"><button type="button" data-m="live" class="${mode === 'live' ? 'on' : ''}">📡 실시간 화면</button><button type="button" data-m="item" class="${mode === 'item' ? 'on' : ''}">📋 항목별 모아 보기</button></div>
+    ${mode === 'live' ? `<select class="inp" id="lvSort" style="max-width:190px"><option value="no"${LVT.sortBy === 'no' ? ' selected' : ''}>학번 순</option><option value="recent"${LVT.sortBy === 'recent' ? ' selected' : ''}>최근 움직인 순</option><option value="item"${LVT.sortBy === 'item' ? ' selected' : ''}>보는 항목 순</option></select>` : ''}
+    ${nameBtn()}</div>`;
+}
+function twModeBind(V){ $$('.twmode button', V).forEach(b => b.onclick = () => { TW.mode = b.dataset.m; clearInterval(LVT.timer); LVT.timer = null; tWork(V); }); }
+
+;
+/* ===================================================================
+   ⚔️ 팀별 대결 문제 은행 — 교과서 중단원 · 대단원 · 익힘책 문제의 「유형」을 그대로 따라
+   숫자만 바꿔 만든다. 왼쪽 · 오른쪽 팀은 같은 유형(같은 난이도)에서 숫자만 다른 문제를 받는다.
+   하 = 기초, 중 = 기본, 상 = 도전.  답은 정수 · 분수(a/b) · 보기 번호
+   =================================================================== */
+const BB = (() => {
+  const R = (a, b) => a + Math.floor(Math.random() * (b - a + 1));
+  const P = a => a[Math.floor(Math.random() * a.length)];
+  const NZ = (a, b) => { let v = 0; while (!v) v = R(a, b); return v; };
+  const gcd = (a, b) => { a = Math.abs(a); b = Math.abs(b); while (b){ [a, b] = [b, a % b]; } return a || 1; };
+  const Q = (n, d) => { d = d || 1; if (d < 0){ n = -n; d = -d; } const g = gcd(n, d); return { n:n / g, d:d / g }; };
+  const FR = (n, d) => { const q = Q(n, d); return q.d === 1 ? String(q.n) : `${q.n < 0 ? '-' : ''}\\frac{${Math.abs(q.n)}}{${q.d}}`; };
+  // 다항식 : 계수 배열(높은 차수부터)
+  function poly(cs, v){
+    v = v || 'x'; const deg = cs.length - 1; let s = '';
+    cs.forEach((c, i) => {
+      if (!c) return; const e = deg - i, a = Math.abs(c);
+      const body = e === 0 ? String(a) : (a === 1 ? '' : a) + v + (e > 1 ? '^' + e : '');
+      s += (s ? (c < 0 ? '-' : '+') : (c < 0 ? '-' : '')) + body;
+    });
+    return s || '0';
+  }
+  const lin = (a, b, v) => poly([a, b], v);
+  const xm = p => p === 0 ? 'x' : `x${p > 0 ? '-' : '+'}${Math.abs(p)}`;            // x - p
+  const num = n => n < 0 ? `(${n})` : String(n);
+  const T = s => `\\(${s}\\)`;
+  const ok = (q, n, d, sol) => ({ q, a:Q(n, d), sol });
+  const ch = (q, opts, ai, sol) => ({ q, opts, a:ai, sol });                         // 보기 고르기
+  const shuffle = (opts, ai) => { const o = opts.map((t, i) => [t, i]).sort(() => Math.random() - .5); return [o.map(x => x[0]), o.findIndex(x => x[1] === ai)]; };
+  const ndiv = n => { let c = 0; for (let i = 1; i <= n; i++) if (n % i === 0) c++; return c; };
+
+  const G = {
+  /* ------------------------------ 1차시 함수의 뜻과 그래프 ------------------------------ */
+  f1:{
+    h:[
+      { src:'중단원 01 · 113쪽 유형 (치역)', g(){ const X = [...new Set(Array.from({ length:4 }, () => R(-3, 3)))].sort((a, b) => a - b); if (X.length < 3) return null; const c = R(-4, 4);
+        const Y = [...new Set(X.map(x => x * x + c))]; return ok(`집합 ${T(`X=\\{${X.join(',')}\\}`)}에서 정의된 함수 ${T(`f(x)=${poly([1, 0, c])}`)}의 <b>치역의 모든 원소의 합</b>은?`, Y.reduce((a, b) => a + b, 0), 1, `치역 = {${Y.sort((a, b) => a - b).join(', ')}}`); } },
+      { src:'익힘책 01 · 140쪽 유형 (함숫값)', g(){ const p = R(-4, 4), q = R(-5, 5), a = R(-5, 5), b = R(-5, 5);
+        return ok(`함수 ${T(`f(x)=|${xm(p)}|${q ? (q > 0 ? '+' : '') + q : ''}`)}에 대하여 ${T(`f(${a})+f(${b})`)}의 값은?`, Math.abs(a - p) + Math.abs(b - p) + 2 * q, 1, `${Math.abs(a - p) + q} + ${Math.abs(b - p) + q}`); } },
+      { src:'중단원 02 · 113쪽 유형 (일대일대응)', g(){ const a = NZ(-4, 4), b = R(-6, 6), c = R(-6, 6), d = R(1, 6);
+        const [o, ai] = shuffle([T(`y=${lin(a, b)}`), T(`y=${c}`), T(`y=x^2${d ? '+' + d : ''}`), T(`y=|x|-${d}`)], 0);
+        return ch('실수 전체의 집합에서 정의된 함수 중 <b>일대일대응</b>인 것은?', o, ai, '일차함수 (기울기 ≠ 0) 만 일대일대응'); } }
+    ],
+    m:[
+      { src:'대단원 01 · 130쪽 유형 (서로 같은 함수)', g(){ const m = R(-2, 2), p = R(-4, 4), q = R(-4, 4), f = x => x * x + p * x + q, a = f(m + 1) - f(m), b = f(m) - a * m;
+        return ok(`정의역이 ${T(`\\{${m},${m + 1}\\}`)}인 두 함수 ${T(`f(x)=${poly([1, p, q])}`)}, ${T('g(x)=ax+b')}에 대하여 ${T('f=g')}일 때, ${T('a+b')}의 값은?`, a + b, 1, `a=${a}, b=${b}`); } },
+      { src:'익힘책 03 · 140쪽 유형', g(){ const m = P([1, 3, 5]), n = P([2, 4, 6, 8]), a = R(-6, 9), v = m * m + a;
+        return ok(`자연수 전체의 집합에서 정의된 함수 ${T('f')}가 ${T('x')}가 홀수이면 ${T('f(x)=x^2+a')}, 짝수이면 ${T('f(x)=2x+a')}이다. ${T(`f(${m})=${v}`)}일 때 ${T(`f(${n})`)}의 값은?`, 2 * n + a, 1, `a=${a}`); } },
+      { src:'대단원 12 · 131쪽 유형 (약수의 개수)', g(){ const xs = [R(2, 12), R(13, 24), R(25, 36)];
+        return ok(`자연수 ${T('x')}에 대하여 ${T('f(x)')}를 ${T('x')}의 약수의 개수라 할 때, ${T(`f(${xs[0]})+f(${xs[1]})+f(${xs[2]})`)}의 값은?`, xs.reduce((s, x) => s + ndiv(x), 0), 1, xs.map(x => `f(${x})=${ndiv(x)}`).join(', ')); } }
+    ],
+    s:[
+      { src:'익힘책 04 · 140쪽 유형 (항등함수)', g(){ let r1 = R(-4, 5), r2 = R(-4, 5); if (r1 === r2 || !r1 || !r2) return null;
+        return ok(`공집합이 아닌 집합 ${T('X')}에 대하여 ${T('f:X\\to X')}, ${T(`f(x)=${poly([1, -(r1 + r2 - 1), r1 * r2])}`)}가 <b>항등함수</b>가 되도록 할 때, 가능한 ${T('X')} 중 원소가 가장 많은 ${T('X')}의 모든 원소의 곱은?`, r1 * r2, 1, `f(x)=x 의 해 : ${r1}, ${r2}`); } },
+      { src:'대단원 13 · 131쪽 유형 (일대일대응)', g(){ const k = R(1, 6), p = R(-4, 4), q = R(-5, 5);
+        return ok(`함수 ${T(`f(x)=${k === 1 ? '' : k}|${xm(p)}|+ax${q ? (q > 0 ? '+' : '') + q : ''}`)}가 실수 전체에서 <b>일대일대응</b>이 되도록 하는 <b>자연수</b> ${T('a')}의 최솟값은?`, k + 1, 1, `두 기울기 a+${k}, a-${k}의 부호가 같아야 → |a|>${k}`); } },
+      { src:'중단원 05 · 114쪽 유형 (일대일대응)', g(){ const m = NZ(-5, 5), n = R(-6, 6), q = R(-5, 5), sg = m > 0;
+        return ok(`함수 ${T(`f(x)=\\begin{cases}${lin(m, q)} & (x\\ge0)\\\\ (a${n ? (n > 0 ? '+' : '') + n : ''})x${q ? (q > 0 ? '+' : '') + q : ''} & (x\\lt 0)\\end{cases}`)}가 일대일대응일 때, 정수 ${T('a')}의 ${sg ? '최솟값' : '최댓값'}은?`, sg ? -n + 1 : -n - 1, 1, `x<0 쪽 기울기 a${n >= 0 ? '+' : ''}${n}의 부호가 ${m}과 같아야`); } }
+    ]
+  },
+  /* ------------------------------ 2차시 합성함수 ------------------------------ */
+  f2:{
+    h:[
+      { src:'중단원 03 · 113쪽 유형', g(){ const a = NZ(-4, 4), b = R(-6, 6), c = R(-5, 5), k = R(-3, 3);
+        return ok(`${T(`f(x)=${lin(a, b)}`)}, ${T(`g(x)=${poly([1, 0, c])}`)}일 때 ${T(`(f\\circ g)(${k})`)}의 값은?`, a * (k * k + c) + b, 1, `g(${k})=${k * k + c}`); } },
+      { src:'중단원 03 · 113쪽 유형 (합성함수의 식)', g(){ const a = NZ(-4, 4), b = R(-6, 6), c = NZ(-4, 4), d = R(-6, 6);
+        return ok(`${T(`f(x)=${lin(a, b)}`)}, ${T(`g(x)=${lin(c, d)}`)}에 대하여 ${T('(f\\circ g)(x)=px+q')}일 때 ${T('p+q')}의 값은?`, a * c + a * d + b, 1, `(f∘g)(x)=${lin(a * c, a * d + b)}`); } },
+      { src:'익힘책 05 · 140쪽 유형', g(){ const m = R(0, 5), n = R(-3, 4), k = R(-4, 6), f = x => x >= 0 ? -x + m : x + n;
+        return ok(`${T(`f(x)=\\begin{cases}${lin(-1, m)} & (x\\ge0)\\\\ ${lin(1, n)} & (x\\lt 0)\\end{cases}`)}에 대하여 ${T(`(f\\circ f)(${k})`)}의 값은?`, f(f(k)), 1, `f(${k})=${f(k)}`); } }
+    ],
+    m:[
+      { src:'중단원 06 · 114쪽 유형', g(){ const p = NZ(-3, 3), q = R(-5, 5), a = NZ(-4, 4), b = R(-5, 5), k = R(-3, 3);
+        return ok(`${T(`g(x)=${lin(p, q)}`)}, ${T(`h(x)=${lin(p * a, p * b + q)}`)}일 때, ${T('g\\circ f=h')}를 만족시키는 일차함수 ${T('f')}에 대하여 ${T(`f(${k})`)}의 값은?`, a * k + b, 1, `f(x)=${lin(a, b)}`); } },
+      { src:'대단원 03 · 130쪽 유형', g(){ let a = R(-4, 5), c = P([-6, -4, -2, 2, 4, 6]); if (a === 1 || a === 0) return null; const b = c * (1 - a) / 2;
+        return ok(`${T(`f(x)=ax${b > 0 ? '+' : ''}${b}`)}, ${T(`g(x)=${lin(-1, c)}`)}가 ${T('f\\circ g=g\\circ f')}를 만족시킬 때 실수 ${T('a')}의 값은?`, a, 1, `ac+b = c−b → ${c}a${b >= 0 ? '+' : ''}${b} = ${c - b}`); } },
+      { src:'익힘책 05 · 140쪽 유형 (세 번 합성)', g(){ const m = R(1, 4), n = R(1, 4), k = R(1, 7), f = x => x >= 0 ? -x + m : x + n;
+        return ok(`${T(`f(x)=\\begin{cases}${lin(-1, m)} & (x\\ge0)\\\\ ${lin(1, n)} & (x\\lt 0)\\end{cases}`)}에 대하여 ${T(`(f\\circ f\\circ f)(${k})`)}의 값은?`, f(f(f(k))), 1, `${k} → ${f(k)} → ${f(f(k))} → ${f(f(f(k)))}`); } }
+    ],
+    s:[
+      { src:'익힘책 07 · 140쪽 유형', g(){ const m = P([5, 7]), k = R(2, m - 1), n = R(2, 4), f = x => (x * x) % m || m; let v = k; const seq = [k];
+        for (let i = 0; i < n + 1; i++){ v = f(v); seq.push(v); }
+        return ok(`${T(`X=\\{1,2,\\cdots,${m}\\}`)}, ${T(`f:X\\to X`)}, ${T('f(x)')}는 ${T('x^2')}을 ${m}으로 나눈 나머지 (나머지가 0이면 ${m}). ${T(`f^{${n}}(${k})+f^{${n + 1}}(${k})`)}의 값은? (${T('f^1=f,\\ f^{n+1}=f\\circ f^n')})`, seq[n] + seq[n + 1], 1, seq.join(' → ')); } },
+      { src:'익힘책 06 · 140쪽 유형', g(){ const a = NZ(-5, 5), p = NZ(-4, 4), q = R(-6, 6);
+        return ok(`${T('f(x)=x+a')}, ${T(`(h\\circ g)(x)=${lin(p, q)}`)}, ${T(`(h\\circ(g\\circ f))(x)=bx${p * a + q ? (p * a + q > 0 ? '+' : '') + (p * a + q) : ''}`)}일 때 ${T('a+b')}의 값은?`, a + p, 1, `h∘g∘f = ${p}(x+a)${q >= 0 ? '+' : ''}${q} → a=${a}, b=${p}`); } },
+      { src:'대단원 · 합성함수의 식 유형', g(){ const a = P([2, 3, -2, -3]), b = NZ(-4, 4), k = R(-3, 4);
+        return ok(`일차함수 ${T('f(x)=ax+b')}가 ${T(`(f\\circ f)(x)=${lin(a * a, (a + 1) * b)}`)}를 만족시키고 ${T(`a${a > 0 ? '>' : '<'}0`)}일 때, ${T(`f(${k})`)}의 값은?`, a * k + b, 1, `a²=${a * a}, (a+1)b=${(a + 1) * b} → f(x)=${lin(a, b)}`); } }
+    ]
+  },
+  /* ------------------------------ 3차시 역함수 ------------------------------ */
+  f3:{
+    h:[
+      { src:'중단원 08 · 114쪽 유형', g(){ const a = NZ(-5, 5), b = R(-8, 8), t = R(-5, 5);
+        return ok(`${T(`f(x)=${lin(a, b)}`)}일 때 ${T(`f^{-1}(${a * t + b})`)}의 값은?`, t, 1, `f(${t})=${a * t + b}`); } },
+      { src:'중단원 04 · 113쪽 유형', g(){ const a = P([2, 3, 4, 5, -2, -3]), b = R(-6, 6);
+        return ok(`${T(`y=${lin(a, b)}`)}의 역함수를 ${T('y=cx+d')}라 할 때, ${T('c+d')}의 값은? (분수는 1/3 처럼)`, 1 - b, a, `x=${lin(a, b, 'y')} → y=${FR(1, a)}x${-b / a >= 0 ? '+' : ''}${FR(-b, a)}`); } },
+      { src:'대단원 04 · 130쪽 유형', g(){ const a = NZ(-4, 4), b = R(-6, 6), r = R(-4, 4);
+        return ok(`일차함수 ${T('f')}에 대하여 ${T(`f(1)=${a + b}`)}, ${T(`f(2)=${2 * a + b}`)}일 때 ${T(`f^{-1}(${a * r + b})`)}의 값은?`, r, 1, `f(x)=${lin(a, b)}`); } }
+    ],
+    m:[
+      { src:'중단원 09 · 114쪽 유형', g(){ const p = NZ(-4, 4), q = R(-6, 6), r = NZ(-4, 4), k = R(-3, 4), a = R(-4, 4), s = p * k + q - r * a;
+        return ok(`${T(`f(x)=${lin(p, q)}`)}, ${T(`g(x)=${lin(r, s)}`)}에 대하여 ${T(`(f^{-1}\\circ g)(a)=${k}`)}를 만족시키는 ${T('a')}의 값은?`, a, 1, `g(a)=f(${k})=${p * k + q}`); } },
+      { src:'중단원 08 · 114쪽 유형', g(){ const a = NZ(-4, 4), b = R(-6, 6), m = R(-3, 3), w = R(-3, 4); if (m === w) return null;
+        return ok(`${T('f(x)=ax+b')}가 ${T(`f(${m})=${a * m + b}`)}, ${T(`f^{-1}(${a * w + b})=${w}`)}를 만족시킬 때 ${T('a+b')}의 값은?`, a + b, 1, `a=${a}, b=${b}`); } },
+      { src:'대단원 14 · 131쪽 유형', g(){ const a = NZ(-3, 3), c = R(-5, 5), d = R(-4, 4), u = R(-3, 3), t = a * u + c; if (d === 1) return null;
+        return ok(`${T(`f(x)=ax${c ? (c > 0 ? '+' : '') + c : ''}`)}, ${T(`g(x)=${lin(-1, d)}`)}가 ${T(`(f\\circ g)(1)=${a * (d - 1) + c}`)}을 만족시킬 때 ${T(`(g\\circ f^{-1})(${t})`)}의 값은?`, -u + d, 1, `a=${a}, f^{-1}(${t})=${u}`); } }
+    ],
+    s:[
+      { src:'중단원 12 · 114쪽 유형', g(){ const b = NZ(-6, 6), k = R(-4, 5);
+        return ok(`${T(`f(x)=ax${b > 0 ? '+' : ''}${b}`)}에 대하여 ${T('f=f^{-1}')}이 성립할 때 ${T(`f(${k})`)}의 값은? (단, ${T('a')}는 실수)`, -k + b, 1, `f=f⁻¹ 이고 b≠0 → a=−1`); } },
+      { src:'익힘책 08 · 141쪽 유형', g(){ const p = NZ(-3, 3), q = R(-4, 4), r = NZ(-3, 3), s = R(-4, 4), k = R(-2, 3), f = x => p * x + q, g = x => r * x + s;
+        return ok(`${T(`f(x)=${lin(p, q)}`)}, ${T(`g(x)=${lin(r, s)}`)}에 대하여 함수 ${T('h')}가 ${T('(g\\circ f)^{-1}\\circ h=f')}를 만족시킬 때 ${T(`h(${k})`)}의 값은?`, g(f(f(k))), 1, `h = g∘f∘f`); } },
+      { src:'중단원 11 · 114쪽 유형', g(){ const a = P([1, 2, 3]), m = R(-3, 0), n = m + R(1, 3), u = R(-4, 2), b = u - a * m, w = a * n + b;
+        return ok(`${T(`X=\\{x\\mid ${m}\\le x\\le ${n}\\}`)}, ${T(`Y=\\{y\\mid ${u}\\le y\\le ${w}\\}`)}에 대하여 ${T('f:X\\to Y')}, ${T('f(x)=ax+b')}가 일대일대응이고 ${T('a>0')}일 때 ${T('ab')}의 값은?`, a * b, 1, `f(${m})=${u}, f(${n})=${w}`); } }
+    ]
+  },
+  /* ------------------------------ 유리식과 유리함수 ------------------------------ */
+  r1:{
+    h:[
+      { src:'문제 02 · 118쪽 유형 (정의역)', g(){ const c = P([2, 3, 4, 5]), d = NZ(-7, 7), p = NZ(-3, 3), q = R(-5, 5); if (d % c === 0) return null;
+        return ok(`유리함수 ${T(`y=\\dfrac{${lin(p, q)}}{${lin(c, -d)}}`)}의 정의역은 ${T('\\{x\\mid x\\ne a\\}')}이다. ${T('a')}의 값은? (분수는 1/3 처럼)`, d, c, `분모 ${lin(c, -d)}=0`); } },
+      { src:'탐구 · 119쪽 유형', g(){ const p = NZ(-4, 4), q = NZ(-4, 4), k = p * q, ds = []; for (let r = -12; r <= 12; r++) if (r && k % r === 0 && r !== p) ds.push(r); const r = P(ds);
+        return ok(`유리함수 ${T('y=\\dfrac{k}{x}')}의 그래프가 점 ${T(`(${p},${q})`)}을 지날 때, ${T(`x=${r}`)}일 때의 ${T('y')}의 값은?`, k / r, 1, `k=${k}`); } },
+      { src:'중단원 01 · 127쪽 유형', g(){ const k = P([2, 3, 4, 5, -2, -3, -4]);
+        return ok(`${T(`x=${k}`)}일 때 ${T('\\dfrac{1}{x}-\\dfrac{2}{x(x+1)}')}의 값은? (분수는 1/3 처럼)`, k - 1, k * (k + 1), `= (x−1)/(x(x+1))`); } }
+    ],
+    m:[
+      { src:'대단원 07 · 130쪽 유형', g(){ const p = R(-3, 3), r = R(-4, 4); if (p === r) return null; const k = P([1, 2, 3, 4, -6]); if (k + p === 0 || k + r === 0) return null;
+        return ok(`${T(`x=${k}`)}일 때 ${T(`\\dfrac{2}{${xm(-p)}}+\\dfrac{1}{${xm(-r)}}-\\dfrac{${lin(2, p + r)}}{${poly([1, p + r, p * r])}}`)}의 값은? (분수는 1/3 처럼)`, 1, k + p, `식을 정리하면 1/(${xm(-p)})`); } },
+      { src:'중단원 01 · 127쪽 유형 (곱셈)', g(){ const m = P([2, 3, 4]), a = P([1, 2, 3]), b = P([2, 3, 4, -2]), k = P([5, 6, 7, -2]); if (k === b || k === a || k === 0 || b === a) return null;
+        return ok(`${T(`x=${k}`)}일 때 ${T(`\\dfrac{${lin(m, m)}}{${poly([1, -a, 0])}}\\times\\dfrac{${xm(a)}}{${poly([1, 1 - b, -b])}}`)}의 값은? (분수는 1/3 처럼)`, m, k * (k - b), `정리하면 ${m}/(x(${xm(b)}))`); } },
+      { src:'부분분수 · 유리식 유형', g(){ const p = R(-3, 3), q = R(-3, 3); if (p === q) return null; const A = NZ(-4, 4), B = NZ(-4, 4), c = A + B, d = -(A * q + B * p);
+        return ok(`${T(`\\dfrac{${lin(c, d)}}{(${xm(p)})(${xm(q)})}=\\dfrac{A}{${xm(p)}}+\\dfrac{B}{${xm(q)}}`)}이 ${T('x')}에 대한 항등식일 때 ${T('AB')}의 값은?`, A * B, 1, `A=${A}, B=${B}`); } }
+    ],
+    s:[
+      { src:'유리식의 값 · 부분분수의 합', g(){ const n = R(5, 30);
+        return P([0, 1]) ? ok(`${T(`\\dfrac{1}{1\\cdot2}+\\dfrac{1}{2\\cdot3}+\\cdots+\\dfrac{1}{${n}\\cdot${n + 1}}`)}의 값은? (분수는 1/3 처럼)`, n, n + 1, `1 − 1/${n + 1}`)
+          : ok(`${T(`\\dfrac{1}{1\\cdot3}+\\dfrac{1}{3\\cdot5}+\\cdots+\\dfrac{1}{${2 * n - 1}\\cdot${2 * n + 1}}`)}의 값은? (분수는 1/3 처럼)`, n, 2 * n + 1, `½(1 − 1/${2 * n + 1})`); } },
+      { src:'유리식의 값 (비례식)', g(){ const p = R(1, 6), q = R(1, 7); if (p === q) return null;
+        return ok(`${T(`x:y=${p}:${q}`)} (${T('xy\\ne0')})일 때 ${T('\\dfrac{x^2+y^2}{xy}')}의 값은? (분수는 1/3 처럼)`, p * p + q * q, p * q, `x=${p}k, y=${q}k`); } },
+      { src:'번분수 유형', g(){ const k = P([2, 3, 4, 5, 6, -2, -3, 7]);
+        return ok(`${T(`x=${k}`)}일 때 ${T('\\cfrac{1}{1-\\cfrac{1}{1-\\cfrac{1}{x}}}')}의 값은?`, 1 - k, 1, '정리하면 1 − x'); } }
+    ]
+  },
+  /* ------------------------------ 유리함수의 그래프 활용 ------------------------------ */
+  r2:{
+    h:[
+      { src:'중단원 02 · 127쪽 유형 (점근선)', g(){ const a = NZ(-4, 4), c = NZ(-5, 5), b = R(-6, 6); if (b === a * c) return null;
+        return ok(`유리함수 ${T(`y=\\dfrac{${lin(a, b)}}{${xm(-c)}}`)}의 그래프의 점근선이 ${T('x=p,\\ y=q')}일 때 ${T('p+q')}의 값은?`, -c + a, 1, `x=${-c}, y=${a}`); } },
+      { src:'중단원 02 · 127쪽 유형 (지나는 점)', g(){ const p = R(-3, 3), q = R(-3, 3), m = p + NZ(-3, 3), n = q + NZ(-4, 4);
+        return ok(`유리함수 ${T(`y=\\dfrac{k}{${xm(p)}}${q ? (q > 0 ? '+' : '') + q : ''}`)}의 그래프가 점 ${T(`(${m},${n})`)}을 지날 때 ${T('k')}의 값은?`, (n - q) * (m - p), 1, `${n}−(${q}) = k/(${m}−(${p}))`); } },
+      { src:'익힘책 09 · 141쪽 유형 (병렬 저항)', g(){ const [Rr, k] = P([[4, 12], [6, 3], [3, 6], [12, 4], [10, 15], [20, 5], [6, 12], [12, 6], [8, 8], [5, 20], [15, 10], [9, 18]]);
+        return ok(`두 저항 ${T(`${Rr}\\,\\Omega`)}, ${T('x\\,\\Omega')}를 병렬로 연결한 합성 저항은 ${T(`f(x)=\\dfrac{${Rr}x}{x+${Rr}}`)}이다. ${T(`f(${k})`)}의 값은?`, Rr * k, k + Rr, `${Rr * k}/${k + Rr}`); } }
+    ],
+    m:[
+      { src:'중단원 05 · 128쪽 유형 (평행이동)', g(){ const k = NZ(-4, 4), p = R(-2, 2), q = R(-3, 3), a = NZ(-4, 4), b = NZ(-4, 4);
+        return ok(`${T(`y=\\dfrac{${lin(q, k - p * q)}}{${xm(p)}}`)}의 그래프를 ${T('x')}축 방향으로 ${T('a')}만큼, ${T('y')}축 방향으로 ${T('b')}만큼 평행이동하면 ${T(`y=\\dfrac{${lin(q + b, k - (p + a) * (q + b))}}{${xm(p + a)}}`)}의 그래프와 일치한다. ${T('a+b')}의 값은?`, a + b, 1, `a=${a}, b=${b}`); } },
+      { src:'중단원 06 · 128쪽 유형', g(){ const s = NZ(-4, 4), t = NZ(-4, 4), m = s + NZ(-3, 3), n = t + NZ(-3, 3), a = -s, b = t, c = n * (m + a) - b * m; if (m === 0 && n === 0) return null;
+        return ok(`${T('y=\\dfrac{bx+c}{x+a}')}의 그래프가 점 ${T(`(${m},${n})`)}을 지나고 점근선이 ${T(`x=${s},\\ y=${t}`)}일 때 ${T('a+b+c')}의 값은?`, a + b + c, 1, `a=${a}, b=${b}, c=${c}`); } },
+      { src:'중단원 07 · 128쪽 유형 (격자점)', g(){ const N = P([9, 15, 18, 21, 25, 27, 30, 36, 42, 45, 54, 63, 75, 90, 105]); let c = 0; for (let d = 1; d <= N; d += 2) if (N % d === 0) c++;
+        return ok(`${T(`y=\\dfrac{${N}}{2x-1}`)}의 그래프 위의 점 중에서 ${T('x')}좌표, ${T('y')}좌표가 모두 자연수인 점의 개수는?`, c, 1, `2x−1 은 ${N}의 홀수 약수`); } }
+    ],
+    s:[
+      { src:'대단원 08 · 131쪽 유형 (점대칭)', g(){ const p = NZ(-3, 3), q = NZ(-3, 3), m = p + NZ(-3, 3), v = R(-6, 6), b = v * (m - p) - q * m; if (q * (-p) === b) return null;
+        return ok(`${T('f(x)=\\dfrac{ax+b}{x+c}')}의 그래프가 점 ${T(`(${p},${q})`)}에 대하여 대칭이고 ${T(`f(${m})=${v}`)}일 때 ${T('a+b+c')}의 값은?`, q + b - p, 1, `c=${-p}, a=${q}, b=${b}`); } },
+      { src:'중단원 11 · 128쪽 유형 (최솟값)', g(){ const k = R(1, 5), p = R(0, 4), q = R(0, 4);
+        return ok(`${T(`y=\\dfrac{${k * k}}{${xm(p)}}${q ? '+' + q : ''}\\ (x>${p})`)}의 그래프 위의 점 P에서 ${T('x')}축, ${T('y')}축에 내린 수선의 발을 Q, R라 할 때 ${T('\\overline{PQ}+\\overline{PR}')}의 최솟값은?`, 2 * k + p + q, 1, `(x−${p}) + ${k * k}/(x−${p}) ≥ ${2 * k}`); } },
+      { src:'익힘책 11 · 141쪽 유형 (넓이)', g(){ const m = R(1, 4), n = R(-6, -1), k = m + R(1, 5), A = (k - m) * (k - n);
+        if (n * k === -6) return null; const sol = []; for (let t = 1; t <= 60; t++) if (t !== m && Math.abs(t - m) * Math.abs(t - n) === A) sol.push(t); if (sol.length !== 1) return null;
+        return ok(`두 유리함수 ${T(`y=\\dfrac{kx+1}{${xm(m)}}`)}, ${T(`y=\\dfrac{${lin(n, 6)}}{x-k}`)}의 그래프의 점근선으로 둘러싸인 부분의 넓이가 ${A}일 때, 양수 ${T('k')}의 값은? (단, ${T(`k\\ne${m}`)})`, k, 1, `가로 |k−${m}|, 세로 |k−(${n})|`); } }
+    ]
+  },
+  /* ------------------------------ 무리함수 ------------------------------ */
+  r3:{
+    h:[
+      { src:'중단원 03 · 127쪽 유형', g(){ const a = R(1, 9), b = R(1, 9);
+        return ok(`${T(`(\\sqrt{x+${a}}-\\sqrt{x-${b}})(\\sqrt{x+${a}}+\\sqrt{x-${b}})`)}를 간단히 하면?`, a + b, 1, `(x+${a})−(x−${b})`); } },
+      { src:'중단원 04 · 127쪽 유형 (정의역 · 치역)', g(){ const p = NZ(-5, 5), q = NZ(-5, 5);
+        return ok(`무리함수 ${T(`y=-\\sqrt{${xm(p)}}${q > 0 ? '+' : ''}${q}`)}의 정의역이 ${T('\\{x\\mid x\\ge a\\}')}, 치역이 ${T('\\{y\\mid y\\le b\\}')}일 때 ${T('a+b')}의 값은?`, p + q, 1, `a=${p}, b=${q}`); } },
+      { src:'문제 · 함숫값 유형', g(){ const a = P([1, 2, 3, 4, 5]), u = R(1, 6), k = R(-2, 6), b = u * u - a * k, c = R(-5, 5);
+        return ok(`${T(`f(x)=\\sqrt{${lin(a, b)}}${c ? (c > 0 ? '+' : '') + c : ''}`)}일 때 ${T(`f(${k})`)}의 값은?`, u + c, 1, `√${u * u} ${c >= 0 ? '+' : ''}${c}`); } }
+    ],
+    m:[
+      { src:'대단원 09 · 131쪽 유형 (최대 · 최소)', g(){ const p = P([1, 2, 3, 5]), u = R(1, 3), v = u + R(1, 3), D = v * v - u * u; if (D % p) return null; const L = D / p, m = R(-6, -1), n = m + L, c = R(-3, 2), a = u * u - p * m;
+        return ok(`정의역이 ${T(`\\{x\\mid ${m}\\le x\\le ${n}\\}`)}인 ${T(`y=\\sqrt{${p === 1 ? '' : p}x+a}${c ? (c > 0 ? '+' : '') + c : ''}`)}의 최솟값이 ${u + c}일 때, 최댓값은?`, v + c, 1, `a=${a}, x=${n}에서 √${v * v}`); } },
+      { src:'중단원 08 · 128쪽 유형', g(){ const p = P([1, 2, 3, 4, 6, 8, 9]), q = R(-3, 3), d = P([1, 2, 3, 4, 6]); if ((d * d) % p) return null; const a = -(d * d) / p, b = d * d, r = q + d;
+        return ok(`무리함수 ${T('y=\\sqrt{ax+b}+c')}의 그래프가 점 ${T(`(${p},${q})`)}에서 시작하여 점 ${T(`(0,${r})`)}를 지날 때 ${T('a+b+c')}의 값은?`, a + b + q, 1, `a=${a}, b=${b}, c=${q}`); } },
+      { src:'대단원 10 · 131쪽 유형 (이동)', g(){ const a = P([2, 3, 4, 5]), b = R(-5, 5), m = NZ(-3, 3), n = NZ(-4, 4);
+        return ok(`${T(`y=-\\sqrt{${lin(a, b)}}`)}의 그래프를 ${T('x')}축 방향으로 ${m}만큼, ${T('y')}축 방향으로 ${n}만큼 평행이동한 후 ${T('x')}축에 대하여 대칭이동하면 ${T('y=\\sqrt{ax+b}+c')}의 그래프와 일치한다. ${T('a+b+c')}의 값은?`, a + (b - a * m) - n, 1, `y=√(${lin(a, b - a * m)}) ${-n >= 0 ? '+' : ''}${-n}`); } }
+    ],
+    s:[
+      { src:'중단원 10 · 128쪽 유형 (역함수)', g(){ const a = NZ(-4, 4), q = R(1, 4), u = R(1, 4); if (q === u) return null; const D = q * q - u * u; if (D % a) return null; const pw = D / a, w = R(-3, 3), p = w + pw, b = u * u - a * w;
+        return ok(`${T('f(x)=\\sqrt{ax+b}')}와 그 역함수 ${T('g(x)')}에 대하여 ${T(`f(${p})=${q}`)}, ${T(`g(${u})=${w}`)}일 때 ${T('a+b')}의 값은?`, a + b, 1, `${p}a+b=${q * q}, ${w}a+b=${u * u}`); } },
+      { src:'익힘책 13 · 141쪽 유형 (정사각형)', g(){ const k = P([2, 3, 4, 5]);
+        return ok(`${T(`y=${k}\\sqrt x`)} 위의 점 A에서 ${T('x')}축에 평행한 직선을 그어 ${T('y=\\sqrt x')}와 만나는 점을 D, A·D에서 ${T('x')}축에 내린 수선의 발을 B, C라 하자. ABCD가 정사각형일 때 점 A의 ${T('y')}좌표는? (분수는 4/3 처럼)`, k * k, k * k - 1, `A(t, ${k}√t), D(${k * k}t, ${k}√t), ${k * k - 1}t=${k}√t`); } },
+      { src:'대단원 16 · 132쪽 유형', g(){ const p = P([1, 2, 3]), m = R(1, 6), s = m + R(1, 4), t = R(-3, 4), a = p * t - (s - m) * (s - m);
+        return ok(`${T(`f(x)=\\sqrt{${p === 1 ? '' : p}x-a}+b`)}의 최솟값이 ${m}이고 ${T(`f^{-1}(${s})=${t}`)}일 때 ${T('a+b')}의 값은?`, a + m, 1, `b=${m}, √(${p}·${t}−a)=${s - m}`); } }
+    ]
+  }
+  };
+  /* 한 라운드 : 같은 유형에서 서로 다른 두 문제 (답도 다르게) */
+  function pair(code, lv, used){
+    const L = G[code] || G.f1, list = L[lv];
+    for (let tries = 0; tries < 400; tries++){
+      const tpl = list[Math.floor(Math.random() * list.length)];
+      const A = tpl.g(), B = tpl.g();
+      if (!A || !B || A.q === B.q) continue;
+      const same = A.opts ? A.a === B.a && A.opts.join() === B.opts.join() : A.a.n * B.a.d === B.a.n * A.a.d;
+      if (same && tries < 300) continue;
+      if (used && (used.has(A.q) || used.has(B.q)) && tries < 300) continue;
+      if (used){ used.add(A.q); used.add(B.q); }
+      return [Object.assign(A, { src:tpl.src, lv }), Object.assign(B, { src:tpl.src, lv })];
+    }
+    return null;
+  }
+  const ansTeX = o => o.opts ? o.opts[o.a] : T(FR(o.a.n, o.a.d));
+  function check(o, input){
+    if (o.opts) return +input === o.a;
+    const s = String(input || '').replace(/\s+/g, '').replace(/[−–]/g, '-');
+    let m = /^(-?\d+(?:\.\d+)?)(?:\/(-?\d+(?:\.\d+)?))?$/.exec(s); if (!m) return false;
+    const v = parseFloat(m[1]) / (m[2] ? parseFloat(m[2]) : 1);
+    return isFinite(v) && Math.abs(v - o.a.n / o.a.d) < 1e-9;
+  }
+  return { G, pair, check, ansTeX };
+})();
+
+;
+/* ===================================================================
+   ⚔️ 수학 문제 팀별 대결 — 줄다리기 릴레이 (5모둠 토너먼트, 한 모둠 부전승)
+   · 큰 터치 화면을 왼쪽(파랑) · 오른쪽(빨강)으로 나누고, 두 팀 주자가 동시에 문제를 풂
+   · 한 경기 = 하 3 · 중 2 · 상 1 = 6문제. 두 팀은 같은 유형 · 같은 난이도에서 숫자만 다른 문제
+   · 맞히면 줄이 우리 쪽으로! (하 1 · 중 2 · 상 3 칸 + 먼저 맞히면 1칸 더)
+   · 문제마다 주자가 바뀌는 릴레이 (1번 → 2번 → …)
+   · 대진 · 점수는 이 기기에만 저장 (서버에 올리지 않음)
+   =================================================================== */
+const BT_LV = ['h', 'h', 'h', 'm', 'm', 's'], BT_LVN = { h:'하', m:'중', s:'상' }, BT_PT = { h:1, m:2, s:3 };
+const BT_M = [
+  { id:'q1', r:'1라운드', a:['s', 0], b:['s', 1] },
+  { id:'q2', r:'1라운드', a:['s', 2], b:['s', 3] },
+  { id:'sf', r:'준결승',  a:['w', 'q1'], b:['s', 4] },
+  { id:'f',  r:'결승',    a:['w', 'sf'], b:['w', 'q2'] }
+];
+const BT = { st:null, run:null, tick:null, used:new Set() };
+const btKey = () => 'qf_battle_' + LESSON.code;
+function btNew(){ return { teams:[1, 2, 3, 4, 5].map(i => ({ name:i + '모둠', run:'' })), size:4, time:{ h:60, m:90, s:120 }, order:[0, 1, 2, 3, 4], res:{}, cur:null, fs:true }; }
+function btLoad(){ try { BT.st = JSON.parse(localStorage.getItem(btKey()) || 'null'); } catch (e) {} if (!BT.st || !BT.st.teams) BT.st = btNew(); }
+function btSave(){ try { localStorage.setItem(btKey(), JSON.stringify(BT.st)); } catch (e) {} }
+const btTeam = ref => ref[0] === 's' ? BT.st.order[ref[1]] : (BT.st.res[ref[1]] ? BT.st.res[ref[1]].w : null);
+const btName = t => t == null ? '?' : esc(BT.st.teams[t].name || (t + 1) + '모둠');
+const btNext = () => BT_M.find(m => !BT.st.res[m.id] && btTeam(m.a) != null && btTeam(m.b) != null);
+function btRunner(t, k){
+  const n = Math.max(1, +BT.st.size || 4), i = k % n, names = String(BT.st.teams[t].run || '').split(/[,\s·]+/).filter(Boolean);
+  return `${i + 1}번 주자${names[i] ? ' · ' + esc(names[i]) : ''}`;
+}
+
+/* ---------------- 탭 화면 ---------------- */
+function pageBattle(){
+  return `<div class="card btcard">
+    <h2><span class="chip">팀별 대결</span>⚔️ 수학 줄다리기 — 5모둠 토너먼트</h2>
+    <p class="lead">TV(전자칠판)를 <b>왼쪽 파랑 팀 · 오른쪽 빨강 팀</b>으로 나누고, 두 팀 주자가 동시에 문제를 풀어요. 맞히면 줄이 우리 쪽으로 끌려와요!
+      한 경기는 <b>하 3문제 → 중 2문제 → 상 1문제</b>. 두 팀은 이 차시 <b>중단원 · 대단원 · 익힘책</b> 문제와 <b>같은 유형 · 같은 난이도</b>에서 숫자만 다른 문제를 받아요.
+      문제마다 주자가 바뀌는 <b>릴레이</b>예요 (1번 → 2번 → 3번 …).</p>
+    <div class="btrules"><span>✅ 정답 : 하 <b>1칸</b> · 중 <b>2칸</b> · 상 <b>3칸</b></span><span>⚡ 먼저 맞히면 <b>+1칸</b></span><span>❌ 틀리면 2초 쉬고 다시</span><span>⏱️ 한쪽이 맞히면 남은 팀은 최대 20초</span><span>🤝 동점이면 상 문제 연장전</span></div>
+    <div id="btSetup"></div>
+  </div>
+  <div id="btArena" class="btarena" hidden></div>`;
+}
+function btSetup(){
+  const H = $('#btSetup'); if (!H) return;
+  const S = BT.st, nx = btNext(), champ = S.res.f ? S.res.f.w : null;
+  const slot = i => { const t = S.order[i]; return `<div class="btslot c${t}"><b>${btName(t)}</b></div>`; };
+  const mt = m => { const r = S.res[m.id], a = btTeam(m.a), b = btTeam(m.b);
+    const tm = (t, sc) => `<div class="btmt${r ? (r.w === t ? ' win' : ' lose') : ''}${t == null ? ' tbd' : ''}"><span>${t == null ? (m.id === 'sf' ? '1경기 승자' : m.id === 'f' ? '승자' : '?') : btName(t)}</span>${r ? `<em>${sc}</em>` : ''}</div>`;
+    return `<div class="btmatch${nx && nx.id === m.id ? ' now' : ''}"><small>${m.r}${m.id === 'q1' ? ' · 1경기' : m.id === 'q2' ? ' · 2경기' : ''}</small>${tm(a, r ? r.sa : '')}${tm(b, r ? r.sb : '')}</div>`; };
+  H.innerHTML = `
+    <div class="btset">
+      <div class="btteams">${S.teams.map((t, i) => `<label class="btteam c${i}"><i>${i + 1}</i><input class="inp bttn" data-i="${i}" value="${esc(t.name)}" maxlength="12" aria-label="${i + 1}모둠 이름">
+        <input class="inp btrn" data-i="${i}" value="${esc(t.run || '')}" maxlength="80" placeholder="주자 이름 (쉼표로, 선택)" aria-label="${i + 1}모둠 주자"></label>`).join('')}</div>
+      <div class="btopts">
+        <label>모둠 인원(릴레이 주자 수) <select class="inp" id="btSize">${[2, 3, 4, 5, 6, 7, 8].map(n => `<option${+S.size === n ? ' selected' : ''}>${n}</option>`).join('')}</select></label>
+        <label>제한 시간(초) 하 <input class="inp bttime" data-l="h" type="number" min="20" max="300" value="${S.time.h}"> 중 <input class="inp bttime" data-l="m" type="number" min="20" max="300" value="${S.time.m}"> 상 <input class="inp bttime" data-l="s" type="number" min="20" max="400" value="${S.time.s}"></label>
+        <label class="btchk"><input type="checkbox" id="btFsOpt"${S.fs ? ' checked' : ''}> 경기를 시작하면 전체 화면</label>
+      </div>
+    </div>
+    <div class="btbracket">
+      <div class="btcol"><h4>1라운드</h4>${mt(BT_M[0])}${mt(BT_M[1])}<div class="btbye"><small>부전승</small>${slot(4)}</div></div>
+      <div class="btcol"><h4>준결승</h4>${mt(BT_M[2])}</div>
+      <div class="btcol"><h4>결승</h4>${mt(BT_M[3])}</div>
+      <div class="btcol btchamp"><h4>🏆 우승</h4><div class="btcup${champ != null ? ' on' : ''}">${champ != null ? btName(champ) : '?'}</div></div>
+    </div>
+    <div class="btbtns">
+      ${nx ? `<button type="button" class="btn primary btgo" id="btGo">▶ ${nx.r} 시작 : ${btName(btTeam(nx.a))} vs ${btName(btTeam(nx.b))}</button>` : champ != null ? `<div class="btdone">🏆 ${btName(champ)} 우승! 수고했어요.</div>` : ''}
+      <button type="button" class="btn" id="btDraw">🎲 대진 추첨 (부전승 모둠도 추첨)</button>
+      <button type="button" class="btn" id="btReset">↺ 토너먼트 처음부터</button>
+      ${S.cur ? `<button type="button" class="btn" id="btResume">⏯ 하던 경기 이어서 (${S.cur.k + 1}번째 문제부터)</button>` : ''}
+    </div>`;
+  $$('.bttn', H).forEach(i => i.oninput = () => { S.teams[+i.dataset.i].name = i.value.trim() || (+i.dataset.i + 1) + '모둠'; btSave(); });
+  $$('.bttn', H).forEach(i => i.onchange = () => btSetup());
+  $$('.btrn', H).forEach(i => i.oninput = () => { S.teams[+i.dataset.i].run = i.value; btSave(); });
+  $('#btSize', H).onchange = e => { S.size = +e.target.value; btSave(); };
+  $$('.bttime', H).forEach(i => i.onchange = () => { S.time[i.dataset.l] = Math.max(20, Math.min(400, +i.value || 60)); btSave(); });
+  $('#btFsOpt', H).onchange = e => { S.fs = e.target.checked; btSave(); };
+  $('#btDraw', H).onclick = () => {
+    if (Object.keys(S.res).length && !confirm('이미 치른 경기 결과가 지워져요. 대진을 다시 추첨할까요?')) return;
+    S.order = [0, 1, 2, 3, 4].sort(() => Math.random() - .5); S.res = {}; S.cur = null; btSave(); btSetup(); SND.levelUp && SND.levelUp();
+    snack(`🎲 추첨 완료! 부전승 : ${btName(S.order[4])}`); };
+  $('#btReset', H).onclick = () => { if (!confirm('토너먼트 결과를 모두 지우고 처음부터 할까요?')) return; S.res = {}; S.cur = null; btSave(); btSetup(); };
+  if ($('#btGo', H)) $('#btGo', H).onclick = () => { S.cur = null; btStart(nx); };
+  if ($('#btResume', H)) $('#btResume', H).onclick = () => btStart(BT_M.find(m => m.id === S.cur.mid), true);
+}
+
+/* ---------------- 경기 ---------------- */
+function btStart(m, resume){
+  const S = BT.st;
+  if (!resume || !S.cur) S.cur = { mid:m.id, t:[btTeam(m.a), btTeam(m.b)], k:0, sc:[0, 0], ot:0 };
+  btSave();
+  const A = $('#btArena'); A.hidden = false; $('#btSetup').closest('.card').hidden = true;
+  const T = S.cur.t;
+  A.innerHTML = `<div class="bttop">
+      <button type="button" class="bttb" id="btOut" title="토너먼트 표로">☰ 대진표</button>
+      <div class="btttl"><b>${m.r}</b><span class="btdots"></span></div>
+      <div class="bttimer"><i></i><b>--</b></div>
+      <button type="button" class="bttb" id="btFs" title="전체 화면">⛶</button></div>
+    <div class="btfield">
+      ${[0, 1].map(s => `<section class="btside s${s}" data-s="${s}">
+        <div class="btsh"><b class="btteamname">${btName(T[s])}</b><span class="btrunner"></span></div>
+        <div class="btprob"><div class="btsrc"></div><div class="btq"></div></div>
+        <div class="btans"><span class="btdisp" aria-live="polite"></span><span class="btfb"></span></div>
+        <div class="btpad"></div>
+      </section>`).join('')}
+      <div class="btmid">
+        <div class="btscore"><b class="s0">0</b><span>:</span><b class="s1">0</b></div>
+        <div class="btlvl"></div>
+        ${btRopeSVG()}
+        <div class="btmsg"></div>
+        <button type="button" class="btn primary btnextb" hidden>다음 문제 ▶</button>
+      </div>
+    </div>`;
+  $('#btOut').onclick = () => { btStop(); btExit(); };
+  A._fsAfter = on => A.classList.toggle('fs', on);
+  $('#btFs').onclick = () => wkFS(A, A._fsAfter);
+  $('.btnextb', A).onclick = () => btAdvance();
+  if (S.fs && !A.classList.contains('fs')) wkFS(A, A._fsAfter);
+  A.scrollIntoView({ block:'start' });
+  btRound();
+}
+function btExit(){
+  const A = $('#btArena'); if (A.classList.contains('fs')) wkFS(A, A._fsAfter);
+  A.hidden = true; A.innerHTML = ''; $('#btSetup').closest('.card').hidden = false; btSetup();
+}
+function btStop(){ clearInterval(BT.tick); BT.tick = null; }
+function btRopeSVG(){
+  const man = (x, c, dir, i) => `<g transform="translate(${x} 0) scale(${dir} 1)"><g class="btman" style="animation-delay:${i * 0.07}s">
+      <ellipse cx="0" cy="186" rx="15" ry="4" fill="rgba(0,0,0,.12)"/>
+      <path d="M-4 150 L-16 184 M4 150 L10 184" stroke="#262640" stroke-width="7" stroke-linecap="round"/>
+      <rect x="-12" y="104" width="24" height="50" rx="9" fill="${c}"/>
+      <path d="M-6 112 L-6 112 M-2 108 l3 6 l3 -6 l3 6" stroke="rgba(255,255,255,.55)" stroke-width="2" fill="none"/>
+      <circle cx="2" cy="90" r="13" fill="#f2c7a5"/><path d="M-11 86 q12 -18 26 -2 q-6 -4 -12 -3 q-8 1 -14 5z" fill="#2b2140"/>
+      <path d="M6 120 L30 130" stroke="${c}" stroke-width="8" stroke-linecap="round"/><circle cx="31" cy="130" r="4.5" fill="#f2c7a5"/></g></g>`;
+  return `<svg class="btrope" viewBox="0 0 600 200" role="img" aria-label="줄다리기">
+    <line x1="300" y1="10" x2="300" y2="196" class="btmidline"/>
+    <line x1="210" y1="60" x2="210" y2="196" class="btwinline s0"/><line x1="390" y1="60" x2="390" y2="196" class="btwinline s1"/>
+    <g class="btgrp"><path d="M70 131 Q300 ${136} 530 131" stroke="#8a6a3b" stroke-width="5" fill="none"/>
+      <path d="M296 128 l8 0 l-4 22z" fill="#e2465b"/>
+      <g class="btteam0">${man(238, '#2f6fdf', 1, 0)}${man(188, '#2f6fdf', 1, 1)}${man(138, '#2f6fdf', 1, 2)}</g>
+      <g class="btteam1">${man(362, '#e2465b', -1, 0)}${man(412, '#e2465b', -1, 1)}${man(462, '#e2465b', -1, 2)}</g></g></svg>`;
+}
+function btRope(pull){
+  const C = BT.st.cur, A = $('#btArena'); if (!A) return;
+  const d = C.sc[0] - C.sc[1], off = Math.max(-1, Math.min(1, d / 8)) * 95;
+  const g = $('.btgrp', A); if (g) g.style.transform = `translateX(${-off}px)`;
+  $('.btscore .s0', A).textContent = C.sc[0]; $('.btscore .s1', A).textContent = C.sc[1];
+  if (pull != null){ const tm = $('.btteam' + pull, A); if (tm){ tm.classList.remove('pull'); void tm.getBoundingClientRect(); tm.classList.add('pull'); setTimeout(() => tm.classList.remove('pull'), 900); } }
+}
+const btLvOf = C => C.k < 6 ? BT_LV[C.k] : 's';
+function btRound(){
+  const C = BT.st.cur, A = $('#btArena'), lv = btLvOf(C);
+  const pr = BB.pair(LESSON.code, lv, BT.used); if (!pr){ snack('문제를 만들지 못했어요. 다시 시도해 주세요'); return; }
+  BT.run = { lv, P:pr, done:[0, 0], lock:[0, 0], inp:['', ''], left:BT.st.time[lv] || 60, total:BT.st.time[lv] || 60, end:false, first:null, t0:Date.now() };
+  $('.btdots', A).innerHTML = BT_LV.map((l, i) => `<i class="${l}${i < C.k ? ' done' : i === C.k ? ' now' : ''}">${BT_LVN[l]}</i>`).join('') + (C.k >= 6 ? `<i class="s now ot">연장</i>` : '');
+  $('.btlvl', A).innerHTML = `<span class="btlv ${lv}">${C.k >= 6 ? '🔥 연장전 · ' : ''}${BT_LVN[lv]} 문제</span><small>${C.k < 6 ? `${C.k + 1} / 6` : '먼저 맞히는 팀이 승리'}</small>`;
+  $('.btmsg', A).innerHTML = ''; $('.btnextb', A).hidden = true;
+  [0, 1].forEach(s => {
+    const side = $(`.btside.s${s}`, A), p = pr[s];
+    side.classList.remove('ok', 'bad', 'wait', 'shake', 'reveal'); $$('.btsol', side).forEach(e => e.remove());
+    $('.btrunner', side).innerHTML = '🏃 ' + btRunner(C.t[s], C.k);
+    $('.btsrc', side).innerHTML = `<span class="btlv ${lv}">${BT_LVN[lv]}</span> ${esc(p.src)}`;
+    $('.btq', side).innerHTML = p.q;
+    $('.btdisp', side).textContent = ''; $('.btfb', side).textContent = '';
+    const pad = $('.btpad', side);
+    if (p.opts){ pad.className = 'btpad opts'; pad.innerHTML = p.opts.map((o, i) => `<button type="button" data-o="${i}"><b>${'①②③④⑤'[i]}</b> ${o}</button>`).join(''); }
+    else { pad.className = 'btpad keys'; pad.innerHTML = ['7', '8', '9', '⌫', '4', '5', '6', '−', '1', '2', '3', '/', '0', '.', 'C', '✓'].map(k => `<button type="button" data-k="${k}" class="${k === '✓' ? 'go' : /[⌫C]/.test(k) ? 'fn' : /[−/.]/.test(k) ? 'op' : ''}">${k === '✓' ? '✓ 확인' : k}</button>`).join(''); }
+    $$('button', pad).forEach(b => b.onpointerdown = e => { e.preventDefault(); btKey2(s, b.dataset.k, b.dataset.o); });
+    tex(side);
+  });
+  btRope();
+  SND.boot && SND.boot(); SND.note && (SND.note(784, 0, 0.12, { type:'square', vol:0.12 }), SND.note(1046, 0.14, 0.22, { type:'square', vol:0.14 }));
+  btStop(); btTimer(); BT.tick = setInterval(btTimer, 200);
+}
+function btTimer(){
+  const R = BT.run, A = $('#btArena'); if (!R || !A || A.hidden){ btStop(); return; }
+  if (R.end) return;
+  const now = Date.now(), dt = (now - (R.last || now)) / 1000; R.last = now; R.left = Math.max(0, R.left - dt);
+  const bar = $('.bttimer i', A), sec = Math.ceil(R.left);
+  bar.style.width = (R.left / R.total * 100) + '%'; bar.className = R.left < 6 ? 'hot' : '';
+  const b = $('.bttimer b', A); if (b.textContent !== String(sec)){ b.textContent = sec; if (sec <= 5 && sec > 0) SND.note && SND.note(1320, 0, 0.06, { type:'sine', vol:0.1 }); }
+  [0, 1].forEach(s => { if (R.lock[s] && now >= R.lock[s]){ R.lock[s] = 0; const sd = $(`.btside.s${s}`, A); sd.classList.remove('wait'); $('.btfb', sd).textContent = ''; } });
+  if (R.left <= 0) btReveal('⏰ 시간 끝!');
+}
+function btKey2(s, k, o){
+  const R = BT.run, A = $('#btArena'); if (!R || R.end || R.done[s] || R.lock[s]) return;
+  const side = $(`.btside.s${s}`, A), p = R.P[s];
+  if (o != null){ $$('.btpad button', side).forEach(b => b.classList.toggle('sel', b.dataset.o === o)); return btSubmit(s, o); }
+  SND.tap && SND.tap();
+  if (k === '✓') return btSubmit(s, R.inp[s]);
+  if (k === '⌫') R.inp[s] = R.inp[s].slice(0, -1);
+  else if (k === 'C') R.inp[s] = '';
+  else if (k === '−'){ R.inp[s] = R.inp[s].startsWith('-') ? R.inp[s].slice(1) : '-' + R.inp[s]; }
+  else if (R.inp[s].length < 12) R.inp[s] += k;
+  $('.btdisp', side).textContent = R.inp[s].replace(/-/g, '−');
+}
+function btSubmit(s, v){
+  const R = BT.run, C = BT.st.cur, A = $('#btArena'), side = $(`.btside.s${s}`, A), p = R.P[s];
+  if (v === '' || v == null){ $('.btfb', side).textContent = '답을 먼저 눌러요'; return; }
+  if (BB.check(p, v)){
+    R.done[s] = 1; const first = R.first == null; if (first) R.first = s;
+    const pt = BT_PT[R.lv] + (first ? 1 : 0); C.sc[s] += pt;
+    side.classList.add('ok'); $('.btfb', side).innerHTML = `✅ 정답! <b>+${pt}칸</b>${first ? ' ⚡먼저' : ''}`;
+    SND.correct && SND.correct(first ? 3 : 1); btRope(s); btSave();
+    if (C.k >= 6){ return btReveal(`🔥 ${btName(C.t[s])} 연장전 승리!`, true); }
+    if (R.done[0] && R.done[1]) return btReveal('🎉 두 팀 모두 정답!');
+    if (first && R.left > 20){ R.left = 20; R.total = Math.max(R.total, 20); $('.btmsg', A).innerHTML = `<b class="c${s}">${btName(C.t[s])}</b> 정답! 상대 팀은 <b>20초</b> 안에!`; }
+  } else {
+    side.classList.remove('shake'); void side.offsetWidth; side.classList.add('shake', 'bad', 'wait');
+    setTimeout(() => side.classList.remove('bad'), 600);
+    R.lock[s] = Date.now() + 2000; R.inp[s] = ''; $('.btdisp', side).textContent = '';
+    $('.btfb', side).textContent = '❌ 다시! (2초 쉬기)'; SND.wrong && SND.wrong();
+    if (p.opts) $$('.btpad button', side).forEach(b => b.classList.remove('sel'));
+  }
+}
+function btReveal(msg, ot){
+  const R = BT.run, C = BT.st.cur, A = $('#btArena'); if (R.end) return; R.end = true; btStop();
+  [0, 1].forEach(s => { const side = $(`.btside.s${s}`, A), p = R.P[s]; side.classList.add('reveal');
+    if (!R.done[s]) $('.btfb', side).innerHTML = '⌛ 시간 안에 못 풀었어요';
+    $('.btans', side).insertAdjacentHTML('beforeend', `<div class="btsol">정답 <b>${BB.ansTeX(p)}</b>${p.sol ? `<small>${esc(p.sol)}</small>` : ''}</div>`); tex(side); });
+  const last = C.k >= 5 && !(C.k >= 6 && !ot);
+  let endTxt = '';
+  if (last){
+    if (C.sc[0] === C.sc[1] && !ot) endTxt = ' — 동점! 상 문제로 연장전';
+  }
+  $('.btmsg', A).innerHTML = `<b>${msg}</b>${endTxt}`;
+  const nb = $('.btnextb', A); nb.hidden = false;
+  nb.textContent = ot || (last && C.sc[0] !== C.sc[1]) ? '🏁 경기 결과 보기' : '다음 문제 ▶';
+  nb.focus();
+}
+function btAdvance(){
+  const C = BT.st.cur, R = BT.run;
+  const otWin = C.k >= 6 && R.first != null;
+  if (otWin || (C.k >= 5 && C.sc[0] !== C.sc[1])) return btFinish(otWin ? R.first : (C.sc[0] > C.sc[1] ? 0 : 1));
+  C.k++; btSave(); btRound();
+}
+function btFinish(ws){
+  const S = BT.st, C = S.cur, A = $('#btArena'), m = BT_M.find(x => x.id === C.mid);
+  S.res[C.mid] = { w:C.t[ws], l:C.t[1 - ws], sa:C.sc[0], sb:C.sc[1] }; S.cur = null; btSave();
+  const champ = C.mid === 'f';
+  const ov = document.createElement('div'); ov.className = 'btover';
+  ov.innerHTML = `<div class="btwin c${ws}"><small>${m.r} 결과</small><h3>${champ ? '🏆 우승!' : '🎉 승리!'}</h3><b>${btName(C.t[ws])}</b>
+    <p>${btName(C.t[0])} <em>${C.sc[0]}</em> : <em>${C.sc[1]}</em> ${btName(C.t[1])}</p>
+    <button type="button" class="btn primary">${champ ? '🏆 대진표에서 보기' : '다음 경기 준비 ▶'}</button></div>`;
+  A.appendChild(ov);
+  $('button', ov).onclick = () => btExit();
+  try { SND.levelUp && SND.levelUp(); if (typeof launchFW === 'function') launchFW(champ ? 4 : 2, true); } catch (e) {}
+}
+function bootBattle(){
+  if (!$('#btSetup')) return;
+  btLoad(); btSetup();
+  addEventListener('keydown', e => {
+    const A = $('#btArena'); if (!A || A.hidden || !BT.run) return;
+    if (BT.run.end && (e.key === 'Enter' || e.key === ' ')){ const nb = $('.btnextb', A); if (nb && !nb.hidden){ e.preventDefault(); nb.click(); } }
+  });
+}
+
+;
+/* ===================================================================
+   🎧 함수 DJ — 함수의 그래프를 소리로 (유리함수 · 무리함수 차시)
+   · 높이 = 음높이 (y 값을 펜타토닉 음계로 바꿈), 가파름(기울기) = 밝기 · 굵기
+   · 점근선 · 끊긴 곳 = ⚡zap, x절편(부호 바뀜) = 킥, 정의되지 않는 곳 = 쉼
+   · 6개의 패드(키보드 A S D F G H 또는 1~6)를 눌러 트랙을 켜고 끄며 믹스
+   · 식을 바꾸면 그 함수의 모양대로 리듬과 멜로디가 다시 만들어짐 (소리는 모두 Web Audio 로 직접 합성)
+   =================================================================== */
+const DJ_PENTA = [0, 3, 5, 7, 10];                         // A 단조 펜타토닉
+const DJ_STEPS = 32, DJ_WIN = [-8, 8], DJ_YW = [-6, 6];
+const DJ_KEYS = ['A', 'S', 'D', 'F', 'G', 'H'];
+const DJ_VOICES = {
+  lead:{ n:'리드', icon:'🎹', c:'#22223b', d:'톱니파 리드 — 높이를 따라 미끄러지는 멜로디' },
+  bass:{ n:'베이스', icon:'🔊', c:'#2f6fdf', d:'8분음표 베이스 — 낮은 음으로 그래프를 따라감' },
+  zap:{ n:'잽', icon:'⚡', c:'#e2465b', d:'레이저 잽 — 점근선 · 끊긴 곳 · 가파른 곳에서 「쀼웅」' },
+  arp:{ n:'아르페지오', icon:'✨', c:'#9b59d0', d:'16분음표 반짝이 — 높이에서 화음을 쪼개 연주' },
+  pad:{ n:'패드', icon:'🌊', c:'#1fa37a', d:'화음 패드 — 한 마디마다 넓게 깔리는 소리' },
+  drum:{ n:'드럼', icon:'🥁', c:'#e08a00', d:'킥 · 클랩 · 하이햇 — 부호 · 가파름이 리듬이 됨' }
+};
+const DJ_PRESET = [
+  { v:'lead', f:'3/(x-1)+1' },
+  { v:'bass', f:'sqrt(x+8)-2' },
+  { v:'zap',  f:'1/(x+2)-1' },
+  { v:'arp',  f:'(2x+1)/(x-3)' },
+  { v:'pad',  f:'-sqrt(4-x)+3' },
+  { v:'drum', f:'4/x' }
+];
+const DJ_SETS = {
+  base:{ n:'🎛️ 기본 세트 (유리 + 무리)', f:DJ_PRESET.map(p => p.f) },
+  asym:{ n:'⚡ 점근선 파티 (유리함수만)', f:['2/(x+3)-1', '-3/(x-2)+2', '1/x', '(x+1)/(x-1)', '4/(x+5)+1', '-1/(x-4)-2'] },
+  root:{ n:'🌱 루트 그루브 (무리함수만)', f:['sqrt(x+8)-3', '-sqrt(x+6)+2', 'sqrt(4-x)', 'sqrt(2(x+2))-1', '-sqrt(-x)+1', 'sqrt(|x|)-1'] },
+  ripple:{ n:'🌊 잔물결 레이브 (보너스 : y = sin x / x)', f:['6sin(2x)/x', 'sin(x)/x', '3sin(3x)/x-1', '4sin(x)/(x+1)', 'sin(x/2)/x+1', '8sin(4x)/x'] }
+};
+const DJ = { tr:[], on:false, bpm:118, step:0, next:0, timer:null, raf:0, ac:null, q:[], fx:{}, hold:false, rec:null, chunks:[], cv:null };
+
+function djLoadTracks(){
+  let saved = null; try { saved = JSON.parse(localStorage.getItem('qf_dj_' + LESSON.code) || 'null'); } catch (e) {}
+  DJ.tr = DJ_PRESET.map((p, i) => ({ v:(saved && saved[i] && DJ_VOICES[saved[i].v]) ? saved[i].v : p.v, f:(saved && saved[i] && typeof saved[i].f === 'string') ? saved[i].f : p.f, on:false, err:'', d:null, flash:0 }));
+  DJ.tr.forEach(djAnalyze);
+}
+function djSaveTracks(){ try { localStorage.setItem('qf_dj_' + LESSON.code, JSON.stringify(DJ.tr.map(t => ({ v:t.v, f:t.f })))); } catch (e) {} }
+
+/* ---------- 함수 → 32칸 악보 ---------- */
+const DJ_DPU = 2;                                          // y 한 칸 = 음계 두 칸
+const djDeg = y => Math.max(-10, Math.min(16, Math.round(y * DJ_DPU)));
+const djMidi = (deg, base) => base + 12 * Math.floor(deg / 5) + DJ_PENTA[((deg % 5) + 5) % 5];
+const djHz = m => 440 * Math.pow(2, (m - 69) / 12);
+function djAnalyze(t){
+  t.err = ''; let fn = null;
+  try { const c = gtCompile(t.f); if (!c || c.kind !== 'y') throw new Error('「y = (x의 식)」 꼴로 써 주세요'); fn = c.f; } catch (e) { t.err = e.message; t.d = null; return; }
+  const [x0, x1] = DJ_WIN, dx = (x1 - x0) / DJ_STEPS, ok = y => isFinite(y) && Math.abs(y) < 60;
+  const S = [];
+  for (let s = 0; s < DJ_STEPS; s++){
+    const x = x0 + s * dx, y = fn(x), def = ok(y), h = dx / 4;
+    const sl = def && ok(fn(x + h)) && ok(fn(x - h)) ? (fn(x + h) - fn(x - h)) / (2 * h) : (def ? 0 : NaN);
+    // 이번 칸 안쪽을 잘게 보며 점근선(끊김)과 x절편을 찾음
+    let zap = false, zero = false, prev = y, pd = def;
+    for (let k = 1; k <= 8; k++){
+      const yy = fn(x + dx * k / 8), dd = ok(yy);
+      if (pd !== dd) zap = true;
+      if (pd && dd){ if (Math.sign(prev) !== Math.sign(yy) && Math.abs(yy - prev) > 4) zap = true; else if (Math.sign(prev) !== Math.sign(yy)) zero = true; }
+      prev = yy; pd = dd;
+    }
+    S.push({ x, y, def, sl:isFinite(sl) ? sl : 0, deg:def ? djDeg(y) : null, zap, zero });
+  }
+  const sls = S.filter(s => s.def).map(s => Math.abs(s.sl)).sort((a, b) => a - b), med = sls.length ? sls[Math.floor(sls.length / 2)] : 0;
+  S.forEach((s, i) => { s.bright = Math.min(1, Math.abs(s.sl) / 2.5); s.steep = s.def && Math.abs(s.sl) >= med && Math.abs(s.sl) > 0.05; let n = 1; while (s.def && i + n < DJ_STEPS && S[i + n].def && S[i + n].deg === s.deg && n < 8) n++; s.run = n; });
+  t.d = { S, fn, n:S.filter(s => s.def).length, zaps:S.filter(s => s.zap).length };
+}
+
+/* ---------- 소리 (Web Audio 합성) ---------- */
+function djAudio(){
+  const ac = SND.boot(); if (!ac) return null;
+  if (DJ.ac === ac) return ac;
+  DJ.ac = ac;
+  DJ.out = ac.createGain(); DJ.out.gain.value = 0.85;
+  DJ.filt = ac.createBiquadFilter(); DJ.filt.type = 'lowpass'; DJ.filt.frequency.value = 18000; DJ.filt.Q.value = 6;
+  DJ.comp = ac.createDynamicsCompressor(); DJ.comp.threshold.value = -16; DJ.comp.ratio.value = 4;
+  DJ.out.connect(DJ.filt); DJ.filt.connect(DJ.comp); DJ.comp.connect(ac.destination);
+  try { DJ.recDest = ac.createMediaStreamDestination(); DJ.comp.connect(DJ.recDest); } catch (e) { DJ.recDest = null; }
+  DJ.dl = ac.createDelay(1); DJ.fb = ac.createGain(); DJ.fb.gain.value = 0.32; DJ.dlo = ac.createGain(); DJ.dlo.gain.value = 0.35;
+  DJ.dl.connect(DJ.fb); DJ.fb.connect(DJ.dl); DJ.dl.connect(DJ.dlo); DJ.dlo.connect(DJ.out);
+  DJ.tg = DJ.tr.map(() => { const g = ac.createGain(); g.gain.value = 0; g.connect(DJ.out); return g; });
+  const n = ac.sampleRate, b = ac.createBuffer(1, n, n), d = b.getChannelData(0); for (let i = 0; i < n; i++) d[i] = Math.random() * 2 - 1; DJ.noise = b;
+  return ac;
+}
+function djEnv(g, t, a, peak, dur, rel){ g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(peak, t + a); g.gain.setTargetAtTime(0.0001, t + Math.max(a, dur), rel || 0.04); }
+function djOsc(type, f, t, end, dest, det){ const o = DJ.ac.createOscillator(); o.type = type; o.frequency.setValueAtTime(f, t); if (det) o.detune.value = det; o.connect(dest); o.start(t); o.stop(end); return o; }
+function djNoise(t, dur, dest, type, freq, q, vol){
+  const ac = DJ.ac, src = ac.createBufferSource(), f = ac.createBiquadFilter(), g = ac.createGain();
+  src.buffer = DJ.noise; f.type = type; f.frequency.value = freq; f.Q.value = q || 1;
+  src.connect(f); f.connect(g); g.connect(dest); djEnv(g, t, 0.002, vol, dur * 0.3, dur / 4); src.start(t, Math.random() * 0.5); src.stop(t + dur + 0.2); return g;
+}
+const DJ_PLAY = {
+  lead(t, s, sd, dest, prevDeg){
+    if (!s.def || (prevDeg === s.deg)) return 0;
+    const ac = DJ.ac, f = djHz(djMidi(s.deg, 57)), dur = sd * s.run * 0.96, end = t + dur + 0.3;
+    const lp = ac.createBiquadFilter(), g = ac.createGain(); lp.type = 'lowpass'; lp.Q.value = 7;
+    lp.frequency.setValueAtTime(500 + s.bright * 5200, t); lp.frequency.setTargetAtTime(400 + s.bright * 2500, t + 0.02, 0.12);
+    lp.connect(g); g.connect(dest); g.connect(DJ.dl); djEnv(g, t, 0.006, 0.16, dur, 0.05);
+    const o1 = djOsc('sawtooth', f, t, end, lp), o2 = djOsc('square', f, t, end, lp, 9);
+    if (prevDeg != null){ const pf = djHz(djMidi(prevDeg, 57)); [o1, o2].forEach(o => { o.frequency.setValueAtTime(pf, t); o.frequency.exponentialRampToValueAtTime(f, t + 0.04); }); }
+    if (s.zap){ [o1, o2].forEach(o => o.frequency.exponentialRampToValueAtTime(Math.max(60, f / 4), t + dur)); }
+    return 1;
+  },
+  bass(t, s, sd, dest, prevDeg, i){
+    if (!s.def || i % 2) return 0;
+    const ac = DJ.ac, f = djHz(djMidi(s.deg, 33)), dur = sd * 1.7;
+    const lp = ac.createBiquadFilter(), g = ac.createGain(); lp.type = 'lowpass'; lp.Q.value = 9; lp.frequency.setValueAtTime(220 + s.bright * 900, t); lp.frequency.exponentialRampToValueAtTime(120, t + dur);
+    lp.connect(g); g.connect(dest); djEnv(g, t, 0.004, 0.32, dur * 0.6, 0.06);
+    djOsc('square', f, t, t + dur + 0.3, lp); djOsc('sine', f / 2, t, t + dur + 0.3, g);
+    return 1;
+  },
+  zap(t, s, sd, dest, prevDeg, i){
+    const hit = s.zap || s.zero || (s.steep && i % 4 === 2) || (s.def && i === 0);
+    if (!hit) return 0;
+    const ac = DJ.ac, top = 900 + Math.min(10, Math.abs(s.y || 0)) * 260 + (s.zap ? 1200 : 0), dur = s.zap ? sd * 2.4 : sd * 1.2;
+    const bp = ac.createBiquadFilter(), g = ac.createGain(); bp.type = 'bandpass'; bp.Q.value = 3; bp.frequency.setValueAtTime(top, t); bp.frequency.exponentialRampToValueAtTime(140, t + dur);
+    bp.connect(g); g.connect(dest); g.connect(DJ.dl); djEnv(g, t, 0.003, s.zap ? 0.3 : 0.16, dur * 0.5, dur / 3);
+    const o = djOsc('sawtooth', top, t, t + dur + 0.2, bp); o.frequency.exponentialRampToValueAtTime(70, t + dur);
+    return 1;
+  },
+  arp(t, s, sd, dest, prevDeg, i){
+    if (!s.def) return 0;
+    const ac = DJ.ac, deg = s.deg + [0, 2, 4, 7][i % 4], f = djHz(djMidi(deg, 69)), dur = sd * 0.9;
+    const lp = ac.createBiquadFilter(), g = ac.createGain(); lp.type = 'lowpass'; lp.frequency.value = 1400 + s.bright * 5000;
+    lp.connect(g); g.connect(dest); g.connect(DJ.dl); djEnv(g, t, 0.002, 0.11, 0.02, dur / 3.5);
+    djOsc('square', f, t, t + dur + 0.2, lp); djOsc('triangle', f * 2, t, t + dur + 0.2, lp);
+    return 1;
+  },
+  pad(t, s, sd, dest, prevDeg, i){
+    if (!s.def || i % 8) return 0;
+    const ac = DJ.ac, dur = sd * 8, lp = ac.createBiquadFilter(), g = ac.createGain();
+    lp.type = 'lowpass'; lp.frequency.setValueAtTime(500 + s.bright * 2500, t); lp.frequency.linearRampToValueAtTime(900 + s.bright * 3000, t + dur);
+    lp.connect(g); g.connect(dest); g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(0.09, t + 0.35); g.gain.setTargetAtTime(0.0001, t + dur - 0.1, 0.25);
+    [0, 2, 4].forEach(k => { const f = djHz(djMidi(s.deg + k, 57)); djOsc('sawtooth', f, t, t + dur + 1.2, lp, -8); djOsc('sawtooth', f, t, t + dur + 1.2, lp, 8); });
+    return 1;
+  },
+  drum(t, s, sd, dest, prevDeg, i){
+    let hit = 0;
+    if (s.def && (i % 4 === 0 || s.zero)){              // 킥 : 박자마다, 그리고 x절편에서
+      const g = DJ.ac.createGain(); g.connect(dest); djEnv(g, t, 0.002, 0.9, 0.05, 0.12);
+      const o = djOsc('sine', 160, t, t + 0.5, g); o.frequency.exponentialRampToValueAtTime(42, t + 0.18); hit = 1; s._k = 1;
+    }
+    if (i % 8 === 4){ if (s.def && s.y > 0){ for (let k = 0; k < 3; k++) djNoise(t + k * 0.012, 0.18, dest, 'bandpass', 1500, 1.2, 0.45); }   // 클랩 (y>0)
+      else djNoise(t, 0.05, dest, 'bandpass', 3200, 6, 0.4); hit = 1; }                                                                    // 림 (y≤0 또는 없음)
+    if (s.def && (s.steep || i % 2 === 1)){ const open = Math.abs(s.y) > 3; djNoise(t, open ? 0.22 : 0.05, dest, 'highpass', 7500, 1, open ? 0.2 : 0.14); hit = 1; }
+    if (s.zap){ djNoise(t, 0.6, dest, 'highpass', 4000, 0.7, 0.25); hit = 1; }   // 점근선에서 심벌
+    return hit;
+  }
+};
+
+/* ---------- 박자 맞춰 미리 예약 (lookahead) ---------- */
+function djSched(){
+  const ac = DJ.ac; if (!ac || !DJ.on) return;
+  const sd = 60 / DJ.bpm / 4;
+  while (DJ.next < ac.currentTime + 0.12){
+    let s = DJ.step % DJ_STEPS;
+    if (DJ.fx.stut){ s = DJ.fx.stut0 + (DJ.step - DJ.fx.stutS) % 2; }
+    DJ.q.push({ t:DJ.next, s });
+    DJ.tr.forEach((tr, i) => {
+      if (!tr.d) return;
+      const want = tr.on ? 1 : 0, g = DJ.tg[i].gain;
+      if (tr._g !== want){ g.cancelScheduledValues(DJ.next); g.setTargetAtTime(want ? 1 : 0.0001, DJ.next, 0.015); tr._g = want; }
+      if (!tr.on) return;
+      const st = tr.d.S[s], pv = s > 0 && !DJ.fx.stut ? tr.d.S[s - 1].deg : null;
+      try { if (DJ_PLAY[tr.v](DJ.next, st, sd, DJ.tg[i], pv, s)) tr.hits = (tr.hits || []).concat([DJ.next]).slice(-4); } catch (e) {}
+    });
+    DJ.next += sd; DJ.step++;
+  }
+}
+function djStart(){
+  const ac = djAudio(); if (!ac) { snack('이 브라우저는 소리 합성을 지원하지 않아요'); return; }
+  if (DJ.on) return; DJ.on = true; DJ.step = 0; DJ.next = ac.currentTime + 0.08; DJ.q = [];
+  DJ.tr.forEach(t => t._g = null);
+  DJ.timer = setInterval(djSched, 25); djSched(); djLoop(); djUI();
+}
+function djStop(){
+  if (!DJ.on) return; DJ.on = false; clearInterval(DJ.timer); DJ.timer = null;
+  if (DJ.tg) DJ.tg.forEach(g => { g.gain.cancelScheduledValues(0); g.gain.setTargetAtTime(0.0001, DJ.ac.currentTime, 0.03); });
+  DJ.tr.forEach(t => t._g = 0);
+  if (DJ.rec && DJ.rec.state === 'recording') DJ.rec.stop();
+  djUI(); djDraw();
+}
+function djToggle(i, force){
+  const t = DJ.tr[i]; if (!t) return;
+  if (!t.d){ snack('식을 먼저 고쳐 주세요 : ' + (t.err || '')); return; }
+  t.on = force == null ? !t.on : force;
+  if (t.on && !DJ.on) djStart();
+  djUI();
+}
+
+/* ---------- 효과 (누르고 있는 동안) ---------- */
+function djFx(name, on){
+  const ac = djAudio(); if (!ac) return; const now = ac.currentTime; DJ.fx[name] = on;
+  if (name === 'filt'){ DJ.filt.frequency.cancelScheduledValues(now); DJ.filt.frequency.setTargetAtTime(on ? 380 : 18000, now, on ? 0.25 : 0.08); }
+  if (name === 'stut'){ if (on){ DJ.fx.stut0 = (DJ.step) % DJ_STEPS; DJ.fx.stutS = DJ.step; } }
+  if (name === 'rise'){
+    if (on){ const src = ac.createBufferSource(), f = ac.createBiquadFilter(), g = ac.createGain(); src.buffer = DJ.noise; src.loop = true; f.type = 'bandpass'; f.Q.value = 2;
+      f.frequency.setValueAtTime(300, now); f.frequency.exponentialRampToValueAtTime(9000, now + 4); g.gain.setValueAtTime(0.0001, now); g.gain.exponentialRampToValueAtTime(0.35, now + 3.5);
+      src.connect(f); f.connect(g); g.connect(DJ.out); src.start(now); DJ.fx._rise = { src, g }; }
+    else if (DJ.fx._rise){ const r = DJ.fx._rise; r.g.gain.cancelScheduledValues(now); r.g.gain.setTargetAtTime(0.0001, now, 0.02); r.src.stop(now + 0.3); DJ.fx._rise = null;
+      // 💥 드롭 : 큰 킥 + 심벌, 모든 트랙 켜기
+      const g = ac.createGain(); g.connect(DJ.out); djEnv(g, now + 0.02, 0.002, 1, 0.1, 0.3); const o = djOsc('sine', 120, now + 0.02, now + 1.2, g); o.frequency.exponentialRampToValueAtTime(30, now + 0.6);
+      djNoise(now + 0.02, 1.4, DJ.out, 'highpass', 3000, 0.5, 0.35);
+      DJ.tr.forEach(t => { if (t.d) t.on = true; }); if (!DJ.on) djStart(); djUI(); }
+  }
+  $$('.djfx [data-fx]').forEach(b => b.classList.toggle('on', !!DJ.fx[b.dataset.fx]));
+}
+
+/* ---------- 🎙️ 녹음 ---------- */
+function djRec(){
+  const ac = djAudio(); if (!ac) return;
+  if (!DJ.recDest || typeof MediaRecorder === 'undefined'){ snack('이 브라우저는 녹음을 지원하지 않아요'); return; }
+  if (DJ.rec && DJ.rec.state === 'recording'){ DJ.rec.stop(); return; }
+  DJ.chunks = []; DJ.rec = new MediaRecorder(DJ.recDest.stream);
+  DJ.rec.ondataavailable = e => { if (e.data && e.data.size) DJ.chunks.push(e.data); };
+  DJ.rec.onstop = () => { const b = new Blob(DJ.chunks, { type:DJ.rec.mimeType || 'audio/webm' }), u = URL.createObjectURL(b), h = $('#djTake');
+    if (h) h.innerHTML = `<audio controls src="${u}"></audio><a class="btn" download="함수DJ_${LESSON.code}.webm" href="${u}">⬇️ 내 믹스 저장</a>`; djUI(); };
+  DJ.rec.start(); if (!DJ.on){ if (!DJ.tr.some(t => t.on)) djToggle(0, true); else djStart(); } djUI();
+}
+
+/* ---------- 🔊 함수 하나 미리 듣기 (그래프를 따라 미끄러지는 소리) ---------- */
+function djPreview(i){
+  const ac = djAudio(), t = DJ.tr[i]; if (!ac || !t.d) return;
+  const now = ac.currentTime + 0.03, dur = 2.6, N = 128, fr = new Float32Array(N), vol = new Float32Array(N);
+  for (let k = 0; k < N; k++){ const x = DJ_WIN[0] + (DJ_WIN[1] - DJ_WIN[0]) * k / (N - 1), y = t.d.fn(x), ok = isFinite(y) && Math.abs(y) < 60;
+    fr[k] = ok ? 220 * Math.pow(2, Math.max(-12, Math.min(18, y * 2)) / 12) : (k ? fr[k - 1] : 220); vol[k] = ok ? 0.16 : 0.0001; }
+  const o = ac.createOscillator(), g = ac.createGain(); o.type = 'triangle'; o.frequency.setValueCurveAtTime(fr, now, dur); g.gain.setValueCurveAtTime(vol, now, dur);
+  o.connect(g); g.connect(DJ.out); o.start(now); o.stop(now + dur + 0.05);
+  DJ.prev = { i, t0:now, dur }; if (!DJ.raf) djLoop();
+}
+
+/* ---------- 화면 ---------- */
+function pageDJ(){
+  return `<div class="card djcard">
+    <h2><span class="chip">함수 DJ</span>🎧 함수의 그래프로 디제잉하기</h2>
+    <p class="lead">그래프가 곧 악보예요. <b>높이 = 음높이</b>, <b>가파를수록 밝고 굵은 소리</b>, <b>점근선 · 끊긴 곳 = ⚡잽</b>, <b>x절편 = 킥</b>, 정의되지 않는 곳은 <b>쉼표</b>.
+      패드(키보드 <b>A S D F G H</b> 또는 <b>1~6</b>)를 눌러 트랙을 켜고 끄며 믹스해요. 식을 바꾸면 그 함수만의 리듬과 멜로디가 새로 만들어져요!</p>
+    <div class="djwrap" id="djWrap">
+      <div class="djtop">
+        <button type="button" class="btn primary djplay" id="djPlay">▶ 재생</button>
+        <label class="djbpm">⏱️ <input type="range" id="djBpm" min="80" max="160" value="${DJ.bpm}"> <b id="djBpmV">${DJ.bpm}</b> BPM</label>
+        <div class="djfx">
+          <button type="button" data-fx="filt" title="누르는 동안 (Z)">🌀 필터 <kbd>Z</kbd></button>
+          <button type="button" data-fx="stut" title="누르는 동안 (X)">🔁 스터터 <kbd>X</kbd></button>
+          <button type="button" data-fx="rise" title="누르고 있다가 떼면 드롭 (C)">🚀 업 → 💥 드롭 <kbd>C</kbd></button>
+        </div>
+        <select class="inp djset" id="djSet" aria-label="함수 세트">${Object.entries(DJ_SETS).map(([k, v]) => `<option value="${k}">${v.n}</option>`).join('')}<option value="" selected disabled>함수 세트 바꾸기…</option></select>
+        <button type="button" class="btn djrec" id="djRec">🔴 녹음</button>
+        <button type="button" class="btn" id="djFs" title="전체 화면">⛶</button>
+      </div>
+      <div class="djstage"><canvas id="djCv" width="1200" height="520"></canvas></div>
+      <div class="djlegend"><span><i style="background:#22223b"></i>리드</span><span><b>굵기 = 밝기</b></span><span><i style="background:#e2465b"></i>잽</span><span><i style="background:#2f6fdf"></i>베이스</span><span><i style="background:#9b59d0"></i>아르페지오</span><span><i style="background:#1fa37a"></i>패드</span><span>‖ 킥 · 클랩 · 하이햇</span></div>
+      <div class="djpads" id="djPads"></div>
+      <div id="djTake" class="djtake"></div>
+      <p class="djhelp">💡 해 보기 : ① <b>A</b>만 켜고 점근선 근처에서 소리가 어떻게 변하는지 들어 보기 ② 드럼 식을 <code>4/x</code> → <code>4/(x-2)</code>로 바꾸면 리듬이 어디로 옮겨 갈까? ③ <code>sqrt(x)</code>와 <code>-sqrt(x)</code>는 무엇이 다르게 들릴까?
+        ④ 정의역이 없는 곳(쉼표)을 일부러 만들어 「브레이크」를 넣어 보기. 🎲를 누르면 새 함수가 나와요.</p>
+    </div>
+  </div>`;
+}
+function djPadsHTML(){
+  return DJ.tr.map((t, i) => { const V = DJ_VOICES[t.v];
+    return `<div class="djpad${t.on ? ' on' : ''}" data-i="${i}" style="--pc:${V.c}">
+      <button type="button" class="djhit" data-i="${i}" aria-pressed="${t.on}"><kbd>${DJ_KEYS[i]}</kbd><span class="djvi">${V.icon}</span><b>${V.n}</b><small>${t.on ? '켜짐' : '꺼짐'}</small></button>
+      <canvas class="djmini" width="240" height="120" data-i="${i}" title="눌러서 이 함수만 미리 듣기"></canvas>
+      <div class="djfrow"><span>y =</span><input type="text" class="djf" data-i="${i}" value="${esc(t.f)}" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="${i + 1}번 패드 함수"><button type="button" class="djdice" data-i="${i}" title="새 함수">🎲</button></div>
+      <select class="djv" data-i="${i}" aria-label="소리 종류">${Object.entries(DJ_VOICES).map(([k, v]) => `<option value="${k}"${k === t.v ? ' selected' : ''}>${v.icon} ${v.n}</option>`).join('')}</select>
+      <div class="djerr">${esc(t.err || '')}</div>
+      <div class="djinfo">${t.d ? `🎵 소리 나는 칸 ${t.d.n}/32 · ⚡ 끊김 ${t.d.zaps}곳` : ''}</div>
+    </div>`; }).join('');
+}
+function djRand(){
+  const r = (a, b) => a + Math.floor(Math.random() * (b - a + 1)), nz = (a, b) => { let v = 0; while (!v) v = r(a, b); return v; };
+  const p = r(-4, 4), q = r(-3, 3), k = nz(-5, 5), a = nz(-3, 3), sg = (v, s) => v === 0 ? '' : (v > 0 ? '+' : '-') + Math.abs(v) + (s || '');
+  const xp = `x${sg(-p)}`;
+  return [() => `${k}/(${xp})${sg(q)}`, () => `(${a}x${sg(r(-5, 5))})/(${xp})`, () => a > 0 ? `sqrt(${xp})${sg(q)}` : `sqrt(${-p}-x)${sg(q)}`, () => `-sqrt(${Math.abs(a)}(${xp}))${sg(q)}`, () => `${k}/(x^2+1)${sg(q)}`, () => `sqrt(|${xp}|)${sg(q)}`][r(0, 5)]();
+}
+function djUI(){
+  const P = $('#djPads'); if (!P) return;
+  $('#djPlay').textContent = DJ.on ? '■ 멈춤' : '▶ 재생'; $('#djPlay').classList.toggle('on', DJ.on);
+  const rb = $('#djRec'); rb.textContent = DJ.rec && DJ.rec.state === 'recording' ? '⏹ 녹음 끝' : '🔴 녹음'; rb.classList.toggle('on', !!(DJ.rec && DJ.rec.state === 'recording'));
+  $$('.djpad', P).forEach(el => { const i = +el.dataset.i, t = DJ.tr[i]; el.classList.toggle('on', t.on); const h = $('.djhit', el); h.setAttribute('aria-pressed', t.on); $('small', h).textContent = t.on ? '켜짐' : '꺼짐';
+    $('.djerr', el).textContent = t.err || ''; $('.djinfo', el).textContent = t.d ? `🎵 소리 나는 칸 ${t.d.n}/32 · ⚡ 끊김 ${t.d.zaps}곳` : ''; djMini(i); });
+  if (!DJ.on) djDraw();
+}
+function djMini(i){
+  const c = $(`.djmini[data-i="${i}"]`); if (!c) return; const t = DJ.tr[i];
+  const g = c.getContext('2d'), W = c.width, H = c.height, V = DJ_VOICES[t.v];
+  g.clearRect(0, 0, W, H); g.fillStyle = '#fff'; g.fillRect(0, 0, W, H);
+  const X = x => (x - DJ_WIN[0]) / (DJ_WIN[1] - DJ_WIN[0]) * W, Y = y => H - (y - DJ_YW[0]) / (DJ_YW[1] - DJ_YW[0]) * H;
+  g.strokeStyle = '#d6d9ea'; g.lineWidth = 1; g.beginPath(); g.moveTo(0, Y(0)); g.lineTo(W, Y(0)); g.moveTo(X(0), 0); g.lineTo(X(0), H); g.stroke();
+  if (!t.d) return;
+  g.strokeStyle = V.c; g.lineWidth = 2.4; g.beginPath(); let pen = false, py = 0;
+  for (let px = 0; px <= W; px++){ const y = t.d.fn(DJ_WIN[0] + px / W * (DJ_WIN[1] - DJ_WIN[0])); if (!isFinite(y) || Math.abs(y) > 60){ pen = false; continue; }
+    const yy = Math.max(-20, Math.min(H + 20, Y(y))); if (pen && Math.abs(yy - py) > H * .9) pen = false; if (pen) g.lineTo(px, yy); else g.moveTo(px, yy); pen = true; py = yy; }
+  g.stroke();
+}
+function djSize(){
+  const c = DJ.cv; if (!c) return; const w = c.clientWidth; if (!w) return;
+  const dpr = Math.min(devicePixelRatio || 1, 2), W = Math.round(w * dpr), H = Math.round(w * 0.43 * dpr);
+  if (c.width !== W || c.height !== H){ c.width = W; c.height = H; } if (!DJ.on) djDraw();
+}
+/* 큰 화면 : 그래프 · 음 계단 · 재생 위치 · 아래 박자 줄 */
+function djDraw(){
+  const c = DJ.cv; if (!c) return; const g = c.getContext('2d'), W = c.width, H = c.height, k = W / 1200;
+  const top = 18 * k, bot = H - 96 * k, X = x => (x - DJ_WIN[0]) / (DJ_WIN[1] - DJ_WIN[0]) * W, Y = y => bot - (y - DJ_YW[0]) / (DJ_YW[1] - DJ_YW[0]) * (bot - top);
+  g.clearRect(0, 0, W, H); g.fillStyle = '#fff'; g.fillRect(0, 0, W, H);
+  const ac = DJ.ac, sd = 60 / DJ.bpm / 4; let cur = null;
+  if (DJ.on && ac){ for (let j = DJ.q.length - 1; j >= 0; j--) if (DJ.q[j].t <= ac.currentTime){ cur = DJ.q[j]; DJ.q.splice(0, Math.max(0, j - 2)); break; } }
+  const frac = cur ? Math.min(1, (ac.currentTime - cur.t) / sd) : 0, pos = cur ? cur.s + frac : null, dx = (DJ_WIN[1] - DJ_WIN[0]) / DJ_STEPS;
+  // 칸 · 축
+  for (let s = 0; s <= DJ_STEPS; s++){ g.strokeStyle = s % 8 === 0 ? '#e1e3f0' : '#f3f4fa'; g.lineWidth = s % 8 === 0 ? 1.4 : 1; g.beginPath(); g.moveTo(X(DJ_WIN[0] + s * dx), top); g.lineTo(X(DJ_WIN[0] + s * dx), bot); g.stroke(); }
+  g.strokeStyle = '#4a4668'; g.lineWidth = 1.5 * k; g.beginPath(); g.moveTo(0, Y(0)); g.lineTo(W, Y(0)); g.moveTo(X(0), top); g.lineTo(X(0), bot); g.stroke();
+  g.fillStyle = '#8a84a3'; g.font = `italic ${15 * k}px serif`; g.fillText('x', W - 16 * k, Y(0) - 6 * k); g.fillText('y', X(0) + 6 * k, top + 12 * k);
+  // 트랙
+  DJ.tr.forEach((t, i) => {
+    if (!t.d) return; const V = DJ_VOICES[t.v], on = t.on;
+    g.globalAlpha = on ? 0.28 : 0.2; g.strokeStyle = V.c; g.lineWidth = 1.5 * k; g.beginPath(); let pen = false, py = 0;
+    for (let px = 0; px <= W; px += 2){ const y = t.d.fn(DJ_WIN[0] + px / W * (DJ_WIN[1] - DJ_WIN[0])); if (!isFinite(y) || Math.abs(y) > 60){ pen = false; continue; }
+      const yy = Math.max(top - 20, Math.min(bot + 20, Y(y))); if (pen && Math.abs(yy - py) > (bot - top) * .8) pen = false; if (pen) g.lineTo(px, yy); else g.moveTo(px, yy); pen = true; py = yy; }
+    g.stroke(); g.globalAlpha = 1;
+    if (!on) return;
+    // 음 계단 : 굵기 = 밝기, 지나간 칸은 진하게
+    t.d.S.forEach((s, j) => { if (!s.def) return; const yq = s.deg / DJ_DPU, yy = Math.max(top, Math.min(bot, Y(yq)));
+      const played = pos != null && j <= pos; g.strokeStyle = V.c; g.globalAlpha = played ? 0.95 : 0.35; g.lineWidth = (2 + s.bright * 9) * k; g.lineCap = 'butt';
+      g.beginPath(); g.moveTo(X(s.x), yy); g.lineTo(X(s.x + dx), yy); g.stroke();
+      if (s.zap){ g.globalAlpha = played ? 1 : .45; g.strokeStyle = '#e2465b'; g.lineWidth = 2.5 * k; g.beginPath(); g.arc(X(s.x + dx / 2), Math.max(top + 10 * k, Math.min(bot - 10 * k, yy)), 9 * k, Math.PI * 1.1, Math.PI * 1.9); g.stroke(); } });
+    g.globalAlpha = 1;
+  });
+  // 재생 위치
+  if (pos != null){
+    const x = DJ_WIN[0] + pos * dx; g.strokeStyle = 'rgba(34,34,59,.35)'; g.lineWidth = 1.5 * k; g.beginPath(); g.moveTo(X(x), top); g.lineTo(X(x), bot); g.stroke();
+    DJ.tr.forEach(t => { if (!t.on || !t.d) return; const y = t.d.fn(x); if (!isFinite(y) || Math.abs(y) > 60) return; const V = DJ_VOICES[t.v], hit = (t.hits || []).some(h => ac.currentTime - h < 0.12 && ac.currentTime >= h);
+      g.fillStyle = '#fff'; g.strokeStyle = V.c; g.lineWidth = 3 * k; g.beginPath(); g.arc(X(x), Math.max(top, Math.min(bot, Y(y))), (hit ? 11 : 7) * k, 0, 7); g.fill(); g.stroke();
+      if (hit){ g.fillStyle = V.c; g.beginPath(); g.arc(X(x), Math.max(top, Math.min(bot, Y(y))), 4 * k, 0, 7); g.fill(); } });
+  }
+  // 아래 : 박자 줄 (파란 줄 + 재생 점) · 킥/클랩/하이햇 눈금
+  const ty = H - 66 * k; g.strokeStyle = '#2f6fdf'; g.lineWidth = 4 * k; g.lineCap = 'round'; g.globalAlpha = .25; g.beginPath(); g.moveTo(10 * k, ty); g.lineTo(W - 10 * k, ty); g.stroke();
+  if (pos != null){ g.globalAlpha = 1; g.beginPath(); g.moveTo(10 * k, ty); g.lineTo(X(DJ_WIN[0] + pos * dx), ty); g.stroke(); g.lineWidth = 2.5 * k; g.fillStyle = '#fff'; g.beginPath(); g.arc(X(DJ_WIN[0] + pos * dx), ty, 9 * k, 0, 7); g.fill(); g.stroke(); }
+  g.globalAlpha = 1;
+  DJ.tr.forEach(t => { if (!t.on || !t.d) return; t.d.S.forEach((s, j) => { if (s.zap){ g.fillStyle = '#e2465b'; g.beginPath(); g.arc(X(s.x + dx / 2), ty - 14 * k, 4 * k, 0, 7); g.fill(); } }); });
+  const dr = DJ.tr.find(t => t.on && t.v === 'drum' && t.d);
+  for (let s = 0; s < DJ_STEPS; s++){
+    const x = X(DJ_WIN[0] + s * dx + dx / 2), d = dr ? dr.d.S[s] : null, played = pos != null && s <= pos;
+    g.strokeStyle = played ? '#22223b' : '#c3c6d8'; g.lineWidth = 2 * k; g.beginPath();
+    if (d && d.def && (s % 4 === 0 || d.zero)){ g.moveTo(x, H - 44 * k); g.lineTo(x, H - 18 * k); }       // 킥 (긴 눈금)
+    if (d && s % 8 === 4){ g.moveTo(x - 3 * k, H - 38 * k); g.lineTo(x - 3 * k, H - 22 * k); g.moveTo(x + 3 * k, H - 38 * k); g.lineTo(x + 3 * k, H - 22 * k); }   // 클랩 (두 줄)
+    if (d && d.def && (d.steep || s % 2 === 1)){ g.moveTo(x, H - 30 * k); g.lineTo(x, H - 22 * k); }        // 하이햇 (짧은 눈금)
+    if (!dr){ g.moveTo(x, H - (s % 4 ? 28 : 36) * k); g.lineTo(x, H - 22 * k); }
+    g.stroke();
+  }
+  // 미리 듣기 표시
+  if (DJ.prev && ac){ const p = (ac.currentTime - DJ.prev.t0) / DJ.prev.dur; if (p > 1) DJ.prev = null; else if (p > 0){ const t = DJ.tr[DJ.prev.i]; const x = DJ_WIN[0] + p * (DJ_WIN[1] - DJ_WIN[0]), y = t.d.fn(x);
+    g.strokeStyle = DJ_VOICES[t.v].c; g.lineWidth = 1; g.beginPath(); g.moveTo(X(x), top); g.lineTo(X(x), bot); g.stroke();
+    if (isFinite(y)){ g.fillStyle = '#22223b'; g.beginPath(); g.arc(X(x), Math.max(top, Math.min(bot, Y(y))), 8 * k, 0, 7); g.fill(); } } }
+}
+function djLoop(){
+  cancelAnimationFrame(DJ.raf); DJ.raf = 0;
+  const run = () => { if (!$('#djCv') || (!DJ.on && !DJ.prev)){ DJ.raf = 0; djDraw(); return; }
+    djDraw(); DJ.tr.forEach((t, i) => { const h = (t.hits || []).some(x => DJ.ac && DJ.ac.currentTime - x < 0.1 && DJ.ac.currentTime >= x); const el = $(`.djpad[data-i="${i}"]`); if (el) el.classList.toggle('beat', h); });
+    DJ.raf = requestAnimationFrame(run); };
+  DJ.raf = requestAnimationFrame(run);
+}
+function bootDJ(){
+  if (!$('#djPads')) return;
+  djLoadTracks(); DJ.cv = $('#djCv');
+  const P = $('#djPads'); P.innerHTML = djPadsHTML();
+  P.addEventListener('click', e => {
+    const h = e.target.closest('.djhit'); if (h){ djToggle(+h.dataset.i); return; }
+    const m = e.target.closest('.djmini'); if (m){ djPreview(+m.dataset.i); return; }
+    const d = e.target.closest('.djdice'); if (d){ const i = +d.dataset.i, t = DJ.tr[i]; t.f = djRand(); $(`.djf[data-i="${i}"]`).value = t.f; djAnalyze(t); djSaveTracks(); djUI(); }
+  });
+  P.addEventListener('input', e => { const f = e.target.closest('.djf'); if (!f) return; const t = DJ.tr[+f.dataset.i]; t.f = f.value; djAnalyze(t); if (!t.d) t.on = false; djSaveTracks(); djUI(); });
+  P.addEventListener('change', e => { const v = e.target.closest('.djv'); if (!v) return; const i = +v.dataset.i; DJ.tr[i].v = v.value; $(`.djpad[data-i="${i}"]`).style.setProperty('--pc', DJ_VOICES[v.value].c);
+    $(`.djpad[data-i="${i}"] .djvi`).textContent = DJ_VOICES[v.value].icon; $(`.djpad[data-i="${i}"] .djhit b`).textContent = DJ_VOICES[v.value].n; djSaveTracks(); djUI(); });
+  $('#djPlay').onclick = () => { if (DJ.on) djStop(); else { if (!DJ.tr.some(t => t.on)) DJ.tr.forEach((t, i) => { if (i < 2 && t.d) t.on = true; }); djStart(); } };
+  $('#djBpm').oninput = e => { DJ.bpm = +e.target.value; $('#djBpmV').textContent = DJ.bpm; };
+  $('#djRec').onclick = djRec;
+  $('#djSet').onchange = e => { const S = DJ_SETS[e.target.value]; if (!S) return; DJ.tr.forEach((t, i) => { t.f = S.f[i]; djAnalyze(t); const inp = $(`.djf[data-i="${i}"]`); if (inp) inp.value = t.f; }); djSaveTracks(); djUI(); e.target.value = ''; snack(S.n + ' 를 불러왔어요'); };
+  const W = $('#djWrap'); W._fsAfter = on => { W.classList.toggle('fs', on); setTimeout(djSize, 80); };
+  $('#djFs').onclick = () => wkFS(W, W._fsAfter);
+  $$('.djfx [data-fx]').forEach(b => { const fx = b.dataset.fx;
+    b.addEventListener('pointerdown', e => { e.preventDefault(); try { b.setPointerCapture(e.pointerId); } catch (er) {} djFx(fx, true); });
+    const up = () => { if (DJ.fx[fx]) djFx(fx, false); }; b.addEventListener('pointerup', up); b.addEventListener('pointercancel', up); });
+  const FXK = { z:'filt', x:'stut', c:'rise' };
+  addEventListener('keydown', e => {
+    if (CUR !== 'dj' || e.ctrlKey || e.metaKey || e.altKey || /input|textarea|select/i.test((e.target.tagName || ''))) return;
+    const k = e.key.toLowerCase(); let i = DJ_KEYS.findIndex(x => x.toLowerCase() === k); if (i < 0 && /^[1-6]$/.test(k)) i = +k - 1;
+    if (i >= 0){ if (!e.repeat) djToggle(i); e.preventDefault(); const el = $(`.djpad[data-i="${i}"] .djhit`); if (el){ el.classList.add('press'); setTimeout(() => el.classList.remove('press'), 140); } return; }
+    if (FXK[k]){ if (!e.repeat) djFx(FXK[k], true); e.preventDefault(); return; }
+    if (k === ' '){ e.preventDefault(); $('#djPlay').click(); }
+  });
+  addEventListener('keyup', e => { const k = e.key.toLowerCase(); if (FXK[k] && DJ.fx[FXK[k]]) djFx(FXK[k], false); });
+  if ('ResizeObserver' in window) new ResizeObserver(djSize).observe(DJ.cv); else addEventListener('resize', djSize);
+  djUI(); djSize();
 }
 
 ;
@@ -6243,6 +7649,8 @@ const TABS = [
   { id:'book',    label:'📚 책 속 질문·토론', html:pageBook },
   { id:'plaza',   label:'🗳️ 질문 광장',  html:pagePlaza },
   { id:'group',   label:'👥 소그룹',     html:pageGroup },
+  { id:'battle',  label:'⚔️ 팀별 대결',  html:pageBattle },
+  ...(['r1', 'r2', 'r3'].includes(LESSON.code) ? [{ id:'dj', label:'🎧 함수 DJ', html:pageDJ }] : []),
   { id:'free',    label:'💬 자유 질문방', html:pageFree },
   { id:'res',     label:'🎬 자료실',     html:pageRes },
   { id:'reflect', label:'🪞 성찰',       html:pageReflect },
@@ -6251,6 +7659,8 @@ const TABS = [
 let CUR = 'start';
 function go(id){
   if (id !== 'book' && typeof narrStop === 'function') narrStop();
+  if (id !== 'dj' && window.djStop) djStop();
+  if (id !== 'battle' && window.btStop) btStop();
   CUR = id;
   $$('.page').forEach(s => s.classList.toggle('on', s.id === 'pg-' + id));
   $$('.tab').forEach(b => b.classList.toggle('on', b.dataset.p === id));
@@ -6258,6 +7668,7 @@ function go(id){
   setTimeout(() => { drawClouds(); mountLabs(); bindTilt(); bindHScroll($('#pg-' + id)); bindMG($('#pg-' + id)); bindReveal($('#pg-' + id)); if (window.wkBind) wkBind($('#pg-' + id)); }, 50);
   try{ localStorage.setItem('qf_tab_' + LESSON.code, id); }catch(e){}
   if (id === 'group' && window.gpLoad) gpLoad();
+  if (window.lvNote){ lvNote('', 'tab'); setTimeout(() => { if (window.lvVisibleKey && CUR === id) lvNote(lvVisibleKey(), 'view'); }, 900); }
   const on = document.querySelector('.tab.on'), bar = $('#tabbar');
   if (on && bar && bar.scrollWidth > bar.clientWidth + 2){
     bar.scrollTo({ left: on.offsetLeft - (bar.clientWidth - on.offsetWidth) / 2, behavior:'smooth' });
@@ -6398,7 +7809,7 @@ function bootPages(){
   initTabScroll();
   bindNarr($('#pg-book'));
   bootMotion(); bindYT(); bindMG(); bindPB(); bindReveal();
-  bootNote(); bootGroup(); bootWork();
+  bootNote(); bootGroup(); bootWork(); bootLive(); bootBattle(); bootDJ();
   bindCoach('startCoach', seed => { const ta = $('#startAsk textarea'); if (!ta) return; ta.value = seed + ' '; ta.focus(); ta.dispatchEvent(new Event('input')); ta.scrollIntoView({ behavior:'smooth', block:'center' }); });
 
   // 시작 탭
