@@ -1278,6 +1278,25 @@ html.fslock,html.fslock body{overflow:hidden}
 .btwin .btsplit{margin:4px 0 0;text-align:left}
 .btwt{font-size:.9rem;color:#5a6390}
 .bttm{font-size:.82rem;font-weight:900;background:rgba(255,255,255,.22);border-radius:999px;padding:2px 9px;margin-left:auto;margin-right:6px;font-variant-numeric:tabular-nums}
+/* ⚔️ 출제 범위 · 문제 수 */
+.btrange{display:grid;gap:10px;margin:14px 0 4px;background:#fbfaff;border:2px solid #ece6fb;border-radius:18px;padding:12px 14px}
+.btcnt{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;font-size:.88rem}
+.btcnt label{display:flex;align-items:center;gap:5px;font-weight:800;color:var(--ink2)}
+.btcnt select{width:auto;padding:4px 8px}
+.btsum{font-size:.8rem;color:var(--ink2);margin-left:auto}.btwarn{color:#d0344f}
+.btscope > b{font-size:.9rem}.btscope small{color:var(--ink3);font-size:.76rem}
+.btscbtns{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
+.btscl{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:8px;align-items:start}
+.btscg{background:#fff;border:1.5px solid var(--line2);border-radius:14px;padding:6px 10px}
+.btscg summary{display:flex;align-items:center;gap:6px;cursor:pointer;font-weight:900;font-size:.86rem;list-style:none}
+.btscg summary::-webkit-details-marker{display:none}
+.btscg summary label{display:flex;align-items:center;gap:6px}.btscg summary em{margin-left:auto;font-style:normal;font-size:.72rem;color:#5a3fc0}
+.btscg > div{display:grid;gap:4px;padding:6px 0 2px 24px}
+.btsci{display:flex;align-items:center;gap:6px;font-size:.84rem;color:var(--ink2)}
+.btscg input,.btsci input{width:17px;height:17px;accent-color:#7d5fe0}
+.btscope-t{font-size:.72rem;font-weight:800;color:#33407a;background:rgba(255,255,255,.75);border-radius:999px;padding:2px 10px;max-width:280px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.btgo:disabled{opacity:.45}
+.btttl{flex-wrap:wrap;min-width:0}.btscope-t{max-width:min(280px,100%)}@media (max-width:520px){.btdots{flex-wrap:wrap}}
 
 /* ===================================================================
    교과서 스타일 + 입체감 + 큰 글씨 · 큰 수식
@@ -4990,167 +5009,212 @@ const BB = (() => {
   /* ------------------------------ 1차시 함수의 뜻과 그래프 ------------------------------ */
   f1:{
     h:[
-      { src:'중단원 01 · 113쪽 유형 (치역)', g(){ const X = [...new Set(Array.from({ length:4 }, () => R(-3, 3)))].sort((a, b) => a - b); if (X.length < 3) return null; const c = R(-4, 4);
+      { sc:['f1b'], src:'중단원 01 · 113쪽 유형 (치역)', g(){ const X = [...new Set(Array.from({ length:4 }, () => R(-3, 3)))].sort((a, b) => a - b); if (X.length < 3) return null; const c = R(-4, 4);
         const Y = [...new Set(X.map(x => x * x + c))]; return ok(`집합 ${T(`X=\\{${X.join(',')}\\}`)}에서 정의된 함수 ${T(`f(x)=${poly([1, 0, c])}`)}의 <b>치역의 모든 원소의 합</b>은?`, Y.reduce((a, b) => a + b, 0), 1, `치역 = {${Y.sort((a, b) => a - b).join(', ')}}`); } },
-      { src:'익힘책 01 · 140쪽 유형 (함숫값)', g(){ const p = R(-4, 4), q = R(-5, 5), a = R(-5, 5), b = R(-5, 5);
+      { sc:['f1b'], src:'익힘책 01 · 140쪽 유형 (함숫값)', g(){ const p = R(-4, 4), q = R(-5, 5), a = R(-5, 5), b = R(-5, 5);
         return ok(`함수 ${T(`f(x)=|${xm(p)}|${q ? (q > 0 ? '+' : '') + q : ''}`)}에 대하여 ${T(`f(${a})+f(${b})`)}의 값은?`, Math.abs(a - p) + Math.abs(b - p) + 2 * q, 1, `${Math.abs(a - p) + q} + ${Math.abs(b - p) + q}`); } },
-      { src:'중단원 02 · 113쪽 유형 (일대일대응)', g(){ const a = NZ(-4, 4), b = R(-6, 6), c = R(-6, 6), d = R(1, 6);
+      { sc:['f1d'], src:'중단원 02 · 113쪽 유형 (일대일대응)', g(){ const a = NZ(-4, 4), b = R(-6, 6), c = R(-6, 6), d = R(1, 6);
         const [o, ai] = shuffle([T(`y=${lin(a, b)}`), T(`y=${c}`), T(`y=x^2${d ? '+' + d : ''}`), T(`y=|x|-${d}`)], 0);
-        return ch('실수 전체의 집합에서 정의된 함수 중 <b>일대일대응</b>인 것은?', o, ai, '일차함수 (기울기 ≠ 0) 만 일대일대응'); } }
+        return ch('실수 전체의 집합에서 정의된 함수 중 <b>일대일대응</b>인 것은?', o, ai, '일차함수 (기울기 ≠ 0) 만 일대일대응'); } },
+      { sc:['f1a'], src:'대응과 함수 · 101~102쪽 유형', g(){ const n = R(3, 4), m = R(3, 5), a = P([1, 2]), k = R(-1, 2), X = Array.from({ length:n }, (_, i) => i + 1), img = X.map(x => a * x + k), ok = img.every(y => y >= 1 && y <= m);
+        const [o, ai] = shuffle(['함수이다', '함수가 아니다'], ok ? 0 : 1);
+        return ch(`${T(`X=\\{${X.join(',')}\\}`)}의 각 원소 \\(x\\)에 ${T(lin(a, k))}를 대응시킬 때, 이 대응은 ${T(`X`)}에서 ${T(`Y=\\{${Array.from({ length:m }, (_, i) => i + 1).join(',')}\\}`)}로의 함수일까?`, o, ai, `대응값 : ${img.join(', ')}${ok ? ' — 모두 Y 안' : ' — Y 밖의 값이 있음'}`); } },
+      { sc:['f1c'], src:'함수의 그래프 · 104쪽 유형', g(){ const a = NZ(-4, 4), p = R(-3, 3), q = R(-6, 6), b = q - a * p;
+        return ok(`직선 ${T(`y=${poly([a, 0])}+b`)}가 점 ${T(`(${p},${q})`)}를 지날 때 ${T('b')}의 값은?`, b, 1, `${q}=${a}×(${p})+b`); } },
+      { sc:['f1e'], src:'항등함수 · 상수함수 · 105쪽 유형', g(){ const c = NZ(-6, 6), a = R(-5, 9), b = R(-5, 9);
+        return ok(`함수 ${T('f')}는 항등함수, ${T('g')}는 상수함수이고 ${T(`g(0)=${c}`)}일 때 ${T(`f(${a})+g(${b})`)}의 값은?`, a + c, 1, `f(${a})=${a}, g(${b})=${c}`); } }
     ],
     m:[
-      { src:'대단원 01 · 130쪽 유형 (서로 같은 함수)', g(){ const m = R(-2, 2), p = R(-4, 4), q = R(-4, 4), f = x => x * x + p * x + q, a = f(m + 1) - f(m), b = f(m) - a * m;
+      { sc:['f1e'], src:'대단원 01 · 130쪽 유형 (서로 같은 함수)', g(){ const m = R(-2, 2), p = R(-4, 4), q = R(-4, 4), f = x => x * x + p * x + q, a = f(m + 1) - f(m), b = f(m) - a * m;
         return ok(`정의역이 ${T(`\\{${m},${m + 1}\\}`)}인 두 함수 ${T(`f(x)=${poly([1, p, q])}`)}, ${T('g(x)=ax+b')}에 대하여 ${T('f=g')}일 때, ${T('a+b')}의 값은?`, a + b, 1, `a=${a}, b=${b}`); } },
-      { src:'익힘책 03 · 140쪽 유형', g(){ const m = P([1, 3, 5]), n = P([2, 4, 6, 8]), a = R(-6, 9), v = m * m + a;
+      { sc:['f1b'], src:'익힘책 03 · 140쪽 유형', g(){ const m = P([1, 3, 5]), n = P([2, 4, 6, 8]), a = R(-6, 9), v = m * m + a;
         return ok(`자연수 전체의 집합에서 정의된 함수 ${T('f')}가 ${T('x')}가 홀수이면 ${T('f(x)=x^2+a')}, 짝수이면 ${T('f(x)=2x+a')}이다. ${T(`f(${m})=${v}`)}일 때 ${T(`f(${n})`)}의 값은?`, 2 * n + a, 1, `a=${a}`); } },
-      { src:'대단원 12 · 131쪽 유형 (약수의 개수)', g(){ const xs = [R(2, 12), R(13, 24), R(25, 36)];
-        return ok(`자연수 ${T('x')}에 대하여 ${T('f(x)')}를 ${T('x')}의 약수의 개수라 할 때, ${T(`f(${xs[0]})+f(${xs[1]})+f(${xs[2]})`)}의 값은?`, xs.reduce((s, x) => s + ndiv(x), 0), 1, xs.map(x => `f(${x})=${ndiv(x)}`).join(', ')); } }
+      { sc:['f1b'], src:'대단원 12 · 131쪽 유형 (약수의 개수)', g(){ const xs = [R(2, 12), R(13, 24), R(25, 36)];
+        return ok(`자연수 ${T('x')}에 대하여 ${T('f(x)')}를 ${T('x')}의 약수의 개수라 할 때, ${T(`f(${xs[0]})+f(${xs[1]})+f(${xs[2]})`)}의 값은?`, xs.reduce((s, x) => s + ndiv(x), 0), 1, xs.map(x => `f(${x})=${ndiv(x)}`).join(', ')); } },
+      { sc:['f1a'], src:'대응과 함수 · 함수의 개수 유형', g(){ const a = P([2, 3]), b = P([2, 3, 4]);
+        return ok(`${T(`X=\\{${Array.from({ length:a }, (_, i) => i + 1).join(',')}\\}`)}에서 ${T(`Y=\\{${Array.from({ length:b }, (_, i) => i + 1).join(',')}\\}`)}로의 함수의 개수는?`, Math.pow(b, a), 1, `X의 원소마다 ${b}가지 → ${b}^${a}`); } },
+      { sc:['f1c'], src:'함수의 그래프 · 두 점을 지나는 직선 유형', g(){ const a = NZ(-3, 3), b = R(-5, 5), x1 = R(-3, 0), x2 = x1 + R(1, 3), k = R(-3, 4);
+        return ok(`일차함수 ${T('y=f(x)')}의 그래프가 두 점 ${T(`(${x1},${a * x1 + b})`)}, ${T(`(${x2},${a * x2 + b})`)}를 지날 때 ${T(`f(${k})`)}의 값은?`, a * k + b, 1, `f(x)=${lin(a, b)}`); } },
+      { sc:['f1d'], src:'일대일함수 · 개수 유형', g(){ const a = P([2, 3]), b = a + R(0, 2);
+        let v = 1; for (let i = 0; i < a; i++) v *= b - i;
+        return ok(`${T(`X=\\{${Array.from({ length:a }, (_, i) => i + 1).join(',')}\\}`)}에서 ${T(`Y=\\{${Array.from({ length:b }, (_, i) => i + 1).join(',')}\\}`)}로의 <b>일대일함수</b>의 개수는?`, v, 1, Array.from({ length:a }, (_, i) => b - i).join('×')); } }
     ],
     s:[
-      { src:'익힘책 04 · 140쪽 유형 (항등함수)', g(){ let r1 = R(-4, 5), r2 = R(-4, 5); if (r1 === r2 || !r1 || !r2) return null;
+      { sc:['f1e'], src:'익힘책 04 · 140쪽 유형 (항등함수)', g(){ let r1 = R(-4, 5), r2 = R(-4, 5); if (r1 === r2 || !r1 || !r2) return null;
         return ok(`공집합이 아닌 집합 ${T('X')}에 대하여 ${T('f:X\\to X')}, ${T(`f(x)=${poly([1, -(r1 + r2 - 1), r1 * r2])}`)}가 <b>항등함수</b>가 되도록 할 때, 가능한 ${T('X')} 중 원소가 가장 많은 ${T('X')}의 모든 원소의 곱은?`, r1 * r2, 1, `f(x)=x 의 해 : ${r1}, ${r2}`); } },
-      { src:'대단원 13 · 131쪽 유형 (일대일대응)', g(){ const k = R(1, 6), p = R(-4, 4), q = R(-5, 5);
+      { sc:['f1d'], src:'대단원 13 · 131쪽 유형 (일대일대응)', g(){ const k = R(1, 6), p = R(-4, 4), q = R(-5, 5);
         return ok(`함수 ${T(`f(x)=${k === 1 ? '' : k}|${xm(p)}|+ax${q ? (q > 0 ? '+' : '') + q : ''}`)}가 실수 전체에서 <b>일대일대응</b>이 되도록 하는 <b>자연수</b> ${T('a')}의 최솟값은?`, k + 1, 1, `두 기울기 a+${k}, a-${k}의 부호가 같아야 → |a|>${k}`); } },
-      { src:'중단원 05 · 114쪽 유형 (일대일대응)', g(){ const m = NZ(-5, 5), n = R(-6, 6), q = R(-5, 5), sg = m > 0;
-        return ok(`함수 ${T(`f(x)=\\begin{cases}${lin(m, q)} & (x\\ge0)\\\\ (a${n ? (n > 0 ? '+' : '') + n : ''})x${q ? (q > 0 ? '+' : '') + q : ''} & (x\\lt 0)\\end{cases}`)}가 일대일대응일 때, 정수 ${T('a')}의 ${sg ? '최솟값' : '최댓값'}은?`, sg ? -n + 1 : -n - 1, 1, `x<0 쪽 기울기 a${n >= 0 ? '+' : ''}${n}의 부호가 ${m}과 같아야`); } }
+      { sc:['f1d'], src:'중단원 05 · 114쪽 유형 (일대일대응)', g(){ const m = NZ(-5, 5), n = R(-6, 6), q = R(-5, 5), sg = m > 0;
+        return ok(`함수 ${T(`f(x)=\\begin{cases}${lin(m, q)} & (x\\ge0)\\\\ (a${n ? (n > 0 ? '+' : '') + n : ''})x${q ? (q > 0 ? '+' : '') + q : ''} & (x\\lt 0)\\end{cases}`)}가 일대일대응일 때, 정수 ${T('a')}의 ${sg ? '최솟값' : '최댓값'}은?`, sg ? -n + 1 : -n - 1, 1, `x<0 쪽 기울기 a${n >= 0 ? '+' : ''}${n}의 부호가 ${m}과 같아야`); } },
+      { sc:['f1a'], src:'대응과 함수 · 조건을 만족하는 함수 유형', g(){ const n = P([3, 4, 5]), v = (n + 2) * (n + 1) * n / 6;
+        return ok(`${T('X=\\{1,2,3\\}')}에서 ${T(`Y=\\{${Array.from({ length:n }, (_, i) => i + 1).join(',')}\\}`)}로의 함수 ${T('f')} 중 ${T('f(1)\\le f(2)\\le f(3)')}인 함수의 개수는?`, v, 1, `${n}개 중 중복을 허락해 3개를 고르기 = ${v}`); } },
+      { sc:['f1b'], src:'정의역 · 치역 · 일차함수 유형', g(){ const a = P([1, 2, 3]), m = R(-3, 0), n = m + R(1, 3), u = R(-4, 2), b = u - a * m, w = a * n + b;
+        return ok(`함수 ${T('f(x)=ax+b\\ (a>0)')}의 정의역이 ${T(`\\{x\\mid ${m}\\le x\\le ${n}\\}`)}, 치역이 ${T(`\\{y\\mid ${u}\\le y\\le ${w}\\}`)}일 때 ${T('ab')}의 값은?`, a * b, 1, `f(${m})=${u}, f(${n})=${w}`); } },
+      { sc:['f1c'], src:'함수의 그래프 · 넓이 유형', g(){ const p = R(-3, 3), q = R(-3, 2), k = q + R(1, 5), h = k - q;
+        return ok(`함수 ${T(`y=|${xm(p)}|${q ? (q > 0 ? '+' : '') + q : ''}`)}의 그래프와 직선 ${T(`y=${k}`)}로 둘러싸인 부분의 넓이는?`, h * h, 1, `밑변 ${2 * h}, 높이 ${h}`); } }
     ]
   },
   /* ------------------------------ 2차시 합성함수 ------------------------------ */
   f2:{
     h:[
-      { src:'중단원 03 · 113쪽 유형', g(){ const a = NZ(-4, 4), b = R(-6, 6), c = R(-5, 5), k = R(-3, 3);
+      { sc:['f2a'], src:'중단원 03 · 113쪽 유형', g(){ const a = NZ(-4, 4), b = R(-6, 6), c = R(-5, 5), k = R(-3, 3);
         return ok(`${T(`f(x)=${lin(a, b)}`)}, ${T(`g(x)=${poly([1, 0, c])}`)}일 때 ${T(`(f\\circ g)(${k})`)}의 값은?`, a * (k * k + c) + b, 1, `g(${k})=${k * k + c}`); } },
-      { src:'중단원 03 · 113쪽 유형 (합성함수의 식)', g(){ const a = NZ(-4, 4), b = R(-6, 6), c = NZ(-4, 4), d = R(-6, 6);
+      { sc:['f2b'], src:'중단원 03 · 113쪽 유형 (합성함수의 식)', g(){ const a = NZ(-4, 4), b = R(-6, 6), c = NZ(-4, 4), d = R(-6, 6);
         return ok(`${T(`f(x)=${lin(a, b)}`)}, ${T(`g(x)=${lin(c, d)}`)}에 대하여 ${T('(f\\circ g)(x)=px+q')}일 때 ${T('p+q')}의 값은?`, a * c + a * d + b, 1, `(f∘g)(x)=${lin(a * c, a * d + b)}`); } },
-      { src:'익힘책 05 · 140쪽 유형', g(){ const m = R(0, 5), n = R(-3, 4), k = R(-4, 6), f = x => x >= 0 ? -x + m : x + n;
-        return ok(`${T(`f(x)=\\begin{cases}${lin(-1, m)} & (x\\ge0)\\\\ ${lin(1, n)} & (x\\lt 0)\\end{cases}`)}에 대하여 ${T(`(f\\circ f)(${k})`)}의 값은?`, f(f(k)), 1, `f(${k})=${f(k)}`); } }
+      { sc:['f2a'], src:'익힘책 05 · 140쪽 유형', g(){ const m = R(0, 5), n = R(-3, 4), k = R(-4, 6), f = x => x >= 0 ? -x + m : x + n;
+        return ok(`${T(`f(x)=\\begin{cases}${lin(-1, m)} & (x\\ge0)\\\\ ${lin(1, n)} & (x\\lt 0)\\end{cases}`)}에 대하여 ${T(`(f\\circ f)(${k})`)}의 값은?`, f(f(k)), 1, `f(${k})=${f(k)}`); } },
+      { sc:['f2c'], src:'합성함수의 성질 · 107쪽 유형', g(){ const a = NZ(-3, 3), b = R(-5, 5), c = NZ(-3, 3), d = R(-5, 5), k = R(-3, 3), v = a * (c * k + d) + b - (c * (a * k + b) + d); if (!v) return null;
+        return ok(`${T(`f(x)=${lin(a, b)}`)}, ${T(`g(x)=${lin(c, d)}`)}일 때 ${T(`(f\\circ g)(${k})-(g\\circ f)(${k})`)}의 값은?`, v, 1, `(f∘g)(${k})=${a * (c * k + d) + b}, (g∘f)(${k})=${c * (a * k + b) + d} — 교환법칙이 성립하지 않아요`); } }
     ],
     m:[
-      { src:'중단원 06 · 114쪽 유형', g(){ const p = NZ(-3, 3), q = R(-5, 5), a = NZ(-4, 4), b = R(-5, 5), k = R(-3, 3);
+      { sc:['f2b'], src:'중단원 06 · 114쪽 유형', g(){ const p = NZ(-3, 3), q = R(-5, 5), a = NZ(-4, 4), b = R(-5, 5), k = R(-3, 3);
         return ok(`${T(`g(x)=${lin(p, q)}`)}, ${T(`h(x)=${lin(p * a, p * b + q)}`)}일 때, ${T('g\\circ f=h')}를 만족시키는 일차함수 ${T('f')}에 대하여 ${T(`f(${k})`)}의 값은?`, a * k + b, 1, `f(x)=${lin(a, b)}`); } },
-      { src:'대단원 03 · 130쪽 유형', g(){ let a = R(-4, 5), c = P([-6, -4, -2, 2, 4, 6]); if (a === 1 || a === 0) return null; const b = c * (1 - a) / 2;
+      { sc:['f2c'], src:'대단원 03 · 130쪽 유형', g(){ let a = R(-4, 5), c = P([-6, -4, -2, 2, 4, 6]); if (a === 1 || a === 0) return null; const b = c * (1 - a) / 2;
         return ok(`${T(`f(x)=ax${b > 0 ? '+' : ''}${b}`)}, ${T(`g(x)=${lin(-1, c)}`)}가 ${T('f\\circ g=g\\circ f')}를 만족시킬 때 실수 ${T('a')}의 값은?`, a, 1, `ac+b = c−b → ${c}a${b >= 0 ? '+' : ''}${b} = ${c - b}`); } },
-      { src:'익힘책 05 · 140쪽 유형 (세 번 합성)', g(){ const m = R(1, 4), n = R(1, 4), k = R(1, 7), f = x => x >= 0 ? -x + m : x + n;
+      { sc:['f2a'], src:'익힘책 05 · 140쪽 유형 (세 번 합성)', g(){ const m = R(1, 4), n = R(1, 4), k = R(1, 7), f = x => x >= 0 ? -x + m : x + n;
         return ok(`${T(`f(x)=\\begin{cases}${lin(-1, m)} & (x\\ge0)\\\\ ${lin(1, n)} & (x\\lt 0)\\end{cases}`)}에 대하여 ${T(`(f\\circ f\\circ f)(${k})`)}의 값은?`, f(f(f(k))), 1, `${k} → ${f(k)} → ${f(f(k))} → ${f(f(f(k)))}`); } }
     ],
     s:[
-      { src:'익힘책 07 · 140쪽 유형', g(){ const m = P([5, 7]), k = R(2, m - 1), n = R(2, 4), f = x => (x * x) % m || m; let v = k; const seq = [k];
+      { sc:['f2a'], src:'익힘책 07 · 140쪽 유형', g(){ const m = P([5, 7]), k = R(2, m - 1), n = R(2, 4), f = x => (x * x) % m || m; let v = k; const seq = [k];
         for (let i = 0; i < n + 1; i++){ v = f(v); seq.push(v); }
         return ok(`${T(`X=\\{1,2,\\cdots,${m}\\}`)}, ${T(`f:X\\to X`)}, ${T('f(x)')}는 ${T('x^2')}을 ${m}으로 나눈 나머지 (나머지가 0이면 ${m}). ${T(`f^{${n}}(${k})+f^{${n + 1}}(${k})`)}의 값은? (${T('f^1=f,\\ f^{n+1}=f\\circ f^n')})`, seq[n] + seq[n + 1], 1, seq.join(' → ')); } },
-      { src:'익힘책 06 · 140쪽 유형', g(){ const a = NZ(-5, 5), p = NZ(-4, 4), q = R(-6, 6);
+      { sc:['f2c'], src:'익힘책 06 · 140쪽 유형', g(){ const a = NZ(-5, 5), p = NZ(-4, 4), q = R(-6, 6);
         return ok(`${T('f(x)=x+a')}, ${T(`(h\\circ g)(x)=${lin(p, q)}`)}, ${T(`(h\\circ(g\\circ f))(x)=bx${p * a + q ? (p * a + q > 0 ? '+' : '') + (p * a + q) : ''}`)}일 때 ${T('a+b')}의 값은?`, a + p, 1, `h∘g∘f = ${p}(x+a)${q >= 0 ? '+' : ''}${q} → a=${a}, b=${p}`); } },
-      { src:'대단원 · 합성함수의 식 유형', g(){ const a = P([2, 3, -2, -3]), b = NZ(-4, 4), k = R(-3, 4);
+      { sc:['f2b'], src:'대단원 · 합성함수의 식 유형', g(){ const a = P([2, 3, -2, -3]), b = NZ(-4, 4), k = R(-3, 4);
         return ok(`일차함수 ${T('f(x)=ax+b')}가 ${T(`(f\\circ f)(x)=${lin(a * a, (a + 1) * b)}`)}를 만족시키고 ${T(`a${a > 0 ? '>' : '<'}0`)}일 때, ${T(`f(${k})`)}의 값은?`, a * k + b, 1, `a²=${a * a}, (a+1)b=${(a + 1) * b} → f(x)=${lin(a, b)}`); } }
     ]
   },
   /* ------------------------------ 3차시 역함수 ------------------------------ */
   f3:{
     h:[
-      { src:'중단원 08 · 114쪽 유형', g(){ const a = NZ(-5, 5), b = R(-8, 8), t = R(-5, 5);
+      { sc:['f3a'], src:'중단원 08 · 114쪽 유형', g(){ const a = NZ(-5, 5), b = R(-8, 8), t = R(-5, 5);
         return ok(`${T(`f(x)=${lin(a, b)}`)}일 때 ${T(`f^{-1}(${a * t + b})`)}의 값은?`, t, 1, `f(${t})=${a * t + b}`); } },
-      { src:'중단원 04 · 113쪽 유형', g(){ const a = P([2, 3, 4, 5, -2, -3]), b = R(-6, 6);
+      { sc:['f3b'], src:'중단원 04 · 113쪽 유형', g(){ const a = P([2, 3, 4, 5, -2, -3]), b = R(-6, 6);
         return ok(`${T(`y=${lin(a, b)}`)}의 역함수를 ${T('y=cx+d')}라 할 때, ${T('c+d')}의 값은? (분수는 1/3 처럼)`, 1 - b, a, `x=${lin(a, b, 'y')} → y=${FR(1, a)}x${-b / a >= 0 ? '+' : ''}${FR(-b, a)}`); } },
-      { src:'대단원 04 · 130쪽 유형', g(){ const a = NZ(-4, 4), b = R(-6, 6), r = R(-4, 4);
-        return ok(`일차함수 ${T('f')}에 대하여 ${T(`f(1)=${a + b}`)}, ${T(`f(2)=${2 * a + b}`)}일 때 ${T(`f^{-1}(${a * r + b})`)}의 값은?`, r, 1, `f(x)=${lin(a, b)}`); } }
+      { sc:['f3a'], src:'대단원 04 · 130쪽 유형', g(){ const a = NZ(-4, 4), b = R(-6, 6), r = R(-4, 4);
+        return ok(`일차함수 ${T('f')}에 대하여 ${T(`f(1)=${a + b}`)}, ${T(`f(2)=${2 * a + b}`)}일 때 ${T(`f^{-1}(${a * r + b})`)}의 값은?`, r, 1, `f(x)=${lin(a, b)}`); } },
+      { sc:['f3c'], src:'역함수의 그래프 · 112쪽 유형', g(){ const a = NZ(-4, 4), b = R(-6, 6), t = R(-4, 4), k = a * t + b;
+        return ok(`${T(`f(x)=${lin(a, b)}`)}일 때, ${T('y=f^{-1}(x)')}의 그래프가 점 ${T(`(${k},t)`)}를 지난다. ${T('t')}의 값은?`, t, 1, `f(t)=${k}`); } }
     ],
     m:[
-      { src:'중단원 09 · 114쪽 유형', g(){ const p = NZ(-4, 4), q = R(-6, 6), r = NZ(-4, 4), k = R(-3, 4), a = R(-4, 4), s = p * k + q - r * a;
+      { sc:['f3c'], src:'중단원 09 · 114쪽 유형', g(){ const p = NZ(-4, 4), q = R(-6, 6), r = NZ(-4, 4), k = R(-3, 4), a = R(-4, 4), s = p * k + q - r * a;
         return ok(`${T(`f(x)=${lin(p, q)}`)}, ${T(`g(x)=${lin(r, s)}`)}에 대하여 ${T(`(f^{-1}\\circ g)(a)=${k}`)}를 만족시키는 ${T('a')}의 값은?`, a, 1, `g(a)=f(${k})=${p * k + q}`); } },
-      { src:'중단원 08 · 114쪽 유형', g(){ const a = NZ(-4, 4), b = R(-6, 6), m = R(-3, 3), w = R(-3, 4); if (m === w) return null;
+      { sc:['f3a'], src:'중단원 08 · 114쪽 유형', g(){ const a = NZ(-4, 4), b = R(-6, 6), m = R(-3, 3), w = R(-3, 4); if (m === w) return null;
         return ok(`${T('f(x)=ax+b')}가 ${T(`f(${m})=${a * m + b}`)}, ${T(`f^{-1}(${a * w + b})=${w}`)}를 만족시킬 때 ${T('a+b')}의 값은?`, a + b, 1, `a=${a}, b=${b}`); } },
-      { src:'대단원 14 · 131쪽 유형', g(){ const a = NZ(-3, 3), c = R(-5, 5), d = R(-4, 4), u = R(-3, 3), t = a * u + c; if (d === 1) return null;
-        return ok(`${T(`f(x)=ax${c ? (c > 0 ? '+' : '') + c : ''}`)}, ${T(`g(x)=${lin(-1, d)}`)}가 ${T(`(f\\circ g)(1)=${a * (d - 1) + c}`)}을 만족시킬 때 ${T(`(g\\circ f^{-1})(${t})`)}의 값은?`, -u + d, 1, `a=${a}, f^{-1}(${t})=${u}`); } }
+      { sc:['f3c'], src:'대단원 14 · 131쪽 유형', g(){ const a = NZ(-3, 3), c = R(-5, 5), d = R(-4, 4), u = R(-3, 3), t = a * u + c; if (d === 1) return null;
+        return ok(`${T(`f(x)=ax${c ? (c > 0 ? '+' : '') + c : ''}`)}, ${T(`g(x)=${lin(-1, d)}`)}가 ${T(`(f\\circ g)(1)=${a * (d - 1) + c}`)}을 만족시킬 때 ${T(`(g\\circ f^{-1})(${t})`)}의 값은?`, -u + d, 1, `a=${a}, f^{-1}(${t})=${u}`); } },
+      { sc:['f3b'], src:'역함수 구하기 · 111쪽 유형', g(){ const p = P([1, -1, 2, -2, 3, -3]), q = R(-6, 6), t = R(-4, 4), k = p * t + q;
+        return ok(`함수 ${T('f')}의 역함수가 ${T(`g(x)=${lin(p, q)}`)}일 때 ${T(`f(${k})`)}의 값은?`, t, 1, `f(${k})=a ⇔ g(a)=${k}`); } }
     ],
     s:[
-      { src:'중단원 12 · 114쪽 유형', g(){ const b = NZ(-6, 6), k = R(-4, 5);
+      { sc:['f3b'], src:'중단원 12 · 114쪽 유형', g(){ const b = NZ(-6, 6), k = R(-4, 5);
         return ok(`${T(`f(x)=ax${b > 0 ? '+' : ''}${b}`)}에 대하여 ${T('f=f^{-1}')}이 성립할 때 ${T(`f(${k})`)}의 값은? (단, ${T('a')}는 실수)`, -k + b, 1, `f=f⁻¹ 이고 b≠0 → a=−1`); } },
-      { src:'익힘책 08 · 141쪽 유형', g(){ const p = NZ(-3, 3), q = R(-4, 4), r = NZ(-3, 3), s = R(-4, 4), k = R(-2, 3), f = x => p * x + q, g = x => r * x + s;
+      { sc:['f3c'], src:'익힘책 08 · 141쪽 유형', g(){ const p = NZ(-3, 3), q = R(-4, 4), r = NZ(-3, 3), s = R(-4, 4), k = R(-2, 3), f = x => p * x + q, g = x => r * x + s;
         return ok(`${T(`f(x)=${lin(p, q)}`)}, ${T(`g(x)=${lin(r, s)}`)}에 대하여 함수 ${T('h')}가 ${T('(g\\circ f)^{-1}\\circ h=f')}를 만족시킬 때 ${T(`h(${k})`)}의 값은?`, g(f(f(k))), 1, `h = g∘f∘f`); } },
-      { src:'중단원 11 · 114쪽 유형', g(){ const a = P([1, 2, 3]), m = R(-3, 0), n = m + R(1, 3), u = R(-4, 2), b = u - a * m, w = a * n + b;
+      { sc:['f3a'], src:'중단원 11 · 114쪽 유형', g(){ const a = P([1, 2, 3]), m = R(-3, 0), n = m + R(1, 3), u = R(-4, 2), b = u - a * m, w = a * n + b;
         return ok(`${T(`X=\\{x\\mid ${m}\\le x\\le ${n}\\}`)}, ${T(`Y=\\{y\\mid ${u}\\le y\\le ${w}\\}`)}에 대하여 ${T('f:X\\to Y')}, ${T('f(x)=ax+b')}가 일대일대응이고 ${T('a>0')}일 때 ${T('ab')}의 값은?`, a * b, 1, `f(${m})=${u}, f(${n})=${w}`); } }
     ]
   },
   /* ------------------------------ 유리식과 유리함수 ------------------------------ */
   r1:{
     h:[
-      { src:'문제 02 · 118쪽 유형 (정의역)', g(){ const c = P([2, 3, 4, 5]), d = NZ(-7, 7), p = NZ(-3, 3), q = R(-5, 5); if (d % c === 0) return null;
+      { sc:['r1b'], src:'문제 02 · 118쪽 유형 (정의역)', g(){ const c = P([2, 3, 4, 5]), d = NZ(-7, 7), p = NZ(-3, 3), q = R(-5, 5); if (d % c === 0) return null;
         return ok(`유리함수 ${T(`y=\\dfrac{${lin(p, q)}}{${lin(c, -d)}}`)}의 정의역은 ${T('\\{x\\mid x\\ne a\\}')}이다. ${T('a')}의 값은? (분수는 1/3 처럼)`, d, c, `분모 ${lin(c, -d)}=0`); } },
-      { src:'탐구 · 119쪽 유형', g(){ const p = NZ(-4, 4), q = NZ(-4, 4), k = p * q, ds = []; for (let r = -12; r <= 12; r++) if (r && k % r === 0 && r !== p) ds.push(r); const r = P(ds);
+      { sc:['r1c'], src:'탐구 · 119쪽 유형', g(){ const p = NZ(-4, 4), q = NZ(-4, 4), k = p * q, ds = []; for (let r = -12; r <= 12; r++) if (r && k % r === 0 && r !== p) ds.push(r); const r = P(ds);
         return ok(`유리함수 ${T('y=\\dfrac{k}{x}')}의 그래프가 점 ${T(`(${p},${q})`)}을 지날 때, ${T(`x=${r}`)}일 때의 ${T('y')}의 값은?`, k / r, 1, `k=${k}`); } },
-      { src:'중단원 01 · 127쪽 유형', g(){ const k = P([2, 3, 4, 5, -2, -3, -4]);
+      { sc:['r1a'], src:'중단원 01 · 127쪽 유형', g(){ const k = P([2, 3, 4, 5, -2, -3, -4]);
         return ok(`${T(`x=${k}`)}일 때 ${T('\\dfrac{1}{x}-\\dfrac{2}{x(x+1)}')}의 값은? (분수는 1/3 처럼)`, k - 1, k * (k + 1), `= (x−1)/(x(x+1))`); } }
     ],
     m:[
-      { src:'대단원 07 · 130쪽 유형', g(){ const p = R(-3, 3), r = R(-4, 4); if (p === r) return null; const k = P([1, 2, 3, 4, -6]); if (k + p === 0 || k + r === 0) return null;
+      { sc:['r1a'], src:'대단원 07 · 130쪽 유형', g(){ const p = R(-3, 3), r = R(-4, 4); if (p === r) return null; const k = P([1, 2, 3, 4, -6]); if (k + p === 0 || k + r === 0) return null;
         return ok(`${T(`x=${k}`)}일 때 ${T(`\\dfrac{2}{${xm(-p)}}+\\dfrac{1}{${xm(-r)}}-\\dfrac{${lin(2, p + r)}}{${poly([1, p + r, p * r])}}`)}의 값은? (분수는 1/3 처럼)`, 1, k + p, `식을 정리하면 1/(${xm(-p)})`); } },
-      { src:'중단원 01 · 127쪽 유형 (곱셈)', g(){ const m = P([2, 3, 4]), a = P([1, 2, 3]), b = P([2, 3, 4, -2]), k = P([5, 6, 7, -2]); if (k === b || k === a || k === 0 || b === a) return null;
+      { sc:['r1a'], src:'중단원 01 · 127쪽 유형 (곱셈)', g(){ const m = P([2, 3, 4]), a = P([1, 2, 3]), b = P([2, 3, 4, -2]), k = P([5, 6, 7, -2]); if (k === b || k === a || k === 0 || b === a) return null;
         return ok(`${T(`x=${k}`)}일 때 ${T(`\\dfrac{${lin(m, m)}}{${poly([1, -a, 0])}}\\times\\dfrac{${xm(a)}}{${poly([1, 1 - b, -b])}}`)}의 값은? (분수는 1/3 처럼)`, m, k * (k - b), `정리하면 ${m}/(x(${xm(b)}))`); } },
-      { src:'부분분수 · 유리식 유형', g(){ const p = R(-3, 3), q = R(-3, 3); if (p === q) return null; const A = NZ(-4, 4), B = NZ(-4, 4), c = A + B, d = -(A * q + B * p);
-        return ok(`${T(`\\dfrac{${lin(c, d)}}{(${xm(p)})(${xm(q)})}=\\dfrac{A}{${xm(p)}}+\\dfrac{B}{${xm(q)}}`)}이 ${T('x')}에 대한 항등식일 때 ${T('AB')}의 값은?`, A * B, 1, `A=${A}, B=${B}`); } }
+      { sc:['r1a'], src:'부분분수 · 유리식 유형', g(){ const p = R(-3, 3), q = R(-3, 3); if (p === q) return null; const A = NZ(-4, 4), B = NZ(-4, 4), c = A + B, d = -(A * q + B * p);
+        return ok(`${T(`\\dfrac{${lin(c, d)}}{(${xm(p)})(${xm(q)})}=\\dfrac{A}{${xm(p)}}+\\dfrac{B}{${xm(q)}}`)}이 ${T('x')}에 대한 항등식일 때 ${T('AB')}의 값은?`, A * B, 1, `A=${A}, B=${B}`); } },
+      { sc:['r1b'], src:'유리함수와 정의역 · 119쪽 유형', g(){ const a = NZ(-5, 5), b = NZ(-5, 5), q = R(-6, 6); if (a === b || -q === a || -q === b) return null;
+        return ok(`유리함수 ${T(`y=\\dfrac{${lin(1, q)}}{${poly([1, -(a + b), a * b])}}`)}의 정의역이 ${T('\\{x\\mid x\\ne\\alpha,\\ x\\ne\\beta\\}')}일 때 ${T('\\alpha\\beta')}의 값은?`, a * b, 1, `분모 = (x−(${a}))(x−(${b}))`); } },
+      { sc:['r1c'], src:'y=k/x의 그래프 · 격자점 유형', g(){ const p = R(1, 6), q = R(1, 6), k = p * q;
+        return ok(`${T('y=\\dfrac{k}{x}')}의 그래프가 점 ${T(`(${p},${q})`)}을 지날 때, 그래프 위의 점 중 ${T('x')}좌표와 ${T('y')}좌표가 모두 자연수인 점의 개수는?`, ndiv(k), 1, `k=${k}의 약수의 개수`); } }
     ],
     s:[
-      { src:'유리식의 값 · 부분분수의 합', g(){ const n = R(5, 30);
+      { sc:['r1a'], src:'유리식의 값 · 부분분수의 합', g(){ const n = R(5, 30);
         return P([0, 1]) ? ok(`${T(`\\dfrac{1}{1\\cdot2}+\\dfrac{1}{2\\cdot3}+\\cdots+\\dfrac{1}{${n}\\cdot${n + 1}}`)}의 값은? (분수는 1/3 처럼)`, n, n + 1, `1 − 1/${n + 1}`)
           : ok(`${T(`\\dfrac{1}{1\\cdot3}+\\dfrac{1}{3\\cdot5}+\\cdots+\\dfrac{1}{${2 * n - 1}\\cdot${2 * n + 1}}`)}의 값은? (분수는 1/3 처럼)`, n, 2 * n + 1, `½(1 − 1/${2 * n + 1})`); } },
-      { src:'유리식의 값 (비례식)', g(){ const p = R(1, 6), q = R(1, 7); if (p === q) return null;
+      { sc:['r1a'], src:'유리식의 값 (비례식)', g(){ const p = R(1, 6), q = R(1, 7); if (p === q) return null;
         return ok(`${T(`x:y=${p}:${q}`)} (${T('xy\\ne0')})일 때 ${T('\\dfrac{x^2+y^2}{xy}')}의 값은? (분수는 1/3 처럼)`, p * p + q * q, p * q, `x=${p}k, y=${q}k`); } },
-      { src:'번분수 유형', g(){ const k = P([2, 3, 4, 5, 6, -2, -3, 7]);
-        return ok(`${T(`x=${k}`)}일 때 ${T('\\cfrac{1}{1-\\cfrac{1}{1-\\cfrac{1}{x}}}')}의 값은?`, 1 - k, 1, '정리하면 1 − x'); } }
+      { sc:['r1a'], src:'번분수 유형', g(){ const k = P([2, 3, 4, 5, 6, -2, -3, 7]);
+        return ok(`${T(`x=${k}`)}일 때 ${T('\\cfrac{1}{1-\\cfrac{1}{1-\\cfrac{1}{x}}}')}의 값은?`, 1 - k, 1, '정리하면 1 − x'); } },
+      { sc:['r1b'], src:'유리함수와 정의역 · 판별식 유형', g(){ const c = R(2, 12); let n = 0; for (let k = -20; k <= 20; k++) if (k * k < 4 * c) n++;
+        return ok(`유리함수 ${T(`y=\\dfrac{x+1}{x^2+kx+${c}}`)}의 정의역이 실수 전체의 집합이 되도록 하는 정수 ${T('k')}의 개수는?`, n, 1, `분모가 0이 되지 않으려면 k²−${4 * c}<0`); } },
+      { sc:['r1c'], src:'y=k/x의 그래프 · 최솟값 유형', g(){ const m = P([4, 6, 8, 10, 12]), k = m * m / 4;
+        return ok(`${T('y=\\dfrac{k}{x}\\ (x>0,\\ k>0)')}의 그래프 위의 점 ${T('(x,y)')}에 대하여 ${T('x+y')}의 최솟값이 ${m}일 때 ${T('k')}의 값은?`, k, 1, `x+k/x ≥ 2√k = ${m}`); } }
     ]
   },
   /* ------------------------------ 유리함수의 그래프 활용 ------------------------------ */
   r2:{
     h:[
-      { src:'중단원 02 · 127쪽 유형 (점근선)', g(){ const a = NZ(-4, 4), c = NZ(-5, 5), b = R(-6, 6); if (b === a * c) return null;
+      { sc:['r2b'], src:'중단원 02 · 127쪽 유형 (점근선)', g(){ const a = NZ(-4, 4), c = NZ(-5, 5), b = R(-6, 6); if (b === a * c) return null;
         return ok(`유리함수 ${T(`y=\\dfrac{${lin(a, b)}}{${xm(-c)}}`)}의 그래프의 점근선이 ${T('x=p,\\ y=q')}일 때 ${T('p+q')}의 값은?`, -c + a, 1, `x=${-c}, y=${a}`); } },
-      { src:'중단원 02 · 127쪽 유형 (지나는 점)', g(){ const p = R(-3, 3), q = R(-3, 3), m = p + NZ(-3, 3), n = q + NZ(-4, 4);
+      { sc:['r2a'], src:'중단원 02 · 127쪽 유형 (지나는 점)', g(){ const p = R(-3, 3), q = R(-3, 3), m = p + NZ(-3, 3), n = q + NZ(-4, 4);
         return ok(`유리함수 ${T(`y=\\dfrac{k}{${xm(p)}}${q ? (q > 0 ? '+' : '') + q : ''}`)}의 그래프가 점 ${T(`(${m},${n})`)}을 지날 때 ${T('k')}의 값은?`, (n - q) * (m - p), 1, `${n}−(${q}) = k/(${m}−(${p}))`); } },
-      { src:'익힘책 09 · 141쪽 유형 (병렬 저항)', g(){ const [Rr, k] = P([[4, 12], [6, 3], [3, 6], [12, 4], [10, 15], [20, 5], [6, 12], [12, 6], [8, 8], [5, 20], [15, 10], [9, 18]]);
+      { sc:['r2c'], src:'익힘책 09 · 141쪽 유형 (병렬 저항)', g(){ const [Rr, k] = P([[4, 12], [6, 3], [3, 6], [12, 4], [10, 15], [20, 5], [6, 12], [12, 6], [8, 8], [5, 20], [15, 10], [9, 18]]);
         return ok(`두 저항 ${T(`${Rr}\\,\\Omega`)}, ${T('x\\,\\Omega')}를 병렬로 연결한 합성 저항은 ${T(`f(x)=\\dfrac{${Rr}x}{x+${Rr}}`)}이다. ${T(`f(${k})`)}의 값은?`, Rr * k, k + Rr, `${Rr * k}/${k + Rr}`); } }
     ],
     m:[
-      { src:'중단원 05 · 128쪽 유형 (평행이동)', g(){ const k = NZ(-4, 4), p = R(-2, 2), q = R(-3, 3), a = NZ(-4, 4), b = NZ(-4, 4);
+      { sc:['r2a'], src:'중단원 05 · 128쪽 유형 (평행이동)', g(){ const k = NZ(-4, 4), p = R(-2, 2), q = R(-3, 3), a = NZ(-4, 4), b = NZ(-4, 4);
         return ok(`${T(`y=\\dfrac{${lin(q, k - p * q)}}{${xm(p)}}`)}의 그래프를 ${T('x')}축 방향으로 ${T('a')}만큼, ${T('y')}축 방향으로 ${T('b')}만큼 평행이동하면 ${T(`y=\\dfrac{${lin(q + b, k - (p + a) * (q + b))}}{${xm(p + a)}}`)}의 그래프와 일치한다. ${T('a+b')}의 값은?`, a + b, 1, `a=${a}, b=${b}`); } },
-      { src:'중단원 06 · 128쪽 유형', g(){ const s = NZ(-4, 4), t = NZ(-4, 4), m = s + NZ(-3, 3), n = t + NZ(-3, 3), a = -s, b = t, c = n * (m + a) - b * m; if (m === 0 && n === 0) return null;
+      { sc:['r2b'], src:'중단원 06 · 128쪽 유형', g(){ const s = NZ(-4, 4), t = NZ(-4, 4), m = s + NZ(-3, 3), n = t + NZ(-3, 3), a = -s, b = t, c = n * (m + a) - b * m; if (m === 0 && n === 0) return null;
         return ok(`${T('y=\\dfrac{bx+c}{x+a}')}의 그래프가 점 ${T(`(${m},${n})`)}을 지나고 점근선이 ${T(`x=${s},\\ y=${t}`)}일 때 ${T('a+b+c')}의 값은?`, a + b + c, 1, `a=${a}, b=${b}, c=${c}`); } },
-      { src:'중단원 07 · 128쪽 유형 (격자점)', g(){ const N = P([9, 15, 18, 21, 25, 27, 30, 36, 42, 45, 54, 63, 75, 90, 105]); let c = 0; for (let d = 1; d <= N; d += 2) if (N % d === 0) c++;
+      { sc:['r2c'], src:'중단원 07 · 128쪽 유형 (격자점)', g(){ const N = P([9, 15, 18, 21, 25, 27, 30, 36, 42, 45, 54, 63, 75, 90, 105]); let c = 0; for (let d = 1; d <= N; d += 2) if (N % d === 0) c++;
         return ok(`${T(`y=\\dfrac{${N}}{2x-1}`)}의 그래프 위의 점 중에서 ${T('x')}좌표, ${T('y')}좌표가 모두 자연수인 점의 개수는?`, c, 1, `2x−1 은 ${N}의 홀수 약수`); } }
     ],
     s:[
-      { src:'대단원 08 · 131쪽 유형 (점대칭)', g(){ const p = NZ(-3, 3), q = NZ(-3, 3), m = p + NZ(-3, 3), v = R(-6, 6), b = v * (m - p) - q * m; if (q * (-p) === b) return null;
+      { sc:['r2b'], src:'대단원 08 · 131쪽 유형 (점대칭)', g(){ const p = NZ(-3, 3), q = NZ(-3, 3), m = p + NZ(-3, 3), v = R(-6, 6), b = v * (m - p) - q * m; if (q * (-p) === b) return null;
         return ok(`${T('f(x)=\\dfrac{ax+b}{x+c}')}의 그래프가 점 ${T(`(${p},${q})`)}에 대하여 대칭이고 ${T(`f(${m})=${v}`)}일 때 ${T('a+b+c')}의 값은?`, q + b - p, 1, `c=${-p}, a=${q}, b=${b}`); } },
-      { src:'중단원 11 · 128쪽 유형 (최솟값)', g(){ const k = R(1, 5), p = R(0, 4), q = R(0, 4);
+      { sc:['r2c'], src:'중단원 11 · 128쪽 유형 (최솟값)', g(){ const k = R(1, 5), p = R(0, 4), q = R(0, 4);
         return ok(`${T(`y=\\dfrac{${k * k}}{${xm(p)}}${q ? '+' + q : ''}\\ (x>${p})`)}의 그래프 위의 점 P에서 ${T('x')}축, ${T('y')}축에 내린 수선의 발을 Q, R라 할 때 ${T('\\overline{PQ}+\\overline{PR}')}의 최솟값은?`, 2 * k + p + q, 1, `(x−${p}) + ${k * k}/(x−${p}) ≥ ${2 * k}`); } },
-      { src:'익힘책 11 · 141쪽 유형 (넓이)', g(){ const m = R(1, 4), n = R(-6, -1), k = m + R(1, 5), A = (k - m) * (k - n);
+      { sc:['r2b'], src:'익힘책 11 · 141쪽 유형 (넓이)', g(){ const m = R(1, 4), n = R(-6, -1), k = m + R(1, 5), A = (k - m) * (k - n);
         if (n * k === -6) return null; const sol = []; for (let t = 1; t <= 60; t++) if (t !== m && Math.abs(t - m) * Math.abs(t - n) === A) sol.push(t); if (sol.length !== 1) return null;
-        return ok(`두 유리함수 ${T(`y=\\dfrac{kx+1}{${xm(m)}}`)}, ${T(`y=\\dfrac{${lin(n, 6)}}{x-k}`)}의 그래프의 점근선으로 둘러싸인 부분의 넓이가 ${A}일 때, 양수 ${T('k')}의 값은? (단, ${T(`k\\ne${m}`)})`, k, 1, `가로 |k−${m}|, 세로 |k−(${n})|`); } }
+        return ok(`두 유리함수 ${T(`y=\\dfrac{kx+1}{${xm(m)}}`)}, ${T(`y=\\dfrac{${lin(n, 6)}}{x-k}`)}의 그래프의 점근선으로 둘러싸인 부분의 넓이가 ${A}일 때, 양수 ${T('k')}의 값은? (단, ${T(`k\\ne${m}`)})`, k, 1, `가로 |k−${m}|, 세로 |k−(${n})|`); } },
+      { sc:['r2a'], src:'평행이동 · 지나는 점 유형', g(){ const p = R(-3, 3), q = R(-3, 3), m = NZ(-3, 3), n = NZ(-3, 3), k = NZ(-6, 6), ds = []; for (let d = -6; d <= 6; d++) if (d && k % d === 0) ds.push(d);
+        const d = P(ds), sx = d - p + m, ty = k / d + q + n;
+        return ok(`${T(`y=\\dfrac{k}{${xm(-p)}}${q ? (q > 0 ? '+' : '') + q : ''}`)}의 그래프를 ${T('x')}축 방향으로 ${m}만큼, ${T('y')}축 방향으로 ${n}만큼 평행이동한 그래프가 점 ${T(`(${sx},${ty})`)}을 지날 때 ${T('k')}의 값은?`, k, 1, `이동한 식 y=k/(x${-p + m >= 0 ? '−' : '+'}${Math.abs(-p + m)})${q + n >= 0 ? '+' : ''}${q + n}`); } }
     ]
   },
   /* ------------------------------ 무리함수 ------------------------------ */
   r3:{
     h:[
-      { src:'중단원 03 · 127쪽 유형', g(){ const a = R(1, 9), b = R(1, 9);
+      { sc:['r3a'], src:'중단원 03 · 127쪽 유형', g(){ const a = R(1, 9), b = R(1, 9);
         return ok(`${T(`(\\sqrt{x+${a}}-\\sqrt{x-${b}})(\\sqrt{x+${a}}+\\sqrt{x-${b}})`)}를 간단히 하면?`, a + b, 1, `(x+${a})−(x−${b})`); } },
-      { src:'중단원 04 · 127쪽 유형 (정의역 · 치역)', g(){ const p = NZ(-5, 5), q = NZ(-5, 5);
+      { sc:['r3c'], src:'중단원 04 · 127쪽 유형 (정의역 · 치역)', g(){ const p = NZ(-5, 5), q = NZ(-5, 5);
         return ok(`무리함수 ${T(`y=-\\sqrt{${xm(p)}}${q > 0 ? '+' : ''}${q}`)}의 정의역이 ${T('\\{x\\mid x\\ge a\\}')}, 치역이 ${T('\\{y\\mid y\\le b\\}')}일 때 ${T('a+b')}의 값은?`, p + q, 1, `a=${p}, b=${q}`); } },
-      { src:'문제 · 함숫값 유형', g(){ const a = P([1, 2, 3, 4, 5]), u = R(1, 6), k = R(-2, 6), b = u * u - a * k, c = R(-5, 5);
-        return ok(`${T(`f(x)=\\sqrt{${lin(a, b)}}${c ? (c > 0 ? '+' : '') + c : ''}`)}일 때 ${T(`f(${k})`)}의 값은?`, u + c, 1, `√${u * u} ${c >= 0 ? '+' : ''}${c}`); } }
+      { sc:['r3c'], src:'문제 · 함숫값 유형', g(){ const a = P([1, 2, 3, 4, 5]), u = R(1, 6), k = R(-2, 6), b = u * u - a * k, c = R(-5, 5);
+        return ok(`${T(`f(x)=\\sqrt{${lin(a, b)}}${c ? (c > 0 ? '+' : '') + c : ''}`)}일 때 ${T(`f(${k})`)}의 값은?`, u + c, 1, `√${u * u} ${c >= 0 ? '+' : ''}${c}`); } },
+      { sc:['r3b'], src:'y=√(ax)의 그래프 · 124쪽 유형', g(){ const q = R(1, 6), ds = []; for (let d = -12; d <= 12; d++) if (d && (q * q) % d === 0) ds.push(d); const p = P(ds);
+        return ok(`무리함수 ${T('y=\\sqrt{ax}')}의 그래프가 점 ${T(`(${p},${q})`)}를 지날 때 ${T('a')}의 값은?`, q * q / p, 1, `${q}²=a×(${p})`); } }
     ],
     m:[
-      { src:'대단원 09 · 131쪽 유형 (최대 · 최소)', g(){ const p = P([1, 2, 3, 5]), u = R(1, 3), v = u + R(1, 3), D = v * v - u * u; if (D % p) return null; const L = D / p, m = R(-6, -1), n = m + L, c = R(-3, 2), a = u * u - p * m;
+      { sc:['r3c'], src:'대단원 09 · 131쪽 유형 (최대 · 최소)', g(){ const p = P([1, 2, 3, 5]), u = R(1, 3), v = u + R(1, 3), D = v * v - u * u; if (D % p) return null; const L = D / p, m = R(-6, -1), n = m + L, c = R(-3, 2), a = u * u - p * m;
         return ok(`정의역이 ${T(`\\{x\\mid ${m}\\le x\\le ${n}\\}`)}인 ${T(`y=\\sqrt{${p === 1 ? '' : p}x+a}${c ? (c > 0 ? '+' : '') + c : ''}`)}의 최솟값이 ${u + c}일 때, 최댓값은?`, v + c, 1, `a=${a}, x=${n}에서 √${v * v}`); } },
-      { src:'중단원 08 · 128쪽 유형', g(){ const p = P([1, 2, 3, 4, 6, 8, 9]), q = R(-3, 3), d = P([1, 2, 3, 4, 6]); if ((d * d) % p) return null; const a = -(d * d) / p, b = d * d, r = q + d;
+      { sc:['r3c'], src:'중단원 08 · 128쪽 유형', g(){ const p = P([1, 2, 3, 4, 6, 8, 9]), q = R(-3, 3), d = P([1, 2, 3, 4, 6]); if ((d * d) % p) return null; const a = -(d * d) / p, b = d * d, r = q + d;
         return ok(`무리함수 ${T('y=\\sqrt{ax+b}+c')}의 그래프가 점 ${T(`(${p},${q})`)}에서 시작하여 점 ${T(`(0,${r})`)}를 지날 때 ${T('a+b+c')}의 값은?`, a + b + q, 1, `a=${a}, b=${b}, c=${q}`); } },
-      { src:'대단원 10 · 131쪽 유형 (이동)', g(){ const a = P([2, 3, 4, 5]), b = R(-5, 5), m = NZ(-3, 3), n = NZ(-4, 4);
-        return ok(`${T(`y=-\\sqrt{${lin(a, b)}}`)}의 그래프를 ${T('x')}축 방향으로 ${m}만큼, ${T('y')}축 방향으로 ${n}만큼 평행이동한 후 ${T('x')}축에 대하여 대칭이동하면 ${T('y=\\sqrt{ax+b}+c')}의 그래프와 일치한다. ${T('a+b+c')}의 값은?`, a + (b - a * m) - n, 1, `y=√(${lin(a, b - a * m)}) ${-n >= 0 ? '+' : ''}${-n}`); } }
+      { sc:['r3c'], src:'대단원 10 · 131쪽 유형 (이동)', g(){ const a = P([2, 3, 4, 5]), b = R(-5, 5), m = NZ(-3, 3), n = NZ(-4, 4);
+        return ok(`${T(`y=-\\sqrt{${lin(a, b)}}`)}의 그래프를 ${T('x')}축 방향으로 ${m}만큼, ${T('y')}축 방향으로 ${n}만큼 평행이동한 후 ${T('x')}축에 대하여 대칭이동하면 ${T('y=\\sqrt{ax+b}+c')}의 그래프와 일치한다. ${T('a+b+c')}의 값은?`, a + (b - a * m) - n, 1, `y=√(${lin(a, b - a * m)}) ${-n >= 0 ? '+' : ''}${-n}`); } },
+      { sc:['r3a'], src:'무리식의 값이 실수일 조건 · 123쪽 유형', g(){ const a = R(-5, 2), b = a + R(2, 8);
+        return ok(`${T(`\\sqrt{${xm(a)}}+\\sqrt{${b}-x}`)}의 값이 실수가 되도록 하는 정수 ${T('x')}의 개수는?`, b - a + 1, 1, `${a} ≤ x ≤ ${b}`); } },
+      { sc:['r3b'], src:'y=√(ax)와 역함수 · 125쪽 유형', g(){ const c = P([1, 2, 3, 4, 5]), t = R(1, 4), k = c * t * t;
+        return ok(`함수 ${T(`f(x)=\\dfrac{x^2}{${c}}\\ (x\\ge0)`)}의 역함수를 ${T('g')}라 할 때 ${T(`g(${k})`)}의 값은?`, c * t, 1, `g(x)=√(${c}x)`); } }
     ],
     s:[
-      { src:'중단원 10 · 128쪽 유형 (역함수)', g(){ const a = NZ(-4, 4), q = R(1, 4), u = R(1, 4); if (q === u) return null; const D = q * q - u * u; if (D % a) return null; const pw = D / a, w = R(-3, 3), p = w + pw, b = u * u - a * w;
+      { sc:['r3b','r3c'], src:'중단원 10 · 128쪽 유형 (역함수)', g(){ const a = NZ(-4, 4), q = R(1, 4), u = R(1, 4); if (q === u) return null; const D = q * q - u * u; if (D % a) return null; const pw = D / a, w = R(-3, 3), p = w + pw, b = u * u - a * w;
         return ok(`${T('f(x)=\\sqrt{ax+b}')}와 그 역함수 ${T('g(x)')}에 대하여 ${T(`f(${p})=${q}`)}, ${T(`g(${u})=${w}`)}일 때 ${T('a+b')}의 값은?`, a + b, 1, `${p}a+b=${q * q}, ${w}a+b=${u * u}`); } },
-      { src:'익힘책 13 · 141쪽 유형 (정사각형)', g(){ const k = P([2, 3, 4, 5]);
+      { sc:['r3b'], src:'익힘책 13 · 141쪽 유형 (정사각형)', g(){ const k = P([2, 3, 4, 5]);
         return ok(`${T(`y=${k}\\sqrt x`)} 위의 점 A에서 ${T('x')}축에 평행한 직선을 그어 ${T('y=\\sqrt x')}와 만나는 점을 D, A·D에서 ${T('x')}축에 내린 수선의 발을 B, C라 하자. ABCD가 정사각형일 때 점 A의 ${T('y')}좌표는? (분수는 4/3 처럼)`, k * k, k * k - 1, `A(t, ${k}√t), D(${k * k}t, ${k}√t), ${k * k - 1}t=${k}√t`); } },
-      { src:'대단원 16 · 132쪽 유형', g(){ const p = P([1, 2, 3]), m = R(1, 6), s = m + R(1, 4), t = R(-3, 4), a = p * t - (s - m) * (s - m);
-        return ok(`${T(`f(x)=\\sqrt{${p === 1 ? '' : p}x-a}+b`)}의 최솟값이 ${m}이고 ${T(`f^{-1}(${s})=${t}`)}일 때 ${T('a+b')}의 값은?`, a + m, 1, `b=${m}, √(${p}·${t}−a)=${s - m}`); } }
+      { sc:['r3c'], src:'대단원 16 · 132쪽 유형', g(){ const p = P([1, 2, 3]), m = R(1, 6), s = m + R(1, 4), t = R(-3, 4), a = p * t - (s - m) * (s - m);
+        return ok(`${T(`f(x)=\\sqrt{${p === 1 ? '' : p}x-a}+b`)}의 최솟값이 ${m}이고 ${T(`f^{-1}(${s})=${t}`)}일 때 ${T('a+b')}의 값은?`, a + m, 1, `b=${m}, √(${p}·${t}−a)=${s - m}`); } },
+      { sc:['r3a'], src:'무리식 · 유리화 유형', g(){ const q = P([2, 3, 4, 5]), n = q * q - 1;
+        return ok(`${T(`\\dfrac{1}{\\sqrt2+\\sqrt1}+\\dfrac{1}{\\sqrt3+\\sqrt2}+\\cdots+\\dfrac{1}{\\sqrt{${n + 1}}+\\sqrt{${n}}}`)}의 값은?`, q - 1, 1, `유리화하면 √(k+1)−√k 의 합 = √${n + 1}−1`); } }
     ]
   }
   };
@@ -5160,11 +5224,42 @@ const BB = (() => {
     for (let tries = 0; tries < 400; tries++){
       const tpl = list[Math.floor(Math.random() * list.length)];
       const A = tpl.g(), B = tpl.g();
-      if (!A || !B || A.q === B.q) continue;
+      if (!A || !B) continue;
+      const ka = A.q + (A.opts ? A.opts.join('|') : ''), kb = B.q + (B.opts ? B.opts.join('|') : '');
+      if (ka === kb) continue;
       const same = A.opts ? A.a === B.a && A.opts.join() === B.opts.join() : A.a.n * B.a.d === B.a.n * A.a.d;
       if (same && tries < 300) continue;
-      if (used && (used.has(A.q) || used.has(B.q)) && tries < 300) continue;
-      if (used){ used.add(A.q); used.add(B.q); }
+      if (used && (used.has(ka) || used.has(kb)) && tries < 300) continue;
+      if (used){ used.add(ka); used.add(kb); }
+      return [Object.assign(A, { src:tpl.src, lv }), Object.assign(B, { src:tpl.src, lv })];
+    }
+    return null;
+  }
+  /* 소단원 범위 (출제 범위 고르기) */
+  const LESSONS = [['f1', '3-1 · 1차시 함수의 뜻과 그래프'], ['f2', '3-1 · 2차시 합성함수'], ['f3', '3-1 · 3차시 역함수'],
+    ['r1', '3-2 · 1차시 유리식과 유리함수'], ['r2', '3-2 · 2차시 유리함수 그래프의 이동과 활용'], ['r3', '3-2 · 3차시 무리식과 무리함수']];
+  const SC = [
+    ['f1a', 'f1', '대응과 함수'], ['f1b', 'f1', '정의역 · 공역 · 함숫값 · 치역'], ['f1c', 'f1', '함수의 그래프'], ['f1d', 'f1', '일대일함수 · 일대일대응'], ['f1e', 'f1', '항등함수 · 상수함수 · 서로 같은 함수'],
+    ['f2a', 'f2', '합성함수의 값'], ['f2b', 'f2', '합성함수의 식 구하기'], ['f2c', 'f2', '합성함수의 성질 (교환 · 결합법칙)'],
+    ['f3a', 'f3', '역함수의 뜻과 값'], ['f3b', 'f3', '역함수 구하기'], ['f3c', 'f3', '역함수와 합성 · 그래프'],
+    ['r1a', 'r1', '유리식의 계산'], ['r1b', 'r1', '유리함수와 정의역'], ['r1c', 'r1', 'y = k/x 의 그래프'],
+    ['r2a', 'r2', '평행이동 y = k/(x−p) + q'], ['r2b', 'r2', '표준형 · 점근선 · 대칭'], ['r2c', 'r2', '그래프 활용 (최솟값 · 격자점 · 실생활)'],
+    ['r3a', 'r3', '무리식'], ['r3b', 'r3', 'y = √(ax) 와 역함수'], ['r3c', 'r3', '평행이동 y = √(a(x−p)) + q']
+  ].map(([id, l, n]) => ({ id, l, n }));
+  const ALL = Object.entries(G).flatMap(([l, L]) => ['h', 'm', 's'].flatMap(lv => L[lv].map(t => Object.assign(t, { lv, l }))));
+  const tplsIn = (scopes, lv) => ALL.filter(t => t.lv === lv && (t.sc || []).some(x => scopes.includes(x)));
+  function pairIn(scopes, lv, used){
+    const list = tplsIn(scopes, lv); if (!list.length) return null;
+    for (let tries = 0; tries < 400; tries++){
+      const tpl = list[Math.floor(Math.random() * list.length)];
+      const A = tpl.g(), B = tpl.g();
+      if (!A || !B) continue;
+      const ka = A.q + (A.opts ? A.opts.join('|') : ''), kb = B.q + (B.opts ? B.opts.join('|') : '');
+      if (ka === kb) continue;
+      const same = A.opts ? A.a === B.a && A.opts.join() === B.opts.join() : A.a.n * B.a.d === B.a.n * A.a.d;
+      if (same && tries < 300) continue;
+      if (used && (used.has(ka) || used.has(kb)) && tries < 300) continue;
+      if (used){ used.add(ka); used.add(kb); }
       return [Object.assign(A, { src:tpl.src, lv }), Object.assign(B, { src:tpl.src, lv })];
     }
     return null;
@@ -5177,7 +5272,7 @@ const BB = (() => {
     const v = parseFloat(m[1]) / (m[2] ? parseFloat(m[2]) : 1);
     return isFinite(v) && Math.abs(v - o.a.n / o.a.d) < 1e-9;
   }
-  return { G, pair, check, ansTeX };
+  return { G, pair, pairIn, tplsIn, SC, LESSONS, check, ansTeX };
 })();
 
 ;
@@ -5187,12 +5282,12 @@ const BB = (() => {
    · 1라운드 승자 중 풀이 시간이 더 짧은 모둠 → 결승 직행(부전승)
    · 더 오래 걸린 승자 vs 대기 모둠 → 준결승 → 이긴 팀이 결승
    · 큰 터치 화면을 왼쪽(파랑) · 오른쪽(빨강)으로 나누고, 두 팀 주자가 동시에 문제를 풂
-   · 한 경기 = 하 3 · 중 2 · 상 1 = 6문제. 두 팀은 같은 유형 · 같은 난이도에서 숫자만 다른 문제
+   · 한 경기 문제 수(하 · 중 · 상)와 출제 범위(6개 차시의 소단원)를 골라요. 두 팀은 같은 유형 · 같은 난이도에서 숫자만 다른 문제
    · 맞히면 줄이 우리 쪽으로! (하 1 · 중 2 · 상 3 칸 + 먼저 맞히면 1칸 더)
    · 문제마다 주자가 바뀌는 릴레이 (1번 → 2번 → …)
    · 대진 · 점수는 이 기기에만 저장 (서버에 올리지 않음)
    =================================================================== */
-const BT_LV = ['h', 'h', 'h', 'm', 'm', 's'], BT_LVN = { h:'하', m:'중', s:'상' }, BT_PT = { h:1, m:2, s:3 };
+const BT_LVN = { h:'하', m:'중', s:'상' }, BT_PT = { h:1, m:2, s:3 };
 const BT_M = [
   { id:'q1', r:'1라운드', a:['s', 0], b:['s', 1] },
   { id:'q2', r:'1라운드', a:['s', 2], b:['s', 3] },
@@ -5201,8 +5296,10 @@ const BT_M = [
 ];
 const BT = { st:null, run:null, tick:null, used:new Set() };
 const btKey = () => 'qf_battle_' + LESSON.code;
-function btNew(){ return { v:2, teams:[1, 2, 3, 4, 5].map(i => ({ name:i + '모둠', run:'' })), size:4, time:{ h:60, m:90, s:120 }, order:[0, 1, 2, 3, 4], res:{}, cur:null, fs:true }; }
+function btNew(){ return { v:2, teams:[1, 2, 3, 4, 5].map(i => ({ name:i + '모둠', run:'' })), size:4, time:{ h:60, m:90, s:120 }, order:[0, 1, 2, 3, 4], res:{}, cur:null, fs:true, scope:null, cnt:{ h:3, m:2, s:1 } }; }
 function btLoad(){ try { BT.st = JSON.parse(localStorage.getItem(btKey()) || 'null'); } catch (e) {} if (!BT.st || !BT.st.teams) BT.st = btNew();
+  if (!Array.isArray(BT.st.scope) || !BT.st.scope.length) BT.st.scope = BB.SC.filter(x => x.l === LESSON.code).map(x => x.id);
+  if (!BT.st.cnt) BT.st.cnt = { h:3, m:2, s:1 };
   if (BT.st.v !== 2){ BT.st.v = 2; BT.st.res = {}; BT.st.cur = null; btSave(); } }     // 예전 대진(부전승 고정) 결과는 새 방식과 맞지 않아 비움
 function btSave(){ try { localStorage.setItem(btKey(), JSON.stringify(BT.st)); } catch (e) {} }
 /* 1라운드 두 승자 중 풀이 시간이 짧은 쪽 = fast (결승 직행), 긴 쪽 = slow (준결승) */
@@ -5212,6 +5309,10 @@ function btSplit(){
   const q1fast = ta < tb || (ta === tb && ma >= mb);
   return q1fast ? { fast:a.w, slow:b.w, fq:'q1', ft:ta, st:tb } : { fast:b.w, slow:a.w, fq:'q2', ft:tb, st:ta };
 }
+/* 한 경기의 문제 순서 : 하 → 중 → 상 (고른 개수만큼) */
+const btLevels = cnt => { cnt = cnt || BT.st.cnt; return [...Array(+cnt.h || 0).fill('h'), ...Array(+cnt.m || 0).fill('m'), ...Array(+cnt.s || 0).fill('s')]; };
+const btTopLv = L => L.includes('s') ? 's' : L.includes('m') ? 'm' : 'h';
+const btScopeName = id => (BB.SC.find(x => x.id === id) || {}).n || id;
 const btTeam = ref => { const S = BT.st;
   if (ref[0] === 's') return S.order[ref[1]];
   if (ref[0] === 'w') return S.res[ref[1]] ? S.res[ref[1]].w : null;
@@ -5229,7 +5330,7 @@ function pageBattle(){
   return `<div class="card btcard">
     <h2><span class="chip">팀별 대결</span>⚔️ 수학 줄다리기 — 5모둠 토너먼트</h2>
     <p class="lead">TV(전자칠판)를 <b>왼쪽 파랑 팀 · 오른쪽 빨강 팀</b>으로 나누고, 두 팀 주자가 동시에 문제를 풀어요. 맞히면 줄이 우리 쪽으로 끌려와요!
-      한 경기는 <b>하 3문제 → 중 2문제 → 상 1문제</b>. 두 팀은 이 차시 <b>중단원 · 대단원 · 익힘책</b> 문제와 <b>같은 유형 · 같은 난이도</b>에서 숫자만 다른 문제를 받아요.
+      한 경기는 <b>하 → 중 → 상</b> 순서로, 문제 수와 <b>출제 범위(소단원)</b>를 아래에서 골라요. 두 팀은 <b>중단원 · 대단원 · 익힘책</b> 문제와 <b>같은 유형 · 같은 난이도</b>에서 숫자만 다른 문제를 받아요.
       문제마다 주자가 바뀌는 <b>릴레이</b>예요 (1번 → 2번 → 3번 …).</p>
     <div class="btrules"><span>✅ 정답 : 하 <b>1칸</b> · 중 <b>2칸</b> · 상 <b>3칸</b></span><span>⚡ 먼저 맞히면 <b>+1칸</b></span><span>❌ 틀리면 2초 쉬고 다시</span><span>⏱️ 한쪽이 맞히면 남은 팀은 최대 20초</span><span>🤝 동점이면 상 문제 연장전</span><span>⏱️ 1라운드 승자 중 <b>풀이 시간이 더 짧은 모둠은 결승 직행</b>, 더 오래 걸린 모둠은 대기 모둠과 준결승</span></div>
     <p class="bthow">⏱️ 풀이 시간 = 문제마다 시작부터 우리 팀이 맞힐 때까지 걸린 시간의 합 (못 맞힌 문제는 제한 시간 전체를 더함). 틀려서 쉬는 2초도 시간에 들어가요.</p>
@@ -5259,6 +5360,17 @@ function btSetup(){
         <label class="btchk"><input type="checkbox" id="btFsOpt"${S.fs ? ' checked' : ''}> 경기를 시작하면 전체 화면</label>
       </div>
     </div>
+    <div class="btrange">
+      <div class="btcnt"><b>📝 한 경기 문제 수</b>
+        ${['h', 'm', 's'].map(l => `<label><span class="btlv ${l}">${BT_LVN[l]}</span><select class="inp btn-cnt" data-l="${l}">${[0, 1, 2, 3, 4, 5, 6].map(n => `<option${+S.cnt[l] === n ? ' selected' : ''}>${n}</option>`).join('')}</select>문제</label>`).join('')}
+        <span class="btsum" id="btSum"></span></div>
+      <div class="btscope"><b>📚 출제 범위 (소단원)</b> <small>여러 차시를 함께 골라도 돼요. 고른 범위의 문제만 나와요.</small>
+        <div class="btscbtns"><button type="button" class="fbtn" data-scq="this">이 차시 전체</button><button type="button" class="fbtn" data-scq="f">3-1 함수 전체</button><button type="button" class="fbtn" data-scq="r">3-2 유리·무리함수 전체</button><button type="button" class="fbtn" data-scq="all">모두</button><button type="button" class="fbtn" data-scq="none">모두 해제</button></div>
+        <div class="btscl">${BB.LESSONS.map(([l, n]) => { const ids = BB.SC.filter(x => x.l === l), on = ids.filter(x => S.scope.includes(x.id)).length;
+          return `<details class="btscg"${l === LESSON.code || on ? ' open' : ''}><summary><label onclick="event.stopPropagation()"><input type="checkbox" class="btscall" data-l="${l}"${on === ids.length ? ' checked' : ''}> ${n}</label><em>${on ? on + '개 선택' : ''}</em></summary>
+            <div>${ids.map(x => `<label class="btsci"><input type="checkbox" class="btsc" value="${x.id}"${S.scope.includes(x.id) ? ' checked' : ''}> ${esc(x.n)}</label>`).join('')}</div></details>`; }).join('')}</div>
+      </div>
+    </div>
     <div class="btbracket">
       <div class="btcol"><h4>1라운드</h4>${mt(BT_M[0])}${mt(BT_M[1])}<div class="btbye"><small>대기 모둠 · 1라운드는 쉬고 준결승에 나가요</small>${slot(4)}</div></div>
       <div class="btcol"><h4>준결승</h4>${mt(BT_M[2])}</div>
@@ -5277,26 +5389,41 @@ function btSetup(){
   $('#btSize', H).onchange = e => { S.size = +e.target.value; btSave(); };
   $$('.bttime', H).forEach(i => i.onchange = () => { S.time[i.dataset.l] = Math.max(20, Math.min(400, +i.value || 60)); btSave(); });
   $('#btFsOpt', H).onchange = e => { S.fs = e.target.checked; btSave(); };
+  const sum = () => { const L = btLevels(), lim = L.reduce((a, l) => a + (+S.time[l] || 60), 0), el = $('#btSum', H);
+    const warn = !L.length ? '⚠️ 문제를 1개 이상 골라요' : !S.scope.length ? '⚠️ 출제 범위를 1개 이상 골라요' : '';
+    el.innerHTML = warn ? `<b class="btwarn">${warn}</b>` : `한 경기 <b>${L.length}문제</b> · 한 경기 최대 <b>${Math.ceil(lim / 60)}분</b> · 토너먼트(4경기) 최대 <b>${Math.ceil(lim * 4 / 60)}분</b> · 범위 <b>${S.scope.length}개</b>`;
+    const go = $('#btGo', H); if (go) go.disabled = !!warn; };
+  $$('.btn-cnt', H).forEach(sl => sl.onchange = () => { S.cnt[sl.dataset.l] = +sl.value; btSave(); sum(); });
+  const paintSc = () => { $$('.btsc', H).forEach(c => c.checked = S.scope.includes(c.value));
+    $$('.btscg', H).forEach(g => { const l = $('.btscall', g).dataset.l, ids = BB.SC.filter(x => x.l === l).map(x => x.id), on = ids.filter(id => S.scope.includes(id)).length;
+      $('.btscall', g).checked = on === ids.length; $('.btscall', g).indeterminate = on > 0 && on < ids.length; $('em', g).textContent = on ? on + '개 선택' : ''; }); btSave(); sum(); };
+  $$('.btsc', H).forEach(c => c.onchange = () => { S.scope = c.checked ? [...new Set([...S.scope, c.value])] : S.scope.filter(x => x !== c.value); paintSc(); });
+  $$('.btscall', H).forEach(c => c.onchange = () => { const ids = BB.SC.filter(x => x.l === c.dataset.l).map(x => x.id); S.scope = c.checked ? [...new Set([...S.scope, ...ids])] : S.scope.filter(x => !ids.includes(x)); paintSc(); });
+  $$('[data-scq]', H).forEach(b => b.onclick = () => { const q = b.dataset.scq;
+    S.scope = q === 'none' ? [] : BB.SC.filter(x => q === 'all' || (q === 'this' ? x.l === LESSON.code : x.l[0] === q)).map(x => x.id);
+    if (q !== 'none') $$('.btscg', H).forEach(g => { if (BB.SC.some(x => x.l === $('.btscall', g).dataset.l && S.scope.includes(x.id))) g.open = true; }); paintSc(); });
+  paintSc();
   $('#btDraw', H).onclick = () => {
     if (Object.keys(S.res).length && !confirm('이미 치른 경기 결과가 지워져요. 대진을 다시 추첨할까요?')) return;
     S.order = [0, 1, 2, 3, 4].sort(() => Math.random() - .5); S.res = {}; S.cur = null; btSave(); btSetup(); SND.levelUp && SND.levelUp();
     snack(`🎲 추첨 완료! 대기 모둠 : ${btName(S.order[4])}`); };
   $('#btReset', H).onclick = () => { if (!confirm('토너먼트 결과를 모두 지우고 처음부터 할까요?')) return; S.res = {}; S.cur = null; btSave(); btSetup(); };
-  if ($('#btGo', H)) $('#btGo', H).onclick = () => { S.cur = null; btStart(nx); };
+  if ($('#btGo', H)) $('#btGo', H).onclick = () => { if (!btLevels().length || !S.scope.length){ snack('문제 수와 출제 범위를 먼저 골라 주세요'); return; } S.cur = null; btStart(nx); };
   if ($('#btResume', H)) $('#btResume', H).onclick = () => btStart(BT_M.find(m => m.id === S.cur.mid), true);
 }
 
 /* ---------------- 경기 ---------------- */
 function btStart(m, resume){
   const S = BT.st;
-  if (!resume || !S.cur) S.cur = { mid:m.id, t:[btTeam(m.a), btTeam(m.b)], k:0, sc:[0, 0], ot:0, rt:[] };
+  if (!resume || !S.cur) S.cur = { mid:m.id, t:[btTeam(m.a), btTeam(m.b)], k:0, sc:[0, 0], ot:0, rt:[], lv:btLevels(), scope:S.scope.slice() };
   if (!S.cur.rt) S.cur.rt = [];
+  if (!S.cur.lv) S.cur.lv = btLevels(); if (!S.cur.scope) S.cur.scope = S.scope.slice();
   btSave();
   const A = $('#btArena'); A.hidden = false; $('#btSetup').closest('.card').hidden = true;
   const T = S.cur.t;
   A.innerHTML = `<div class="bttop">
       <button type="button" class="bttb" id="btOut" title="토너먼트 표로">☰ 대진표</button>
-      <div class="btttl"><b>${m.r}</b><span class="btdots"></span></div>
+      <div class="btttl"><b>${m.r}</b><span class="btdots"></span><small class="btscope-t" title="${esc(S.cur.scope.map(btScopeName).join(' · '))}">📚 ${esc(S.cur.scope.length > 2 ? btScopeName(S.cur.scope[0]) + ' 외 ' + (S.cur.scope.length - 1) + '개' : S.cur.scope.map(btScopeName).join(' · '))}</small></div>
       <div class="bttimer"><i></i><b>--</b></div>
       <button type="button" class="bttb" id="btFs" title="전체 화면">⛶</button></div>
     <div class="btfield">
@@ -5350,13 +5477,16 @@ function btRope(pull){
   $('.btscore .s0', A).textContent = C.sc[0]; $('.btscore .s1', A).textContent = C.sc[1];
   if (pull != null){ const tm = $('.btteam' + pull, A); if (tm){ tm.classList.remove('pull'); void tm.getBoundingClientRect(); tm.classList.add('pull'); setTimeout(() => tm.classList.remove('pull'), 900); } }
 }
-const btLvOf = C => C.k < 6 ? BT_LV[C.k] : 's';
+const btN = C => C.lv.length;
+const btLvOf = C => C.k < btN(C) ? C.lv[C.k] : btTopLv(C.lv);
 function btRound(){
   const C = BT.st.cur, A = $('#btArena'), lv = btLvOf(C);
-  const pr = BB.pair(LESSON.code, lv, BT.used); if (!pr){ snack('문제를 만들지 못했어요. 다시 시도해 주세요'); return; }
+  const pr = BB.pairIn(C.scope, lv, BT.used) || BB.pairIn(BB.SC.filter(x => C.scope.some(id => id.slice(0, 2) === x.l)).map(x => x.id), lv, BT.used) || BB.pair(LESSON.code, lv, BT.used);
+  if (!pr){ snack('문제를 만들지 못했어요. 다시 시도해 주세요'); return; }
   BT.run = { lv, P:pr, done:[0, 0], lock:[0, 0], inp:['', ''], left:BT.st.time[lv] || 60, total:BT.st.time[lv] || 60, end:false, first:null, t0:Date.now(), st:[null, null] };
-  $('.btdots', A).innerHTML = BT_LV.map((l, i) => `<i class="${l}${i < C.k ? ' done' : i === C.k ? ' now' : ''}">${BT_LVN[l]}</i>`).join('') + (C.k >= 6 ? `<i class="s now ot">연장</i>` : '');
-  $('.btlvl', A).innerHTML = `<span class="btlv ${lv}">${C.k >= 6 ? '🔥 연장전 · ' : ''}${BT_LVN[lv]} 문제</span><small>${C.k < 6 ? `${C.k + 1} / 6` : '먼저 맞히는 팀이 승리'}</small>`;
+  const N = btN(C);
+  $('.btdots', A).innerHTML = C.lv.map((l, i) => `<i class="${l}${i < C.k ? ' done' : i === C.k ? ' now' : ''}">${BT_LVN[l]}</i>`).join('') + (C.k >= N ? `<i class="s now ot">연장</i>` : '');
+  $('.btlvl', A).innerHTML = `<span class="btlv ${lv}">${C.k >= N ? '🔥 연장전 · ' : ''}${BT_LVN[lv]} 문제</span><small>${C.k < N ? `${C.k + 1} / ${N}` : '먼저 맞히는 팀이 승리'}</small>`;
   $('.btmsg', A).innerHTML = ''; $('.btnextb', A).hidden = true;
   [0, 1].forEach(s => {
     const side = $(`.btside.s${s}`, A), p = pr[s];
@@ -5415,7 +5545,7 @@ function btSubmit(s, v){
     const pt = BT_PT[R.lv] + (first ? 1 : 0); C.sc[s] += pt;
     side.classList.add('ok'); $('.btfb', side).innerHTML = `✅ 정답! <b>+${pt}칸</b>${first ? ' ⚡먼저' : ''}`;
     SND.correct && SND.correct(first ? 3 : 1); btRope(s); btSave();
-    if (C.k >= 6){ return btReveal(`🔥 ${btName(C.t[s])} 연장전 승리!`, true); }
+    if (C.k >= btN(C)){ return btReveal(`🔥 ${btName(C.t[s])} 연장전 승리!`, true); }
     if (R.done[0] && R.done[1]) return btReveal('🎉 두 팀 모두 정답!');
     if (first && R.left > 20){ R.left = 20; R.total = Math.max(R.total, 20); $('.btmsg', A).innerHTML = `<b class="c${s}">${btName(C.t[s])}</b> 정답! 상대 팀은 <b>20초</b> 안에!`; }
   } else {
@@ -5432,7 +5562,7 @@ function btReveal(msg, ot){
   [0, 1].forEach(s => { const side = $(`.btside.s${s}`, A), p = R.P[s]; side.classList.add('reveal');
     if (!R.done[s]) $('.btfb', side).innerHTML = '⌛ 시간 안에 못 풀었어요';
     $('.btans', side).insertAdjacentHTML('beforeend', `<div class="btsol">정답 <b>${BB.ansTeX(p)}</b>${p.sol ? `<small>${esc(p.sol)}</small>` : ''}</div>`); tex(side); });
-  const last = C.k >= 5 && !(C.k >= 6 && !ot);
+  const N = btN(C), last = C.k >= N - 1 && !(C.k >= N && !ot);
   let endTxt = '';
   if (last){
     if (C.sc[0] === C.sc[1] && !ot) endTxt = ' — 동점! 상 문제로 연장전';
@@ -5444,8 +5574,8 @@ function btReveal(msg, ot){
 }
 function btAdvance(){
   const C = BT.st.cur, R = BT.run;
-  const otWin = C.k >= 6 && R.first != null;
-  if (otWin || (C.k >= 5 && C.sc[0] !== C.sc[1])) return btFinish(otWin ? R.first : (C.sc[0] > C.sc[1] ? 0 : 1));
+  const N = btN(C), otWin = C.k >= N && R.first != null;
+  if (otWin || (C.k >= N - 1 && C.sc[0] !== C.sc[1])) return btFinish(otWin ? R.first : (C.sc[0] > C.sc[1] ? 0 : 1));
   C.k++; btSave(); btRound();
 }
 function btFinish(ws){
