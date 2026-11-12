@@ -1271,6 +1271,13 @@ html.fslock,html.fslock body{overflow:hidden}
 .djhit b{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;letter-spacing:-.02em}
 .djwrap.fs .djstage canvas{max-height:calc(100dvh - 330px);width:auto;max-width:100%;margin:0 auto}
 .djset{width:auto;padding:6px 8px;font-size:.82rem;max-width:230px}
+.bthow{font-size:.78rem;color:var(--ink3);margin:-4px 0 10px}
+.btmt em i{font-style:normal;font-size:.7rem;font-weight:800;color:#5a6390;margin-left:6px}
+.btbyetag{display:inline-block;font-size:.68rem;font-weight:900;color:#fff;background:#e08a00;border-radius:999px;padding:0 8px;margin-left:4px}.btbyetag.slow{background:#7a86b8}
+.btsplit{margin:0 0 12px;background:#fff7e3;border:2px dashed #f0d28a;border-radius:14px;padding:8px 12px;font-size:.86rem;line-height:1.6;color:#5a3500}
+.btwin .btsplit{margin:4px 0 0;text-align:left}
+.btwt{font-size:.9rem;color:#5a6390}
+.bttm{font-size:.82rem;font-weight:900;background:rgba(255,255,255,.22);border-radius:999px;padding:2px 9px;margin-left:auto;margin-right:6px;font-variant-numeric:tabular-nums}
 
 /* ===================================================================
    교과서 스타일 + 입체감 + 큰 글씨 · 큰 수식
@@ -5165,7 +5172,10 @@ const BB = (() => {
 
 ;
 /* ===================================================================
-   ⚔️ 수학 문제 팀별 대결 — 줄다리기 릴레이 (5모둠 토너먼트, 한 모둠 부전승)
+   ⚔️ 수학 문제 팀별 대결 — 줄다리기 릴레이 (5모둠 토너먼트)
+   · 1라운드 : 1경기 · 2경기 (한 모둠은 대기). 팀마다 풀이 시간을 잼
+   · 1라운드 승자 중 풀이 시간이 더 짧은 모둠 → 결승 직행(부전승)
+   · 더 오래 걸린 승자 vs 대기 모둠 → 준결승 → 이긴 팀이 결승
    · 큰 터치 화면을 왼쪽(파랑) · 오른쪽(빨강)으로 나누고, 두 팀 주자가 동시에 문제를 풂
    · 한 경기 = 하 3 · 중 2 · 상 1 = 6문제. 두 팀은 같은 유형 · 같은 난이도에서 숫자만 다른 문제
    · 맞히면 줄이 우리 쪽으로! (하 1 · 중 2 · 상 3 칸 + 먼저 맞히면 1칸 더)
@@ -5176,15 +5186,27 @@ const BT_LV = ['h', 'h', 'h', 'm', 'm', 's'], BT_LVN = { h:'하', m:'중', s:'�
 const BT_M = [
   { id:'q1', r:'1라운드', a:['s', 0], b:['s', 1] },
   { id:'q2', r:'1라운드', a:['s', 2], b:['s', 3] },
-  { id:'sf', r:'준결승',  a:['w', 'q1'], b:['s', 4] },
-  { id:'f',  r:'결승',    a:['w', 'sf'], b:['w', 'q2'] }
+  { id:'sf', r:'준결승',  a:['slow'], b:['s', 4] },
+  { id:'f',  r:'결승',    a:['fast'], b:['w', 'sf'] }
 ];
 const BT = { st:null, run:null, tick:null, used:new Set() };
 const btKey = () => 'qf_battle_' + LESSON.code;
-function btNew(){ return { teams:[1, 2, 3, 4, 5].map(i => ({ name:i + '모둠', run:'' })), size:4, time:{ h:60, m:90, s:120 }, order:[0, 1, 2, 3, 4], res:{}, cur:null, fs:true }; }
-function btLoad(){ try { BT.st = JSON.parse(localStorage.getItem(btKey()) || 'null'); } catch (e) {} if (!BT.st || !BT.st.teams) BT.st = btNew(); }
+function btNew(){ return { v:2, teams:[1, 2, 3, 4, 5].map(i => ({ name:i + '모둠', run:'' })), size:4, time:{ h:60, m:90, s:120 }, order:[0, 1, 2, 3, 4], res:{}, cur:null, fs:true }; }
+function btLoad(){ try { BT.st = JSON.parse(localStorage.getItem(btKey()) || 'null'); } catch (e) {} if (!BT.st || !BT.st.teams) BT.st = btNew();
+  if (BT.st.v !== 2){ BT.st.v = 2; BT.st.res = {}; BT.st.cur = null; btSave(); } }     // 예전 대진(부전승 고정) 결과는 새 방식과 맞지 않아 비움
 function btSave(){ try { localStorage.setItem(btKey(), JSON.stringify(BT.st)); } catch (e) {} }
-const btTeam = ref => ref[0] === 's' ? BT.st.order[ref[1]] : (BT.st.res[ref[1]] ? BT.st.res[ref[1]].w : null);
+/* 1라운드 두 승자 중 풀이 시간이 짧은 쪽 = fast (결승 직행), 긴 쪽 = slow (준결승) */
+function btSplit(){
+  const a = BT.st.res.q1, b = BT.st.res.q2; if (!a || !b) return null;
+  const ta = a.wt == null ? 1e9 : a.wt, tb = b.wt == null ? 1e9 : b.wt, ma = Math.abs(a.sa - a.sb), mb = Math.abs(b.sa - b.sb);
+  const q1fast = ta < tb || (ta === tb && ma >= mb);
+  return q1fast ? { fast:a.w, slow:b.w, fq:'q1', ft:ta, st:tb } : { fast:b.w, slow:a.w, fq:'q2', ft:tb, st:ta };
+}
+const btTeam = ref => { const S = BT.st;
+  if (ref[0] === 's') return S.order[ref[1]];
+  if (ref[0] === 'w') return S.res[ref[1]] ? S.res[ref[1]].w : null;
+  const sp = btSplit(); return sp ? sp[ref[0]] : null; };
+const btClock = t => t == null ? '' : `${Math.floor(t / 60)}:${String(Math.floor(t % 60)).padStart(2, '0')}`;
 const btName = t => t == null ? '?' : esc(BT.st.teams[t].name || (t + 1) + '모둠');
 const btNext = () => BT_M.find(m => !BT.st.res[m.id] && btTeam(m.a) != null && btTeam(m.b) != null);
 function btRunner(t, k){
@@ -5199,7 +5221,8 @@ function pageBattle(){
     <p class="lead">TV(전자칠판)를 <b>왼쪽 파랑 팀 · 오른쪽 빨강 팀</b>으로 나누고, 두 팀 주자가 동시에 문제를 풀어요. 맞히면 줄이 우리 쪽으로 끌려와요!
       한 경기는 <b>하 3문제 → 중 2문제 → 상 1문제</b>. 두 팀은 이 차시 <b>중단원 · 대단원 · 익힘책</b> 문제와 <b>같은 유형 · 같은 난이도</b>에서 숫자만 다른 문제를 받아요.
       문제마다 주자가 바뀌는 <b>릴레이</b>예요 (1번 → 2번 → 3번 …).</p>
-    <div class="btrules"><span>✅ 정답 : 하 <b>1칸</b> · 중 <b>2칸</b> · 상 <b>3칸</b></span><span>⚡ 먼저 맞히면 <b>+1칸</b></span><span>❌ 틀리면 2초 쉬고 다시</span><span>⏱️ 한쪽이 맞히면 남은 팀은 최대 20초</span><span>🤝 동점이면 상 문제 연장전</span></div>
+    <div class="btrules"><span>✅ 정답 : 하 <b>1칸</b> · 중 <b>2칸</b> · 상 <b>3칸</b></span><span>⚡ 먼저 맞히면 <b>+1칸</b></span><span>❌ 틀리면 2초 쉬고 다시</span><span>⏱️ 한쪽이 맞히면 남은 팀은 최대 20초</span><span>🤝 동점이면 상 문제 연장전</span><span>⏱️ 1라운드 승자 중 <b>풀이 시간이 더 짧은 모둠은 결승 직행</b>, 더 오래 걸린 모둠은 대기 모둠과 준결승</span></div>
+    <p class="bthow">⏱️ 풀이 시간 = 문제마다 시작부터 우리 팀이 맞힐 때까지 걸린 시간의 합 (못 맞힌 문제는 제한 시간 전체를 더함). 틀려서 쉬는 2초도 시간에 들어가요.</p>
     <div id="btSetup"></div>
   </div>
   <div id="btArena" class="btarena" hidden></div>`;
@@ -5209,8 +5232,13 @@ function btSetup(){
   const S = BT.st, nx = btNext(), champ = S.res.f ? S.res.f.w : null;
   const slot = i => { const t = S.order[i]; return `<div class="btslot c${t}"><b>${btName(t)}</b></div>`; };
   const mt = m => { const r = S.res[m.id], a = btTeam(m.a), b = btTeam(m.b);
-    const tm = (t, sc) => `<div class="btmt${r ? (r.w === t ? ' win' : ' lose') : ''}${t == null ? ' tbd' : ''}"><span>${t == null ? (m.id === 'sf' ? '1경기 승자' : m.id === 'f' ? '승자' : '?') : btName(t)}</span>${r ? `<em>${sc}</em>` : ''}</div>`;
-    return `<div class="btmatch${nx && nx.id === m.id ? ' now' : ''}"><small>${m.r}${m.id === 'q1' ? ' · 1경기' : m.id === 'q2' ? ' · 2경기' : ''}</small>${tm(a, r ? r.sa : '')}${tm(b, r ? r.sb : '')}</div>`; };
+    const ph = ref => ref[0] === 'slow' ? '1라운드에서 더 오래 걸린 승자' : ref[0] === 'fast' ? '1라운드에서 더 빨리 끝낸 승자' : ref[0] === 'w' ? '준결승 승자' : '?';
+    const tm = (t, sc, ref, tt) => `<div class="btmt${r ? (r.w === t ? ' win' : ' lose') : ''}${t == null ? ' tbd' : ''}"><span>${t == null ? ph(ref) : btName(t)}</span>${r ? `<em>${sc}${tt != null ? `<i>⏱${btClock(tt)}</i>` : ''}</em>` : ''}</div>`;
+    const tag = m.id === 'f' ? `<b class="btbyetag">⚡ 빠른 승자 직행</b>` : m.id === 'sf' ? `<b class="btbyetag slow">느린 승자 vs 대기 모둠</b>` : '';
+    return `<div class="btmatch${nx && nx.id === m.id ? ' now' : ''}"><small>${m.r}${m.id === 'q1' ? ' · 1경기' : m.id === 'q2' ? ' · 2경기' : ''}${tag}</small>${tm(a, r ? r.sa : '', m.a, r ? r.ta : null)}${tm(b, r ? r.sb : '', m.b, r ? r.tb : null)}</div>`; };
+  const sp = btSplit();
+  const rec = sp ? `<div class="btsplit">⏱️ <b>1라운드 풀이 시간</b> : ${btName(sp.fast)} <b>${btClock(sp.ft)}</b> · ${btName(sp.slow)} <b>${btClock(sp.st)}</b>
+      → <b>${btName(sp.fast)}</b> 결승 직행(부전승) · 준결승 : <b>${btName(sp.slow)}</b> vs <b>${btName(S.order[4])}</b></div>` : '';
   H.innerHTML = `
     <div class="btset">
       <div class="btteams">${S.teams.map((t, i) => `<label class="btteam c${i}"><i>${i + 1}</i><input class="inp bttn" data-i="${i}" value="${esc(t.name)}" maxlength="12" aria-label="${i + 1}모둠 이름">
@@ -5222,14 +5250,14 @@ function btSetup(){
       </div>
     </div>
     <div class="btbracket">
-      <div class="btcol"><h4>1라운드</h4>${mt(BT_M[0])}${mt(BT_M[1])}<div class="btbye"><small>부전승</small>${slot(4)}</div></div>
+      <div class="btcol"><h4>1라운드</h4>${mt(BT_M[0])}${mt(BT_M[1])}<div class="btbye"><small>대기 모둠 · 1라운드는 쉬고 준결승에 나가요</small>${slot(4)}</div></div>
       <div class="btcol"><h4>준결승</h4>${mt(BT_M[2])}</div>
       <div class="btcol"><h4>결승</h4>${mt(BT_M[3])}</div>
       <div class="btcol btchamp"><h4>🏆 우승</h4><div class="btcup${champ != null ? ' on' : ''}">${champ != null ? btName(champ) : '?'}</div></div>
-    </div>
+    </div>${rec}
     <div class="btbtns">
       ${nx ? `<button type="button" class="btn primary btgo" id="btGo">▶ ${nx.r} 시작 : ${btName(btTeam(nx.a))} vs ${btName(btTeam(nx.b))}</button>` : champ != null ? `<div class="btdone">🏆 ${btName(champ)} 우승! 수고했어요.</div>` : ''}
-      <button type="button" class="btn" id="btDraw">🎲 대진 추첨 (부전승 모둠도 추첨)</button>
+      <button type="button" class="btn" id="btDraw">🎲 대진 추첨 (대기 모둠도 추첨)</button>
       <button type="button" class="btn" id="btReset">↺ 토너먼트 처음부터</button>
       ${S.cur ? `<button type="button" class="btn" id="btResume">⏯ 하던 경기 이어서 (${S.cur.k + 1}번째 문제부터)</button>` : ''}
     </div>`;
@@ -5242,7 +5270,7 @@ function btSetup(){
   $('#btDraw', H).onclick = () => {
     if (Object.keys(S.res).length && !confirm('이미 치른 경기 결과가 지워져요. 대진을 다시 추첨할까요?')) return;
     S.order = [0, 1, 2, 3, 4].sort(() => Math.random() - .5); S.res = {}; S.cur = null; btSave(); btSetup(); SND.levelUp && SND.levelUp();
-    snack(`🎲 추첨 완료! 부전승 : ${btName(S.order[4])}`); };
+    snack(`🎲 추첨 완료! 대기 모둠 : ${btName(S.order[4])}`); };
   $('#btReset', H).onclick = () => { if (!confirm('토너먼트 결과를 모두 지우고 처음부터 할까요?')) return; S.res = {}; S.cur = null; btSave(); btSetup(); };
   if ($('#btGo', H)) $('#btGo', H).onclick = () => { S.cur = null; btStart(nx); };
   if ($('#btResume', H)) $('#btResume', H).onclick = () => btStart(BT_M.find(m => m.id === S.cur.mid), true);
@@ -5251,7 +5279,8 @@ function btSetup(){
 /* ---------------- 경기 ---------------- */
 function btStart(m, resume){
   const S = BT.st;
-  if (!resume || !S.cur) S.cur = { mid:m.id, t:[btTeam(m.a), btTeam(m.b)], k:0, sc:[0, 0], ot:0 };
+  if (!resume || !S.cur) S.cur = { mid:m.id, t:[btTeam(m.a), btTeam(m.b)], k:0, sc:[0, 0], ot:0, rt:[] };
+  if (!S.cur.rt) S.cur.rt = [];
   btSave();
   const A = $('#btArena'); A.hidden = false; $('#btSetup').closest('.card').hidden = true;
   const T = S.cur.t;
@@ -5262,7 +5291,7 @@ function btStart(m, resume){
       <button type="button" class="bttb" id="btFs" title="전체 화면">⛶</button></div>
     <div class="btfield">
       ${[0, 1].map(s => `<section class="btside s${s}" data-s="${s}">
-        <div class="btsh"><b class="btteamname">${btName(T[s])}</b><span class="btrunner"></span></div>
+        <div class="btsh"><b class="btteamname">${btName(T[s])}</b><span class="bttm" title="풀이 시간 (누적)">⏱ 0:00</span><span class="btrunner"></span></div>
         <div class="btprob"><div class="btsrc"></div><div class="btq"></div></div>
         <div class="btans"><span class="btdisp" aria-live="polite"></span><span class="btfb"></span></div>
         <div class="btpad"></div>
@@ -5315,7 +5344,7 @@ const btLvOf = C => C.k < 6 ? BT_LV[C.k] : 's';
 function btRound(){
   const C = BT.st.cur, A = $('#btArena'), lv = btLvOf(C);
   const pr = BB.pair(LESSON.code, lv, BT.used); if (!pr){ snack('문제를 만들지 못했어요. 다시 시도해 주세요'); return; }
-  BT.run = { lv, P:pr, done:[0, 0], lock:[0, 0], inp:['', ''], left:BT.st.time[lv] || 60, total:BT.st.time[lv] || 60, end:false, first:null, t0:Date.now() };
+  BT.run = { lv, P:pr, done:[0, 0], lock:[0, 0], inp:['', ''], left:BT.st.time[lv] || 60, total:BT.st.time[lv] || 60, end:false, first:null, t0:Date.now(), st:[null, null] };
   $('.btdots', A).innerHTML = BT_LV.map((l, i) => `<i class="${l}${i < C.k ? ' done' : i === C.k ? ' now' : ''}">${BT_LVN[l]}</i>`).join('') + (C.k >= 6 ? `<i class="s now ot">연장</i>` : '');
   $('.btlvl', A).innerHTML = `<span class="btlv ${lv}">${C.k >= 6 ? '🔥 연장전 · ' : ''}${BT_LVN[lv]} 문제</span><small>${C.k < 6 ? `${C.k + 1} / 6` : '먼저 맞히는 팀이 승리'}</small>`;
   $('.btmsg', A).innerHTML = ''; $('.btnextb', A).hidden = true;
@@ -5344,7 +5373,17 @@ function btTimer(){
   bar.style.width = (R.left / R.total * 100) + '%'; bar.className = R.left < 6 ? 'hot' : '';
   const b = $('.bttimer b', A); if (b.textContent !== String(sec)){ b.textContent = sec; if (sec <= 5 && sec > 0) SND.note && SND.note(1320, 0, 0.06, { type:'sine', vol:0.1 }); }
   [0, 1].forEach(s => { if (R.lock[s] && now >= R.lock[s]){ R.lock[s] = 0; const sd = $(`.btside.s${s}`, A); sd.classList.remove('wait'); $('.btfb', sd).textContent = ''; } });
+  btTimes();
   if (R.left <= 0) btReveal('⏰ 시간 끝!');
+}
+/* 누적 풀이 시간 (끝난 문제 합 + 지금 문제에서 흐른 시간) */
+const btSum = (C, s) => (C.rt || []).slice(0, C.k).reduce((a, r) => a + (r ? r[s] : 0), 0);
+function btTimes(){
+  const R = BT.run, C = BT.st.cur, A = $('#btArena'); if (!R || !C || !A) return;
+  [0, 1].forEach(s => {
+    const now = R.end ? ((C.rt || [])[C.k] || [0, 0])[s] : (R.st[s] != null ? R.st[s] : (Date.now() - R.t0) / 1000);
+    const el = $(`.btside.s${s} .bttm`, A); if (el) el.textContent = '⏱ ' + btClock(btSum(C, s) + now);
+  });
 }
 function btKey2(s, k, o){
   const R = BT.run, A = $('#btArena'); if (!R || R.end || R.done[s] || R.lock[s]) return;
@@ -5362,7 +5401,7 @@ function btSubmit(s, v){
   const R = BT.run, C = BT.st.cur, A = $('#btArena'), side = $(`.btside.s${s}`, A), p = R.P[s];
   if (v === '' || v == null){ $('.btfb', side).textContent = '답을 먼저 눌러요'; return; }
   if (BB.check(p, v)){
-    R.done[s] = 1; const first = R.first == null; if (first) R.first = s;
+    R.done[s] = 1; R.st[s] = (Date.now() - R.t0) / 1000; const first = R.first == null; if (first) R.first = s;
     const pt = BT_PT[R.lv] + (first ? 1 : 0); C.sc[s] += pt;
     side.classList.add('ok'); $('.btfb', side).innerHTML = `✅ 정답! <b>+${pt}칸</b>${first ? ' ⚡먼저' : ''}`;
     SND.correct && SND.correct(first ? 3 : 1); btRope(s); btSave();
@@ -5379,6 +5418,7 @@ function btSubmit(s, v){
 }
 function btReveal(msg, ot){
   const R = BT.run, C = BT.st.cur, A = $('#btArena'); if (R.end) return; R.end = true; btStop();
+  C.rt = C.rt || []; C.rt[C.k] = [0, 1].map(s => Math.round((R.done[s] ? R.st[s] : (BT.st.time[R.lv] || 60)) * 10) / 10); btSave(); btTimes();
   [0, 1].forEach(s => { const side = $(`.btside.s${s}`, A), p = R.P[s]; side.classList.add('reveal');
     if (!R.done[s]) $('.btfb', side).innerHTML = '⌛ 시간 안에 못 풀었어요';
     $('.btans', side).insertAdjacentHTML('beforeend', `<div class="btsol">정답 <b>${BB.ansTeX(p)}</b>${p.sol ? `<small>${esc(p.sol)}</small>` : ''}</div>`); tex(side); });
@@ -5400,11 +5440,16 @@ function btAdvance(){
 }
 function btFinish(ws){
   const S = BT.st, C = S.cur, A = $('#btArena'), m = BT_M.find(x => x.id === C.mid);
-  S.res[C.mid] = { w:C.t[ws], l:C.t[1 - ws], sa:C.sc[0], sb:C.sc[1] }; S.cur = null; btSave();
+  const tt = [0, 1].map(s => Math.round((C.rt || []).reduce((a, r) => a + (r ? r[s] : 0), 0) * 10) / 10);
+  S.res[C.mid] = { w:C.t[ws], l:C.t[1 - ws], sa:C.sc[0], sb:C.sc[1], ta:tt[0], tb:tt[1], wt:tt[ws] }; S.cur = null; btSave();
+  const sp = btSplit();
+  const extra = (C.mid === 'q1' || C.mid === 'q2') ? (sp ? `<div class="btsplit">⏱️ 1라운드 결과 : <b>${btName(sp.fast)}</b> ${btClock(sp.ft)} · <b>${btName(sp.slow)}</b> ${btClock(sp.st)}<br>→ <b>${btName(sp.fast)}</b> 결승 직행! <b>${btName(sp.slow)}</b> vs <b>${btName(S.order[4])}</b> 준결승</div>`
+      : `<div class="btsplit">⏱️ ${btName(C.t[ws])}의 풀이 시간 <b>${btClock(tt[ws])}</b> — 다른 1라운드 경기 승자보다 짧으면 결승 직행!</div>`) : '';
   const champ = C.mid === 'f';
   const ov = document.createElement('div'); ov.className = 'btover';
   ov.innerHTML = `<div class="btwin c${ws}"><small>${m.r} 결과</small><h3>${champ ? '🏆 우승!' : '🎉 승리!'}</h3><b>${btName(C.t[ws])}</b>
     <p>${btName(C.t[0])} <em>${C.sc[0]}</em> : <em>${C.sc[1]}</em> ${btName(C.t[1])}</p>
+    <p class="btwt">⏱ 풀이 시간 ${btClock(tt[0])} : ${btClock(tt[1])}</p>${extra}
     <button type="button" class="btn primary">${champ ? '🏆 대진표에서 보기' : '다음 경기 준비 ▶'}</button></div>`;
   A.appendChild(ov);
   $('button', ov).onclick = () => btExit();
