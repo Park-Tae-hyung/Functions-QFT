@@ -951,6 +951,121 @@ table.mini th{background:var(--lav-s)}
   .pb{padding:0;align-items:stretch} .pb-box{border-radius:0;width:100%} .pb-cap{font-size:.98rem;min-height:4.6em} .pb-dots button{width:24px;height:24px;font-size:.68rem}
   .pb-ctl .btn{flex:1 1 44%;padding:9px 6px;font-size:.82rem} .pbo-t small{font-size:.72rem} }
 
+/* ---------- 🧑‍🏫 선생님 입장 · 🔔 새 질문 알림 ---------- */
+#gTBox input{letter-spacing:.12em}
+.tmode .me{border-color:#c9b8ff;background:linear-gradient(135deg,#f4f0ff,#fff)}
+.tmode .me .meno{background:#7d5fe0;color:#fff}
+.tbell{position:relative}
+.tbell i{position:absolute;top:-6px;right:-6px;min-width:20px;height:20px;padding:0 5px;border-radius:999px;background:#ff4d7e;color:#fff;font-style:normal;font-size:.68rem;font-weight:900;display:none;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(255,77,126,.5)}
+.tbell.has i{display:flex}
+.tbell.ring{animation:tbring .9s ease}
+@keyframes tbring{0%,100%{transform:rotate(0)}15%{transform:rotate(18deg)}30%{transform:rotate(-16deg)}45%{transform:rotate(12deg)}60%{transform:rotate(-8deg)}75%{transform:rotate(4deg)}}
+#tmToast{position:fixed;right:18px;top:84px;z-index:960;max-width:340px;display:flex;flex-direction:column;align-items:flex-start;gap:3px;text-align:left;padding:12px 16px;border:0;border-radius:18px;cursor:pointer;font-family:inherit;
+  background:linear-gradient(135deg,#7d5fe0,#ff6b9d);color:#fff;box-shadow:0 14px 34px rgba(90,60,190,.4);transform:translateX(130%);transition:transform .45s cubic-bezier(.2,.9,.25,1.2)}
+#tmToast.on{transform:none}
+#tmToast b{font-size:1.02rem}#tmToast span{font-size:.8rem;font-weight:800;opacity:.95}
+#tmToast em{font-style:normal;font-size:.8rem;background:rgba(255,255,255,.18);border-radius:10px;padding:5px 9px;margin-top:3px;max-height:3.2em;overflow:hidden}
+#tBellPanel{position:fixed;right:14px;top:74px;z-index:955;width:min(380px,calc(100vw - 28px));max-height:min(70vh,560px);display:flex;flex-direction:column;background:#fff;border-radius:20px;box-shadow:0 20px 50px rgba(60,40,140,.3);border:2px solid #efe9ff;overflow:hidden;animation:pop .25s ease}
+#tBellPanel[hidden]{display:none}
+.tbp-h{display:flex;align-items:center;gap:8px;padding:12px 14px;border-bottom:2px solid #f3effd}.tbp-h b{flex:1}
+.tbp-s{border:2px solid var(--line2);background:#fff;border-radius:999px;padding:4px 10px;font-family:inherit;font-size:.74rem;font-weight:800;cursor:pointer}
+.tbp-l{overflow:auto;flex:1;padding:6px}
+.tbp-i{display:grid;grid-template-columns:1fr auto;gap:2px 8px;width:100%;text-align:left;border:0;background:none;padding:9px 10px;border-radius:12px;cursor:pointer;font-family:inherit}
+.tbp-i:hover{background:#f7f3ff}
+.tbp-k{grid-column:1/3;font-size:.68rem;font-weight:900;color:#7d5fe0}
+.tbp-i b{font-size:.86rem}.tbp-i small{font-size:.7rem;color:var(--ink3)}
+.tbp-b{grid-column:1/3;font-size:.82rem;color:var(--ink2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.tbp-e{font-size:.84rem;color:var(--ink3);padding:14px;line-height:1.6;margin:0}
+.tbp-f{display:flex;gap:6px;padding:10px;border-top:2px solid #f3effd}.tbp-f .btn{flex:1;padding:8px;font-size:.8rem}
+@media (max-width:560px){ #tmToast{left:12px;right:12px;max-width:none;top:auto;bottom:14px;transform:translateY(160%)} #tmToast.on{transform:none} }
+/* 학생용 QFT 안내 */
+.qftguide summary{cursor:pointer;font-weight:900;font-size:1.08rem;display:flex;align-items:center;gap:8px;flex-wrap:wrap;list-style:none}
+.qftguide summary::-webkit-details-marker{display:none}
+.qftguide summary small{font-size:.74rem;color:var(--ink3);font-weight:700}
+.qftguide[open] summary small{display:none}
+.qftsteps{margin:8px 0 0;padding-left:0;list-style:none;display:grid;gap:8px}
+.qftsteps li{background:linear-gradient(135deg,#fff7fb,#f6f2ff);border:2px solid var(--line);border-radius:14px;padding:9px 13px;font-size:.92rem;line-height:1.6}
+
+/* ---------- ✍️ 개념별 코넬 노트 · 풀이 노트 · 그래프 도구 ---------- */
+.wkcard{border:2px solid #e6dcff;background:linear-gradient(180deg,#fff,#fbf9ff)}
+.wkcard h2 .wkst,.wkprob .wkst{margin-left:auto;font-size:.72rem;font-weight:800;color:var(--ink3)}
+.cornell.sm .ccue textarea,.cornell.sm .cbody textarea{min-height:170px}.cornell.sm .csum textarea{min-height:70px}
+.wkbox{margin-top:10px;border:2px solid var(--line2);border-radius:16px;background:#fff;overflow:hidden}
+.wkbox > summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:10px 14px;font-weight:900;font-size:.9rem;color:#5a3fc0;background:linear-gradient(135deg,#f8f5ff,#fff7fb)}
+.wkbox > summary::-webkit-details-marker{display:none}
+.wkbox > summary::after{content:'▾';margin-left:auto;transition:transform .2s;color:var(--ink3)}
+.wkbox[open] > summary::after{transform:rotate(180deg)}
+.wkbox > summary em{display:none;font-style:normal;font-size:.7rem;font-weight:900;color:#fff;background:#1fa37a;border-radius:999px;padding:2px 9px}
+.wkbox.has > summary em{display:inline-block}
+.wkbox > div{padding:10px 12px 12px}
+.pad.ink canvas{aspect-ratio:5/3}
+.wkprob{margin:10px 0 4px;display:flex;flex-direction:column}
+.wkprob .wkst{align-self:flex-end;margin-top:4px}
+.wkbox.legacy .lgnote{padding:4px 14px 12px;font-size:.88rem;white-space:pre-wrap}.wkbox.legacy img{max-width:100%;border-radius:12px;border:1px solid var(--line)}
+/* 그래프 도구 */
+.gt{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.55fr);gap:12px;align-items:start}
+.gtrows{display:grid;gap:8px}
+.gtrow{display:grid;grid-template-columns:14px auto 1fr auto;gap:6px;align-items:center}
+.gtrow i{width:14px;height:14px;border-radius:50%}
+.gtrow span{font-family:'Times New Roman',serif;font-style:italic;font-weight:700}
+.gtrow input{width:100%;min-width:0;border:2px solid var(--line2);border-radius:10px;padding:7px 10px;font:inherit;font-size:.95rem;font-family:'Consolas','Courier New',monospace}
+.gtrow input:focus{outline:none;border-color:var(--lav)}
+.gtdel{border:0;background:#fff0f3;color:#d0344f;border-radius:8px;width:28px;height:28px;cursor:pointer;font-weight:900}
+.gterr{grid-column:2/5;font-size:.74rem;color:#d0344f;font-weight:700;min-height:0}
+.gterr:empty{display:none}
+.gtkeys{display:flex;flex-wrap:wrap;gap:5px;margin:10px 0 8px}
+.gtadd{padding:6px 14px;font-size:.84rem}
+.gthelp{font-size:.74rem;color:var(--ink3);line-height:1.6;margin:8px 0 0}.gthelp code{background:#f4f0ff;border-radius:6px;padding:0 5px;color:#5a3fc0}
+.gtview{position:relative;border:2px solid #c9b8ff;border-radius:14px;overflow:hidden;background:#fff}
+.gtview canvas{display:block;width:100%;height:auto;aspect-ratio:3/2;touch-action:none;cursor:grab}
+.gtview canvas:active{cursor:grabbing}
+.gtzoom{position:absolute;right:8px;top:8px;display:flex;flex-direction:column;gap:4px}
+.gtzoom button{width:30px;height:30px;border-radius:9px;border:1.5px solid var(--line2);background:rgba(255,255,255,.92);font-weight:900;cursor:pointer;font-size:1rem}
+.gtread{position:absolute;left:8px;bottom:6px;font-size:.74rem;font-weight:700;color:var(--ink2);background:rgba(255,255,255,.88);border-radius:8px;padding:0 6px}
+.gtread:empty{display:none}
+@media (max-width:760px){ .gt{grid-template-columns:1fr} }
+
+/* ---------- 🙈 학번·이름 가리기 · 선생님 전용 ---------- */
+.tonly{display:none}.tmode .tonly{display:inline-flex}
+.whoalt{display:none}
+.hide-names .whotag{display:none}.hide-names .whoalt{display:inline}
+.whobox{font-size:.74rem;font-weight:800;color:#5a3fc0;background:#f1ecff;border-radius:999px;padding:1px 9px}
+
+/* ---------- 🖥️ 학생 풀이 화면 (선생님) ---------- */
+.twbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:4px 0 6px}
+.twbar select{max-width:420px}
+.twlive{font-size:.8rem;font-weight:700;color:var(--ink2);display:flex;gap:4px;align-items:center}
+.twsum{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0 10px}
+.twsum span{background:#f4f0ff;color:#5a3fc0;font-size:.78rem;font-weight:800;border-radius:999px;padding:3px 11px}
+.twgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px}
+.twtile{display:flex;flex-direction:column;gap:6px;text-align:left;border:2px solid var(--line2);background:#fff;border-radius:16px;padding:10px;cursor:pointer;font-family:inherit;color:var(--ink);transition:.15s}
+.twtile:hover{border-color:var(--lav);transform:translateY(-2px);box-shadow:0 10px 22px rgba(125,95,224,.15)}
+.twtile.none{opacity:.55;background:#fafafe}
+.twh{display:flex;align-items:center;gap:6px;font-weight:900;font-size:.88rem}.twh small{margin-left:auto;font-size:.7rem;color:var(--ink3);font-weight:700}
+.twans{display:flex;flex-wrap:wrap;gap:4px;align-items:center;font-size:.8rem;font-weight:800;border-radius:10px;padding:5px 8px}
+.twans.ok{background:#e9f8f1;color:#13805c}.twans.no{background:#fff0f3;color:#c0304a}
+.twans span{background:#fff;border-radius:7px;padding:0 6px;border:1px solid currentColor}.twans span.ok{color:#13805c}.twans span.no{color:#c0304a}
+.twans small{margin-left:auto;font-weight:700;opacity:.8}
+.twnote{font-size:.78rem;line-height:1.5;color:var(--ink2);background:#fbf9ff;border-radius:10px;padding:6px 8px;max-height:9em;overflow:hidden;white-space:pre-wrap}
+.twink,.twgr{width:100%;height:auto;border:1px solid var(--line);border-radius:10px;background:#fff}
+.twf{font-size:.74rem;font-family:'Consolas',monospace;display:flex;flex-wrap:wrap;gap:4px 10px}.twf i{font-style:normal;font-weight:700}
+.twf.big{font-size:.9rem;margin:4px 0}
+.twmodal{position:fixed;inset:0;z-index:980;background:rgba(28,22,60,.7);backdrop-filter:blur(5px);display:flex;align-items:flex-start;justify-content:center;padding:18px;overflow:auto}
+.twmodal[hidden]{display:none}
+.twbox{width:min(1080px,100%);background:#fffdf8;border-radius:24px;box-shadow:0 30px 80px rgba(0,0,0,.45);overflow:hidden}
+.twtop{position:sticky;top:0;z-index:2;display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:12px 16px;background:#fff;border-bottom:2px solid #f0eafd}
+.twtop .btn{padding:6px 12px;font-size:.82rem}.twtop .btn:disabled{opacity:.35}
+.twbody{padding:6px 18px 22px}
+.twbody h3{margin:18px 0 8px;font-size:1.05rem;color:#5a3fc0}
+.twbody section{border:2px solid var(--line);border-radius:16px;padding:12px 14px;margin:0 0 12px;background:#fff}
+.twbody h4{margin:0 0 8px;font-size:.95rem;display:flex;flex-wrap:wrap;gap:8px;align-items:center}.twbody h4 small{font-weight:700;color:var(--ink3)}
+.twq{font-size:.88rem;color:var(--ink2);background:#fbf9ff;border-radius:10px;padding:8px 10px;margin-bottom:8px}
+.twl{font-size:.78rem;font-weight:900;color:#5a3fc0;margin:10px 0 4px}
+.twgbig{display:block;width:100%;max-width:720px;height:auto;border:2px solid #c9b8ff;border-radius:12px}
+.cornell.ro .rot{padding:6px 12px 10px;white-space:pre-wrap;font-size:.92rem;line-height:1.7;min-height:2.4em}
+.pad.ro canvas{cursor:default}
+.twnone{font-size:.82rem;color:var(--ink3);margin:0}
+
 /* ===================================================================
    교과서 스타일 + 입체감 + 큰 글씨 · 큰 수식
    =================================================================== */

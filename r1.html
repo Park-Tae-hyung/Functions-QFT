@@ -962,6 +962,121 @@ table.mini th{background:var(--lav-s)}
   .pb{padding:0;align-items:stretch} .pb-box{border-radius:0;width:100%} .pb-cap{font-size:.98rem;min-height:4.6em} .pb-dots button{width:24px;height:24px;font-size:.68rem}
   .pb-ctl .btn{flex:1 1 44%;padding:9px 6px;font-size:.82rem} .pbo-t small{font-size:.72rem} }
 
+/* ---------- 🧑‍🏫 선생님 입장 · 🔔 새 질문 알림 ---------- */
+#gTBox input{letter-spacing:.12em}
+.tmode .me{border-color:#c9b8ff;background:linear-gradient(135deg,#f4f0ff,#fff)}
+.tmode .me .meno{background:#7d5fe0;color:#fff}
+.tbell{position:relative}
+.tbell i{position:absolute;top:-6px;right:-6px;min-width:20px;height:20px;padding:0 5px;border-radius:999px;background:#ff4d7e;color:#fff;font-style:normal;font-size:.68rem;font-weight:900;display:none;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(255,77,126,.5)}
+.tbell.has i{display:flex}
+.tbell.ring{animation:tbring .9s ease}
+@keyframes tbring{0%,100%{transform:rotate(0)}15%{transform:rotate(18deg)}30%{transform:rotate(-16deg)}45%{transform:rotate(12deg)}60%{transform:rotate(-8deg)}75%{transform:rotate(4deg)}}
+#tmToast{position:fixed;right:18px;top:84px;z-index:960;max-width:340px;display:flex;flex-direction:column;align-items:flex-start;gap:3px;text-align:left;padding:12px 16px;border:0;border-radius:18px;cursor:pointer;font-family:inherit;
+  background:linear-gradient(135deg,#7d5fe0,#ff6b9d);color:#fff;box-shadow:0 14px 34px rgba(90,60,190,.4);transform:translateX(130%);transition:transform .45s cubic-bezier(.2,.9,.25,1.2)}
+#tmToast.on{transform:none}
+#tmToast b{font-size:1.02rem}#tmToast span{font-size:.8rem;font-weight:800;opacity:.95}
+#tmToast em{font-style:normal;font-size:.8rem;background:rgba(255,255,255,.18);border-radius:10px;padding:5px 9px;margin-top:3px;max-height:3.2em;overflow:hidden}
+#tBellPanel{position:fixed;right:14px;top:74px;z-index:955;width:min(380px,calc(100vw - 28px));max-height:min(70vh,560px);display:flex;flex-direction:column;background:#fff;border-radius:20px;box-shadow:0 20px 50px rgba(60,40,140,.3);border:2px solid #efe9ff;overflow:hidden;animation:pop .25s ease}
+#tBellPanel[hidden]{display:none}
+.tbp-h{display:flex;align-items:center;gap:8px;padding:12px 14px;border-bottom:2px solid #f3effd}.tbp-h b{flex:1}
+.tbp-s{border:2px solid var(--line2);background:#fff;border-radius:999px;padding:4px 10px;font-family:inherit;font-size:.74rem;font-weight:800;cursor:pointer}
+.tbp-l{overflow:auto;flex:1;padding:6px}
+.tbp-i{display:grid;grid-template-columns:1fr auto;gap:2px 8px;width:100%;text-align:left;border:0;background:none;padding:9px 10px;border-radius:12px;cursor:pointer;font-family:inherit}
+.tbp-i:hover{background:#f7f3ff}
+.tbp-k{grid-column:1/3;font-size:.68rem;font-weight:900;color:#7d5fe0}
+.tbp-i b{font-size:.86rem}.tbp-i small{font-size:.7rem;color:var(--ink3)}
+.tbp-b{grid-column:1/3;font-size:.82rem;color:var(--ink2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.tbp-e{font-size:.84rem;color:var(--ink3);padding:14px;line-height:1.6;margin:0}
+.tbp-f{display:flex;gap:6px;padding:10px;border-top:2px solid #f3effd}.tbp-f .btn{flex:1;padding:8px;font-size:.8rem}
+@media (max-width:560px){ #tmToast{left:12px;right:12px;max-width:none;top:auto;bottom:14px;transform:translateY(160%)} #tmToast.on{transform:none} }
+/* 학생용 QFT 안내 */
+.qftguide summary{cursor:pointer;font-weight:900;font-size:1.08rem;display:flex;align-items:center;gap:8px;flex-wrap:wrap;list-style:none}
+.qftguide summary::-webkit-details-marker{display:none}
+.qftguide summary small{font-size:.74rem;color:var(--ink3);font-weight:700}
+.qftguide[open] summary small{display:none}
+.qftsteps{margin:8px 0 0;padding-left:0;list-style:none;display:grid;gap:8px}
+.qftsteps li{background:linear-gradient(135deg,#fff7fb,#f6f2ff);border:2px solid var(--line);border-radius:14px;padding:9px 13px;font-size:.92rem;line-height:1.6}
+
+/* ---------- ✍️ 개념별 코넬 노트 · 풀이 노트 · 그래프 도구 ---------- */
+.wkcard{border:2px solid #e6dcff;background:linear-gradient(180deg,#fff,#fbf9ff)}
+.wkcard h2 .wkst,.wkprob .wkst{margin-left:auto;font-size:.72rem;font-weight:800;color:var(--ink3)}
+.cornell.sm .ccue textarea,.cornell.sm .cbody textarea{min-height:170px}.cornell.sm .csum textarea{min-height:70px}
+.wkbox{margin-top:10px;border:2px solid var(--line2);border-radius:16px;background:#fff;overflow:hidden}
+.wkbox > summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:10px 14px;font-weight:900;font-size:.9rem;color:#5a3fc0;background:linear-gradient(135deg,#f8f5ff,#fff7fb)}
+.wkbox > summary::-webkit-details-marker{display:none}
+.wkbox > summary::after{content:'▾';margin-left:auto;transition:transform .2s;color:var(--ink3)}
+.wkbox[open] > summary::after{transform:rotate(180deg)}
+.wkbox > summary em{display:none;font-style:normal;font-size:.7rem;font-weight:900;color:#fff;background:#1fa37a;border-radius:999px;padding:2px 9px}
+.wkbox.has > summary em{display:inline-block}
+.wkbox > div{padding:10px 12px 12px}
+.pad.ink canvas{aspect-ratio:5/3}
+.wkprob{margin:10px 0 4px;display:flex;flex-direction:column}
+.wkprob .wkst{align-self:flex-end;margin-top:4px}
+.wkbox.legacy .lgnote{padding:4px 14px 12px;font-size:.88rem;white-space:pre-wrap}.wkbox.legacy img{max-width:100%;border-radius:12px;border:1px solid var(--line)}
+/* 그래프 도구 */
+.gt{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.55fr);gap:12px;align-items:start}
+.gtrows{display:grid;gap:8px}
+.gtrow{display:grid;grid-template-columns:14px auto 1fr auto;gap:6px;align-items:center}
+.gtrow i{width:14px;height:14px;border-radius:50%}
+.gtrow span{font-family:'Times New Roman',serif;font-style:italic;font-weight:700}
+.gtrow input{width:100%;min-width:0;border:2px solid var(--line2);border-radius:10px;padding:7px 10px;font:inherit;font-size:.95rem;font-family:'Consolas','Courier New',monospace}
+.gtrow input:focus{outline:none;border-color:var(--lav)}
+.gtdel{border:0;background:#fff0f3;color:#d0344f;border-radius:8px;width:28px;height:28px;cursor:pointer;font-weight:900}
+.gterr{grid-column:2/5;font-size:.74rem;color:#d0344f;font-weight:700;min-height:0}
+.gterr:empty{display:none}
+.gtkeys{display:flex;flex-wrap:wrap;gap:5px;margin:10px 0 8px}
+.gtadd{padding:6px 14px;font-size:.84rem}
+.gthelp{font-size:.74rem;color:var(--ink3);line-height:1.6;margin:8px 0 0}.gthelp code{background:#f4f0ff;border-radius:6px;padding:0 5px;color:#5a3fc0}
+.gtview{position:relative;border:2px solid #c9b8ff;border-radius:14px;overflow:hidden;background:#fff}
+.gtview canvas{display:block;width:100%;height:auto;aspect-ratio:3/2;touch-action:none;cursor:grab}
+.gtview canvas:active{cursor:grabbing}
+.gtzoom{position:absolute;right:8px;top:8px;display:flex;flex-direction:column;gap:4px}
+.gtzoom button{width:30px;height:30px;border-radius:9px;border:1.5px solid var(--line2);background:rgba(255,255,255,.92);font-weight:900;cursor:pointer;font-size:1rem}
+.gtread{position:absolute;left:8px;bottom:6px;font-size:.74rem;font-weight:700;color:var(--ink2);background:rgba(255,255,255,.88);border-radius:8px;padding:0 6px}
+.gtread:empty{display:none}
+@media (max-width:760px){ .gt{grid-template-columns:1fr} }
+
+/* ---------- 🙈 학번·이름 가리기 · 선생님 전용 ---------- */
+.tonly{display:none}.tmode .tonly{display:inline-flex}
+.whoalt{display:none}
+.hide-names .whotag{display:none}.hide-names .whoalt{display:inline}
+.whobox{font-size:.74rem;font-weight:800;color:#5a3fc0;background:#f1ecff;border-radius:999px;padding:1px 9px}
+
+/* ---------- 🖥️ 학생 풀이 화면 (선생님) ---------- */
+.twbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:4px 0 6px}
+.twbar select{max-width:420px}
+.twlive{font-size:.8rem;font-weight:700;color:var(--ink2);display:flex;gap:4px;align-items:center}
+.twsum{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0 10px}
+.twsum span{background:#f4f0ff;color:#5a3fc0;font-size:.78rem;font-weight:800;border-radius:999px;padding:3px 11px}
+.twgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px}
+.twtile{display:flex;flex-direction:column;gap:6px;text-align:left;border:2px solid var(--line2);background:#fff;border-radius:16px;padding:10px;cursor:pointer;font-family:inherit;color:var(--ink);transition:.15s}
+.twtile:hover{border-color:var(--lav);transform:translateY(-2px);box-shadow:0 10px 22px rgba(125,95,224,.15)}
+.twtile.none{opacity:.55;background:#fafafe}
+.twh{display:flex;align-items:center;gap:6px;font-weight:900;font-size:.88rem}.twh small{margin-left:auto;font-size:.7rem;color:var(--ink3);font-weight:700}
+.twans{display:flex;flex-wrap:wrap;gap:4px;align-items:center;font-size:.8rem;font-weight:800;border-radius:10px;padding:5px 8px}
+.twans.ok{background:#e9f8f1;color:#13805c}.twans.no{background:#fff0f3;color:#c0304a}
+.twans span{background:#fff;border-radius:7px;padding:0 6px;border:1px solid currentColor}.twans span.ok{color:#13805c}.twans span.no{color:#c0304a}
+.twans small{margin-left:auto;font-weight:700;opacity:.8}
+.twnote{font-size:.78rem;line-height:1.5;color:var(--ink2);background:#fbf9ff;border-radius:10px;padding:6px 8px;max-height:9em;overflow:hidden;white-space:pre-wrap}
+.twink,.twgr{width:100%;height:auto;border:1px solid var(--line);border-radius:10px;background:#fff}
+.twf{font-size:.74rem;font-family:'Consolas',monospace;display:flex;flex-wrap:wrap;gap:4px 10px}.twf i{font-style:normal;font-weight:700}
+.twf.big{font-size:.9rem;margin:4px 0}
+.twmodal{position:fixed;inset:0;z-index:980;background:rgba(28,22,60,.7);backdrop-filter:blur(5px);display:flex;align-items:flex-start;justify-content:center;padding:18px;overflow:auto}
+.twmodal[hidden]{display:none}
+.twbox{width:min(1080px,100%);background:#fffdf8;border-radius:24px;box-shadow:0 30px 80px rgba(0,0,0,.45);overflow:hidden}
+.twtop{position:sticky;top:0;z-index:2;display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:12px 16px;background:#fff;border-bottom:2px solid #f0eafd}
+.twtop .btn{padding:6px 12px;font-size:.82rem}.twtop .btn:disabled{opacity:.35}
+.twbody{padding:6px 18px 22px}
+.twbody h3{margin:18px 0 8px;font-size:1.05rem;color:#5a3fc0}
+.twbody section{border:2px solid var(--line);border-radius:16px;padding:12px 14px;margin:0 0 12px;background:#fff}
+.twbody h4{margin:0 0 8px;font-size:.95rem;display:flex;flex-wrap:wrap;gap:8px;align-items:center}.twbody h4 small{font-weight:700;color:var(--ink3)}
+.twq{font-size:.88rem;color:var(--ink2);background:#fbf9ff;border-radius:10px;padding:8px 10px;margin-bottom:8px}
+.twl{font-size:.78rem;font-weight:900;color:#5a3fc0;margin:10px 0 4px}
+.twgbig{display:block;width:100%;max-width:720px;height:auto;border:2px solid #c9b8ff;border-radius:12px}
+.cornell.ro .rot{padding:6px 12px 10px;white-space:pre-wrap;font-size:.92rem;line-height:1.7;min-height:2.4em}
+.pad.ro canvas{cursor:default}
+.twnone{font-size:.82rem;color:var(--ink3);margin:0}
+
 /* ===================================================================
    교과서 스타일 + 입체감 + 큰 글씨 · 큰 수식
    =================================================================== */
@@ -1191,11 +1306,18 @@ nav.tabs{position:sticky}
     <div class="gl">❓</div>
     <h2 id="gTitle">질문 탐구 교실</h2>
     <p class="gsub" id="gSub">학번과 이름을 적고 시작해요!</p>
-    <input id="gNo"   type="text" name="qf-hakbun" maxlength="20" placeholder="학번  (예: 10315)" autocomplete="off" autocapitalize="off" spellcheck="false" data-lpignore="true" data-form-type="other" readonly>
-    <input id="gName" type="text" name="qf-ireum" maxlength="20" placeholder="이름" autocomplete="off" autocapitalize="off" spellcheck="false" data-lpignore="true" data-form-type="other" readonly>
-    <button class="btn main gbtn" id="gGo">입장하기 ✨</button>
+    <div id="gSBox">
+      <input id="gNo"   type="text" name="qf-hakbun" maxlength="20" placeholder="학번  (예: 10315)" autocomplete="off" autocapitalize="off" spellcheck="false" data-lpignore="true" data-form-type="other" readonly>
+      <input id="gName" type="text" name="qf-ireum" maxlength="20" placeholder="이름" autocomplete="off" autocapitalize="off" spellcheck="false" data-lpignore="true" data-form-type="other" readonly>
+      <button class="btn main gbtn" id="gGo">입장하기 ✨</button>
+    </div>
+    <div id="gTBox" hidden>
+      <input id="gTPass" type="password" name="qf-tpass" maxlength="40" placeholder="선생님 암호" autocomplete="new-password" data-lpignore="true" data-form-type="other">
+      <button class="btn main gbtn" id="gTGo">🧑‍🏫 선생님으로 입장</button>
+      <button class="glink" id="gTBack" type="button">← 학생으로 입장하기</button>
+    </div>
     <div class="gmsg" id="gMsg"></div>
-    <button class="glink" id="gTeacher">선생님이신가요?</button>
+    <button class="glink" id="gTeacher" type="button">🧑‍🏫 선생님으로 입장하기</button>
   </div>
 </div>
 <canvas id="fw"></canvas>
@@ -2420,6 +2542,7 @@ function makeCard(p, opt){
        : p.ex ? '<div class="exbar">📘 교과서 예제 — 먼저 스스로 풀고, 「풀이 보기」로 교과서 풀이와 비교해 보세요</div>' : ''}
      <div class="q">${p.q}</div>
      ${p.fig ? `<div class="lab figbox" data-fig="${p.fig}"></div>` : ''}
+     ${window.wkProbHTML ? wkProbHTML(p) : ''}
      <div class="fields">` +
        p.fs.map((f,i) => `<div class="fld" data-f="${i}"><div class="lb">${f.l}</div>${fieldHTML(f,i)}</div>`).join('') +
     `</div>
@@ -2482,6 +2605,7 @@ function makeCard(p, opt){
       if (good) ok++;
     });
     const all = ok === p.fs.length;
+    if (window.wkAnswer) wkAnswer(p, s.got, all, s.tries);
     if (all && !s.solved){
       s.solved = true; PTS += p.pt; STREAK++;
       el.classList.add('solved'); celebrate(p.pt, STREAK); showKey();
@@ -2943,7 +3067,7 @@ function netState(ok){ $$('.netbad').forEach(n => n.classList.toggle('on', !ok))
 /* ---------- 나 ---------- */
 const ME = { no:'', name:'' };
 try{ Object.assign(ME, JSON.parse(localStorage.getItem('qf_me') || '{}')); }catch(e){}
-function paintMe(){ $('#meNo').textContent = ME.no || '—'; $('#meName').textContent = ME.name || '손님'; }
+function paintMe(){ $('#meNo').textContent = ME.no || '—'; $('#meName').textContent = ME.name || '손님'; if (typeof TM !== 'undefined' && TM.on) tmPaint(); }
 function openGate(){ $('#gate').classList.remove('hide'); ['#gNo', '#gName'].forEach(id => { const el = $(id); if (el && /@/.test(el.value)) el.value = ''; }); setTimeout(() => $('#gNo').focus(), 60); }
 function closeGate(){ $('#gate').classList.add('hide'); }
 async function enter(no, name){
@@ -2967,6 +3091,7 @@ async function enter(no, name){
 }
 function needLogin(){
   if (ME.no) return false;
+  if (typeof TM !== 'undefined' && TM.on){ snack('🧑‍🏫 선생님 입장 중에는 학생 글쓰기가 잠겨 있어요. 시범을 보이려면 로그아웃 후 시범용 학번으로 입장하세요.'); return true; }
   snack('먼저 학번과 이름으로 입장해 주세요 🙂'); openGate(); return true;
 }
 
@@ -3116,6 +3241,7 @@ function renderPosts(host, rows, o){
         <div class="qtx">${esc(p.body)}</div>
         <div class="qm">
           ${p.picked ? '<span class="pickbadge">📌 선생님 채택</span>' : ''}
+          ${typeof TM !== 'undefined' && TM.on && TNAMES[p.id] ? `<span class="whobox">${whoTag(TNAMES[p.id][0], TNAMES[p.id][1], '이름 가림')}</span>` : ''}
           ${p.mine ? '<span class="minetag">내 질문</span>' : ''}
           ${p.level ? `<span class="lvtag ${p.level}">${LVS[p.level] || p.level}</span>` : ''}
           ${p.qtype ? `<span class="tytag ${p.qtype}">${p.qtype === 'open' ? '열린' : '닫힌'}</span>` : ''}
@@ -3167,11 +3293,13 @@ async function vote(id){
 
 /* ---------- 응답 저장 (토의 · 토론 · 성찰 · 폴리그래프) ---------- */
 const MINE = {};
+const TNAMES = {};                                  // 선생님 입장 중 : 글 번호 → [학번, 이름]
 async function loadMine(){
   if (!ME.no) return;
   try{ Object.assign(MINE, await rpc('qf_mine', { p_lesson:LESSON.code, p_no:ME.no }) || {}); }catch(e){}
   fillForms();
   if (window.loadNote) loadNote();
+  if (window.wkLoad) wkLoad();
 }
 const FORMS = [];
 function bindForm(host, item, onLoad){
@@ -3792,6 +3920,462 @@ function bootNote(){
 
 ;
 /* ===================================================================
+   ✍️ 학생 풀이 기록 (work)
+   · 개념마다 : 코넬 노트 + 그래프·식·그림 노트(+ 그래프 도구)
+   · 문제마다 : 풀이 노트(손글씨) + 그래프 도구 + 고른 답
+   · 쓰는 즉시 자동 저장(qf_work) → 선생님 화면 「🖥️ 학생 풀이 화면」에 모임
+   · 손글씨는 그림 파일이 아니라 「선의 좌표」로 저장해서 가볍고, 선생님 화면에서 또렷하게 다시 그려짐
+   =================================================================== */
+const WK = { data:{}, dirty:new Set(), timer:null, busy:false, again:false, loadedFor:null, pads:{}, gts:{} };
+const WK_GRAPH_RE = /그래프|점근선|평행이동|대칭이동|좌표평면|개형|직선 \\\(y=x\\\)/;
+const wkRec = k => WK.data[k] || (WK.data[k] = {});
+const wkLS = k => 'qf_wk_' + LESSON.code + '_' + ME.no + '_' + k;
+const wkCanDraw = () => !!ME.no || (typeof TM !== 'undefined' && TM.on);     // 선생님은 시범용으로 쓸 수 있고 저장되지 않음
+const pad2 = n => String(n).padStart(2, '0');
+
+function wkStat(key, txt){ $$(`.wkst[data-st="${key}"]`).forEach(e => e.textContent = txt); }
+function wkTouch(key){
+  if (!ME.no) return;
+  const r = wkRec(key); r._t = Date.now();
+  WK.dirty.add(key); wkStat(key, '✏️ 쓰는 중…'); wkBadges(key);
+  try { localStorage.setItem(wkLS(key), JSON.stringify(r)); } catch (e) {}
+  clearTimeout(WK.timer); WK.timer = setTimeout(wkFlush, 1500);
+}
+function wkClean(r){
+  const o = { _t:r._t || Date.now() };
+  if (r.note && ((r.note.cue || '') + (r.note.body || '') + (r.note.sum || '')).trim()) o.note = r.note;
+  if (r.ink && r.ink.s && r.ink.s.length) o.ink = r.ink;
+  if (r.graph && (r.graph.f || []).some(x => (x || '').trim())) o.graph = { f:r.graph.f, win:r.graph.win };
+  if (r.ans) o.ans = r.ans;
+  return o;
+}
+async function wkFlush(){
+  if (WK.busy){ WK.again = true; return; }
+  WK.busy = true;
+  const keys = [...WK.dirty]; WK.dirty.clear();
+  for (const k of keys){
+    if (!ME.no) break;
+    try {
+      await rpc('qf_work_save', { p_lesson:LESSON.code, p_no:ME.no, p_name:ME.name, p_key:k, p_data:wkClean(wkRec(k)) });
+      try { localStorage.removeItem(wkLS(k)); } catch (e) {}
+      const t = new Date(); wkStat(k, `✅ 자동 저장됨 ${t.getHours()}:${pad2(t.getMinutes())}`); netState(true);
+    } catch (e) { WK.dirty.add(k); wkStat(k, '⚠️ 저장 실패 — ' + e.message + ' (이 기기에 임시 보관 중)'); netState(false); }
+  }
+  WK.busy = false;
+  if (WK.again){ WK.again = false; wkFlush(); }
+  else if (WK.dirty.size){ clearTimeout(WK.timer); WK.timer = setTimeout(wkFlush, 9000); }
+}
+async function wkLoad(force){
+  if (!$('.wkbox, .cnote')) return;
+  const no = ME.no || '';
+  if (!force && WK.loadedFor === no) return;
+  WK.loadedFor = no; WK.data = {}; WK.dirty.clear();
+  if (no){
+    try { (await rpc('qf_work_mine', { p_lesson:LESSON.code, p_no:no }) || []).forEach(x => { WK.data[x.key] = x.data || {}; }); } catch (e) {}
+    try {                                                       // 저장하지 못하고 이 기기에 남은 임시본
+      const pre = 'qf_wk_' + LESSON.code + '_' + no + '_';
+      Object.keys(localStorage).filter(k => k.indexOf(pre) === 0).forEach(k => {
+        const key = k.slice(pre.length), loc = JSON.parse(localStorage.getItem(k) || 'null');
+        if (loc && (loc._t || 0) > ((WK.data[key] || {})._t || 0)){ WK.data[key] = loc; WK.dirty.add(key); } else localStorage.removeItem(k);
+      });
+    } catch (e) {}
+    if (WK.dirty.size) setTimeout(wkFlush, 800);
+    wkLegacy();
+  }
+  wkRepaint();
+}
+function wkRepaint(){
+  $$('.cnote').forEach(n => { const d = (WK.data[n.dataset.key] || {}).note || {}; $$('textarea', n).forEach(t => t.value = d[t.dataset.f] || ''); });
+  Object.values(WK.pads).forEach(p => p.load()); Object.values(WK.gts).forEach(g => g.load());
+  $$('.wkst').forEach(e => e.textContent = ''); wkBadges();
+}
+function wkBadges(key){
+  $$(key ? `.wkbox[data-key="${key}"]` : '.wkbox').forEach(b => {
+    const r = WK.data[b.dataset.key] || {}, part = b.dataset.part;
+    const has = part === 'ink' ? !!(r.ink && r.ink.s && r.ink.s.length) : !!(r.graph && (r.graph.f || []).some(x => (x || '').trim()));
+    b.classList.toggle('has', has);
+  });
+}
+/* 예전 「개념 노트」 탭에 써 둔 노트가 있으면 첫 개념의 노트 카드에서 다시 볼 수 있게 */
+async function wkLegacy(){
+  const host = $('#wkLegacy'); if (!host || !ME.no) return; host.innerHTML = '';
+  try {
+    const d = await rpc('qf_note_get', { p_lesson:LESSON.code, p_no:ME.no });
+    if (!d || !((d.cue || '') + (d.body || '') + (d.summary || '') + (d.sketch || ''))) return;
+    host.innerHTML = `<details class="wkbox legacy"><summary>📦 예전 「개념 노트」 탭에 써 둔 노트 보기</summary>
+      <div class="lgnote">${d.cue ? `<p><b>단서</b><br>${esc(d.cue)}</p>` : ''}${d.body ? `<p><b>필기</b><br>${esc(d.body)}</p>` : ''}${d.summary ? `<p><b>요약</b><br>${esc(d.summary)}</p>` : ''}
+      ${d.sketch && /^data:image\//.test(d.sketch) ? `<img src="${d.sketch}" alt="예전 손글씨 노트">` : ''}</div></details>`;
+  } catch (e) {}
+}
+
+/* ---------- 화면 조각 ---------- */
+function wkNoteHTML(key){
+  return `<div class="cnote" data-key="${key}">
+    <div class="ntools"><span class="ntl">기호</span>${NSYM.map(w => `<button type="button" class="nsym cins" data-w="${esc(w)}">${esc(w)}</button>`).join('')}</div>
+    <div class="cornell sm">
+      <div class="ccue"><label>🔑 단서 · 핵심 질문</label><textarea data-f="cue" maxlength="2000" placeholder="핵심 낱말, 헷갈린 점, 떠오른 질문"></textarea></div>
+      <div class="cbody"><label>✍️ 필기 — 개념을 내 말로</label><textarea data-f="body" maxlength="5000" placeholder="정의 → 예시 → 주의할 점 순서로 써 보세요."></textarea></div>
+      <div class="csum"><label>📌 요약 — 한두 문장으로</label><textarea data-f="sum" maxlength="1000" placeholder="이 개념을 한두 문장으로 정리하면?"></textarea></div>
+    </div></div>`;
+}
+const wkInkBox = (key, open, label) => `<details class="wkbox" data-key="${key}" data-part="ink"${open ? ' open' : ''}><summary>✍️ ${label || '풀이 노트 — 그래프 · 식 · 그림'}<em>✓ 내 풀이 있음</em></summary><div class="inkhost" data-key="${key}"></div></details>`;
+const wkGraphBox = (key, open) => `<details class="wkbox" data-key="${key}" data-part="graph"${open ? ' open' : ''}><summary>📈 그래프 그리기 도구 — 함수를 넣으면 그래프를 그려 줘요<em>✓ 내 그래프 있음</em></summary><div class="gthost" data-key="${key}"></div></details>`;
+const wkIsGraph = txt => WK_GRAPH_RE.test(String(txt || '').replace(/<[^>]+>/g, ''));
+function wkConceptCard(c, first){
+  const g = wkIsGraph(c.title + ' ' + c.html) || !!c.lab;
+  return `<div class="card wkcard">
+    <h2><span class="chip">📝 내 노트</span>코넬 노트 · 그래프·식·그림 노트<span class="wkst" data-st="${c.id}"></span></h2>
+    <p class="lead" style="margin-top:0">영상과 설명을 보고 이 개념을 <b>내 말로</b> 정리해요. 쓰는 즉시 자동 저장되고 선생님께 모여요.</p>
+    ${first ? '<div id="wkLegacy"></div>' : ''}
+    ${wkNoteHTML(c.id)}
+    ${wkInkBox(c.id, true, '그래프 · 식 · 그림 노트')}
+    ${g ? wkGraphBox(c.id, false) : ''}
+  </div>`;
+}
+function wkProbHTML(p){
+  const sol = (window.LESSON_SOL && LESSON_SOL[p.id]) || p.sol || '';
+  const needInk = p.fs.some(f => f.t !== 'sel' && f.t !== 'multi') || sol.replace(/<[^>]+>/g, '').length > 60;
+  const g = wkIsGraph(p.q + ' ' + sol + ' ' + (p.tag || '')) || !!p.fig;
+  if (!needInk && !g) return '';
+  return `<div class="wkprob">${needInk ? wkInkBox(p.id, false) : ''}${g ? wkGraphBox(p.id, false) : ''}<span class="wkst" data-st="${p.id}"></span></div>`;
+}
+/* 문제의 답을 확인할 때마다 고른 답을 함께 기록 */
+function wkAnswer(p, got, all, tries){
+  if (!ME.no) return;
+  const r = wkRec(p.id);
+  r.ans = { v:got.map(v => Array.isArray(v) ? v.map(String) : v == null ? '' : String(v).slice(0, 200)), ok:p.fs.map((f, i) => !!checkField(f, got[i])), all:!!all, n:tries };
+  wkTouch(p.id);
+}
+
+/* ---------- ✍️ 손글씨 판 (여러 개를 만들 수 있음, 선 좌표로 저장) ---------- */
+const INK_COL = ['#22223b', '#2f6fdf', '#e2465b', '#1fa37a'], INK_W = 1200, INK_H = 720, INK_MAX = 16000;
+function inkPaint(ctx, ink, sc){
+  ((ink && ink.s) || []).forEach(s => {
+    const c = s[0], w = s[1], e = s[2], p = s[3];
+    ctx.save(); ctx.globalCompositeOperation = e ? 'destination-out' : 'source-over';
+    ctx.strokeStyle = ctx.fillStyle = INK_COL[c] || INK_COL[0]; ctx.lineCap = ctx.lineJoin = 'round'; ctx.lineWidth = Math.max(1, w * (e ? 4 : 1) * sc);
+    ctx.beginPath();
+    if (p.length <= 2){ ctx.arc(p[0] * sc, p[1] * sc, ctx.lineWidth / 2, 0, 7); ctx.fill(); }
+    else { ctx.moveTo(p[0] * sc, p[1] * sc); for (let i = 2; i < p.length; i += 2) ctx.lineTo(p[i] * sc, p[i + 1] * sc); ctx.stroke(); }
+    ctx.restore();
+  });
+}
+const inkPts = ink => ((ink && ink.s) || []).reduce((a, s) => a + s[3].length / 2, 0);
+function inkMount(host){
+  const key = host.dataset.key; if (host._ink) return; host._ink = 1;
+  host.innerHTML = `<div class="ptools">
+      ${INK_COL.map((c, i) => `<span class="pcol${i ? '' : ' on'}" data-c="${i}" style="background:${c}"></span>`).join('')}<span class="psep"></span>
+      <button type="button" class="pw" data-w="2">가늘게</button><button type="button" class="pw on" data-w="4">보통</button><button type="button" class="pw" data-w="8">굵게</button><span class="psep"></span>
+      <button type="button" class="ptool i-er">🧽 지우개</button><button type="button" class="ptool i-un">↶ 되돌리기</button>
+      <button type="button" class="ptool i-gr on">▦ 모눈</button><button type="button" class="ptool i-ax">✛ 좌표축</button><button type="button" class="ptool i-cl">🗑 모두 지우기</button></div>
+    <div class="pad grid ink"><canvas width="${INK_W}" height="${INK_H}"></canvas></div>`;
+  const cv = $('canvas', host), ctx = cv.getContext('2d'), pad = $('.pad', host);
+  let strokes = [], cur = null, col = 0, wid = 4, er = false, sawPen = false, ax = false, clr = 0;
+  const redraw = () => { ctx.clearRect(0, 0, INK_W, INK_H); inkPaint(ctx, { s:strokes }, 1); };
+  const pos = e => { const r = cv.getBoundingClientRect(); return [Math.round((e.clientX - r.left) * INK_W / r.width), Math.round((e.clientY - r.top) * INK_H / r.height)]; };
+  const commit = () => { const r = wkRec(key); r.ink = { v:1, ax:ax ? 1 : 0, s:strokes }; wkTouch(key); };
+  cv.addEventListener('pointerdown', e => {
+    if (e.pointerType === 'pen') sawPen = true;
+    if (sawPen && e.pointerType === 'touch') return;             // 펜을 쓰는 동안 손바닥은 무시
+    if (!wkCanDraw()){ needLogin(); return; }
+    cv.setPointerCapture(e.pointerId); const p = pos(e);
+    cur = [col, wid, er ? 1 : 0, [p[0], p[1]]]; strokes.push(cur); inkPaint(ctx, { s:[cur] }, 1); e.preventDefault();
+  });
+  cv.addEventListener('pointermove', e => {
+    if (!cur) return;
+    (e.getCoalescedEvents ? e.getCoalescedEvents() : [e]).forEach(ev => {
+      const p = pos(ev), a = cur[3], n = a.length, dx = p[0] - a[n - 2], dy = p[1] - a[n - 1];
+      if (dx * dx + dy * dy < 9) return;
+      ctx.save(); ctx.globalCompositeOperation = cur[2] ? 'destination-out' : 'source-over'; ctx.strokeStyle = INK_COL[cur[0]]; ctx.lineCap = 'round';
+      ctx.lineWidth = cur[1] * (cur[2] ? 4 : 1); ctx.beginPath(); ctx.moveTo(a[n - 2], a[n - 1]); ctx.lineTo(p[0], p[1]); ctx.stroke(); ctx.restore();
+      a.push(p[0], p[1]);
+    });
+    e.preventDefault();
+  });
+  const end = () => {
+    if (!cur) return; cur = null;
+    if (inkPts({ s:strokes }) > INK_MAX){ strokes.pop(); redraw(); snack('노트가 가득 찼어요. 🧽 지우개나 🗑 로 정리한 뒤 이어서 써 주세요.'); return; }
+    commit();
+  };
+  cv.addEventListener('pointerup', end); cv.addEventListener('pointercancel', end);
+  $$('.pcol', host).forEach(b => b.onclick = () => { $$('.pcol', host).forEach(x => x.classList.toggle('on', x === b)); col = +b.dataset.c; er = false; $('.i-er', host).classList.remove('on'); });
+  $$('.pw', host).forEach(b => b.onclick = () => { $$('.pw', host).forEach(x => x.classList.toggle('on', x === b)); wid = +b.dataset.w; });
+  $('.i-er', host).onclick = e => { er = !er; e.currentTarget.classList.toggle('on', er); };
+  $('.i-un', host).onclick = () => { if (strokes.length){ strokes.pop(); redraw(); commit(); } else snack('더 되돌릴 수 없어요'); };
+  $('.i-gr', host).onclick = e => { pad.classList.toggle('grid'); e.currentTarget.classList.toggle('on', pad.classList.contains('grid')); };
+  $('.i-ax', host).onclick = e => { ax = !ax; pad.classList.toggle('axis', ax); e.currentTarget.classList.toggle('on', ax); if (strokes.length) commit(); };
+  $('.i-cl', host).onclick = () => { const now = Date.now(); if (now - clr > 2500){ clr = now; snack('한 번 더 누르면 모두 지워져요'); return; } strokes = []; redraw(); commit(); };
+  const api = { load(){ const k = (WK.data[key] || {}).ink; strokes = k && k.s ? k.s.map(s => [s[0], s[1], s[2], s[3].slice()]) : []; ax = !!(k && k.ax);
+    pad.classList.toggle('axis', ax); $('.i-ax', host).classList.toggle('on', ax); redraw(); } };
+  WK.pads[key] = api; api.load();
+}
+
+/* ---------- 📈 그래프 도구 : 함수식을 넣으면 그래프를 그림 (식 계산기는 직접 만든 것, eval 을 쓰지 않음) ---------- */
+const GT_FN = { sqrt:Math.sqrt, abs:Math.abs, sin:Math.sin, cos:Math.cos, tan:Math.tan, ln:Math.log, log:x => Math.log(x) / Math.LN10, exp:Math.exp };
+const GT_NAMES = ['sqrt', 'abs', 'sin', 'cos', 'tan', 'log', 'exp', 'ln', 'pi', 'x', 'e'];
+const GT_COL = ['#e2465b', '#2f6fdf', '#1fa37a', '#9b59d0', '#e08a00'];
+function gtParse(src){
+  let s = String(src).replace(/\s+/g, '').replace(/[−–—]/g, '-').replace(/[×·∙]/g, '*').replace(/÷/g, '/').replace(/²/g, '^2').replace(/³/g, '^3').replace(/π/g, 'pi').replace(/√/g, 'sqrt').toLowerCase();
+  const T = []; let i = 0;
+  while (i < s.length){
+    const ch = s[i]; let m;
+    if ((m = /^(\d+\.?\d*|\.\d+)/.exec(s.slice(i)))){ T.push({ t:'n', v:parseFloat(m[1]) }); i += m[1].length; continue; }
+    if (/[a-z]/.test(ch)){ const nm = GT_NAMES.find(n => s.startsWith(n, i)); if (!nm) throw new Error(`「${ch}」는 쓸 수 없는 글자예요 (변수는 x)`); T.push({ t:'id', v:nm }); i += nm.length; continue; }
+    if ('+-*/^()|'.indexOf(ch) >= 0){ T.push({ t:ch }); i++; continue; }
+    throw new Error(`「${ch}」는 쓸 수 없는 기호예요`);
+  }
+  let k = 0, absDepth = 0;
+  const peek = () => T[k], eat = t => { if (!T[k] || T[k].t !== t) throw new Error(t === ')' ? '괄호 ) 가 빠졌어요' : '식이 끝까지 쓰이지 않았어요'); k++; };
+  const startsPrimary = () => { const p = peek(); return p && (p.t === 'n' || p.t === 'id' || p.t === '(' || (p.t === '|' && !absDepth)); };
+  function expr(){ let a = term(); while (peek() && (peek().t === '+' || peek().t === '-')){ const op = T[k++].t, b = term(), l = a; a = op === '+' ? x => l(x) + b(x) : x => l(x) - b(x); } return a; }
+  function term(){ let a = unary();
+    for (;;){ const p = peek(); if (!p) break;
+      if (p.t === '*' || p.t === '/'){ k++; const b = unary(), l = a; a = p.t === '*' ? x => l(x) * b(x) : x => l(x) / b(x); }
+      else if (startsPrimary()){ const b = power(), l = a; a = x => l(x) * b(x); }
+      else break; }
+    return a; }
+  function unary(){ if (peek() && peek().t === '-'){ k++; const a = unary(); return x => -a(x); } if (peek() && peek().t === '+'){ k++; return unary(); } return power(); }
+  function power(){ const a = primary(); if (peek() && peek().t === '^'){ k++; const b = unary(); return x => Math.pow(a(x), b(x)); } return a; }
+  function primary(){ const p = peek(); if (!p) throw new Error('식이 중간에 끊겼어요');
+    if (p.t === 'n'){ k++; return () => p.v; }
+    if (p.t === '('){ k++; const d = absDepth; absDepth = 0; const a = expr(); absDepth = d; eat(')'); return a; }
+    if (p.t === '|'){ k++; absDepth++; const a = expr(); absDepth--; if (!peek() || peek().t !== '|') throw new Error('절댓값 기호 | 가 닫히지 않았어요'); k++; return x => Math.abs(a(x)); }
+    if (p.t === 'id'){ k++;
+      if (p.v === 'x') return x => x; if (p.v === 'pi') return () => Math.PI; if (p.v === 'e') return () => Math.E;
+      const f = GT_FN[p.v], a = peek() && peek().t === '(' ? primary() : unary(); return x => f(a(x)); }
+    throw new Error('연산 기호의 자리를 확인해 주세요'); }
+  const f = expr(); if (k < T.length) throw new Error('식을 끝까지 읽지 못했어요. 괄호와 기호를 확인해 주세요');
+  return f;
+}
+function gtCompile(src){
+  const raw = String(src || '').trim(); if (!raw) return null;
+  const s = raw.replace(/\s+/g, '');
+  let m;
+  if ((m = /^\(([^,()]+),([^,()]+)\)$/.exec(s))) return { kind:'pt', x:gtParse(m[1])(0), y:gtParse(m[2])(0) };
+  if ((m = /^x=([^x]+)$/i.exec(s))) return { kind:'x', c:gtParse(m[1])(0) };
+  const body = s.replace(/^(y|[fgh]\(x\))=/i, '');
+  if (/[=<>≤≥]/.test(body)) throw new Error('「y = (x의 식)」 꼴로 써 주세요');
+  return { kind:'y', f:gtParse(body) };
+}
+const GT_WIN = [-7.5, 7.5, -5, 5];
+function gtDraw(cv, st){
+  const W = cv.width, H = cv.height, g = cv.getContext('2d'), win = st.win && st.win.length === 4 ? st.win : GT_WIN, [x0, x1, y0, y1] = win;
+  const X = x => (x - x0) / (x1 - x0) * W, Y = y => H - (y - y0) / (y1 - y0) * H, fs = Math.max(9, W / 62);
+  g.clearRect(0, 0, W, H); g.fillStyle = '#fff'; g.fillRect(0, 0, W, H);
+  const raw = (x1 - x0) / 12, p10 = Math.pow(10, Math.floor(Math.log10(raw))), step = [1, 2, 5, 10].map(m => m * p10).find(v => v >= raw);
+  g.lineWidth = 1; g.font = `${fs}px sans-serif`; g.fillStyle = '#8a84a3';
+  for (let x = Math.ceil(x0 / step) * step; x <= x1; x += step){ g.strokeStyle = '#eceef6'; g.beginPath(); g.moveTo(X(x), 0); g.lineTo(X(x), H); g.stroke(); }
+  for (let y = Math.ceil(y0 / step) * step; y <= y1; y += step){ g.strokeStyle = '#eceef6'; g.beginPath(); g.moveTo(0, Y(y)); g.lineTo(W, Y(y)); g.stroke(); }
+  g.strokeStyle = '#4a4668'; g.lineWidth = Math.max(1, W / 600);
+  const ay = Math.min(H - 1, Math.max(1, Y(0))), axx = Math.min(W - 1, Math.max(1, X(0)));
+  g.beginPath(); g.moveTo(0, ay); g.lineTo(W, ay); g.moveTo(axx, 0); g.lineTo(axx, H); g.stroke();
+  const lab = v => +v.toFixed(6);
+  g.textAlign = 'center'; g.textBaseline = 'top';
+  for (let x = Math.ceil(x0 / step) * step; x <= x1; x += step) if (Math.abs(x) > step / 2) g.fillText(lab(x), X(x), Math.min(H - fs - 2, ay + 3));
+  g.textAlign = 'right'; g.textBaseline = 'middle';
+  for (let y = Math.ceil(y0 / step) * step; y <= y1; y += step) if (Math.abs(y) > step / 2) g.fillText(lab(y), Math.max(fs * 2, axx - 4), Y(y));
+  g.fillText('O', axx - 4, Math.min(H - fs, ay + fs * .8));
+  const errs = [];
+  (st.f || []).forEach((src, i) => {
+    let c = null; try { c = gtCompile(src); } catch (e) { errs[i] = e.message; }
+    if (!c) return;
+    g.strokeStyle = g.fillStyle = GT_COL[i % GT_COL.length]; g.lineWidth = Math.max(1.5, W / 320); g.setLineDash([]);
+    if (c.kind === 'pt'){ if (isFinite(c.x) && isFinite(c.y)){ g.beginPath(); g.arc(X(c.x), Y(c.y), Math.max(3, W / 170), 0, 7); g.fill(); g.textAlign = 'left'; g.textBaseline = 'bottom'; g.fillText(`(${lab(c.x)}, ${lab(c.y)})`, X(c.x) + 6, Y(c.y) - 4); } return; }
+    if (c.kind === 'x'){ if (isFinite(c.c)){ g.setLineDash([W / 90, W / 120]); g.beginPath(); g.moveTo(X(c.c), 0); g.lineTo(X(c.c), H); g.stroke(); g.setLineDash([]); } return; }
+    let pen = false, py0 = 0; g.beginPath();
+    for (let px = 0; px <= W; px += 0.5){
+      const y = c.f(x0 + px / W * (x1 - x0));
+      if (!isFinite(y)){ pen = false; continue; }
+      const py = Math.max(-H, Math.min(2 * H, Y(y)));
+      if (pen && ((py0 < 0 && py > H) || (py0 > H && py < 0))) pen = false;         // 점근선을 건너뛰는 곳은 잇지 않음
+      if (pen) g.lineTo(px, py); else g.moveTo(px, py);
+      pen = true; py0 = py;
+    }
+    g.stroke();
+  });
+  return errs;
+}
+function gtMount(host){
+  const key = host.dataset.key; if (host._gt) return; host._gt = 1;
+  host.innerHTML = `<div class="gt"><div class="gtside">
+      <div class="gtrows"></div>
+      <div class="gtkeys">${[['x²', '^2'], ['√( )', 'sqrt('], ['|x|', '|x|'], ['1/x', '1/x'], ['^', '^'], ['(', '('], [')', ')'], ['π', 'pi']].map(k => `<button type="button" class="nsym gtk" data-w="${k[1]}">${k[0]}</button>`).join('')}</div>
+      <button type="button" class="btn gtadd">＋ 식 추가</button>
+      <p class="gthelp">예) <code>1/(x-1)+3</code> · <code>√(2x-4)+1</code> · <code>x^2-2x</code> · <code>|x|</code> · 세로선 <code>x=1</code> · 점 <code>(2,1)</code><br>그래프를 끌면 움직이고, ＋ － 로 크기를 바꿔요.</p></div>
+    <div class="gtview"><canvas width="900" height="600"></canvas>
+      <div class="gtzoom"><button type="button" data-z="in" title="확대">＋</button><button type="button" data-z="out" title="축소">－</button><button type="button" data-z="home" title="처음 크기">⌂</button></div>
+      <div class="gtread"></div></div></div>`;
+  const cv = $('canvas', host), rows = $('.gtrows', host), read = $('.gtread', host);
+  let st = { f:[''], win:GT_WIN.slice() }, last = null, drag = null;
+  const save = () => { const r = wkRec(key); r.graph = { f:st.f.slice(), win:st.win.map(v => +v.toFixed(4)) }; wkTouch(key); };
+  const paint = () => { const errs = gtDraw(cv, st); $$('.gterr', rows).forEach((e, i) => e.textContent = errs[i] || ''); };
+  function drawRows(){
+    rows.innerHTML = st.f.map((v, i) => `<div class="gtrow"><i style="background:${GT_COL[i % GT_COL.length]}"></i><span>y =</span><input type="text" data-i="${i}" value="${esc(v)}" placeholder="${i ? '식을 하나 더' : 'x에 대한 식 (예: 2/(x+1)-2)'}" autocomplete="off" autocapitalize="off" spellcheck="false">
+      ${st.f.length > 1 ? `<button type="button" class="gtdel" data-i="${i}" title="이 식 지우기">✕</button>` : ''}<div class="gterr"></div></div>`).join('');
+    $$('input', rows).forEach(inp => {
+      inp.onfocus = () => last = inp;
+      inp.oninput = () => { if (!wkCanDraw()){ needLogin(); inp.value = ''; return; } st.f[+inp.dataset.i] = inp.value; paint(); save(); };
+    });
+    $$('.gtdel', rows).forEach(b => b.onclick = () => { st.f.splice(+b.dataset.i, 1); drawRows(); paint(); save(); });
+    $('.gtadd', host).style.display = st.f.length >= 5 ? 'none' : '';
+  }
+  $('.gtadd', host).onclick = () => { if (st.f.length < 5){ st.f.push(''); drawRows(); const a = $$('input', rows); a[a.length - 1].focus(); } };
+  $$('.gtk', host).forEach(b => b.onclick = () => { const inp = last && rows.contains(last) ? last : $('input', rows); const p = inp.selectionStart ?? inp.value.length, w = b.dataset.w;
+    inp.value = inp.value.slice(0, p) + w + inp.value.slice(inp.selectionEnd ?? p); inp.focus(); inp.setSelectionRange(p + w.length, p + w.length); inp.oninput(); });
+  $$('.gtzoom button', host).forEach(b => b.onclick = () => {
+    if (b.dataset.z === 'home') st.win = GT_WIN.slice();
+    else { const k = b.dataset.z === 'in' ? 0.7 : 1 / 0.7, [a, c, d, e] = st.win, mx = (a + c) / 2, my = (d + e) / 2; st.win = [mx - (mx - a) * k, mx + (c - mx) * k, my - (my - d) * k, my + (e - my) * k]; }
+    paint(); if (st.f.some(x => x.trim())) save(); });
+  cv.addEventListener('pointerdown', e => { cv.setPointerCapture(e.pointerId); drag = { x:e.clientX, y:e.clientY, win:st.win.slice() }; });
+  cv.addEventListener('pointermove', e => {
+    const r = cv.getBoundingClientRect(), [a, c, d, f] = st.win;
+    if (drag){ const dx = (e.clientX - drag.x) / r.width * (drag.win[1] - drag.win[0]), dy = (e.clientY - drag.y) / r.height * (drag.win[3] - drag.win[2]);
+      st.win = [drag.win[0] - dx, drag.win[1] - dx, drag.win[2] + dy, drag.win[3] + dy]; paint(); return; }
+    const x = a + (e.clientX - r.left) / r.width * (c - a), out = [];
+    st.f.forEach((src, i) => { try { const cc = gtCompile(src); if (cc && cc.kind === 'y'){ const y = cc.f(x); out.push(`<b style="color:${GT_COL[i % GT_COL.length]}">y = ${isFinite(y) ? +y.toFixed(2) : '없음'}</b>`); } } catch (er) {} });
+    read.innerHTML = out.length ? `x = ${+x.toFixed(2)} 일 때 ` + out.join(' · ') : '';
+  });
+  const up = () => { if (drag){ drag = null; if (st.f.some(x => x.trim())) save(); } };
+  cv.addEventListener('pointerup', up); cv.addEventListener('pointercancel', up); cv.addEventListener('pointerleave', () => { read.innerHTML = ''; });
+  const api = { load(){ const g = (WK.data[key] || {}).graph; st = { f:g && g.f && g.f.length ? g.f.slice(0, 5) : [''], win:g && g.win && g.win.length === 4 ? g.win.slice() : GT_WIN.slice() }; drawRows(); paint(); } };
+  WK.gts[key] = api; api.load();
+}
+
+/* ---------- 연결 ---------- */
+let _wkIO = null;
+function wkMountBox(d){ const h = $('.inkhost', d); if (h) inkMount(h); const g = $('.gthost', d); if (g) gtMount(g); }
+function wkBind(root){
+  root = root || document;
+  const mount = wkMountBox;
+  if (!_wkIO && 'IntersectionObserver' in window) _wkIO = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting){ mount(e.target); _wkIO.unobserve(e.target); } }), { rootMargin:'300px' });
+  $$('.wkbox', root).forEach(d => { if (d._wk) return; d._wk = 1; wkBadges(d.dataset.key);
+    d.addEventListener('toggle', () => { if (d.open) mount(d); });
+    if (d.open){ if (_wkIO) _wkIO.observe(d); else mount(d); } });
+  $$('.cnote', root).forEach(n => { if (n._wk) return; n._wk = 1; const key = n.dataset.key; let lastTa = $('textarea[data-f="body"]', n);
+    $$('textarea', n).forEach(t => { t.addEventListener('focus', () => lastTa = t);
+      t.addEventListener('input', () => { if (!ME.no){ if (!(typeof TM !== 'undefined' && TM.on)) needLogin(); return; } const r = wkRec(key); r.note = r.note || {}; r.note[t.dataset.f] = t.value; wkTouch(key); }); });
+    $$('.cins', n).forEach(b => b.onclick = () => { const ta = lastTa, w = b.dataset.w, p = ta.selectionStart ?? ta.value.length;
+      ta.value = ta.value.slice(0, p) + w + ta.value.slice(ta.selectionEnd ?? p); ta.focus(); ta.setSelectionRange(p + w.length, p + w.length); ta.dispatchEvent(new Event('input')); }); });
+}
+function bootWork(){
+  wkBind(); namesApply();
+  // 문제 카드는 나중에 그려지기도 하므로, 펼칠 때마다 문서 전체에서 받아 그린다 (toggle 은 거품이 일지 않아 capture 로)
+  document.addEventListener('toggle', e => { const d = e.target; if (d && d.classList && d.classList.contains('wkbox') && d.open){ wkMountBox(d); if (!d._wk) wkBind(d.parentNode); } }, true);
+  window.addEventListener('beforeunload', () => { if (WK.dirty.size){ clearTimeout(WK.timer); wkFlush(); } });
+}
+
+/* ===================================================================
+   🖥️ 선생님 : 학생 풀이 화면 — 항목(개념·문제)별로 전체 학생을 한눈에, 학생을 누르면 그 학생의 화면
+   =================================================================== */
+const TW = { key:null, idx:[], rows:[], live:false, timer:null, order:[] };
+let NAMES_HIDDEN = false; try { NAMES_HIDDEN = localStorage.getItem('qf_hide_names') === '1'; } catch (e) {}
+function namesApply(){ document.documentElement.classList.toggle('hide-names', NAMES_HIDDEN); $$('.namebtn').forEach(b => b.textContent = NAMES_HIDDEN ? '👀 학번·이름 보이기' : '🙈 학번·이름 가리기'); }
+function namesToggle(){ NAMES_HIDDEN = !NAMES_HIDDEN; try { localStorage.setItem('qf_hide_names', NAMES_HIDDEN ? '1' : '0'); } catch (e) {} namesApply(); }
+const nameBtn = () => `<button type="button" class="btn namebtn" onclick="namesToggle()" style="padding:6px 14px">${NAMES_HIDDEN ? '👀 학번·이름 보이기' : '🙈 학번·이름 가리기'}</button>`;
+const whoTag = (no, name, alt) => `<span class="whotag">${esc(no || '')} ${esc(name || '')}</span><span class="whoalt">${esc(alt || '학생')}</span>`;
+
+function twLabel(key){
+  if (TL === LESSON.code){
+    const ci = (LESSON.cards || []).findIndex(c => c.id === key); if (ci >= 0) return `🧠 개념 ${ci + 1} 노트 · ${LESSON.cards[ci].title.replace(/<[^>]+>/g, '').replace(/\\\(|\\\)/g, '').slice(0, 26)}`;
+    const p = (LESSON.problems || []).find(p => p.id === key); if (p) return `✏️ ${p.tag}`;
+  }
+  return /^c\d+$/.test(key) ? `🧠 개념 ${key.slice(1)} 노트` : `✏️ 문제 ${key}`;
+}
+function twKeys(){
+  const has = new Set(TW.idx.map(x => x.key)); let keys = [];
+  if (TL === LESSON.code) keys = [...(LESSON.cards || []).map(c => c.id), ...(LESSON.problems || []).map(p => p.id)];
+  [...has].sort().forEach(k => { if (!keys.includes(k)) keys.push(k); });
+  return keys;
+}
+async function tWork(V){
+  V.innerHTML = '<div class="state">학생 풀이를 불러오는 중…</div>';
+  try { TW.idx = await rpc('qf_teacher_work_index', { p_pass:TP, p_lesson:TL }) || []; } catch (e) { V.innerHTML = `<div class="state">불러오지 못했어요: ${esc(e.message)}</div>`; return; }
+  const keys = twKeys(), cnt = k => new Set(TW.idx.filter(x => x.key === k && inCls(x.student_no)).map(x => x.student_no)).size;
+  if (!TW.key || !keys.includes(TW.key)) TW.key = keys.find(k => cnt(k) > 0) || keys[0] || null;
+  V.innerHTML = `<div class="twbar">
+      <b>🖥️ 학생 풀이 화면</b>
+      <select class="inp" id="twKey">${keys.map(k => `<option value="${k}"${k === TW.key ? ' selected' : ''}>${esc(twLabel(k))} — ${cnt(k)}명</option>`).join('')}</select>
+      <button type="button" class="btn" id="twRe" style="padding:6px 14px">↻ 새로고침</button>
+      <label class="twlive"><input type="checkbox" id="twLive"${TW.live ? ' checked' : ''}> 15초마다 자동 새로고침</label>
+      ${nameBtn()}
+    </div>
+    <p class="tclsnote">항목을 고르면 「${tClsName()}」 학생 전체의 <b>고른 답 · 코넬 노트 · 손글씨 풀이 · 그래프</b>가 한 화면에 보여요. <b>학생 칸을 누르면 그 학생의 화면 전체</b>가 열려요. 수업 중 TV에 띄울 때는 「🙈 학번·이름 가리기」를 쓰세요.</p>
+    <div id="twSum" class="twsum"></div><div id="twGrid" class="twgrid"></div>`;
+  $('#twKey').onchange = e => { TW.key = e.target.value; twLoad(); };
+  $('#twRe').onclick = () => tWork(V);
+  $('#twLive').onchange = e => { TW.live = e.target.checked; twTimer(); };
+  twTimer(); twLoad();
+}
+function twTimer(){
+  clearInterval(TW.timer); TW.timer = null;
+  if (TW.live) TW.timer = setInterval(() => { if (tView !== 'work' || CUR !== 'teacher' || !$('#twGrid')){ clearInterval(TW.timer); TW.timer = null; return; } if (!$('#twModal') || $('#twModal').hidden) twLoad(true); }, 15000);
+}
+const twAns = a => { if (!a || !a.v) return '';
+  return `<div class="twans ${a.all ? 'ok' : 'no'}">${a.all ? '✅' : '❌'} ${a.v.map((v, i) => `<span class="${a.ok && a.ok[i] ? 'ok' : 'no'}">${esc(Array.isArray(v) ? v.join(', ') : v) || '—'}</span>`).join('')}<small>${a.n || 1}번째 시도</small></div>`; };
+async function twLoad(quiet){
+  const G = $('#twGrid'); if (!G || !TW.key) { if (G) G.innerHTML = '<div class="state">아직 기록이 없어요.</div>'; return; }
+  if (!quiet) G.innerHTML = '<div class="state">불러오는 중…</div>';
+  let rows = []; try { rows = await rpc('qf_teacher_work', { p_pass:TP, p_lesson:TL, p_key:TW.key, p_no:null }) || []; } catch (e) { if (!quiet) G.innerHTML = `<div class="state">불러오지 못했어요: ${esc(e.message)}</div>`; return; }
+  rows = rows.filter(r => inCls(r.student_no)); TW.rows = rows;
+  const by = {}; rows.forEach(r => by[r.student_no] = r);
+  const studs = {}; (TD.students || []).forEach(s => studs[s.student_no] = s.name); rows.forEach(r => { if (!(r.student_no in studs)) studs[r.student_no] = r.name; });
+  const nos = Object.keys(studs).sort(); TW.order = nos;
+  const att = {}; (TD.attempts || []).filter(a => a.problem_id === TW.key).forEach(a => att[a.student_no] = a);
+  const done = rows.length, right = rows.filter(r => r.data && r.data.ans && r.data.ans.all).length, isProb = !/^c\d+$/.test(TW.key);
+  $('#twSum').innerHTML = `<span>👩‍🎓 참여 ${nos.length}명</span><span>✍️ 기록 ${done}명</span>${isProb ? `<span>✅ 정답 ${right}명</span>` : ''}<span>🕒 ${new Date().getHours()}:${pad2(new Date().getMinutes())}:${pad2(new Date().getSeconds())} 기준</span>`;
+  G.innerHTML = nos.map((no, i) => {
+    const r = by[no], d = (r && r.data) || {}, n = d.note || {}, a = att[no];
+    return `<button type="button" class="twtile${r ? '' : ' none'}" data-no="${esc(no)}">
+      <div class="twh">${whoTag(no, studs[no], '학생 ' + (i + 1))}<small>${r ? ago(r.updated_at) : '아직 없음'}</small></div>
+      ${twAns(d.ans)}${!d.ans && a ? `<div class="twans ${a.solved ? 'ok' : 'no'}">${a.solved ? '✅ 해결' : '❌ 미해결'}<small>${a.tries}번 시도</small></div>` : ''}
+      ${(n.body || n.cue || n.sum) ? `<div class="twnote">${n.cue ? `<b>🔑</b> ${esc(n.cue.slice(0, 80))}<br>` : ''}${esc((n.body || '').slice(0, 220))}${n.sum ? `<br><b>📌</b> ${esc(n.sum.slice(0, 90))}` : ''}</div>` : ''}
+      ${d.ink ? `<canvas class="twink" width="360" height="216" data-k="ink"></canvas>` : ''}
+      ${d.graph ? `<canvas class="twgr" width="360" height="240" data-k="graph"></canvas><div class="twf">${(d.graph.f || []).filter(x => (x || '').trim()).map((x, j) => `<i style="color:${GT_COL[j % GT_COL.length]}">y = ${esc(x)}</i>`).join(' ')}</div>` : ''}
+    </button>`; }).join('') || '<div class="state">아직 참여한 학생이 없어요.</div>';
+  $$('.twtile', G).forEach(t => { const r = by[t.dataset.no], d = (r && r.data) || {};
+    const ic = $('.twink', t); if (ic){ const c = ic.getContext('2d'); if (d.ink.ax){ c.strokeStyle = '#b8bdd6'; c.beginPath(); c.moveTo(0, 108); c.lineTo(360, 108); c.moveTo(180, 0); c.lineTo(180, 216); c.stroke(); } inkPaint(c, d.ink, 360 / INK_W); }
+    const gc = $('.twgr', t); if (gc) gtDraw(gc, d.graph);
+    t.onclick = () => twStudent(t.dataset.no); });
+  tex(G);
+}
+/* 한 학생의 화면 전체 */
+async function twStudent(no){
+  let m = $('#twModal');
+  if (!m){ m = document.createElement('div'); m.id = 'twModal'; m.className = 'twmodal'; document.body.appendChild(m); m.addEventListener('click', e => { if (e.target === m) m.hidden = true; });
+    addEventListener('keydown', e => { if (m.hidden) return; if (e.key === 'Escape') m.hidden = true; }); }
+  m.hidden = false; m.innerHTML = '<div class="twbox"><div class="state">학생 화면을 불러오는 중…</div></div>';
+  let rows = []; try { rows = await rpc('qf_teacher_work', { p_pass:TP, p_lesson:TL, p_key:null, p_no:no }) || []; } catch (e) { m.innerHTML = `<div class="twbox"><div class="state">불러오지 못했어요: ${esc(e.message)}</div></div>`; return; }
+  const by = {}; rows.forEach(r => by[r.key] = r.data || {});
+  const name = ((TD.students || []).find(s => s.student_no === no) || rows[0] || {}).name || '', i = TW.order.indexOf(no);
+  const att = {}; (TD.attempts || []).filter(a => a.student_no === no).forEach(a => att[a.problem_id] = a);
+  const cvs = [];
+  const part = (key, d) => {
+    const n = d.note, out = [];
+    if (n && (n.cue || n.body || n.sum)) out.push(`<div class="cornell sm ro"><div class="ccue"><label>🔑 단서 · 핵심 질문</label><div class="rot">${esc(n.cue || '')}</div></div><div class="cbody"><label>✍️ 필기</label><div class="rot">${esc(n.body || '')}</div></div><div class="csum"><label>📌 요약</label><div class="rot">${esc(n.sum || '')}</div></div></div>`);
+    if (d.ans) out.push(twAns(d.ans));
+    if (d.ink){ cvs.push(['ink', d.ink]); out.push(`<div class="twl">✍️ 손글씨 풀이</div><div class="pad grid${d.ink.ax ? ' axis' : ''} ink ro"><canvas width="${INK_W}" height="${INK_H}" data-cv="${cvs.length - 1}"></canvas></div>`); }
+    if (d.graph){ cvs.push(['graph', d.graph]); out.push(`<div class="twl">📈 그래프 도구</div><div class="twf big">${(d.graph.f || []).filter(x => (x || '').trim()).map((x, j) => `<i style="color:${GT_COL[j % GT_COL.length]}">y = ${esc(x)}</i>`).join(' ')}</div><canvas class="twgbig" width="900" height="600" data-cv="${cvs.length - 1}"></canvas>`); }
+    return out.join('');
+  };
+  let html = '';
+  if (TL === LESSON.code){
+    const C = (LESSON.cards || []).filter(c => by[c.id]), P = (LESSON.problems || []).filter(p => by[p.id] || att[p.id]);
+    if (C.length) html += `<h3>🧠 개념 노트</h3>` + C.map(c => `<section><h4>${c.title}</h4>${part(c.id, by[c.id])}</section>`).join('');
+    if (P.length) html += `<h3>✏️ 문제 풀이</h3>` + P.map(p => { const a = att[p.id], d = by[p.id] || {};
+      return `<section><h4><span class="ptag">${p.tag}</span> ${a ? `<small>${a.solved ? '✅ 해결' : '❌ 미해결'} · ${a.tries}번 시도 · 힌트 ${a.hints || 0}개</small>` : ''}</h4><div class="twq">${p.q}</div>${part(p.id, d) || '<p class="twnone">풀이 기록 없음 (답만 확인)</p>'}</section>`; }).join('');
+  } else html += Object.keys(by).sort().map(k => `<section><h4>${esc(twLabel(k))}</h4>${part(k, by[k])}</section>`).join('');
+  m.innerHTML = `<div class="twbox"><div class="twtop"><b>🖥️ ${whoTag(no, name, '학생 ' + (i + 1))} 의 화면</b><span class="chip">${esc((ALL_LESSONS.find(l => l[0] === TL) || ['', ''])[1])}</span>
+      <span style="flex:1"></span><button type="button" class="btn" id="twPrev"${i > 0 ? '' : ' disabled'}>← 이전 학생</button><button type="button" class="btn" id="twNext"${i >= 0 && i < TW.order.length - 1 ? '' : ' disabled'}>다음 학생 →</button>
+      ${nameBtn()}<button type="button" class="pb-ib" id="twX" title="닫기">✕</button></div>
+    <div class="twbody">${html || '<div class="state">이 학생은 아직 노트나 풀이를 남기지 않았어요.</div>'}</div></div>`;
+  $$('canvas[data-cv]', m).forEach(c => { const [k, d] = cvs[+c.dataset.cv]; if (k === 'ink') inkPaint(c.getContext('2d'), d, 1); else gtDraw(c, d); });
+  $('#twX').onclick = () => m.hidden = true;
+  $('#twPrev').onclick = () => twStudent(TW.order[i - 1]); $('#twNext').onclick = () => twStudent(TW.order[i + 1]);
+  tex($('.twbody', m)); namesApply();
+}
+
+;
+/* ===================================================================
    👥 소그룹 — 반마다 모둠 5개. ❓질문 방 · 💬토론 방 · 📝해결 결과 → 🌟 모두에게 공유
    📤 나의 활동 기록 : 내가 한 질문 · 해결 · 의견 · 역할을 선생님께 보냄 (교과세특 근거)
    =================================================================== */
@@ -4051,7 +4635,8 @@ function stRecord(P, s){
     grp:(P.groups || []).find(x => x.student_no === no),
     port:R('portfolio'), debate:R('debate'), after:R('debate_after'), talk:R(/^talk\d$/), reflect:R('reflect'),
     notes:mine(P.notes || []), evals:mine(P.evals || []), solved:(P.solved || []).find(x => x.student_no === no),
-    saved:(P.seteuk || []).find(x => x.student_no === no)
+    saved:(P.seteuk || []).find(x => x.student_no === no),
+    work:(P.work || []).filter(x => x.student_no === no)
   };
 }
 /* 낱말 고르기 : 텍스트 마이닝 엔진으로 수학 핵심어만 (수식·기호는 빼고 한글 개념어만) */
@@ -4138,9 +4723,11 @@ function stDraft(r, salt){
     S.push({ k:'deb', t:`토의 과정에서 ${tp.length ? andJoin(tp) + '에 관한 ' : ''}자신의 생각을 이유와 함께 밝히고, 친구의 의견에 동의하거나 다른 관점을 덧붙이며 결론을 함께 이끌어 냄.` });
   }
   // ⑤ 학습 관리 (짧게)
-  const sub = r.notes.some(n => n.submitted), solved = r.solved ? +r.solved.solved : 0;
-  if (sub || solved >= 6) S.push({ k:'self', t: sub && solved >= 6 ? '코넬 노트로 개념을 정리하고 스스로 만든 질문지로 이해를 점검했으며, 막힌 문제는 단계별 힌트를 활용해 끝까지 해결함.'
-    : sub ? '코넬 노트로 개념을 자신의 말로 정리하고 노트를 바탕으로 스스로 질문지를 만들어 이해를 점검함.'
+  const wn = (r.work || []).filter(x => x.n).length, wi = (r.work || []).filter(x => x.i || x.g).length;
+  const sub = r.notes.some(n => n.submitted) || wn >= 2, solved = r.solved ? +r.solved.solved : 0;
+  if (wi >= 3) S.push({ k:'ink', t: stPick(['문제를 풀 때 식과 그래프를 직접 그려 가며 풀이 과정을 시각적으로 정리함.', '그래프 그리기 도구로 함수의 그래프를 직접 그려 보고 식과 그래프의 관계를 확인하며 문제를 해결함.', '풀이 노트에 식의 변형 과정과 그래프를 손으로 그려 가며 자신의 풀이를 점검함.'], (r.no || '').length + wi) });
+  if (sub || solved >= 6) S.push({ k:'self', t: sub && solved >= 6 ? '개념마다 코넬 노트로 핵심을 자신의 말로 정리했으며, 막힌 문제는 단계별 힌트를 활용해 끝까지 해결함.'
+    : sub ? '개념마다 코넬 노트로 단서·필기·요약을 정리하며 자신의 말로 개념을 다시 설명함.'
     : '중단원과 대단원 문제를 차례로 해결하며 막힌 지점을 질문으로 바꾸어 스스로 풀어 냄.' });
   // ⑥ 발전 가능성
   const nexts = r.port.map(p => p.body.next).concat(r.gres.map(x => x.data && x.data.next), r.reflect.map(x => [x.body.m1, x.body.m2, x.body.m3, x.body.myq].join(' '))).filter(Boolean);
@@ -4170,6 +4757,8 @@ async function tSeteuk(V){
   const c = tCls === 'all' || tCls === 'etc' ? 0 : +tCls;
   V.innerHTML = '<p class="lead">6차시 전체 기록을 모으는 중…</p>';
   try{ TPF = await rpc('qf_teacher_portfolio', { p_pass:TP, p_cls:c }); }catch(e){ V.innerHTML = `<p class="cmsg err">${esc(e.message)}</p>`; return; }
+  // 개념별 코넬 노트 · 손글씨 풀이 · 그래프 (6차시 전체 목록, 그림은 빼고 있는지만)
+  TPF.work = (await Promise.all(ALL_LESSONS.map(l => rpc('qf_teacher_work_index', { p_pass:TP, p_lesson:l[0] }).catch(() => [])))).flat();
   const RL = (typeof RLIST !== 'undefined' && RLIST && c && RLIST[String(c)]) ? RLIST[String(c)] : null;
   let studs = TPF.students.filter(s => tCls !== 'etc' || !['1','2','3','4'].includes(clsOf(s.student_no)));
   if (RL) RL.forEach(([no, nm]) => { if (!studs.some(s => s.student_no === no)) studs.push({ student_no:no, name:nm }); });
@@ -5227,14 +5816,13 @@ function pageStart(){
     <h2><span class="chip">학습 길잡이</span>🗺️ 오늘은 이렇게 공부해요</h2>
     <div class="road">
       <button type="button" data-go="start"><b>1</b>🎯 질문 열기<small>질문 초점 · 질문 쏟아내기</small></button>
-      <button type="button" data-go="concept"><b>2</b>📘 개념 학습<small>개념 → 예제 → 확인 문제 → 질문</small></button>
-      <button type="button" data-go="note"><b>3</b>📝 개념 노트<small>코넬 노트 · 나의 질문지</small></button>
-      <button type="button" data-go="problem"><b>4</b>✏️ 실력 다지기<small>중단원 · 대단원 · 익힘책</small></button>
-      <button type="button" data-go="life"><b>5</b>🌍 실생활 수학<small>생활 속 질문</small></button>
-      <button type="button" data-go="book"><b>6</b>📚 책 속 토론<small>성우 낭독 · 토의 · 토론</small></button>
-      <button type="button" data-go="plaza"><b>7</b>🗳️ 질문 광장<small>공감 3표 · 답글</small></button>
-      <button type="button" data-go="group"><b>8</b>👥 소그룹<small>모둠 질문 · 토론 · 해결 결과</small></button>
-      <button type="button" data-go="reflect"><b>9</b>🪞 성찰<small>나의 활동 기록 보내기</small></button>
+      <button type="button" data-go="concept"><b>2</b>📘 개념 학습<small>영상 → 내 노트 → 예제 → 확인 문제 → 질문</small></button>
+      <button type="button" data-go="problem"><b>3</b>✏️ 실력 다지기<small>중단원 · 대단원 · 익힘책</small></button>
+      <button type="button" data-go="life"><b>4</b>🌍 실생활 수학<small>생활 속 질문</small></button>
+      <button type="button" data-go="book"><b>5</b>📚 책 속 토론<small>성우 낭독 · 토의 · 토론</small></button>
+      <button type="button" data-go="plaza"><b>6</b>🗳️ 질문 광장<small>공감 3표 · 답글</small></button>
+      <button type="button" data-go="group"><b>7</b>👥 소그룹<small>모둠 질문 · 토론 · 해결 결과</small></button>
+      <button type="button" data-go="reflect"><b>8</b>🪞 성찰<small>나의 활동 기록 보내기</small></button>
     </div>
     <p class="lead" style="margin:8px 0 0;font-size:.84rem">각 화면 맨 아래 「다음 단계 ▶」를 누르면 순서대로 이동해요. 언제든 궁금한 것은 💬 자유 질문방에!</p>
   </div>
@@ -5326,6 +5914,7 @@ function pageConcept(){
         ${c.lab ? `<div class="lab" data-lab="${c.lab}"></div>` : ''}
         ${c.prompts && c.prompts.length ? `<div class="tip">🤔 <b>읽으면서 생각해 봐요</b><br>${c.prompts.map(p => '· ' + p).join('<br>')}</div>` : ''}
       </div>
+      ${poly ? '' : wkConceptCard(c, i === C.findIndex(x => !/^poly/.test(x.lab || '')))}
       ${ex ? `<div class="card"><h2><span class="chip">② 예제로 익히기</span>풀이를 따라가며 방법 익히기${mg('mg_ex', 'mini')}</h2><div class="exhost" data-p="${ex.id}"></div></div>` : ''}
       ${chk.length ? `<div class="card"><h2><span class="chip">${ex ? '③' : '②'} 확인 문제</span>이번엔 혼자 힘으로! (${chk.length}문제)${mg('mg_prob', 'mini')}</h2>
         <p class="lead" style="margin-top:0">막히면 💡 힌트를 보고, 그래도 모르겠으면 <b>❓ 이 문제에 질문하기</b>로 어디서 막혔는지 질문해요.</p>
@@ -5340,7 +5929,7 @@ function pageConcept(){
       <div class="lfoot">
         ${i > 0 ? `<button type="button" class="btn lprev" data-go="${i - 1}">◀ 이전 개념</button>` : '<span></span>'}
         ${i < N - 1 ? `<button type="button" class="btn main lnext" data-go="${i + 1}">다음 개념 ▶ ${C[i + 1].title}</button>`
-                    : `<button type="button" class="btn main" onclick="go('note')">📝 개념 노트로 정리하러 가기 ▶</button>`}
+                    : `<button type="button" class="btn main" onclick="go('problem')">✏️ 실력 다지기로 가기 ▶</button>`}
       </div>
     </section>`; }).join('')}`;
 }
@@ -5352,7 +5941,7 @@ function showLearn(i, scroll){
   $$('#lnav .lchip').forEach(b => { const k = +b.dataset.i; b.classList.toggle('on', k === LIDX); if (k === LIDX) b.classList.add('seen'); });
   $('#lprogBar').style.width = ((LIDX + 1) / secs.length * 100) + '%';
   try{ localStorage.setItem('qf_learn_' + LESSON.code, LIDX); }catch(e){}
-  setTimeout(() => { mountLabs(); bindTilt(); tex(secs[LIDX]); bindMG(secs[LIDX]); bindPB(secs[LIDX]); bindReveal(secs[LIDX]); }, 30);
+  setTimeout(() => { mountLabs(); bindTilt(); tex(secs[LIDX]); bindMG(secs[LIDX]); bindPB(secs[LIDX]); bindReveal(secs[LIDX]); if (window.wkBind) wkBind(secs[LIDX]); }, 30);
   if (scroll) $('#pg-concept').scrollIntoView({ behavior:'smooth', block:'start' });
 }
 
@@ -5534,7 +6123,8 @@ function pagePlaza(){
     <div class="filters" id="pzSort">
       <button class="fbtn on" data-v="new">🕒 최신순</button><button class="fbtn" data-v="vote">❤ 공감순 (우선순위)</button>
       <button class="fbtn" data-v="pick">📌 채택된 질문</button><button class="fbtn" data-v="mine">🙋 내 질문</button>
-      <button class="btn" id="pzRefresh" type="button" style="padding:6px 14px;margin-left:auto">↻ 새로고침</button></div>
+      <span class="tonly" style="margin-left:auto">${nameBtn()}</span>
+      <button class="btn" id="pzRefresh" type="button" style="padding:6px 14px">↻ 새로고침</button></div>
     <div class="votebar" id="pzStat"></div>
     <div class="lvstat" id="pzLv"></div>
     <div id="pzList"></div>
@@ -5650,7 +6240,6 @@ function pageTeacher(){
 const TABS = [
   { id:'start',   label:'🎯 질문 열기',  html:pageStart },
   { id:'concept', label:'📘 개념 학습',  html:pageConcept },
-  { id:'note',    label:'📝 개념 노트',  html:pageNote },
   { id:'problem', label:'✏️ 실력 다지기', html:pageProblem },
   { id:'life',    label:'🌍 실생활 수학', html:pageLife },
   { id:'book',    label:'📚 책 속 질문·토론', html:pageBook },
@@ -5668,7 +6257,7 @@ function go(id){
   $$('.page').forEach(s => s.classList.toggle('on', s.id === 'pg-' + id));
   $$('.tab').forEach(b => b.classList.toggle('on', b.dataset.p === id));
   scrollTo({ top:0, behavior:'smooth' });
-  setTimeout(() => { drawClouds(); mountLabs(); bindTilt(); bindHScroll($('#pg-' + id)); bindMG($('#pg-' + id)); bindReveal($('#pg-' + id)); }, 50);
+  setTimeout(() => { drawClouds(); mountLabs(); bindTilt(); bindHScroll($('#pg-' + id)); bindMG($('#pg-' + id)); bindReveal($('#pg-' + id)); if (window.wkBind) wkBind($('#pg-' + id)); }, 50);
   try{ localStorage.setItem('qf_tab_' + LESSON.code, id); }catch(e){}
   if (id === 'group' && window.gpLoad) gpLoad();
   const on = document.querySelector('.tab.on'), bar = $('#tabbar');
@@ -5811,7 +6400,7 @@ function bootPages(){
   initTabScroll();
   bindNarr($('#pg-book'));
   bootMotion(); bindYT(); bindMG(); bindPB(); bindReveal();
-  bootNote(); bootGroup();
+  bootNote(); bootGroup(); bootWork();
   bindCoach('startCoach', seed => { const ta = $('#startAsk textarea'); if (!ta) return; ta.value = seed + ' '; ta.focus(); ta.dispatchEvent(new Event('input')); ta.scrollIntoView({ behavior:'smooth', block:'center' }); });
 
   // 시작 탭
@@ -5924,6 +6513,7 @@ async function tLoad(pass, lesson){
     TDALL = await rpc('qf_teacher', { p_pass:pass, p_lesson:lesson }); TG = null; tApplyCls();
     TP = pass; TL = lesson; TN = null; m.className = 'cmsg ok'; m.textContent = '✓ 열렸어요';
     $('#tBody').style.display = 'block'; tRender();
+    if (lesson === LESSON.code){ (TDALL.posts || []).forEach(x => { if (x.kind !== 'free') TNAMES[x.id] = [x.student_no, x.name]; }); if (typeof TM !== 'undefined' && TM.on) refreshLists(); }
   }catch(e){ m.className = 'cmsg err'; m.textContent = e.message.includes('암호') ? '암호가 올바르지 않습니다.' : '불러오지 못했어요: ' + e.message; }
 }
 /* ---------- 🏫 반별 보기 : 학번(1반번호)의 가운데 두 자리로 반을 나눔 ---------- */
@@ -5976,7 +6566,7 @@ function tRender(){
     </div>
     ${tClsBar()}
     <div class="tsub">
-      ${[['posts','💬 질문 전체'],['students','👩‍🎓 학생별'],['debate','⚖️ 토의·토론'],['reflect','🪞 성찰'],['poly','🕵️ 폴리그래프'],['probs','✏️ 문제'],['cloud','☁️ 워드클라우드·빈도'],['groups','👥 소그룹'],['seteuk','📋 개인 기록·세특'],['notes','📝 노트 수합'],['ai','🧠 질문 코치 기록']]
+      ${[['posts','💬 질문 전체'],['students','👩‍🎓 학생별'],['debate','⚖️ 토의·토론'],['reflect','🪞 성찰'],['poly','🕵️ 폴리그래프'],['probs','✏️ 문제'],['cloud','☁️ 워드클라우드·빈도'],['groups','👥 소그룹'],['work','🖥️ 학생 풀이 화면'],['seteuk','📋 개인 기록·세특'],['notes','📝 예전 노트'],['ai','🧠 질문 코치 기록']]
         .map(([k,t]) => `<button class="fbtn${tView === k ? ' on' : ''}" data-v="${k}">${t}</button>`).join('')}
       <button class="btn" id="tCsv" type="button" style="margin-left:auto;padding:6px 14px">⬇ CSV 내려받기</button>
     </div>
@@ -6007,6 +6597,7 @@ function tRender(){
   if (tView === 'cloud') tCloud(V);
   if (tView === 'groups') tGroups(V);
   if (tView === 'seteuk') tSeteuk(V);
+  if (tView === 'work') tWork(V);
   if (tView === 'notes') tNotes(V);
   if (tView === 'ai') tAI(V);
   setTimeout(() => bindHScroll($('#pg-teacher')), 30);
@@ -6324,6 +6915,184 @@ function csvDown(rows, name){
   setTimeout(() => URL.revokeObjectURL(a.href), 2000);
 }
 
+;
+/* ===================================================================
+   🧑‍🏫 선생님으로 입장 + 🔔 새 질문 실시간 알림
+   · 암호는 이 브라우저 창(sessionStorage)에만 잠깐 보관 — 브라우저를 닫으면 사라짐
+   · 15초마다 서버에 「지난번 이후 새 글」을 물어봄 (qf_teacher_new, 암호가 맞을 때만 응답)
+   · 새 글 하나마다 음 하나 — 여러 개가 들어오면 박자에 맞춰 이어져 멜로디가 됨 (직접 만든 곡)
+   =================================================================== */
+const TM = { on:false, pass:'', since:null, seen:new Set(), items:[], unread:0, timer:null, busy:false,
+  snd:true, step:0, qNotes:0, nextAt:0, title:document.title };
+try { TM.snd = localStorage.getItem('qf_tbell_snd') !== 'off'; } catch (e) {}
+
+const TM_KIND = { concept:'개념 질문', problem:'문제 질문', life:'실생활 질문', book:'책 속 질문', free:'자유 질문(익명)', reply:'답글',
+  q:'소그룹 질문', r:'소그룹 답', chat:'소그룹 토론', result:'소그룹 해결 결과' };
+const TM_LNAME = { f1:'1차시 함수', f2:'2차시 합성함수', f3:'3차시 역함수', r1:'유리함수 1', r2:'유리함수 2', r3:'무리함수' };
+
+/* ---------- 🎵 알림 멜로디 : 직접 만든 밝은 8마디 (128 BPM, 8분음표 한 칸에 알림 하나) ---------- */
+const TM_BPM = 128, TM_STEP = 60 / TM_BPM / 2;
+const TM_MEL = [   // [미디 음 번호, 베이스 음] — 펜타토닉 위주의 원곡 멜로디
+  [76,48],[79,0],[81,0],[79,0],[84,53],[81,0],[79,0],[76,0],
+  [74,55],[76,0],[79,0],[81,0],[79,48],[76,0],[74,0],[72,0],
+  [76,48],[79,0],[84,0],[83,0],[81,53],[79,0],[81,0],[84,0],
+  [86,55],[84,0],[81,0],[79,0],[76,48],[79,0],[72,0],[0,48]
+];
+const mHz = m => 440 * Math.pow(2, (m - 69) / 12);
+function tmChime(n){
+  if (!TM.snd || !n) return;
+  const c = SND.boot(); if (!c) return;
+  const now = c.currentTime;
+  if (TM.nextAt < now + 0.03) TM.nextAt = now + 0.03;          // 쉬고 있었으면 바로 시작, 울리는 중이면 다음 박에 이어 붙임
+  n = Math.min(n, 32);                                          // 한꺼번에 너무 많으면 한 바퀴(32박)까지만
+  for (let i = 0; i < n; i++){
+    const [m, b] = TM_MEL[TM.step % TM_MEL.length], at = TM.nextAt - now;
+    if (m){ SND.note(mHz(m), at, TM_STEP * 1.6, { type:'triangle', vol:0.2 }); SND.note(mHz(m + 12), at, TM_STEP * 0.7, { type:'sine', vol:0.045 }); }
+    if (b){ SND.note(mHz(b), at, TM_STEP * 2.6, { type:'sine', vol:0.16 }); SND.note(120, at, 0.12, { type:'sine', vol:0.22, slide:-70 }); }   // 낮은 음 + 북
+    if (TM.step % 2 === 1) SND.note(5200, at, 0.03, { type:'square', vol:0.012 });                          // 하이햇 느낌
+    TM.step++; TM.nextAt += TM_STEP;
+  }
+}
+
+/* ---------- 입장 화면 : 학생 ↔ 선생님 전환 ---------- */
+function tmGateMode(teacher){
+  $('#gSBox').hidden = !!teacher; $('#gTBox').hidden = !teacher; $('#gTeacher').hidden = !!teacher;
+  $('#gTitle').textContent = teacher ? '선생님으로 입장' : '질문 탐구 교실';
+  $('#gSub').textContent = teacher ? '선생님 암호를 넣으면 수업 진행 화면과 새 질문 알림이 켜져요.' : '학번과 이름을 적고 시작해요!';
+  $('#gMsg').textContent = '';
+  setTimeout(() => (teacher ? $('#gTPass') : $('#gNo')).focus(), 60);
+}
+async function tmLogin(pass, quiet){
+  const msg = $('#gMsg');
+  pass = (pass || '').trim();
+  if (!pass){ if (!quiet) msg.textContent = '암호를 입력해 주세요.'; return false; }
+  if (!quiet) msg.textContent = '확인하는 중…';
+  try {
+    const r = await rpc('qf_teacher_new', { p_pass:pass, p_since:new Date().toISOString() });
+    TM.since = (r && r.now) || new Date().toISOString();
+  } catch (e) {
+    if (!quiet) msg.textContent = /암호/.test(e.message) ? '암호가 올바르지 않습니다.' : '서버에 연결하지 못했어요. 잠시 뒤 다시 해 주세요.';
+    if (quiet && /암호/.test(e.message)){ try { sessionStorage.removeItem('qf_tpass'); } catch (x) {} }
+    return false;
+  }
+  TM.on = true; TM.pass = pass;
+  try { sessionStorage.setItem('qf_tpass', pass); } catch (e) {}
+  document.documentElement.classList.add('tmode');
+  msg.textContent = ''; closeGate(); tmPaint();
+  SND.boot();
+  if (!quiet){
+    if ('Notification' in window && Notification.permission === 'default') Notification.requestPermission().catch(() => {});
+    tmChime(4);                                                  // 입장 신호 (멜로디 첫 마디 반)
+    snack('🧑‍🏫 선생님으로 입장했어요. 학생이 글을 올리면 🔔 알림이 와요.');
+  }
+  if (BCLS === null) BCLS = 'all';
+  loadBoard();
+  if ($('#tPass')){ $('#tPass').value = pass; tLoad(pass, LESSON.code); }   // 선생님 탭을 미리 열어 둠
+  clearInterval(TM.timer); TM.timer = setInterval(tmPoll, 15000);
+  return true;
+}
+function tmLogout(){
+  clearInterval(TM.timer); TM.on = false; TM.pass = ''; TM.items = []; TM.unread = 0; TM.seen.clear();
+  try { sessionStorage.removeItem('qf_tpass'); } catch (e) {}
+  document.documentElement.classList.remove('tmode');
+  if ($('#tPass')) $('#tPass').value = '';
+  TD = TDALL = null; if ($('#tBody')){ $('#tBody').style.display = 'none'; $('#tBody').innerHTML = ''; }
+  tmPaint(); document.title = TM.title; paintMe(); $('#meSwitch').textContent = '바꾸기';
+  snack('선생님 화면에서 나왔어요.'); openGate(); tmGateMode(false);
+}
+function tmPaint(){
+  const b = $('#tBell'); if (b){ b.hidden = !TM.on; b.querySelector('i').textContent = TM.unread > 99 ? '99+' : TM.unread; b.classList.toggle('has', TM.unread > 0); }
+  if (TM.on){ $('#meNo').textContent = '교사'; $('#meName').textContent = '🧑‍🏫 선생님'; $('#meSwitch').textContent = '로그아웃'; }
+  document.title = (TM.on && TM.unread ? `(${TM.unread}) ` : '') + TM.title;
+  if ($('#tBellPanel') && !$('#tBellPanel').hidden) tmPanel();
+}
+
+/* ---------- 새 글 확인 (15초마다) ---------- */
+async function tmPoll(){
+  if (!TM.on || TM.busy) return; TM.busy = true;
+  try {
+    const r = await rpc('qf_teacher_new', { p_pass:TM.pass, p_since:TM.since });
+    TM.since = r.now || TM.since;
+    const fresh = [...(r.posts || []), ...(r.gposts || [])]
+      .filter(x => { const k = x.src + x.id; if (TM.seen.has(k)) return false; TM.seen.add(k); return true; })
+      .sort((a, b) => new Date(a.created_at) - new Date(b.created_at));
+    if (fresh.length) tmArrive(fresh);
+    netState(true);
+  } catch (e) {
+    if (/암호/.test(e.message)){ snack('선생님 암호가 바뀌었어요. 다시 입장해 주세요.'); tmLogout(); }
+    else netState(false);
+  } finally { TM.busy = false; }
+}
+function tmArrive(list){
+  TM.items = list.slice().reverse().concat(TM.items).slice(0, 80);
+  list.forEach(x => { if (x.src === 'post' && x.kind !== 'free' && x.lesson === LESSON.code) TNAMES[x.id] = [x.student_no, x.name]; }); loadBoard();
+  TM.unread += list.length; tmPaint(); tmChime(list.length);
+  const b = $('#tBell'); if (b){ b.classList.remove('ring'); void b.offsetWidth; b.classList.add('ring'); }
+  const byCls = {}; list.forEach(x => { const k = x.cls ? x.cls + '반' : (x.kind === 'free' ? '익명' : '기타'); byCls[k] = (byCls[k] || 0) + 1; });
+  const sum = Object.entries(byCls).map(([k, n]) => `${k} ${n}`).join(' · ');
+  tmToast(`🔔 새 글 ${list.length}개`, sum, list[list.length - 1]);
+  if (document.hidden && 'Notification' in window && Notification.permission === 'granted'){
+    try { const x = list[list.length - 1];
+      const n = new Notification(`질문 탐구 교실 · 새 글 ${list.length}개`, { body:`${sum}\n${tmWho(x)} : ${x.body}`, tag:'qf-teacher', renotify:true });
+      n.onclick = () => { window.focus(); tmOpenPanel(); n.close(); };
+    } catch (e) {}
+  }
+  if (CUR === 'teacher' && TL && TP){ const m = $('#tMsg'); if (m){ m.className = 'cmsg ok'; m.innerHTML = `🔔 새 글 ${TM.unread}개가 들어왔어요. <button type="button" class="btn" id="tmRe" style="padding:4px 12px">↻ 반영하기</button>`; $('#tmRe').onclick = () => { tLoad(TP, TL); tmRead(); }; } }
+}
+const tmWho = x => x.kind === 'free' ? '익명' : `${x.cls ? x.cls + '반 ' : ''}${x.name || ''}`;
+const tmAgo = t => { const s = Math.max(0, (Date.now() - new Date(t)) / 1000); return s < 60 ? '방금' : s < 3600 ? Math.floor(s / 60) + '분 전' : Math.floor(s / 3600) + '시간 전'; };
+
+/* ---------- 알림 띠 · 알림 목록 ---------- */
+function tmToast(big, sm, last){
+  let t = $('#tmToast');
+  if (!t){ t = document.createElement('button'); t.type = 'button'; t.id = 'tmToast'; document.body.appendChild(t); t.onclick = () => { t.classList.remove('on'); tmOpenPanel(); }; }
+  t.innerHTML = `<b>${big}</b><span>${esc(sm)}</span>${last ? `<em>${esc(tmWho(last))} · ${esc(TM_KIND[last.kind] || '')} : ${esc(last.body)}</em>` : ''}`;
+  t.classList.remove('on'); void t.offsetWidth; t.classList.add('on');
+  clearTimeout(t._h); t._h = setTimeout(() => t.classList.remove('on'), 7000);
+}
+function tmOpenPanel(){
+  let p = $('#tBellPanel');
+  if (!p){ p = document.createElement('div'); p.id = 'tBellPanel'; p.hidden = true; document.body.appendChild(p);
+    document.addEventListener('pointerdown', e => { if (!p.hidden && !p.contains(e.target) && !e.target.closest('#tBell')) p.hidden = true; }); }
+  p.hidden = !p.hidden; if (!p.hidden){ const t = $('#tmToast'); if (t) t.classList.remove('on'); tmPanel(); tmRead(); }
+}
+function tmRead(){ TM.unread = 0; tmPaint(); }
+function tmPanel(){
+  const p = $('#tBellPanel'); if (!p) return;
+  p.innerHTML = `<div class="tbp-h"><b>🔔 새로 올라온 글</b>
+      <button type="button" class="tbp-s" id="tbpSnd" title="알림 멜로디 켜기/끄기">${TM.snd ? '🎵 멜로디 켜짐' : '🔕 멜로디 꺼짐'}</button></div>
+    <div class="tbp-l">${TM.items.length ? TM.items.map(x => `
+      <button type="button" class="tbp-i" data-l="${x.lesson}"><span class="tbp-k">${esc(TM_KIND[x.kind] || x.kind)}${x.lesson !== LESSON.code ? ` · ${esc(TM_LNAME[x.lesson] || x.lesson)}` : ''}</span>
+        <b>${esc(tmWho(x))}${x.grp ? ` · ${x.grp}모둠` : ''}</b><span class="tbp-b">${esc(x.body)}</span><small>${tmAgo(x.created_at)}</small></button>`).join('')
+      : '<p class="tbp-e">아직 새 글이 없어요. 학생이 글을 올리면 15초 안에 여기에 나타나고 멜로디가 한 음씩 울려요.</p>'}</div>
+    <div class="tbp-f"><button type="button" class="btn" id="tbpTeach">🧑‍🏫 선생님 화면 열기</button><button type="button" class="btn" id="tbpTest">🎵 소리 시험</button></div>`;
+  $('#tbpSnd').onclick = () => { TM.snd = !TM.snd; try { localStorage.setItem('qf_tbell_snd', TM.snd ? 'on' : 'off'); } catch (e) {} tmPanel(); if (TM.snd) tmChime(2); };
+  $('#tbpTest').onclick = () => { const s = TM.snd; TM.snd = true; tmChime(8); TM.snd = s; };
+  $('#tbpTeach').onclick = () => { p.hidden = true; go('teacher'); if (TM.pass) tLoad(TM.pass, LESSON.code); };
+  $$('.tbp-i', p).forEach(b => b.onclick = () => {
+    if (b.dataset.l === LESSON.code){ p.hidden = true; go('teacher'); tLoad(TM.pass, LESSON.code); }
+    else location.href = b.dataset.l + '.html';                 // 다른 차시 글 → 그 차시로 (선생님 입장은 유지)
+  });
+}
+
+/* ---------- 시작 ---------- */
+function bootTMode(){
+  TM.title = document.title.replace(/^\(\d+\+?\) /, '');
+  const tools = $('.hdtools');
+  if (tools && !$('#tBell')){
+    const b = document.createElement('button'); b.type = 'button'; b.id = 'tBell'; b.className = 'sndbtn tbell'; b.hidden = true; b.title = '새 질문 알림';
+    b.innerHTML = '🔔<i>0</i>'; b.onclick = tmOpenPanel; tools.insertBefore(b, tools.firstChild);
+  }
+  $('#gTeacher').onclick = () => tmGateMode(true);
+  $('#gTBack').onclick = () => tmGateMode(false);
+  $('#gTGo').onclick = () => tmLogin($('#gTPass').value);
+  $('#gTPass').onkeydown = e => { if (e.key === 'Enter') $('#gTGo').click(); };
+  $('#meSwitch').onclick = () => TM.on ? tmLogout() : (openGate(), tmGateMode(false));
+  let saved = ''; try { saved = sessionStorage.getItem('qf_tpass') || ''; } catch (e) {}
+  if (saved){ closeGate(); tmLogin(saved, true).then(ok => { if (!ok && !ME.no){ openGate(); tmGateMode(true); } }); }
+  document.addEventListener('visibilitychange', () => { if (!document.hidden && TM.on) tmPoll(); });
+}
+
 </script>
 <script>
 window.addEventListener('DOMContentLoaded', () => {
@@ -6345,6 +7114,7 @@ window.addEventListener('DOMContentLoaded', () => {
   else openGate();
   const start = () => { if (ME.no){ rpc('qf_checkin', { p_no:ME.no, p_name:ME.name }).catch(() => {}); loadMine(); } loadBoard(); };
   if (window.supabase) start(); else window.addEventListener('load', start);
+  bootTMode();
 });
 </script>
 </body>
