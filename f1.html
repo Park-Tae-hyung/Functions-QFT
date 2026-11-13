@@ -1298,6 +1298,87 @@ html.fslock,html.fslock body{overflow:hidden}
 .btgo:disabled{opacity:.45}
 .btttl{flex-wrap:wrap;min-width:0}.btscope-t{max-width:min(280px,100%)}@media (max-width:520px){.btdots{flex-wrap:wrap}}
 
+/* ===== 🎚️ 함수 DJ 덱 (덱 2대 + 믹서) ===== */
+.djmode{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px;align-items:center}
+.djmode button{border:2px solid var(--line2);background:#fff;border-radius:14px;padding:8px 14px;font-family:inherit;font-weight:900;font-size:.9rem;cursor:pointer}
+.djmode button small{font-weight:700;opacity:.7;margin-left:4px}
+.djmode button.on{background:#22223b;color:#fff;border-color:#22223b}
+.djmode .djmfs{margin-left:auto;padding:8px 12px}
+.dkwrap{--metal:linear-gradient(180deg,#eceef3,#c9ccd5 45%,#e6e8ee);--panel:linear-gradient(180deg,#2b2e3b,#191b25)}
+.dkrig{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.86fr) minmax(0,1fr);gap:10px;align-items:stretch;padding:12px;border-radius:22px;background:var(--metal);box-shadow:inset 0 2px 0 #fff,0 10px 28px rgba(30,30,60,.18)}
+.dkdeck,.dkmix{background:var(--panel);border-radius:16px;padding:10px;color:#e9eaf5;box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 2px 0 rgba(0,0,0,.25);min-width:0;display:flex;flex-direction:column;gap:8px}
+.dkhead{display:flex;align-items:center;gap:8px}.dkhead b{font-family:Consolas,monospace;font-size:.9rem;letter-spacing:.08em;color:#9fb6ff}
+.dkload{flex:1;min-width:0;background:#11131d;color:#e9eaf5;border:1px solid #3a3e55;font-size:.78rem;padding:5px 6px}
+.dkscreen,.dkmscreen{background:#0d0f1a;border-radius:10px;border:2px solid #050609;overflow:hidden;box-shadow:inset 0 0 0 1px #2b3150}
+.dkcv{display:block;width:100%;height:auto;aspect-ratio:2/1}
+#dkMixCv{display:block;width:100%;height:auto;aspect-ratio:520/230}
+.dkstems{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:4px}
+.dkstem{border:1px solid #3a3e55;background:#11131d;color:#8b90b8;border-radius:8px;padding:4px 2px;font-family:inherit;font-size:.95rem;cursor:pointer;display:flex;flex-direction:column;align-items:center;line-height:1.1}
+.dkstem small{font-size:.6rem;font-weight:800;white-space:nowrap;overflow:hidden;max-width:100%}
+.dkstem.on{color:#0d0f1a;background:var(--sc);border-color:var(--sc);box-shadow:0 0 10px color-mix(in srgb,var(--sc) 60%,transparent)}
+.dkstem:disabled{opacity:.35;cursor:not-allowed}
+.dkmid{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:10px;align-items:center}
+.dkleft,.dkright{display:flex;flex-direction:column;gap:6px;align-items:stretch}
+.dkhots,.dkloops{display:grid;grid-template-columns:repeat(2,1fr);gap:4px}
+.dkhot,.dkloop,.dksync,.dkmt,.dkvin{border:1px solid #3a3e55;background:#11131d;color:#b7bbd8;border-radius:7px;padding:5px 6px;font-family:Consolas,monospace;font-weight:900;font-size:.72rem;cursor:pointer;position:relative}
+.dkhot.on{background:#3a1b52;color:#ffd5ff;border-color:#c38bff;box-shadow:0 0 8px #c38bff}
+.dkhot:nth-child(1).on{border-color:#ff5470;box-shadow:0 0 8px #ff5470}.dkhot:nth-child(2).on{border-color:#3ee0a8;box-shadow:0 0 8px #3ee0a8}
+.dkhot:nth-child(3).on{border-color:#4d8dff;box-shadow:0 0 8px #4d8dff}.dkhot:nth-child(4).on{border-color:#ffd54a;box-shadow:0 0 8px #ffd54a}
+.dkloop.on{background:#0f3b2f;color:#3ee0a8;border-color:#3ee0a8;box-shadow:0 0 8px #3ee0a8}
+.dksync.on{background:#13305f;color:#9fc4ff;border-color:#4d8dff;box-shadow:0 0 8px #4d8dff}
+.dkmt.on,.dkvin.on{background:#4a2d06;color:#ffd08a;border-color:#ffb02e}
+.dktr{display:flex;flex-direction:column;gap:8px;align-items:center;margin-top:4px}
+.dkcue,.dkplay{width:58px;height:58px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#3a3e52,#151722);color:#fff;font-family:Consolas,monospace;font-weight:900;font-size:.78rem;cursor:pointer;position:relative;touch-action:none;user-select:none;-webkit-user-select:none}
+.dkcue{border:3px solid #ff8a00;box-shadow:0 0 0 2px #0b0c12}.dkplay{border:3px solid #39d353;box-shadow:0 0 0 2px #0b0c12}
+.dkdeck.playing .dkplay{box-shadow:0 0 14px #39d353,0 0 0 2px #0b0c12;color:#7dff8f}
+.dkcue:active,.dkplay:active{transform:scale(.95)}
+.dkwrap kbd{position:absolute;right:-4px;top:-6px;font-family:inherit;font-size:.58rem;background:#e9eaf5;color:#22223b;border-radius:5px;padding:0 4px}
+.dkjog{position:relative;width:100%;max-width:230px;aspect-ratio:1;margin:0 auto;border-radius:50%;background:conic-gradient(from 0deg,#f4f5f8,#b9bcc6,#f4f5f8,#aeb2bd,#f4f5f8);padding:7%;box-shadow:0 6px 16px rgba(0,0,0,.45),inset 0 0 0 2px #fff;touch-action:none;cursor:grab;user-select:none}
+.dkjog::before{content:'';position:absolute;inset:4.5%;border-radius:50%;box-shadow:0 0 0 2px #23314f;transition:box-shadow .2s}
+.dkdeck.playing .dkjog::before{box-shadow:0 0 0 3px #4d8dff,0 0 18px #4d8dff}
+.dkjog.touch{cursor:grabbing}.dkjog.touch .dkplat{filter:brightness(1.25)}
+.dkplat{position:relative;width:100%;height:100%;border-radius:50%;background:repeating-radial-gradient(circle,#1a1c24 0 2px,#22252f 2px 4px);box-shadow:inset 0 0 18px rgba(0,0,0,.8)}
+.dkplat i{position:absolute;left:50%;top:5%;width:5px;height:20%;margin-left:-2.5px;border-radius:3px;background:#ff8a00;box-shadow:0 0 8px #ff8a00}
+.dkplat span{position:absolute;inset:0;border-radius:50%;background:conic-gradient(from 0deg,transparent 0 80deg,rgba(255,255,255,.06) 90deg,transparent 100deg 260deg,rgba(255,255,255,.05) 270deg,transparent 280deg)}
+.dkjc{position:absolute;left:50%;top:50%;width:38%;aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle at 40% 35%,#20283f,#090b12);border:2px solid #3a4466;display:flex;flex-direction:column;align-items:center;justify-content:center;pointer-events:none}
+.dkjc b{font-family:Consolas,monospace;font-size:1.15rem;color:#9fc4ff}.dkjc small{font-size:.5rem;color:#6d7396;font-weight:800;letter-spacing:.06em}
+.dktempo{display:flex;flex-direction:column;align-items:center;gap:4px;margin-top:2px}
+.dkpitch{writing-mode:vertical-lr;direction:rtl;height:118px;width:26px;accent-color:#ffb02e;cursor:ns-resize}
+.dkpv{font-family:Consolas,monospace;font-weight:900;font-size:.72rem;color:#ffb02e}
+.dkchs{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:8px}
+.dkch{display:flex;flex-direction:column;align-items:center;gap:4px;background:#11131d;border-radius:12px;padding:8px 4px;border:1px solid #2c3046}
+.dkch > b{font-family:Consolas,monospace;font-size:.75rem;color:#9fb6ff;letter-spacing:.08em}
+.dkknob{display:flex;flex-direction:column;align-items:center;cursor:ns-resize;touch-action:none;user-select:none}
+.dkkn{width:38px;height:38px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#f2f3f7,#9aa0ae 70%,#6f7482);box-shadow:0 3px 6px rgba(0,0,0,.5),inset 0 -2px 3px rgba(0,0,0,.25);position:relative;transform:rotate(calc(var(--v) * 135deg));transition:transform .05s}
+.dkkn i{position:absolute;left:50%;top:3px;width:3px;height:12px;margin-left:-1.5px;border-radius:2px;background:#22223b}
+.dkknob.touch .dkkn{box-shadow:0 0 0 3px #4d8dff,0 3px 6px rgba(0,0,0,.5)}
+.dkknob small{font-size:.58rem;font-weight:900;color:#8b90b8;letter-spacing:.06em;margin-top:2px}
+.dkknob[data-k="filt"] .dkkn{background:radial-gradient(circle at 35% 30%,#ffe1b0,#d08a24 70%,#9a5e10)}
+.dkfadrow{display:flex;align-items:flex-end;gap:6px;margin-top:4px}
+.dkvu{width:10px;height:120px;border-radius:3px;background:#0b0c12}
+.dkfad{writing-mode:vertical-lr;direction:rtl;height:120px;width:26px;accent-color:#e9eaf5;cursor:ns-resize}
+.dkfxcol{display:flex;flex-direction:column;align-items:center;gap:8px;padding-top:6px}
+.dkfxcol > b{font-family:Consolas,monospace;font-size:.7rem;color:#9fb6ff;letter-spacing:.06em}
+.dkfx{display:flex;flex-direction:column;gap:6px}
+.dkfx button{border:1px solid #3a3e55;background:#11131d;color:#e9eaf5;border-radius:10px;padding:8px 8px;font-family:inherit;font-weight:800;font-size:.76rem;cursor:pointer;position:relative;touch-action:none;user-select:none;-webkit-user-select:none;white-space:nowrap}
+.dkfx button.on{background:#c38bff;color:#120d1f;border-color:#c38bff;box-shadow:0 0 12px #c38bff}
+.dkrec{font-size:.76rem;padding:6px 10px}.dkrec.on{background:#e2465b;color:#fff;border-color:#e2465b;animation:djblink 1s infinite}
+.dkxf{display:flex;align-items:center;gap:8px;background:#11131d;border-radius:12px;padding:8px 12px;border:1px solid #2c3046}
+.dkxf span{font-family:Consolas,monospace;font-weight:900;color:#9fb6ff}
+#dkXf{flex:1;accent-color:#e9eaf5;height:26px;cursor:ew-resize}
+.dkxfl{font-size:.66rem;color:#8b90b8;text-align:center}.dkxfl kbd{position:static;margin:0 2px}
+.dkmath{margin-top:12px;background:#fff;border:2px solid #ece6fb;border-radius:16px;padding:10px 14px}
+.dkmath summary{font-weight:900;cursor:pointer}
+.dkmg{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:8px;margin-top:8px}
+.dkmg > div{background:#f7f5ff;border-radius:12px;padding:9px 11px;font-size:.84rem;line-height:1.6;color:var(--ink2)}
+.dkmg > div > b:first-child{display:block;color:var(--ink);margin-bottom:2px}
+.dkwrap .djhelp kbd{position:static;background:#eef0f8;border:1px solid #d6d9ea}
+@media (max-width:1150px){ .dkrig{grid-template-columns:minmax(0,1fr) minmax(0,1fr)} .dkmix{grid-column:1 / -1;order:3} #dk1{order:2} }
+@media (max-width:700px){ .dkrig{grid-template-columns:minmax(0,1fr);padding:8px} .dkrig .dkmix{order:2} .dkrig #dk1{order:3} .dkmid{grid-template-columns:auto minmax(0,1fr) auto;gap:6px} .dkjog{max-width:190px} .dkcue,.dkplay{width:50px;height:50px} }
+@media (max-width:420px){ .dkmid{grid-template-columns:minmax(0,1fr) minmax(0,1fr)} .dkjog{grid-column:1 / -1;order:-1;max-width:220px} .dkchs{grid-template-columns:minmax(0,1fr) minmax(0,1fr)} .dkfxcol{grid-column:1 / -1;order:3;flex-direction:row;flex-wrap:wrap;justify-content:center} .dkfx{flex-direction:row;flex-wrap:wrap;justify-content:center} }
+.djwrap.fs .dkrig{max-width:1500px;margin:0 auto}
+.djwrap [hidden]{display:none !important}
+
 /* ===================================================================
    교과서 스타일 + 입체감 + 큰 글씨 · 큰 수식
    =================================================================== */
@@ -5650,7 +5731,7 @@ function djSaveTracks(){ try { localStorage.setItem('qf_dj_' + LESSON.code, JSON
 const DJ_DPU = 2;                                          // y 한 칸 = 음계 두 칸
 const djDeg = y => Math.max(-10, Math.min(16, Math.round(y * DJ_DPU)));
 const djMidi = (deg, base) => base + 12 * Math.floor(deg / 5) + DJ_PENTA[((deg % 5) + 5) % 5];
-const djHz = m => 440 * Math.pow(2, (m - 69) / 12);
+const djHz = m => 440 * Math.pow(2, (m - 69) / 12) * (DJ.fmul || 1);          // fmul : DJ 덱의 템포(마스터 템포 끔)만큼 음높이도 바뀜
 function djAnalyze(t){
   t.err = ''; let fn = null;
   try { const c = gtCompile(t.f); if (!c || c.kind !== 'y') throw new Error('「y = (x의 식)」 꼴로 써 주세요'); fn = c.f; } catch (e) { t.err = e.message; t.d = null; return; }
@@ -5759,7 +5840,7 @@ const DJ_PLAY = {
 /* ---------- 박자 맞춰 미리 예약 (lookahead) ---------- */
 function djSched(){
   const ac = DJ.ac; if (!ac || !DJ.on) return;
-  const sd = 60 / DJ.bpm / 4;
+  const sd = 60 / DJ.bpm / 4; DJ.fmul = 1;
   while (DJ.next < ac.currentTime + 0.12){
     let s = DJ.step % DJ_STEPS;
     if (DJ.fx.stut){ s = DJ.fx.stut0 + (DJ.step - DJ.fx.stutS) % 2; }
@@ -5844,6 +5925,7 @@ function pageDJ(){
     <p class="lead">그래프가 곧 악보예요. <b>높이 = 음높이</b>, <b>가파를수록 밝고 굵은 소리</b>, <b>점근선 · 끊긴 곳 = ⚡잽</b>, <b>x절편 = 킥</b>, 정의되지 않는 곳은 <b>쉼표</b>.
       패드(키보드 <b>A S D F G H</b> 또는 <b>1~6</b>)를 눌러 트랙을 켜고 끄며 믹스해요. 식을 바꾸면 그 함수만의 리듬과 멜로디가 새로 만들어져요!</p>
     <div class="djwrap" id="djWrap">
+      <div class="djmode"><button type="button" data-m="pad" class="on">🎹 패드 모드</button><button type="button" data-m="deck">🎚️ DJ 덱 모드 <small>덱 2대 + 믹서</small></button><button type="button" class="djmfs" title="전체 화면">⛶</button></div>
       <div class="djtop">
         <button type="button" class="btn primary djplay" id="djPlay">▶ 재생</button>
         <label class="djbpm">⏱️ <input type="range" id="djBpm" min="80" max="160" value="${DJ.bpm}"> <b id="djBpmV">${DJ.bpm}</b> BPM</label>
@@ -5862,6 +5944,7 @@ function pageDJ(){
       <div id="djTake" class="djtake"></div>
       <p class="djhelp">💡 해 보기 : ① <b>A</b>만 켜고 점근선 근처에서 소리가 어떻게 변하는지 들어 보기 ② 드럼 식을 <code>4/x</code> → <code>4/(x-2)</code>로 바꾸면 리듬이 어디로 옮겨 갈까? ③ <code>sqrt(x)</code>와 <code>-sqrt(x)</code>는 무엇이 다르게 들릴까?
         ④ 정의역이 없는 곳(쉼표)을 일부러 만들어 「브레이크」를 넣어 보기. 🎲를 누르면 새 함수가 나와요.</p>
+      ${typeof dkPageHTML === 'function' ? dkPageHTML() : ''}
     </div>
   </div>`;
 }
@@ -5991,15 +6074,477 @@ function bootDJ(){
     const up = () => { if (DJ.fx[fx]) djFx(fx, false); }; b.addEventListener('pointerup', up); b.addEventListener('pointercancel', up); });
   const FXK = { z:'filt', x:'stut', c:'rise' };
   addEventListener('keydown', e => {
-    if (CUR !== 'dj' || e.ctrlKey || e.metaKey || e.altKey || /input|textarea|select/i.test((e.target.tagName || ''))) return;
+    if (CUR !== 'dj' || (typeof DK !== 'undefined' && DK.mode === 'deck') || e.ctrlKey || e.metaKey || e.altKey || /input|textarea|select/i.test((e.target.tagName || ''))) return;
     const k = e.key.toLowerCase(); let i = DJ_KEYS.findIndex(x => x.toLowerCase() === k); if (i < 0 && /^[1-6]$/.test(k)) i = +k - 1;
     if (i >= 0){ if (!e.repeat) djToggle(i); e.preventDefault(); const el = $(`.djpad[data-i="${i}"] .djhit`); if (el){ el.classList.add('press'); setTimeout(() => el.classList.remove('press'), 140); } return; }
     if (FXK[k]){ if (!e.repeat) djFx(FXK[k], true); e.preventDefault(); return; }
     if (k === ' '){ e.preventDefault(); $('#djPlay').click(); }
   });
-  addEventListener('keyup', e => { const k = e.key.toLowerCase(); if (FXK[k] && DJ.fx[FXK[k]]) djFx(FXK[k], false); });
+  addEventListener('keyup', e => { if (typeof DK !== 'undefined' && DK.mode === 'deck') return; const k = e.key.toLowerCase(); if (FXK[k] && DJ.fx[FXK[k]]) djFx(FXK[k], false); });
   if ('ResizeObserver' in window) new ResizeObserver(djSize).observe(DJ.cv); else addEventListener('resize', djSize);
+  $('.djmfs').onclick = () => wkFS(W, W._fsAfter);
+  if (typeof bootDeck === 'function') bootDeck();
   djUI(); djSize();
+}
+
+;
+/* ===================================================================
+   🎚️ 함수 DJ 덱 — 진짜 DJ 장비처럼 : 덱 2대(플레이어) + 믹서
+   · 덱 : 트랙(함수 6개 세트) 불러오기 · ▶/❚❚ · CUE · 지그 휠(밀어 맞추기 · 스크래치) · 템포 슬라이더 · SYNC
+          · 핫 큐 4개 · 루프(1·2·4·8박) · MT(마스터 템포) · 스템(소리 6줄) 켜고 끄기
+   · 믹서 : 채널마다 EQ(HI · MID · LOW) · 필터 · 채널 페이더 · VU 미터, 크로스페이더, 비트 FX(에코 · 롤 · 업→드롭), 녹음
+   · 수학 : 템포 k배 = 그래프를 x축 방향으로 1/k배 (y = f(kx)) · 지그 휠 = x축 방향 평행이동 · 루프 = 주기함수
+            · 크로스페이더 = 두 함수의 가중 평균 (1 − c)·f + c·g
+   소리는 dj.js 의 합성기(DJ_PLAY)를 그대로 쓰고, 덱마다 따로 박자를 예약한다.
+   =================================================================== */
+const DK_COL = { lead:'#f4f3ff', bass:'#4d8dff', zap:'#ff5470', arp:'#c38bff', pad:'#3ee0a8', drum:'#ffb02e' };
+const DK_BPM = { base:118, asym:124, root:112, ripple:128, pads:118 };
+const DK_STEM_ON = { lead:1, bass:1, arp:1, drum:1, zap:0, pad:0 };
+const DK = { d:[], xf:0.5, timer:null, raf:0, mode:'pad', fx:{}, rec:null, chunks:[] };
+
+function dkTrackOf(set){
+  if (set === 'pads') return { title:'🎹 내 패드 6개 식', tr:DJ.tr.map(t => ({ v:t.v, f:t.f })) };
+  const S = DJ_SETS[set] || DJ_SETS.base;
+  return { title:S.n, tr:S.f.map((f, i) => ({ v:DJ_PRESET[i].v, f })) };
+}
+function dkNew(id, set){
+  const d = { id, set:'', title:'', bpm:118, pitch:0, mt:false, on:false, step:0, next:0, q:[], cue:0, hot:[null, null, null, null], loop:null, tr:[], bend:1, hold:false, hpos:0, ang:0,
+    eq:{ hi:0, mid:0, lo:0 }, filt:0, fader:0.8, vu:0 };
+  dkLoad(d, set); return d;
+}
+function dkLoad(d, set){
+  const T = dkTrackOf(set); d.set = set; d.title = T.title; d.bpm = DK_BPM[set] || 118; d.pitch = 0; d.step = 0; d.cue = 0; d.hot = [null, null, null, null]; d.loop = null; d.q = [];
+  d.tr = T.tr.map(t => { const o = { v:t.v, f:t.f, on:!!DK_STEM_ON[t.v] }; djAnalyze(o); return o; });
+}
+const dkRate = d => (1 + d.pitch / 100) * d.bend;
+const dkBpmNow = d => d.bpm * (1 + d.pitch / 100);
+const dkSd = d => 60 / (d.bpm * dkRate(d)) / 4;
+
+/* ---------- 소리 길 : 트랙 → EQ → 필터 → 채널 페이더 → 크로스페이더 → 마스터 ---------- */
+function dkAudio(d){
+  const ac = djAudio(); if (!ac) return null;
+  if (d.ac === ac) return ac; d.ac = ac;
+  d.in = ac.createGain();
+  d.lo = ac.createBiquadFilter(); d.lo.type = 'lowshelf'; d.lo.frequency.value = 300;
+  d.mid = ac.createBiquadFilter(); d.mid.type = 'peaking'; d.mid.frequency.value = 1000; d.mid.Q.value = 0.8;
+  d.hi = ac.createBiquadFilter(); d.hi.type = 'highshelf'; d.hi.frequency.value = 3200;
+  d.flt = ac.createBiquadFilter(); d.flt.type = 'lowpass'; d.flt.frequency.value = 20000; d.flt.Q.value = 0.7;
+  d.fad = ac.createGain(); d.xg = ac.createGain(); d.an = ac.createAnalyser(); d.an.fftSize = 512; d.buf = new Float32Array(512);
+  d.in.connect(d.lo); d.lo.connect(d.mid); d.mid.connect(d.hi); d.hi.connect(d.flt); d.flt.connect(d.fad); d.fad.connect(d.xg); d.xg.connect(DJ.out); d.fad.connect(d.an);
+  d.tg = d.tr.map(() => { const g = ac.createGain(); g.gain.value = 0; g.connect(d.in); return g; });
+  dkApply(d); return ac;
+}
+function dkApply(d){
+  if (!d.ac) return; const t = d.ac.currentTime, set = (p, v) => { p.cancelScheduledValues(t); p.setTargetAtTime(v, t, 0.02); };
+  const db = v => v < 0 ? v * 26 : v * 8;                                      // 왼쪽 끝 = 거의 끔(킬), 오른쪽 끝 = +8dB
+  set(d.hi.gain, db(d.eq.hi)); set(d.mid.gain, db(d.eq.mid)); set(d.lo.gain, db(d.eq.lo));
+  const f = d.filt;
+  if (Math.abs(f) < 0.04){ d.flt.type = 'lowpass'; set(d.flt.frequency, 20000); d.flt.Q.value = 0.7; }
+  else if (f < 0){ d.flt.type = 'lowpass'; set(d.flt.frequency, 20000 * Math.pow(0.012, -f)); d.flt.Q.value = 4; }
+  else { d.flt.type = 'highpass'; set(d.flt.frequency, 20 * Math.pow(150, f)); d.flt.Q.value = 4; }
+  set(d.fad.gain, d.fader * d.fader);
+  const w = d.id === 0 ? 1 - DK.xf : DK.xf; set(d.xg.gain, Math.max(0.0001, w));
+  d.tr.forEach((tr, i) => { if (d.tg && d.tg[i]) set(d.tg[i].gain, tr.on && tr.d ? 1 : 0.0001); });
+}
+
+/* ---------- 박자 예약 : 두 덱을 따로 ---------- */
+function dkTick(){
+  const ac = DJ.ac; if (!ac) return;
+  DK.d.forEach(d => {
+    if (!d.on || d.hold) return;
+    let guard = 0;
+    while (d.next < ac.currentTime + 0.12 && guard++ < 64){
+      const sd = dkSd(d), s = ((d.step % DJ_STEPS) + DJ_STEPS) % DJ_STEPS;
+      d.q.push({ t:d.next, s, sd }); if (d.q.length > 80) d.q.splice(0, 40);
+      DJ.fmul = d.mt ? 1 : dkRate(d);
+      d.tr.forEach((tr, i) => { if (!tr.on || !tr.d) return; const st = tr.d.S[s], pv = s > 0 ? tr.d.S[s - 1].deg : null;
+        try { if (DJ_PLAY[tr.v](d.next, st, sd, d.tg[i], pv, s)) d.hit = d.next; } catch (e) {} });
+      DJ.fmul = 1;
+      let n = s + 1;
+      const L = DK.fx.roll ? DK.fx.roll[d.id] : d.loop;
+      if (L && n >= L.a + L.len) n = L.a;
+      d.step = n % DJ_STEPS; d.next += sd;
+    }
+  });
+}
+function dkRun(){ if (!DK.timer) DK.timer = setInterval(dkTick, 25); if (!DK.raf) dkLoop(); }
+function dkPlay(d, on){
+  const ac = dkAudio(d); if (!ac) { snack('이 브라우저는 소리 합성을 지원하지 않아요'); return; }
+  on = on == null ? !d.on : on;
+  if (on && !d.on){
+    if (DJ.on) djStop();                                                       // 패드 모드 소리는 끔
+    const o = DK.d[1 - d.id];
+    d.next = o && o.on ? o.next : ac.currentTime + 0.05;                       // 다른 덱이 돌고 있으면 그 칸 경계에 맞춰 출발
+    d.on = true; dkRun();
+  } else if (!on && d.on){ const p = dkPos(d); d.on = false; d.step = Math.floor(p) % DJ_STEPS; d.q = []; }
+  dkUI();
+}
+function dkStopAll(){ DK.d.forEach(d => { d.on = false; d.hold = false; }); clearInterval(DK.timer); DK.timer = null; if (DK.fx.riseNode) dkFx('rise', false, true); dkUI(); }
+/* 화면에 보일 재생 위치 (칸 단위 실수) */
+function dkPos(d){
+  if (d.hold) return d.hpos;
+  const ac = DJ.ac; if (!d.on || !ac || !d.q.length) return d.step;
+  for (let j = d.q.length - 1; j >= 0; j--){ const q = d.q[j]; if (q.t <= ac.currentTime) return q.s + Math.min(0.999, (ac.currentTime - q.t) / q.sd); }
+  return d.step;
+}
+function dkJump(d, s){
+  s = ((Math.round(s) % DJ_STEPS) + DJ_STEPS) % DJ_STEPS; d.step = s; d.q = [];
+  if (d.on && DJ.ac) d.next = DJ.ac.currentTime + 0.01;
+}
+
+/* ---------- CUE · 핫 큐 · 루프 · SYNC ---------- */
+function dkCueDown(d){
+  dkAudio(d);
+  if (d.on){ d.on = false; dkJump(d, d.cue); d._cueHold = false; }               // 재생 중 : 큐 지점으로 돌아가 멈춤
+  else { d.cue = Math.floor(d.step); d._cueHold = true; dkPlay(d, true); }       // 멈춤 : 지금 자리를 큐로 정하고, 누르는 동안 미리 듣기
+  dkUI();
+}
+function dkCueUp(d){ if (d._cueHold){ d._cueHold = false; d.on = false; dkJump(d, d.cue); dkUI(); } }
+function dkHot(d, k, clear){
+  if (clear){ d.hot[k] = null; dkUI(); return; }
+  if (d.hot[k] == null) d.hot[k] = Math.floor(dkPos(d));
+  else dkJump(d, d.hot[k]);
+  dkUI();
+}
+function dkLoopSet(d, beats){
+  if (d.loop && d.loop.beats === beats){ d.loop = null; dkUI(); return; }
+  const len = Math.min(DJ_STEPS, beats * 4), a = Math.floor(Math.floor(dkPos(d)) / 4) * 4;
+  d.loop = { a:Math.min(a, DJ_STEPS - len), len, beats }; dkUI();
+}
+function dkSync(d){
+  const o = DK.d[1 - d.id]; if (!o) return;
+  const target = dkBpmNow(o), p = (target / d.bpm - 1) * 100;
+  if (Math.abs(p) > 16){ snack('템포 차이가 너무 커요 (±16% 안에서만 맞출 수 있어요)'); return; }
+  d.pitch = Math.round(p * 100) / 100;
+  if (d.on && o.on){                                                             // 박자 위치까지 맞추기 (같은 박 안의 같은 칸)
+    const cur = d.step, want = (Math.floor(cur / 4) * 4 + (o.step % 4)) % DJ_STEPS;
+    d.step = want; d.next = o.next; d.q = [];
+  }
+  d.synced = true; dkUI(); snack(`덱 ${d.id + 1}의 템포를 ${target.toFixed(1)} BPM에 맞췄어요`);
+}
+
+/* ---------- 지그 휠 ---------- */
+function dkJogBind(d, el){
+  let last = null, lastT = 0, mode = '', idle = null;
+  const ang = e => { const r = el.getBoundingClientRect(); return Math.atan2(e.clientY - (r.top + r.height / 2), e.clientX - (r.left + r.width / 2)); };
+  el.addEventListener('pointerdown', e => {
+    e.preventDefault(); try { el.setPointerCapture(e.pointerId); } catch (er) {}
+    dkAudio(d); last = ang(e); lastT = performance.now();
+    const rc = el.getBoundingClientRect(), top = d.vinyl && Math.hypot(e.clientX - rc.left - rc.width / 2, e.clientY - rc.top - rc.height / 2) < rc.width * 0.42;
+    if (d.on && top){ mode = 'scratch'; d.hpos = dkPos(d); d.hold = true; dkScratch(d, true); }
+    else if (d.on){ mode = 'bend'; }
+    else { mode = 'search'; d.hpos = d.step; d.hold = true; }
+    el.classList.add('touch');
+  });
+  el.addEventListener('pointermove', e => {
+    if (last == null) return;
+    const a = ang(e), now = performance.now(); let da = a - last; if (da > Math.PI) da -= 2 * Math.PI; if (da < -Math.PI) da += 2 * Math.PI;
+    const dt = Math.max(8, now - lastT) / 1000; last = a; lastT = now;
+    if (mode === 'bend'){ d.bend = Math.max(0.6, Math.min(1.4, 1 + da / dt * 0.05)); clearTimeout(idle); idle = setTimeout(() => { d.bend = 1; }, 120); }
+    else { const ds = da / (2 * Math.PI) * 8; d.hpos = (((d.hpos + ds) % DJ_STEPS) + DJ_STEPS) % DJ_STEPS; d.ang += da; if (mode === 'scratch') dkScratch(d, true, ds / dt); }
+  });
+  const up = () => {
+    if (last == null) return; last = null; el.classList.remove('touch');
+    if (mode === 'bend'){ d.bend = 1; }
+    else { d.hold = false; dkScratch(d, false); d.step = Math.floor(d.hpos); d.q = []; if (d.on && DJ.ac) d.next = DJ.ac.currentTime + 0.01; }
+    mode = ''; dkUI();
+  };
+  el.addEventListener('pointerup', up); el.addEventListener('pointercancel', up);
+}
+/* 스크래치 소리 : 지금 자리의 리드 높이를 기준으로, 휠 속도에 따라 높낮이 · 크기가 변함 */
+function dkScratch(d, on, v){
+  const ac = DJ.ac; if (!ac) return;
+  if (!on){ if (d.sc){ const s = d.sc; s.g.gain.setTargetAtTime(0.0001, ac.currentTime, 0.02); s.o.stop(ac.currentTime + 0.2); s.n.stop(ac.currentTime + 0.2); d.sc = null; } return; }
+  if (!d.sc){
+    const o = ac.createOscillator(), n = ac.createBufferSource(), bp = ac.createBiquadFilter(), g = ac.createGain();
+    o.type = 'sawtooth'; n.buffer = DJ.noise; n.loop = true; bp.type = 'bandpass'; bp.Q.value = 2; g.gain.value = 0.0001;
+    o.connect(bp); n.connect(bp); bp.connect(g); g.connect(d.in); o.start(); n.start(); d.sc = { o, n, bp, g };
+  }
+  const lead = d.tr.find(t => t.d && t.on) || d.tr.find(t => t.d); if (!lead) return;
+  const st = lead.d.S[Math.floor(d.hpos) % DJ_STEPS], base = st && st.def ? djHz(djMidi(st.deg, 57)) : 220, sp = Math.abs(v || 0);
+  const t = ac.currentTime;
+  d.sc.o.frequency.setTargetAtTime(Math.max(40, base * Math.min(3, 0.25 + sp * 0.12)) * (v < 0 ? 0.8 : 1), t, 0.01);
+  d.sc.bp.frequency.setTargetAtTime(Math.max(200, Math.min(6000, 300 + sp * 260)), t, 0.01);
+  d.sc.g.gain.setTargetAtTime(Math.min(0.4, sp * 0.03), t, 0.01);
+}
+
+/* ---------- 비트 FX (누르는 동안) ---------- */
+function dkFx(name, on, quiet){
+  const ac = djAudio(); if (!ac) return; const now = ac.currentTime;
+  DK.fx[name + 'On'] = on;
+  const lead = DK.d.slice().sort((a, b) => (b.on - a.on) || ((b.id === 0 ? 1 - DK.xf : DK.xf) - (a.id === 0 ? 1 - DK.xf : DK.xf)))[0];
+  if (name === 'echo'){
+    const beat = lead ? 60 / dkBpmNow(lead) : 0.5;
+    DJ.dl.delayTime.setTargetAtTime(on ? beat * 0.75 : 0.25, now, 0.01);
+    DJ.fb.gain.setTargetAtTime(on ? 0.6 : 0.32, now, 0.05); DJ.dlo.gain.setTargetAtTime(on ? 0.9 : 0.35, now, 0.05);
+  }
+  if (name === 'roll'){
+    if (on){ DK.fx.roll = {}; DK.d.forEach(d => { const s = Math.floor(dkPos(d)); DK.fx.roll[d.id] = { a:s, len:2 }; }); }
+    else DK.fx.roll = null;
+  }
+  if (name === 'rise'){
+    if (on){ const src = ac.createBufferSource(), f = ac.createBiquadFilter(), g = ac.createGain(); src.buffer = DJ.noise; src.loop = true; f.type = 'bandpass'; f.Q.value = 2;
+      f.frequency.setValueAtTime(300, now); f.frequency.exponentialRampToValueAtTime(9000, now + 4); g.gain.setValueAtTime(0.0001, now); g.gain.exponentialRampToValueAtTime(0.32, now + 3.5);
+      src.connect(f); f.connect(g); g.connect(DJ.out); src.start(now); DK.fx.riseNode = { src, g }; }
+    else if (DK.fx.riseNode){ const r = DK.fx.riseNode; r.g.gain.cancelScheduledValues(now); r.g.gain.setTargetAtTime(0.0001, now, 0.02); r.src.stop(now + 0.3); DK.fx.riseNode = null;
+      if (!quiet){ const g = ac.createGain(); g.connect(DJ.out); djEnv(g, now + 0.02, 0.002, 1, 0.1, 0.3); const o = djOsc('sine', 120, now + 0.02, now + 1.2, g); o.frequency.exponentialRampToValueAtTime(30, now + 0.6);
+        djNoise(now + 0.02, 1.4, DJ.out, 'highpass', 3000, 0.5, 0.35); } }
+  }
+  $$('.dkfx [data-fx]').forEach(b => b.classList.toggle('on', !!DK.fx[b.dataset.fx + 'On']));
+}
+/* ---------- 🔴 녹음 (마스터 출력) ---------- */
+function dkRec(){
+  const ac = djAudio(); if (!ac) return;
+  if (!DJ.recDest || typeof MediaRecorder === 'undefined'){ snack('이 브라우저는 녹음을 지원하지 않아요'); return; }
+  if (DK.rec && DK.rec.state === 'recording'){ DK.rec.stop(); return; }
+  DK.chunks = []; DK.rec = new MediaRecorder(DJ.recDest.stream);
+  DK.rec.ondataavailable = e => { if (e.data && e.data.size) DK.chunks.push(e.data); };
+  DK.rec.onstop = () => { const b = new Blob(DK.chunks, { type:DK.rec.mimeType || 'audio/webm' }), u = URL.createObjectURL(b), h = $('#dkTake');
+    if (h) h.innerHTML = `<audio controls src="${u}"></audio><a class="btn" download="함수DJ_덱믹스_${LESSON.code}.webm" href="${u}">⬇️ 내 디제잉 저장</a>`; dkUI(); };
+  DK.rec.start(); dkUI();
+}
+
+/* ---------- 화면 ---------- */
+function dkKnob(id, k, label, v){ return `<div class="dkknob" data-d="${id}" data-k="${k}" title="위·아래로 끌어 돌리기 · 두 번 누르면 가운데"><div class="dkkn" style="--v:${v}"><i></i></div><small>${label}</small></div>`; }
+function dkDeckHTML(i){
+  const keys = i === 0 ? ['Q', 'W', 'E'] : ['P', 'O', 'I'];
+  return `<div class="dkdeck" id="dk${i}" data-d="${i}">
+    <div class="dkhead"><b>DECK ${i + 1}</b><select class="inp dkload" data-d="${i}" aria-label="덱 ${i + 1} 트랙 불러오기">
+      ${Object.entries(DJ_SETS).map(([k, v]) => `<option value="${k}">${v.n}</option>`).join('')}<option value="pads">🎹 내 패드 6개 식</option></select></div>
+    <div class="dkscreen"><canvas class="dkcv" data-d="${i}" width="640" height="300"></canvas></div>
+    <div class="dkstems">${DJ_PRESET.map((p, k) => `<button type="button" class="dkstem" data-d="${i}" data-k="${k}"></button>`).join('')}</div>
+    <div class="dkmid">
+      <div class="dkleft">
+        <div class="dkhots">${[0, 1, 2, 3].map(k => `<button type="button" class="dkhot" data-d="${i}" data-k="${k}" title="비어 있으면 지금 자리 저장 · 저장되어 있으면 그 자리로 · 두 번 누르면 지우기">${'ABCD'[k]}</button>`).join('')}</div>
+        <div class="dkloops">${[1, 2, 4, 8].map(b => `<button type="button" class="dkloop" data-d="${i}" data-b="${b}">${b}박</button>`).join('')}</div>
+        <div class="dktr"><button type="button" class="dkcue" data-d="${i}">CUE<kbd>${keys[1]}</kbd></button><button type="button" class="dkplay" data-d="${i}">▶❚❚<kbd>${keys[0]}</kbd></button></div>
+      </div>
+      <div class="dkjog" data-d="${i}" title="재생 중 : 옆을 돌리면 밀고 당기기(템포 잠깐 바꾸기) · VINYL을 켜고 가운데를 누르면 스크래치 · 멈춤 : 돌리면 위치 찾기">
+        <div class="dkplat"><i></i><span></span></div><div class="dkjc"><b class="dkjpos">1.1</b><small>BAR.BEAT</small></div></div>
+      <div class="dkright">
+        <button type="button" class="dksync" data-d="${i}">SYNC<kbd>${keys[2]}</kbd></button>
+        <button type="button" class="dkmt" data-d="${i}" title="마스터 템포 : 켜면 템포를 바꿔도 음높이가 그대로">MT</button>
+        <button type="button" class="dkvin" data-d="${i}" title="켜면 지그 휠 가운데를 눌러 스크래치">VINYL</button>
+        <div class="dktempo"><input type="range" class="dkpitch" data-d="${i}" min="-16" max="16" step="0.1" value="0" aria-label="덱 ${i + 1} 템포"><small class="dkpv">0.0%</small></div>
+      </div>
+    </div>
+  </div>`;
+}
+function dkMixerHTML(){
+  const ch = i => `<div class="dkch" data-d="${i}"><b>CH ${i + 1}</b>
+      ${dkKnob(i, 'hi', 'HI', 0)}${dkKnob(i, 'mid', 'MID', 0)}${dkKnob(i, 'lo', 'LOW', 0)}${dkKnob(i, 'filt', 'FILTER', 0)}
+      <div class="dkfadrow"><canvas class="dkvu" data-d="${i}" width="14" height="120"></canvas><input type="range" class="dkfad" data-d="${i}" min="0" max="1" step="0.01" value="0.8" aria-label="채널 ${i + 1} 페이더"></div></div>`;
+  return `<div class="dkmix">
+    <div class="dkmscreen"><canvas id="dkMixCv" width="520" height="230"></canvas></div>
+    <div class="dkchs">${ch(0)}<div class="dkfxcol"><b>BEAT FX</b><div class="dkfx">
+      <button type="button" data-fx="echo">🔊 에코<kbd>Z</kbd></button><button type="button" data-fx="roll">🔁 롤<kbd>X</kbd></button><button type="button" data-fx="rise">🚀 업→드롭<kbd>C</kbd></button></div>
+      <button type="button" class="btn dkrec" id="dkRec">🔴 녹음</button></div>${ch(1)}</div>
+    <div class="dkxf"><span>1</span><input type="range" id="dkXf" min="0" max="1" step="0.01" value="${DK.xf}" aria-label="크로스페이더"><span>2</span></div>
+    <small class="dkxfl">크로스페이더 <kbd>←</kbd><kbd>→</kbd> · 가운데 두 번 누르면 0.5</small>
+  </div>`;
+}
+function dkPageHTML(){
+  return `<div class="dkwrap" id="dkWrap">
+    <div class="dkrig">${dkDeckHTML(0)}${dkMixerHTML()}${dkDeckHTML(1)}</div>
+    <div id="dkTake" class="djtake"></div>
+    <details class="dkmath" open><summary>📐 DJ 장비 속 함수 — 조작할 때마다 식이 어떻게 바뀔까?</summary>
+      <div class="dkmg">
+        <div><b>🎚️ 템포 슬라이더</b>템포를 \\(k\\)배로 하면 같은 시간 동안 그래프를 \\(k\\)배 빨리 지나가요. 시간 축으로 보면 \\(y=f(kx)\\) — 그래프가 \\(x\\)축 방향으로 \\(\\frac1k\\)배 줄어들어요. 화면의 「\\(y=f(kx)\\)」를 보세요.</div>
+        <div><b>💿 지그 휠</b>돌리면 재생 위치가 앞뒤로 움직여요. 두 덱의 박자를 맞추는 것은 \\(y=f(x-p)\\)의 \\(p\\)를 찾는 것, 곧 <b>\\(x\\)축 방향 평행이동</b>이에요.</div>
+        <div><b>🔁 루프</b>한 구간을 끝없이 되풀이하면 \\(f(x+T)=f(x)\\)인 <b>주기함수</b>가 돼요. 4박 루프의 주기 \\(T\\)는 몇 칸일까요?</div>
+        <div><b>↔️ 크로스페이더</b>믹서 화면의 보라색 그래프 = \\((1-c)\\,f(x)+c\\,g(x)\\). \\(c\\)를 0 → 1로 밀면 덱 1의 함수가 덱 2의 함수로 서서히 바뀌어요.</div>
+        <div><b>🎛️ EQ · 필터</b>LOW를 끝까지 내리면 베이스 · 킥이, HI를 내리면 반짝이 소리가 사라져요. 필터는 왼쪽 = 높은 소리 잘라 내기, 오른쪽 = 낮은 소리 잘라 내기.</div>
+        <div><b>🔗 SYNC</b>상대 덱의 BPM \\(B\\)에 맞추려면 템포를 \\(\\left(\\frac{B}{\\text{원래 BPM}}-1\\right)\\times100\\)% 바꾸면 돼요. 직접 계산해서 슬라이더로 맞춰 보고, SYNC로 확인!</div>
+      </div></details>
+    <p class="djhelp">💡 디제잉 순서 : ① 덱 1을 ▶로 틀고 크로스페이더를 왼쪽에 ② 덱 2를 CUE로 미리 들으며 템포 슬라이더로 BPM 맞추기 (또는 SYNC) ③ 덱 2를 ▶, 지그 휠로 박자 맞추기 ④ 덱 2의 LOW를 내린 채 크로스페이더를 가운데로 ⑤ 두 덱의 LOW를 바꿔 치기(베이스 스왑) ⑥ 크로스페이더를 오른쪽으로 — 믹스 완성! 키보드 : 덱 1 <kbd>Q</kbd> 재생 <kbd>W</kbd> CUE <kbd>E</kbd> SYNC · 덱 2 <kbd>P</kbd> <kbd>O</kbd> <kbd>I</kbd> · <kbd>스페이스</kbd> 둘 다 멈춤</p>
+  </div>`;
+}
+function dkUI(){
+  if (!$('#dkWrap')) return;
+  DK.d.forEach(d => {
+    const R = $('#dk' + d.id); if (!R) return;
+    $('.dkload', R).value = d.set;
+    $('.dkplay', R).classList.toggle('on', d.on); $('.dksync', R).classList.toggle('on', !!d.synced && Math.abs(dkBpmNow(d) - dkBpmNow(DK.d[1 - d.id])) < 0.05);
+    $('.dkmt', R).classList.toggle('on', d.mt); $('.dkvin', R).classList.toggle('on', !!d.vinyl);
+    $('.dkpitch', R).value = d.pitch; $('.dkpv', R).textContent = (d.pitch > 0 ? '+' : '') + d.pitch.toFixed(1) + '%';
+    $$('.dkstem', R).forEach((b, k) => { const t = d.tr[k], V = DJ_VOICES[t.v]; b.innerHTML = `${V.icon}<small>${V.n}</small>`; b.style.setProperty('--sc', DK_COL[t.v]); b.classList.toggle('on', t.on && !!t.d); b.disabled = !t.d; });
+    $$('.dkhot', R).forEach((b, k) => b.classList.toggle('on', d.hot[k] != null));
+    $$('.dkloop', R).forEach(b => b.classList.toggle('on', !!d.loop && d.loop.beats === +b.dataset.b));
+  });
+  const rb = $('#dkRec'); if (rb){ const r = DK.rec && DK.rec.state === 'recording'; rb.textContent = r ? '⏹ 녹음 끝' : '🔴 녹음'; rb.classList.toggle('on', r); }
+  DK.d.forEach(dkApply);
+  if (!DK.raf) dkDraw();
+}
+function dkKnobSet(el){
+  const d = DK.d[+el.dataset.d], k = el.dataset.k, v = k === 'filt' ? d.filt : d.eq[k];
+  $('.dkkn', el).style.setProperty('--v', v);
+}
+
+/* 덱 화면 : 가운데 재생선 기준으로 흘러가는 함수 그래프 (파형 대신 그래프) + 아래 전체 트랙 */
+function dkDrawDeck(d){
+  const c = $(`.dkcv[data-d="${d.id}"]`); if (!c) return;
+  const w = c.clientWidth; if (w && c.width !== Math.round(w * Math.min(devicePixelRatio || 1, 2))){ c.width = Math.round(w * Math.min(devicePixelRatio || 1, 2)); c.height = Math.round(c.width * 0.5); }
+  const g = c.getContext('2d'), W = c.width, H = c.height, cw = c.clientWidth || 400, k = (W / cw) * Math.max(0.8, Math.min(1.5, cw / 360)), pos = dkPos(d);
+  g.fillStyle = '#0d0f1a'; g.fillRect(0, 0, W, H);
+  // 위 글자줄
+  const bpm = dkBpmNow(d), bar = Math.floor(pos / 16) + 1, beat = Math.floor(pos / 4) % 4 + 1, kk = dkRate(d);
+  g.fillStyle = '#8b90b8'; g.font = `700 ${12 * k}px Pretendard, sans-serif`; g.fillText(d.title.replace(/\s*\(.*\)/, ''), 10 * k, 19 * k, W - 110 * k);
+  g.textAlign = 'right'; g.fillStyle = '#fff'; g.font = `900 ${20 * k}px Consolas, monospace`; g.fillText(bpm.toFixed(1), W - 12 * k, 22 * k);
+  g.font = `700 ${10 * k}px Pretendard, sans-serif`; g.fillStyle = d.pitch ? '#ffb02e' : '#8b90b8'; g.fillText(`BPM  ${d.pitch > 0 ? '+' : ''}${d.pitch.toFixed(1)}%`, W - 12 * k, 36 * k);
+  g.textAlign = 'left'; g.fillStyle = '#c38bff'; g.font = `italic 700 ${13 * k}px 'Times New Roman', serif`; const fx = `y = f(${kk.toFixed(2)}x)`; g.fillText(fx, 10 * k, 38 * k); const fw = g.measureText(fx).width;
+  g.fillStyle = '#8b90b8'; g.font = `700 ${10.5 * k}px Pretendard, sans-serif`; g.fillText(`BAR ${bar}.${beat}${d.loop ? `  🔁 ${d.loop.beats}박 루프 · 주기 ${d.loop.len}칸` : ''}${d.hold ? '  💿 ' + (d.on ? 'SCRATCH' : 'SEARCH') : ''}`, 10 * k + fw + 12 * k, 38 * k, W - fw - 110 * k);
+  // 흐르는 그래프
+  const top = 58 * k, bot = H - 64 * k, mid = W / 2, span = 10, ppx = W / (2 * span), dx = (DJ_WIN[1] - DJ_WIN[0]) / DJ_STEPS;
+  const Y = y => bot - (y - DJ_YW[0]) / (DJ_YW[1] - DJ_YW[0]) * (bot - top);
+  if (d.loop){ for (let u = -span; u <= span; u += 0.25){ const s = (((pos + u) % DJ_STEPS) + DJ_STEPS) % DJ_STEPS; if (s >= d.loop.a && s < d.loop.a + d.loop.len){ g.fillStyle = 'rgba(62,224,168,.08)'; g.fillRect(mid + u * ppx, top, ppx * 0.25 + 1, bot - top); } } }
+  for (let u = Math.ceil(-span - (pos % 1)); u <= span; u++){ const s = Math.round(pos + u), sx = mid + (s - pos) * ppx, m = ((s % DJ_STEPS) + DJ_STEPS) % DJ_STEPS;
+    g.strokeStyle = m % 16 === 0 ? 'rgba(255,255,255,.35)' : m % 4 === 0 ? 'rgba(255,255,255,.16)' : 'rgba(255,255,255,.05)'; g.lineWidth = 1; g.beginPath(); g.moveTo(sx, top); g.lineTo(sx, bot); g.stroke(); }
+  g.strokeStyle = 'rgba(255,255,255,.2)'; g.beginPath(); g.moveTo(0, Y(0)); g.lineTo(W, Y(0)); g.stroke();
+  d.tr.forEach(t => {
+    if (!t.d) return; g.strokeStyle = DK_COL[t.v]; g.globalAlpha = t.on ? 0.95 : 0.14; g.lineWidth = (t.on ? 2.4 : 1.2) * k; g.beginPath();
+    let pen = false, py = 0, pm = null;
+    for (let px = 0; px <= W; px += 2){
+      const sf = pos + (px - mid) / ppx, m = ((sf % DJ_STEPS) + DJ_STEPS) % DJ_STEPS, y = t.d.fn(DJ_WIN[0] + m * dx);
+      if (pm != null && m < pm) pen = false; pm = m;
+      if (!isFinite(y) || Math.abs(y) > 60){ pen = false; continue; }
+      const yy = Math.max(top, Math.min(bot, Y(y))); if (pen && Math.abs(yy - py) > (bot - top) * 0.8) pen = false;
+      if (pen) g.lineTo(px, yy); else g.moveTo(px, yy); pen = true; py = yy;
+    }
+    g.stroke();
+  });
+  g.globalAlpha = 1;
+  // 큐 · 핫 큐 표시 (보이는 범위)
+  const mark = (s, col, lab) => { for (const off of [-DJ_STEPS, 0, DJ_STEPS]){ const sx = mid + (s + off - pos) * ppx; if (sx < 0 || sx > W) continue;
+    g.fillStyle = col; g.beginPath(); g.moveTo(sx, top); g.lineTo(sx - 6 * k, top - 8 * k); g.lineTo(sx + 6 * k, top - 8 * k); g.fill(); if (lab){ g.font = `900 ${9 * k}px sans-serif`; g.textAlign = 'center'; g.fillText(lab, sx, top - 10 * k); g.textAlign = 'left'; } } };
+  mark(d.cue, '#ff8a00', 'CUE'); d.hot.forEach((h, j) => { if (h != null) mark(h, ['#ff5470', '#3ee0a8', '#4d8dff', '#ffd54a'][j], 'ABCD'[j]); });
+  // 재생선
+  g.strokeStyle = '#ff3b3b'; g.lineWidth = 2 * k; g.beginPath(); g.moveTo(mid, top - 4 * k); g.lineTo(mid, bot + 4 * k); g.stroke();
+  // 아래 : 트랙 전체 (32칸)
+  const oy = H - 46 * k, oh = 30 * k, ox = 10 * k, ow = W - 20 * k, lead = d.tr.find(t => t.on && t.d) || d.tr.find(t => t.d);
+  g.fillStyle = '#161a2c'; g.fillRect(ox, oy, ow, oh);
+  g.fillStyle = 'rgba(77,141,255,.25)'; g.fillRect(ox, oy, ow * (pos / DJ_STEPS), oh);
+  if (d.loop){ g.fillStyle = 'rgba(62,224,168,.3)'; g.fillRect(ox + ow * d.loop.a / DJ_STEPS, oy, ow * d.loop.len / DJ_STEPS, oh); }
+  if (lead){ g.strokeStyle = DK_COL[lead.v]; g.lineWidth = 1.4 * k; g.beginPath(); let pen = false, py = 0;
+    for (let px = 0; px <= ow; px += 2){ const y = lead.d.fn(DJ_WIN[0] + px / ow * (DJ_WIN[1] - DJ_WIN[0])); if (!isFinite(y) || Math.abs(y) > 60){ pen = false; continue; }
+      const yy = oy + oh - (Math.max(-6, Math.min(6, y)) + 6) / 12 * oh; if (pen && Math.abs(yy - py) > oh * .8) pen = false; if (pen) g.lineTo(ox + px, yy); else g.moveTo(ox + px, yy); pen = true; py = yy; } g.stroke(); }
+  for (let b = 0; b <= DJ_STEPS; b += 4){ g.fillStyle = b % 16 ? 'rgba(255,255,255,.25)' : 'rgba(255,255,255,.6)'; g.fillRect(ox + ow * b / DJ_STEPS, oy + oh, 1, 4 * k); }
+  g.fillStyle = '#ff8a00'; g.fillRect(ox + ow * d.cue / DJ_STEPS - 1, oy, 2, oh);
+  g.fillStyle = '#fff'; g.fillRect(ox + ow * (pos / DJ_STEPS) - 1, oy - 2 * k, 2.5 * k, oh + 4 * k);
+  // 지그 휠 돌리기 · 가운데 표시
+  const R = $('#dk' + d.id);
+  if (R){ const a = d.hold ? d.ang : pos / 8 * 2 * Math.PI; d.ang = a; $('.dkplat', R).style.transform = `rotate(${a}rad)`;
+    $('.dkjpos', R).textContent = `${bar}.${beat}`; R.classList.toggle('playing', d.on); }
+}
+/* 믹서 화면 : 크로스페이더 = 두 함수의 가중 평균 */
+function dkDrawMix(){
+  const c = $('#dkMixCv'); if (!c) return;
+  const w = c.clientWidth; if (w && c.width !== Math.round(w * Math.min(devicePixelRatio || 1, 2))){ c.width = Math.round(w * Math.min(devicePixelRatio || 1, 2)); c.height = Math.round(c.width * 0.44); }
+  const g = c.getContext('2d'), W = c.width, H = c.height, cw = c.clientWidth || 400, k = (W / cw) * Math.max(0.8, Math.min(1.4, cw / 330)), cx = DK.xf;
+  g.fillStyle = '#0d0f1a'; g.fillRect(0, 0, W, H);
+  const lf = d => { const t = d && (d.tr.find(x => x.v === 'lead' && x.d) || d.tr.find(x => x.d)); return t ? t.d.fn : null; };
+  const fA = lf(DK.d[0]), fB = lf(DK.d[1]), top = 30 * k, bot = H - 40 * k;
+  const X = x => (x - DJ_WIN[0]) / (DJ_WIN[1] - DJ_WIN[0]) * W, Y = y => bot - (y - DJ_YW[0]) / (DJ_YW[1] - DJ_YW[0]) * (bot - top);
+  g.strokeStyle = 'rgba(255,255,255,.18)'; g.lineWidth = 1; g.beginPath(); g.moveTo(0, Y(0)); g.lineTo(W, Y(0)); g.moveTo(X(0), top); g.lineTo(X(0), bot); g.stroke();
+  const plot = (fn, col, lw, al) => { if (!fn) return; g.strokeStyle = col; g.globalAlpha = al; g.lineWidth = lw * k; g.beginPath(); let pen = false, py = 0;
+    for (let px = 0; px <= W; px += 2){ const y = fn(DJ_WIN[0] + px / W * (DJ_WIN[1] - DJ_WIN[0])); if (!isFinite(y) || Math.abs(y) > 60){ pen = false; continue; }
+      const yy = Math.max(top - 10, Math.min(bot + 10, Y(y))); if (pen && Math.abs(yy - py) > (bot - top) * .8) pen = false; if (pen) g.lineTo(px, yy); else g.moveTo(px, yy); pen = true; py = yy; } g.stroke(); g.globalAlpha = 1; };
+  plot(fA, '#4d8dff', 2, 0.25 + 0.6 * (1 - cx)); plot(fB, '#ff5470', 2, 0.25 + 0.6 * cx);
+  if (fA && fB) plot(x => (1 - cx) * fA(x) + cx * fB(x), '#c38bff', 3.4, 1);
+  g.font = `900 ${13 * k}px Pretendard, sans-serif`; g.fillStyle = '#fff'; g.fillText('MIXER', 10 * k, 20 * k);
+  g.font = `italic 700 ${13 * k}px 'Times New Roman', serif`; g.fillStyle = '#c38bff'; g.textAlign = 'right';
+  g.fillText(`출력 = ${(1 - cx).toFixed(2)}·f(x) + ${cx.toFixed(2)}·g(x)`, W - 10 * k, 20 * k, W - 70 * k); g.textAlign = 'left';
+  // 박자 맞춤 표시
+  const A = DK.d[0], B = DK.d[1]; if (!A || !B) return;
+  const ba = dkBpmNow(A), bb = dkBpmNow(B), pa = dkPos(A), pb = dkPos(B), diff = Math.abs(ba - bb);
+  const ph = ((pa % 4) - (pb % 4) + 6) % 4 - 2, ok = A.on && B.on && diff < 0.05 && Math.abs(ph) < 0.12;
+  g.font = `700 ${10.5 * k}px Pretendard, sans-serif`; let tx = 8 * k; const put = (t, col, y) => { g.fillStyle = col; g.fillText(t, tx, y); tx += g.measureText(t).width + 10 * k; };
+  put(`1 : ${ba.toFixed(1)}`, '#4d8dff', H - 10 * k); put(`2 : ${bb.toFixed(1)} BPM`, '#ff5470', H - 10 * k);
+  g.fillStyle = ok ? '#3ee0a8' : diff < 0.05 ? '#ffd54a' : '#8b90b8'; tx = 8 * k;
+  g.fillText(ok ? '✔ 박자가 딱 맞아요!' : diff < 0.05 ? (A.on && B.on ? `템포 같음 · 박자 ${Math.abs(ph).toFixed(2)}칸 어긋남 → 지그 휠로 밀기` : '템포 일치') : `템포 차이 ${diff.toFixed(1)} BPM → 템포 슬라이더 · SYNC`, tx, H - 26 * k);
+  // 박 램프 (4박)
+  [[A, pa, '#4d8dff', 10], [B, pb, '#ff5470', 22]].forEach(([d, p, col, yo]) => { for (let b = 0; b < 4; b++){ g.fillStyle = d.on && Math.floor(p / 4) % 4 === b ? col : 'rgba(255,255,255,.1)'; g.fillRect(W - (4 - b) * 16 * k - 6 * k, H - (yo + 4) * k, 12 * k, 7 * k); } });
+}
+function dkDrawVU(){
+  DK.d.forEach(d => {
+    const c = $(`.dkvu[data-d="${d.id}"]`); if (!c) return; const g = c.getContext('2d'), W = c.width, H = c.height;
+    let v = 0; if (d.an){ d.an.getFloatTimeDomainData(d.buf); let s = 0; for (let i = 0; i < d.buf.length; i++) s += d.buf[i] * d.buf[i]; v = Math.min(1, Math.sqrt(s / d.buf.length) * 3.2); }
+    d.vu = Math.max(v, (d.vu || 0) * 0.9);
+    g.clearRect(0, 0, W, H); const n = 15;
+    for (let i = 0; i < n; i++){ const lit = d.vu * n > i; g.fillStyle = lit ? (i > 12 ? '#ff3b3b' : i > 9 ? '#ffb02e' : '#3ee0a8') : '#1f2336'; g.fillRect(1, H - (i + 1) * (H / n) + 1, W - 2, H / n - 2); }
+  });
+}
+function dkDraw(){ DK.d.forEach(dkDrawDeck); dkDrawMix(); dkDrawVU(); }
+function dkLoop(){
+  cancelAnimationFrame(DK.raf); DK.raf = 0;
+  const run = () => { if (!$('#dkWrap') || DK.mode !== 'deck' || CUR !== 'dj'){ DK.raf = 0; return; }
+    dkDraw(); DK.raf = requestAnimationFrame(run); };
+  DK.raf = requestAnimationFrame(run);
+}
+
+/* ---------- 연결 ---------- */
+function dkMode(m){
+  DK.mode = m; const W = $('#djWrap'), K = $('#dkWrap'); if (!W || !K) return;
+  W.querySelectorAll(':scope > .djtop, :scope > .djstage, :scope > .djlegend, :scope > .djpads, :scope > #djTake, :scope > .djhelp').forEach(e => e.hidden = m === 'deck');
+  K.hidden = m !== 'deck';
+  $$('.djmode button').forEach(b => b.classList.toggle('on', b.dataset.m === m));
+  if (m === 'deck'){ if (DJ.on) djStop(); if (!DK.d.length){ DK.d = [dkNew(0, 'base'), dkNew(1, 'asym')]; } dkUI(); dkLoop(); tex(K); }
+  else dkStopAll();
+}
+function bootDeck(){
+  const K = $('#dkWrap'); if (!K) return;
+  DK.d = [dkNew(0, 'base'), dkNew(1, 'asym')];
+  K.addEventListener('click', e => {
+    const b = e.target.closest('button'); if (!b) return; const d = DK.d[+b.dataset.d];
+    if (b.classList.contains('dkplay')) dkPlay(d);
+    else if (b.classList.contains('dksync')) dkSync(d);
+    else if (b.classList.contains('dkmt')){ d.mt = !d.mt; dkUI(); }
+    else if (b.classList.contains('dkvin')){ d.vinyl = !d.vinyl; dkUI(); }
+    else if (b.classList.contains('dkstem')){ const t = d.tr[+b.dataset.k]; t.on = !t.on; dkAudio(d); dkUI(); }
+    else if (b.classList.contains('dkhot')){ const k = +b.dataset.k; clearTimeout(b._t); if (b._c){ b._c = 0; dkHot(d, k, true); return; } b._c = 1; b._t = setTimeout(() => { b._c = 0; }, 300); dkHot(d, k); }
+    else if (b.classList.contains('dkloop')) dkLoopSet(d, +b.dataset.b);
+    else if (b.id === 'dkRec') dkRec();
+  });
+  $$('.dkcue', K).forEach(b => { const d = DK.d[+b.dataset.d];
+    b.addEventListener('pointerdown', e => { e.preventDefault(); try { b.setPointerCapture(e.pointerId); } catch (er) {} dkCueDown(d); });
+    b.addEventListener('pointerup', () => dkCueUp(d)); b.addEventListener('pointercancel', () => dkCueUp(d)); });
+  $$('.dkload', K).forEach(s => s.onchange = () => { const d = DK.d[+s.dataset.d]; const was = d.on; d.on = false; dkLoad(d, s.value);
+    if (d.ac){ d.tg.forEach(g => g.disconnect()); d.tg = d.tr.map(() => { const g = d.ac.createGain(); g.gain.value = 0; g.connect(d.in); return g; }); }
+    if (was) snack('재생 중인 덱에 새 트랙을 불러왔어요. ▶를 다시 눌러 주세요'); dkUI(); });
+  $$('.dkpitch', K).forEach(r => { r.oninput = () => { const d = DK.d[+r.dataset.d]; d.pitch = +r.value; d.synced = false; dkUI(); };
+    r.ondblclick = () => { const d = DK.d[+r.dataset.d]; d.pitch = 0; dkUI(); }; });
+  $$('.dkfad', K).forEach(r => r.oninput = () => { DK.d[+r.dataset.d].fader = +r.value; dkApply(DK.d[+r.dataset.d]); });
+  const xf = $('#dkXf'); xf.oninput = () => { DK.xf = +xf.value; DK.d.forEach(dkApply); if (!DK.raf) dkDraw(); }; xf.ondblclick = () => { DK.xf = 0.5; xf.value = 0.5; xf.oninput(); };
+  $$('.dkknob', K).forEach(el => {
+    const d = DK.d[+el.dataset.d], k = el.dataset.k; let y0 = null, v0 = 0;
+    const get = () => k === 'filt' ? d.filt : d.eq[k], put = v => { v = Math.max(-1, Math.min(1, v)); if (Math.abs(v) < 0.04) v = 0; if (k === 'filt') d.filt = v; else d.eq[k] = v; dkKnobSet(el); dkApply(d); };
+    el.addEventListener('pointerdown', e => { e.preventDefault(); try { el.setPointerCapture(e.pointerId); } catch (er) {} dkAudio(d); y0 = e.clientY; v0 = get(); el.classList.add('touch'); });
+    el.addEventListener('pointermove', e => { if (y0 == null) return; put(v0 + (y0 - e.clientY) / 90); });
+    const up = () => { y0 = null; el.classList.remove('touch'); }; el.addEventListener('pointerup', up); el.addEventListener('pointercancel', up);
+    el.addEventListener('dblclick', () => put(0));
+    el.addEventListener('wheel', e => { e.preventDefault(); put(get() - Math.sign(e.deltaY) * 0.05); }, { passive:false });
+  });
+  $$('.dkjog', K).forEach(el => dkJogBind(DK.d[+el.dataset.d], el));
+  $$('.dkfx [data-fx]', K).forEach(b => { const fx = b.dataset.fx;
+    b.addEventListener('pointerdown', e => { e.preventDefault(); try { b.setPointerCapture(e.pointerId); } catch (er) {} dkFx(fx, true); });
+    const up = () => { if (DK.fx[fx + 'On']) dkFx(fx, false); }; b.addEventListener('pointerup', up); b.addEventListener('pointercancel', up); });
+  $$('.djmode button').forEach(b => b.onclick = () => dkMode(b.dataset.m));
+  const FX = { z:'echo', x:'roll', c:'rise' };
+  addEventListener('keydown', e => {
+    if (CUR !== 'dj' || DK.mode !== 'deck' || e.ctrlKey || e.metaKey || e.altKey || /input|textarea|select/i.test(e.target.tagName || '')) return;
+    const k = e.key.toLowerCase(), A = DK.d[0], B = DK.d[1];
+    const act = { q:() => dkPlay(A), p:() => dkPlay(B), e:() => dkSync(A), i:() => dkSync(B) };
+    if (act[k]){ if (!e.repeat) act[k](); e.preventDefault(); e.stopImmediatePropagation(); return; }
+    if (k === 'w' || k === 'o'){ if (!e.repeat) dkCueDown(k === 'w' ? A : B); e.preventDefault(); e.stopImmediatePropagation(); return; }
+    if (FX[k]){ if (!e.repeat) dkFx(FX[k], true); e.preventDefault(); e.stopImmediatePropagation(); return; }
+    if (k === 'arrowleft' || k === 'arrowright'){ DK.xf = Math.max(0, Math.min(1, DK.xf + (k === 'arrowleft' ? -0.1 : 0.1))); $('#dkXf').value = DK.xf; DK.d.forEach(dkApply); e.preventDefault(); return; }
+    if (k === ' '){ e.preventDefault(); e.stopImmediatePropagation(); DK.d.forEach(d => dkPlay(d, false)); }
+  }, true);
+  addEventListener('keyup', e => {
+    if (DK.mode !== 'deck') return; const k = e.key.toLowerCase();
+    if (k === 'w') dkCueUp(DK.d[0]); if (k === 'o') dkCueUp(DK.d[1]);
+    if (FX[k] && DK.fx[FX[k] + 'On']) dkFx(FX[k], false);
+  });
+  K.hidden = true;
 }
 
 ;
@@ -7884,6 +8429,7 @@ let CUR = 'start';
 function go(id){
   if (id !== 'book' && typeof narrStop === 'function') narrStop();
   if (id !== 'dj' && window.djStop) djStop();
+  if (id !== 'dj' && window.dkStopAll) dkStopAll();
   if (id !== 'battle' && window.btStop) btStop();
   CUR = id;
   $$('.page').forEach(s => s.classList.toggle('on', s.id === 'pg-' + id));
