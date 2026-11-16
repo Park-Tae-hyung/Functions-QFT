@@ -279,7 +279,7 @@ nav.tabs{position:sticky;top:0;z-index:40;background:rgba(255,250,252,.9);
 
 #cloud{width:100%;height:300px;position:relative;overflow:hidden;border-radius:20px;
   background:radial-gradient(540px 280px at 50% 46%,#fff4f9,#fdfaff);border:2px solid var(--line)}
-#cloud span{position:absolute;white-space:nowrap;font-weight:900;line-height:1;
+#cloud span:where(:not(.kx):not(.katex):not(.katex *)){position:absolute;white-space:nowrap;font-weight:900;line-height:1;
   transform:translate(-50%,-50%);transition:.5s cubic-bezier(.2,.9,.2,1);cursor:default}
 .bars{display:flex;flex-direction:column;gap:10px;margin-top:6px}
 .bar{display:flex;align-items:center;gap:12px;font-size:.86rem}
@@ -418,7 +418,7 @@ table.tt td.wrap{white-space:normal;min-width:240px;line-height:1.6}
 .step.if  {background:var(--pink-s);border-color:#ffc8da} .step.if h4{color:#e8558c}
 @media (max-width:640px){ .ladder{grid-template-columns:1fr} }
 .flow{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0}
-.flow span{background:#fff;border:2px solid var(--line);border-radius:999px;padding:6px 13px;font-size:.82rem;font-weight:800;color:var(--ink2)}
+.flow span:where(:not(.kx):not(.katex):not(.katex *)){background:#fff;border:2px solid var(--line);border-radius:999px;padding:6px 13px;font-size:.82rem;font-weight:800;color:var(--ink2)}
 .flow span b{color:var(--pink);margin-right:4px}
 
 /* 질문 만들기 */
@@ -486,9 +486,9 @@ table.tt td.wrap{white-space:normal;min-width:240px;line-height:1.6}
 /* 워드클라우드 */
 .cloud{width:100%;height:300px;position:relative;overflow:hidden;border-radius:20px;
   background:radial-gradient(540px 280px at 50% 46%,#fff4f9,#fdfaff);border:2px solid var(--line)}
-.cloud span{position:absolute;white-space:nowrap;font-weight:900;line-height:1;
+.cloud span:where(:not(.kx):not(.katex):not(.katex *)){position:absolute;white-space:nowrap;font-weight:900;line-height:1;
   transform:translate(-50%,-50%);transition:.5s cubic-bezier(.2,.9,.2,1);cursor:pointer}
-.cloud span:hover{text-decoration:underline}
+.cloud span:where(:not(.kx):not(.katex):not(.katex *)):hover{text-decoration:underline}
 .cloudnote{font-size:.78rem;color:var(--ink3);margin-top:6px}
 
 /* 책 · 토론 */
@@ -501,7 +501,7 @@ table.tt td.wrap{white-space:normal;min-width:240px;line-height:1.6}
 .book .src{font-size:.78rem;color:#9c8558;border-top:1px dashed #e8d6a8;padding-top:9px;margin-top:6px}
 .talk{background:#fff;border:2px solid var(--line);border-radius:18px;padding:13px 16px;margin:10px 0}
 .talk .tq{font-weight:900;margin-bottom:7px}
-.talk .tq span{color:var(--pink);margin-right:5px}
+.talk .tq span:where(:not(.kx):not(.katex):not(.katex *)){color:var(--pink);margin-right:5px}
 .talk textarea,.inp{width:100%;min-height:62px;background:#fdfaff;border:2px solid var(--line2);border-radius:14px;
   padding:10px 13px;font-family:inherit;font-size:.9rem;resize:vertical;outline:none;color:var(--ink)}
 .inp{min-height:0}
@@ -540,7 +540,7 @@ table.tt td.wrap{white-space:normal;min-width:240px;line-height:1.6}
 .lab .out{background:var(--lav-s);border-radius:14px;padding:10px 14px;margin-top:10px;font-size:.9rem;font-weight:700}
 .lab .out b{color:#7d5fe0}
 .judge{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
-.judge span{padding:6px 12px;border-radius:999px;font-weight:900;font-size:.8rem;background:#f1f1f6;color:#999}
+.judge span:where(:not(.kx):not(.katex):not(.katex *)){padding:6px 12px;border-radius:999px;font-weight:900;font-size:.8rem;background:#f1f1f6;color:#999}
 .judge span.y{background:var(--mint);color:#fff}
 .judge span.n{background:var(--pink-s);color:#e8558c}
 .flowbox{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-weight:900;margin:8px 0}
@@ -564,12 +564,12 @@ table.mini th{background:var(--lav-s)}
   padding:12px 15px;transition:.2s}
 .lnk:hover{border-color:var(--lav);transform:translateY(-2px);box-shadow:var(--sh)}
 .lnk b{display:block;color:var(--ink);font-size:.92rem}
-.lnk span{font-size:.8rem;color:var(--ink2)}
+.lnk span:where(:not(.kx):not(.katex):not(.katex *)){font-size:.8rem;color:var(--ink2)}
 .lnk em{font-style:normal;font-size:.7rem;font-weight:900;color:var(--lav)}
 .bookrec{display:flex;gap:12px;align-items:flex-start;background:#fffdf7;border:2px solid #f3e2b8;border-radius:16px;padding:12px 15px}
 .bookrec .bi{font-size:1.8rem}
 .bookrec b{display:block}
-.bookrec span{font-size:.82rem;color:#7d6a45}
+.bookrec span:where(:not(.kx):not(.katex):not(.katex *)){font-size:.82rem;color:#7d6a45}
 .aimis{background:linear-gradient(135deg,#eef6ff,#f6f0ff);border:2px solid #cfe3ff;border-radius:18px;padding:14px 17px;margin:10px 0}
 .aimis code{background:#fff;border-radius:8px;padding:2px 8px;font-size:.85rem;color:#5b48c9}
 
@@ -578,7 +578,7 @@ table.mini th{background:var(--lav-s)}
 .stars button{background:none;border:none;font-size:1.25rem;cursor:pointer;padding:0 1px;color:#e2dbee;transition:.1s}
 .stars button.on{color:#ffc94d}
 .srow{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;padding:7px 0;border-bottom:1px dashed var(--line)}
-.srow span{font-size:.88rem;font-weight:800}
+.srow span:where(:not(.kx):not(.katex):not(.katex *)){font-size:.88rem;font-weight:800}
 .srow small{display:block;color:var(--ink3);font-weight:600}
 .saved{font-size:.8rem;font-weight:900;color:#148a73;margin-left:8px}
 
@@ -622,7 +622,7 @@ table.mini th{background:var(--lav-s)}
 .ailn{font-size:.88rem;border-radius:12px;padding:6px 10px;margin-top:6px;background:#fff}
 .ailn.good{background:#e9f9f2}.ailn.imp{background:#fff4e0}.ailn.hint{background:#eef3ff}.ailn.warn{background:#ffeef1}
 .idea{background:#fff;border-radius:14px;padding:8px 10px;margin-top:6px;display:flex;flex-direction:column;gap:3px}
-.idea b{color:#5a3fc0;font-size:.86rem}.idea span{font-size:.8rem;color:var(--ink2)}.idea small{color:var(--ink3);font-size:.76rem}
+.idea b{color:#5a3fc0;font-size:.86rem}.idea span:where(:not(.kx):not(.katex):not(.katex *)){font-size:.8rem;color:var(--ink2)}.idea small{color:var(--ink3);font-size:.76rem}
 .seedbtn{display:block;text-align:left;width:100%;border:1.5px dashed #b9e6cf;background:#f3fcf7;color:#11795c;font-family:inherit;font-size:.86rem;font-weight:800;
   border-radius:12px;padding:6px 10px;margin-top:4px;cursor:pointer}
 .seedbtn:hover{background:#e3f8ee}
@@ -712,7 +712,7 @@ table.mini th{background:var(--lav-s)}
 .lstep{font-size:.72rem;font-weight:800;color:var(--ink3);background:#fff;border:1.5px solid var(--line2);border-radius:999px;padding:2px 9px}
 .lstep b{margin-right:3px;color:var(--lav)}
 .miniladder{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:8px}
-.miniladder span{border-radius:12px;padding:4px 12px;font-weight:900;font-size:.84rem;display:flex;flex-direction:column;line-height:1.3}
+.miniladder span:where(:not(.kx):not(.katex):not(.katex *)){border-radius:12px;padding:4px 12px;font-weight:900;font-size:.84rem;display:flex;flex-direction:column;line-height:1.3}
 .miniladder small{font-weight:600;font-size:.7rem;opacity:.85}
 .miniladder .what{background:var(--sky-s);color:#2f93d6}.miniladder .how{background:var(--lav-s);color:#7d5fe0}.miniladder .if{background:var(--pink-s);color:#e8558c}
 .miniladder i{font-style:normal;color:var(--ink3);font-weight:900}
@@ -750,7 +750,7 @@ table.mini th{background:var(--lav-s)}
 @keyframes ytpulse{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
 .ytshort{position:absolute;right:10px;top:10px;background:rgba(0,0,0,.65);color:#fff;font-size:.7rem;font-weight:900;border-radius:999px;padding:2px 9px}
 .ytmeta{padding:10px 14px;display:flex;flex-direction:column;gap:2px}
-.ytmeta b{font-size:.95rem}.ytmeta span{font-size:.78rem;color:var(--ink3);font-weight:700}.ytmeta a{font-size:.76rem;font-weight:800;color:#d0344f;text-decoration:none}
+.ytmeta b{font-size:.95rem}.ytmeta span:where(:not(.kx):not(.katex):not(.katex *)){font-size:.78rem;color:var(--ink3);font-weight:700}.ytmeta a{font-size:.76rem;font-weight:800;color:#d0344f;text-decoration:none}
 
 /* ---------- 🎞️ 모션 그래픽 ---------- */
 .mg{position:relative;border-radius:18px;overflow:hidden;background:linear-gradient(135deg,#fff0f6,#eef3ff)}
@@ -773,12 +773,12 @@ table.mini th{background:var(--lav-s)}
 .mgtap{display:none;position:absolute;inset:0;z-index:3;border:0;margin:0;padding:0;cursor:pointer;font-family:inherit;
   background:radial-gradient(circle at 50% 50%,rgba(255,255,255,.25),rgba(40,20,90,.35));color:#fff;flex-direction:column;align-items:center;justify-content:center;gap:6px}
 .mgtap i{font-style:normal;width:58px;height:58px;border-radius:50%;background:var(--grad,linear-gradient(135deg,#ff7ba9,#9b7bff));display:flex;align-items:center;justify-content:center;font-size:1.4rem;padding-left:4px;box-shadow:0 8px 20px rgba(0,0,0,.3);animation:ytpulse 1.6s ease-in-out infinite}
-.mgtap span{font-weight:900;font-size:.82rem;text-shadow:0 1px 4px rgba(0,0,0,.5)}
+.mgtap span:where(:not(.kx):not(.katex):not(.katex *)){font-weight:900;font-size:.82rem;text-shadow:0 1px 4px rgba(0,0,0,.5)}
 .mg.tap .mgtap,.stage.tap .mgtap{display:flex}
-.mg.mini .mgtap i{width:26px;height:26px;font-size:.7rem;animation:none}.mg.mini .mgtap span{display:none}
+.mg.mini .mgtap i{width:26px;height:26px;font-size:.7rem;animation:none}.mg.mini .mgtap span:where(:not(.kx):not(.katex):not(.katex *)){display:none}
 .mgdead .mgtap,.mgdead .herotag{display:none!important}
 .motion-off .mg .mgtap,.motion-off .stage .mgtap{display:flex;background:rgba(40,20,90,.18)}
-.motion-off .mg .mgtap span,.motion-off .stage .mgtap span{display:none}
+.motion-off .mg .mgtap span:where(:not(.kx):not(.katex):not(.katex *)),.motion-off .stage .mgtap span:where(:not(.kx):not(.katex):not(.katex *)){display:none}
 .motion-off .mg .mgtap i,.motion-off .stage .mgtap i{width:44px;height:44px;font-size:1rem;opacity:.85;animation:none}
 .motion-off .mg.mini .mgtap i{width:24px;height:24px;font-size:.65rem}
 .motion-off .mg video.ready{opacity:1}
@@ -824,8 +824,8 @@ table.mini th{background:var(--lav-s)}
 .tclsnote{font-size:.78rem;color:#6b6290;margin:2px 4px 10px;line-height:1.5}
 .chip.cls{background:#2bbf9e!important;color:#fff!important}
 .tabsent{margin-top:10px;padding:10px 12px;border:2px dashed var(--line);border-radius:14px;font-size:.84rem;line-height:1.7}
-.tabsent span{display:inline-block;background:#f4f0ff;border-radius:999px;padding:0 9px;margin:2px 3px;font-size:.78rem}
-.tabsent .odd span{background:#fff0e6}
+.tabsent span:where(:not(.kx):not(.katex):not(.katex *)){display:inline-block;background:#f4f0ff;border-radius:999px;padding:0 9px;margin:2px 3px;font-size:.78rem}
+.tabsent .odd span:where(:not(.kx):not(.katex):not(.katex *)){background:#fff0e6}
 .clsbar{align-items:center}
 .clsbar .clslab{font-weight:900;font-size:.82rem;margin-right:4px;color:#5a3fc0}
 .tcgrid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:16px;align-items:start}
@@ -838,7 +838,7 @@ table.mini th{background:var(--lav-s)}
 .tnet{border:2px solid var(--line);border-radius:18px;background:radial-gradient(circle at 50% 40%,#fff,#f8f5ff);min-height:120px}
 .tnet .state{padding:30px;text-align:center;color:#8a82ad}
 .tpairs{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
-.tpairs span{background:#fff;border:2px solid var(--line);border-radius:999px;padding:2px 10px;font-size:.78rem;font-weight:800}
+.tpairs span:where(:not(.kx):not(.katex):not(.katex *)){background:#fff;border:2px solid var(--line);border-radius:999px;padding:2px 10px;font-size:.78rem;font-weight:800}
 .tpairs b{color:#e8558c;margin-left:4px}
 .tcmp{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
 .tcmp > div{border:2px solid var(--line);border-radius:16px;padding:6px 8px;background:#fff}
@@ -849,7 +849,7 @@ table.mini th{background:var(--lav-s)}
 .tsrc:hover{transform:translateY(-2px)}
 .tsrc.on{border-color:#9b7cf6;box-shadow:0 6px 16px rgba(125,95,224,.18)}
 .tsrc small{color:#8a82ad;font-size:.72rem;font-weight:800}
-.tsrc span{display:flex;flex-wrap:wrap;gap:4px}
+.tsrc span:where(:not(.kx):not(.katex):not(.katex *)){display:flex;flex-wrap:wrap;gap:4px}
 .tsrc em{font-style:normal;background:#f4f0ff;border-radius:8px;padding:1px 7px;font-size:.74rem;font-weight:800}
 .tsrc em.none{background:none;color:#aaa}
 .tmhow{margin-top:14px;border:2px solid var(--line);border-radius:16px;padding:10px 14px;background:#fffdf5;font-size:.84rem;line-height:1.65}
@@ -870,7 +870,7 @@ table.mini th{background:var(--lav-s)}
 .gpcard.mine{border-color:#9b7cf6;background:linear-gradient(160deg,#f6f2ff,#fff4f9)}
 .gph{display:flex;align-items:center;gap:8px}.gph b{font-size:1.05rem}
 .gpme{background:#7d5fe0;color:#fff;border-radius:999px;padding:1px 9px;font-size:.7rem;font-weight:900}
-.gpm{display:flex;flex-wrap:wrap;gap:4px;min-height:24px}.gpm span{background:#f1edff;border-radius:999px;padding:1px 8px;font-size:.76rem;font-weight:800}.gpm i{color:#aaa;font-size:.8rem}
+.gpm{display:flex;flex-wrap:wrap;gap:4px;min-height:24px}.gpm span:where(:not(.kx):not(.katex):not(.katex *)){background:#f1edff;border-radius:999px;padding:1px 8px;font-size:.76rem;font-weight:800}.gpm i{color:#aaa;font-size:.8rem}
 .gpn{display:flex;flex-wrap:wrap;gap:6px;font-size:.78rem;font-weight:800;color:#5a4f80}
 .gpb{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto}.gpb .btn{padding:6px 10px;font-size:.8rem}
 .gproom{border:3px solid #c9b8ff}
@@ -886,7 +886,7 @@ table.mini th{background:var(--lav-s)}
 .gpchat{max-height:380px;overflow:auto;display:flex;flex-direction:column;gap:8px;padding:10px;background:#f8f6ff;border-radius:16px;border:2px solid var(--line)}
 .gpmsg{max-width:80%;background:#fff;border-radius:14px 14px 14px 4px;padding:7px 11px;box-shadow:0 2px 6px rgba(0,0,0,.06);align-self:flex-start}
 .gpmsg.me{align-self:flex-end;background:#efe8ff;border-radius:14px 14px 4px 14px}
-.gpmsg b{display:block;font-size:.74rem;color:#7d5fe0}.gpmsg span{white-space:pre-wrap;line-height:1.55}.gpmsg small{display:block;text-align:right;font-size:.66rem;color:#aaa}
+.gpmsg b{display:block;font-size:.74rem;color:#7d5fe0}.gpmsg span:where(:not(.kx):not(.katex):not(.katex *)){white-space:pre-wrap;line-height:1.55}.gpmsg small{display:block;text-align:right;font-size:.66rem;color:#aaa}
 .gpstarts{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
 .chipb{border:2px dashed #c9b8ff;background:#fff;border-radius:999px;padding:3px 10px;font:inherit;font-size:.76rem;font-weight:800;cursor:pointer;color:#5a3fc0}
 .gpform .ff,#gpMine .ff{margin:8px 0}.gpform label,#gpMine label{display:block;font-weight:900;font-size:.86rem;margin-bottom:4px}
@@ -896,7 +896,7 @@ table.mini th{background:var(--lav-s)}
 .gprh{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.gprh small{color:#888}
 .gplike{margin-left:auto;border:2px solid #ffc2d8;background:#fff;border-radius:999px;padding:2px 10px;font:inherit;font-weight:900;color:#e8558c;cursor:pointer}.gplike.on{background:#ffe3ee}
 .gprq{font-weight:900;margin:8px 0 4px}.gprb{font-size:.88rem;line-height:1.6;margin:3px 0;white-space:pre-wrap}
-.gpstat{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 4px}.gpstat span{background:#f4f0ff;border-radius:12px;padding:5px 10px;font-size:.8rem;font-weight:800}
+.gpstat{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 4px}.gpstat span:where(:not(.kx):not(.katex):not(.katex *)){background:#f4f0ff;border-radius:12px;padding:5px 10px;font-size:.8rem;font-weight:800}
 /* 선생님 : 소그룹 · 세특 */
 .tgcls{margin:16px 0 8px}
 .tggrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px}
@@ -943,7 +943,7 @@ table.mini th{background:var(--lav-s)}
 .pb-big{position:absolute;inset:0;border:0;background:radial-gradient(circle,rgba(255,255,255,.2),rgba(30,20,70,.45));color:#fff;font-family:inherit;cursor:pointer;display:none;flex-direction:column;align-items:center;justify-content:center;gap:10px}
 .pb-stage.need .pb-big{display:flex}
 .pb-big i{font-style:normal;width:84px;height:84px;border-radius:50%;background:var(--grad,linear-gradient(135deg,#ff7ba9,#9b7bff));display:flex;align-items:center;justify-content:center;font-size:2rem;padding-left:6px;box-shadow:0 12px 30px rgba(0,0,0,.35);animation:ytpulse 1.6s ease-in-out infinite}
-.pb-big span{font-weight:900;font-size:1.1rem;text-shadow:0 2px 6px rgba(0,0,0,.5)}
+.pb-big span:where(:not(.kx):not(.katex):not(.katex *)){font-weight:900;font-size:1.1rem;text-shadow:0 2px 6px rgba(0,0,0,.5)}
 .pb-ai{position:absolute;right:12px;top:10px;background:rgba(20,16,60,.55);color:#fff;font-size:.68rem;font-weight:900;border-radius:999px;padding:3px 10px}
 .pb-step{position:absolute;left:12px;top:10px;background:rgba(255,255,255,.92);color:#5a3fc0;font-size:.74rem;font-weight:900;border-radius:999px;padding:4px 12px;box-shadow:0 2px 8px rgba(0,0,0,.12)}
 .pb-sheet{padding:12px 18px 14px}
@@ -974,7 +974,7 @@ table.mini th{background:var(--lav-s)}
 #tmToast{position:fixed;right:18px;top:84px;z-index:960;max-width:340px;display:flex;flex-direction:column;align-items:flex-start;gap:3px;text-align:left;padding:12px 16px;border:0;border-radius:18px;cursor:pointer;font-family:inherit;
   background:linear-gradient(135deg,#7d5fe0,#ff6b9d);color:#fff;box-shadow:0 14px 34px rgba(90,60,190,.4);transform:translateX(130%);transition:transform .45s cubic-bezier(.2,.9,.25,1.2)}
 #tmToast.on{transform:none}
-#tmToast b{font-size:1.02rem}#tmToast span{font-size:.8rem;font-weight:800;opacity:.95}
+#tmToast b{font-size:1.02rem}#tmToast span:where(:not(.kx):not(.katex):not(.katex *)){font-size:.8rem;font-weight:800;opacity:.95}
 #tmToast em{font-style:normal;font-size:.8rem;background:rgba(255,255,255,.18);border-radius:10px;padding:5px 9px;margin-top:3px;max-height:3.2em;overflow:hidden}
 #tBellPanel{position:fixed;right:14px;top:74px;z-index:955;width:min(380px,calc(100vw - 28px));max-height:min(70vh,560px);display:flex;flex-direction:column;background:#fff;border-radius:20px;box-shadow:0 20px 50px rgba(60,40,140,.3);border:2px solid #efe9ff;overflow:hidden;animation:pop .25s ease}
 #tBellPanel[hidden]{display:none}
@@ -1018,7 +1018,7 @@ table.mini th{background:var(--lav-s)}
 .gtrows{display:grid;gap:8px}
 .gtrow{display:grid;grid-template-columns:14px auto 1fr auto;gap:6px;align-items:center}
 .gtrow i{width:14px;height:14px;border-radius:50%}
-.gtrow span{font-family:'Times New Roman',serif;font-style:italic;font-weight:700}
+.gtrow span:where(:not(.kx):not(.katex):not(.katex *)){font-family:'Times New Roman',serif;font-style:italic;font-weight:700}
 .gtrow input{width:100%;min-width:0;border:2px solid var(--line2);border-radius:10px;padding:7px 10px;font:inherit;font-size:.95rem;font-family:'Consolas','Courier New',monospace}
 .gtrow input:focus{outline:none;border-color:var(--lav)}
 .gtdel{border:0;background:#fff0f3;color:#d0344f;border-radius:8px;width:28px;height:28px;cursor:pointer;font-weight:900}
@@ -1047,7 +1047,7 @@ table.mini th{background:var(--lav-s)}
 .twbar select{max-width:420px}
 .twlive{font-size:.8rem;font-weight:700;color:var(--ink2);display:flex;gap:4px;align-items:center}
 .twsum{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0 10px}
-.twsum span{background:#f4f0ff;color:#5a3fc0;font-size:.78rem;font-weight:800;border-radius:999px;padding:3px 11px}
+.twsum span:where(:not(.kx):not(.katex):not(.katex *)){background:#f4f0ff;color:#5a3fc0;font-size:.78rem;font-weight:800;border-radius:999px;padding:3px 11px}
 .twgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px}
 .twtile{display:flex;flex-direction:column;gap:6px;text-align:left;border:2px solid var(--line2);background:#fff;border-radius:16px;padding:10px;cursor:pointer;font-family:inherit;color:var(--ink);transition:.15s}
 .twtile:hover{border-color:var(--lav);transform:translateY(-2px);box-shadow:0 10px 22px rgba(125,95,224,.15)}
@@ -1055,7 +1055,7 @@ table.mini th{background:var(--lav-s)}
 .twh{display:flex;align-items:center;gap:6px;font-weight:900;font-size:.88rem}.twh small{margin-left:auto;font-size:.7rem;color:var(--ink3);font-weight:700}
 .twans{display:flex;flex-wrap:wrap;gap:4px;align-items:center;font-size:.8rem;font-weight:800;border-radius:10px;padding:5px 8px}
 .twans.ok{background:#e9f8f1;color:#13805c}.twans.no{background:#fff0f3;color:#c0304a}
-.twans span{background:#fff;border-radius:7px;padding:0 6px;border:1px solid currentColor}.twans span.ok{color:#13805c}.twans span.no{color:#c0304a}
+.twans span:where(:not(.kx):not(.katex):not(.katex *)){background:#fff;border-radius:7px;padding:0 6px;border:1px solid currentColor}.twans span.ok{color:#13805c}.twans span.no{color:#c0304a}
 .twans small{margin-left:auto;font-weight:700;opacity:.8}
 .twnote{font-size:.78rem;line-height:1.5;color:var(--ink2);background:#fbf9ff;border-radius:10px;padding:6px 8px;max-height:9em;overflow:hidden;white-space:pre-wrap}
 .twink,.twgr{width:100%;height:auto;border:1px solid var(--line);border-radius:10px;background:#fff}
@@ -1118,7 +1118,7 @@ html.fslock,html.fslock body{overflow:hidden}
 .lvscr{display:flex;flex-direction:column;gap:5px;border-radius:12px;background:#fbfaff;border:1px dashed #d9d0f5;padding:6px;min-height:60px}
 .lvempty{font-size:.76rem;color:var(--ink3);padding:6px 4px}
 .lvtyping{display:flex;flex-wrap:wrap;gap:4px;font-size:.78rem;color:#7a4a00;background:#fff7e3;border-radius:10px;padding:5px 7px}
-.lvtyping span{background:#fff;border-radius:7px;padding:0 6px;border:1px solid #f0d28a}
+.lvtyping span:where(:not(.kx):not(.katex):not(.katex *)){background:#fff;border-radius:7px;padding:0 6px;border:1px solid #f0d28a}
 .lvnow{border-color:#7fd9b3 !important;background:#f7fffb !important}
 .lvnowh{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:8px;font-size:.9rem}
 .lvbig{display:flex;flex-direction:column;gap:8px}
@@ -1131,7 +1131,7 @@ html.fslock,html.fslock body{overflow:hidden}
 
 /* ---------- ⚔️ 팀별 대결 : 줄다리기 ---------- */
 .btrules{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 12px}
-.btrules span{font-size:.78rem;font-weight:700;background:#f4f0ff;color:#4a3a8a;border-radius:999px;padding:4px 11px}
+.btrules span:where(:not(.kx):not(.katex):not(.katex *)){font-size:.78rem;font-weight:700;background:#f4f0ff;color:#4a3a8a;border-radius:999px;padding:4px 11px}
 .btset{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:14px;align-items:start}
 .btteams{display:grid;gap:6px}
 .btteam{display:grid;grid-template-columns:28px minmax(0,.8fr) minmax(0,1.4fr);gap:6px;align-items:center}
@@ -1199,7 +1199,7 @@ html.fslock,html.fslock body{overflow:hidden}
 .btside.shake{animation:btshake .45s}
 @keyframes btshake{20%{transform:translateX(-8px)}40%{transform:translateX(8px)}60%{transform:translateX(-5px)}80%{transform:translateX(5px)}}
 .btmid{display:flex;flex-direction:column;align-items:center;gap:6px;justify-content:flex-start}
-.btscore{display:flex;align-items:center;gap:10px;font-size:2.4rem;font-weight:900}.btscore .s0{color:#2f6fdf}.btscore .s1{color:#e2465b}.btscore span{color:#7a86b8}
+.btscore{display:flex;align-items:center;gap:10px;font-size:2.4rem;font-weight:900}.btscore .s0{color:#2f6fdf}.btscore .s1{color:#e2465b}.btscore span:where(:not(.kx):not(.katex):not(.katex *)){color:#7a86b8}
 .btlvl{display:flex;flex-direction:column;align-items:center;gap:2px}.btlvl .btlv{font-size:.95rem;padding:3px 14px}.btlvl small{font-size:.75rem;color:#5a6390;font-weight:800}
 .btrope{width:100%;max-width:560px;height:auto;overflow:visible}
 .btmidline{stroke:#33407a;stroke-width:2;stroke-dasharray:6 6}.btwinline{stroke-width:3;stroke-dasharray:3 5;opacity:.5}.btwinline.s0{stroke:#2f6fdf}.btwinline.s1{stroke:#e2465b}
@@ -1248,7 +1248,7 @@ html.fslock,html.fslock body{overflow:hidden}
 .djpad.on .djhit{background:var(--pc);color:#fff}.djpad.on .djhit small{color:rgba(255,255,255,.85)}
 .djhit.press{transform:scale(.94)}
 .djmini{width:100%;height:auto;aspect-ratio:2/1;border-radius:10px;border:1px solid var(--line);cursor:pointer}
-.djfrow{display:flex;align-items:center;gap:4px}.djfrow span{font-family:'Times New Roman',serif;font-style:italic;font-weight:700;font-size:.85rem}
+.djfrow{display:flex;align-items:center;gap:4px}.djfrow span:where(:not(.kx):not(.katex):not(.katex *)){font-family:'Times New Roman',serif;font-style:italic;font-weight:700;font-size:.85rem}
 .djf{flex:1;min-width:0;border:2px solid var(--line2);border-radius:9px;padding:5px 7px;font-family:'Consolas',monospace;font-size:.82rem}
 .djf:focus{outline:none;border-color:var(--pc)}
 .djdice{border:0;background:#f4f0ff;border-radius:8px;width:30px;height:30px;cursor:pointer;flex:none}
@@ -1339,7 +1339,7 @@ html.fslock,html.fslock body{overflow:hidden}
 .dkjog.touch{cursor:grabbing}.dkjog.touch .dkplat{filter:brightness(1.25)}
 .dkplat{position:relative;width:100%;height:100%;border-radius:50%;background:repeating-radial-gradient(circle,#1a1c24 0 2px,#22252f 2px 4px);box-shadow:inset 0 0 18px rgba(0,0,0,.8)}
 .dkplat i{position:absolute;left:50%;top:5%;width:5px;height:20%;margin-left:-2.5px;border-radius:3px;background:#ff8a00;box-shadow:0 0 8px #ff8a00}
-.dkplat span{position:absolute;inset:0;border-radius:50%;background:conic-gradient(from 0deg,transparent 0 80deg,rgba(255,255,255,.06) 90deg,transparent 100deg 260deg,rgba(255,255,255,.05) 270deg,transparent 280deg)}
+.dkplat span:where(:not(.kx):not(.katex):not(.katex *)){position:absolute;inset:0;border-radius:50%;background:conic-gradient(from 0deg,transparent 0 80deg,rgba(255,255,255,.06) 90deg,transparent 100deg 260deg,rgba(255,255,255,.05) 270deg,transparent 280deg)}
 .dkjc{position:absolute;left:50%;top:50%;width:38%;aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle at 40% 35%,#20283f,#090b12);border:2px solid #3a4466;display:flex;flex-direction:column;align-items:center;justify-content:center;pointer-events:none}
 .dkjc b{font-family:Consolas,monospace;font-size:1.15rem;color:#9fc4ff}.dkjc small{font-size:.5rem;color:#6d7396;font-weight:800;letter-spacing:.06em}
 .dktempo{display:flex;flex-direction:column;align-items:center;gap:4px;margin-top:2px}
@@ -1364,7 +1364,7 @@ html.fslock,html.fslock body{overflow:hidden}
 .dkfx button.on{background:#c38bff;color:#120d1f;border-color:#c38bff;box-shadow:0 0 12px #c38bff}
 .dkrec{font-size:.76rem;padding:6px 10px}.dkrec.on{background:#e2465b;color:#fff;border-color:#e2465b;animation:djblink 1s infinite}
 .dkxf{display:flex;align-items:center;gap:8px;background:#11131d;border-radius:12px;padding:8px 12px;border:1px solid #2c3046}
-.dkxf span{font-family:Consolas,monospace;font-weight:900;color:#9fb6ff}
+.dkxf span:where(:not(.kx):not(.katex):not(.katex *)){font-family:Consolas,monospace;font-weight:900;color:#9fb6ff}
 #dkXf{flex:1;accent-color:#e9eaf5;height:26px;cursor:ew-resize}
 .dkxfl{font-size:.66rem;color:#8b90b8;text-align:center}.dkxfl kbd{position:static;margin:0 2px}
 .dkmath{margin-top:12px;background:#fff;border:2px solid #ece6fb;border-radius:16px;padding:10px 14px}
@@ -1418,7 +1418,7 @@ nav.tabs{top:38px}
   font-size:2.3rem;font-weight:900;color:var(--tb-navy2);font-family:'Pretendard',sans-serif;letter-spacing:-.04em}
 .secno::before{content:'';position:absolute;inset:6px;border-radius:50%;border:8px solid var(--tb-yellow);
   box-shadow:0 6px 14px rgba(255,190,0,.35), inset 0 2px 4px rgba(0,0,0,.08)}
-.secno span{position:relative;transform:translateX(12px)}
+.secno span:where(:not(.kx):not(.katex):not(.katex *)){position:relative;transform:translateX(12px)}
 
 /* ---------- 탭 : 눌리는 입체 버튼 ---------- */
 .tab{font-size:.95rem;padding:10px 17px;border-bottom-width:4px;border-color:#e2dbee}
@@ -1459,7 +1459,7 @@ nav.tabs{top:38px}
 .scene .cap .tt{background:rgba(255,255,255,.88);backdrop-filter:blur(6px);border-radius:20px;padding:12px 20px;
   box-shadow:0 12px 30px rgba(47,58,140,.3);max-width:640px}
 .scene .cap .tt b{display:block;font-size:1.45rem;color:var(--tb-navy2);line-height:1.3}
-.scene .cap .tt span{font-size:.9rem;color:var(--ink2);font-weight:700}
+.scene .cap .tt span:where(:not(.kx):not(.katex):not(.katex *)){font-size:.9rem;color:var(--ink2);font-weight:700}
 .scene .badge3d{transform:translateZ(90px);background:var(--tb-yellow);color:var(--tb-navy2);font-weight:900;border-radius:18px;
   padding:8px 16px;box-shadow:0 10px 0 #e0b400, 0 18px 26px rgba(0,0,0,.25);font-size:1.05rem;white-space:nowrap}
 @media (max-width:640px){ .scene .cap .tt b{font-size:1.1rem} .scene .badge3d{display:none} }
@@ -1549,7 +1549,7 @@ nav.tabs{top:38px}
 }
 
 .grphead{display:flex;align-items:center;gap:12px;margin:26px 0 14px;font-weight:900;font-size:1.12rem}
-.grphead span{background:linear-gradient(90deg,var(--tb-navy2),var(--tb-navy));color:#fff;padding:8px 26px 8px 18px;
+.grphead span:where(:not(.kx):not(.katex):not(.katex *)){background:linear-gradient(90deg,var(--tb-navy2),var(--tb-navy));color:#fff;padding:8px 26px 8px 18px;
   border-radius:12px 30px 30px 12px;box-shadow:0 5px 0 #222b6e,0 12px 20px -8px rgba(47,58,140,.5)}
 .grphead::after{content:'';flex:1;height:3px;border-radius:3px;background:linear-gradient(90deg,var(--tb-navy),transparent)}
 
@@ -1569,7 +1569,7 @@ nav.tabs{position:sticky}
   cursor:pointer;display:flex;align-items:center;font-family:inherit;transition:opacity .2s}
 .tabarr.l{left:0;justify-content:flex-start;padding-left:6px;background:linear-gradient(90deg,rgba(255,250,252,1) 45%,rgba(255,250,252,0))}
 .tabarr.r{right:0;justify-content:flex-end;padding-right:6px;background:linear-gradient(270deg,rgba(255,250,252,1) 45%,rgba(255,250,252,0))}
-.tabarr span{width:30px;height:30px;border-radius:50%;background:#fff;border:2px solid var(--lav-s);display:flex;align-items:center;justify-content:center;box-shadow:0 3px 8px rgba(125,95,224,.18)}
+.tabarr span:where(:not(.kx):not(.katex):not(.katex *)){width:30px;height:30px;border-radius:50%;background:#fff;border:2px solid var(--lav-s);display:flex;align-items:center;justify-content:center;box-shadow:0 3px 8px rgba(125,95,224,.18)}
 .tabarr.hide{opacity:0;pointer-events:none}
 .hscroll-grab{cursor:grab}
 .hscroll-grab.dragging{cursor:grabbing;user-select:none}
@@ -1587,7 +1587,7 @@ nav.tabs{position:sticky}
 @keyframes npulse{0%,100%{box-shadow:0 0 0 0 rgba(255,255,255,.6)}50%{box-shadow:0 0 0 7px rgba(255,255,255,0)}}
 .ninfo{flex:1;min-width:0;display:flex;flex-direction:column;gap:3px}
 .ninfo b{font-size:.9rem;color:var(--ink)}
-.ninfo>span{font-size:.8rem;color:var(--ink2)}
+.ninfo>span:where(:not(.kx):not(.katex):not(.katex *)){font-size:.8rem;color:var(--ink2)}
 .nbar{height:8px;border-radius:99px;background:#fff;border:1px solid #eadcff;overflow:hidden;cursor:pointer;margin-top:4px}
 .nfill{height:100%;width:0;background:var(--grad);border-radius:99px;transition:width .25s linear}
 .nmeta{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
@@ -2545,8 +2545,8 @@ if (typeof MOV !== 'undefined') for (var _k in POP) if (POP[_k].loop) MOV[_k] = 
 
 </script>
 <script>
-var LESSON_META = {"f1": {"probs": 21, "title": "함수의 뜻과 그래프", "unit": "Ⅲ-1 함수", "no": 1, "pages": "교과서 101~105쪽", "focus": "「식」이 없어도 함수일 수 있다.", "core": "함수란 무엇이고, 우리는 왜 세상을 「대응」으로 바라볼까?", "ref": {"c1": "짝 지어 주기 — 대응과 함수", "c2": "정의역 · 공역 · 함숫값 · 치역", "c3": "함수의 그래프 — 세로선 테스트", "c4": "일대일함수와 일대일대응", "c5": "항등함수와 상수함수", "c6": "폴리그래프 — 예/아니요 질문으로 그래프 찾기", "l1": "학생 → 우편번호, 학생 → 출석번호", "l2": "자판기와 「랜덤 뽑기」는 함수일까?", "l3": "수지와 지호가 찾은 함수", "f1-p1": "문제 01 · 101쪽", "f1-p2": "스스로 확인하기 · 101쪽", "f1-p13": "스스로 확인하기 · 102쪽", "f1-p3": "문제 02 · 102쪽", "f1-p4": "문제 04 · 103쪽", "f1-p5": "문제 05 · 103쪽", "f1-p14": "스스로 확인하기 · 104쪽", "f1-p6": "문제 06 · 104쪽", "f1-p7": "문제 07 · 104쪽", "f1-p8": "문제 08 · 105쪽", "f1-p9": "중단원 01 · 113쪽", "f1-p10": "중단원 02 · 113쪽", "f1-p15": "중단원 05 · 114쪽", "f1-p11": "대단원 01 · 130쪽", "f1-p16": "대단원 02 · 130쪽", "f1-p17": "대단원 12 · 131쪽 (서술형)", "f1-p18": "대단원 13 · 131쪽 (서술형)", "f1-p12": "익힘책 01 · 140쪽", "f1-p19": "익힘책 02 · 140쪽", "f1-p20": "익힘책 03 · 140쪽", "f1-p21": "익힘책 04 · 140쪽"}, "book": "함수란 「식」일까, 「대응」일까? — 오일러 vs 디리클레", "cards": 6, "life": 3, "videos": 1}, "f2": {"probs": 12, "title": "합성함수", "unit": "Ⅲ-1 함수", "no": 2, "pages": "교과서 106~108쪽", "focus": "양말을 신고 신발을 신는 것과, 신발을 신고 양말을 신는 것은 다르다.", "core": "두 함수를 이어 붙이면 무엇이 달라지고, 왜 「순서」가 중요할까?", "ref": {"c1": "곡명 → 작곡가 → 국적", "c2": "합성함수 \\(g\\circ f\\)", "c3": "교환법칙은 ✘, 결합법칙은 ○", "l1": "원 → 유로 → 파운드, 환전도 합성함수", "l2": "할인 먼저? 쿠폰 먼저?", "l3": "사진 앱 : 회전하고 뒤집기 vs 뒤집고 회전하기", "f2-e1": "예제 1 · 107쪽", "f2-p1": "스스로 확인하기 · 107쪽", "f2-p2": "문제 01 · 107쪽", "f2-p3": "문제 02 · 107쪽", "f2-p4": "문제 03 · 108쪽", "f2-p5": "중단원 03 · 113쪽", "f2-p6": "중단원 06 · 114쪽", "f2-p7": "대단원 03 · 130쪽", "f2-p8": "익힘책 05 · 140쪽", "f2-p9": "익힘책 06 · 140쪽", "f2-p10": "익힘책 07 · 140쪽", "f2-p11": "수행 평가 · 115쪽 (모둠)"}, "book": "앨리스의 키는 어떻게 변할까? — 「마셔라」와 「먹어라」의 합성", "cards": 3, "life": 3, "videos": 0}, "f3": {"probs": 21, "title": "역함수", "unit": "Ⅲ-1 함수", "no": 3, "pages": "교과서 109~112쪽", "focus": "암호를 만들 수 있다면, 반드시 풀 수도 있다.", "core": "어떤 함수는 되돌릴 수 있고, 어떤 함수는 왜 되돌릴 수 없을까?", "ref": {"c1": "화살표를 거꾸로 하면 여전히 함수일까?", "c2": "역함수 \\(f^{-1}\\)와 존재 조건", "c3": "역함수 구하기 — 풀고, 바꾸고", "c4": "함수와 역함수의 그래프는 \\(y=x\\)에 대칭", "l1": "카이사르 암호 — 일대일대응이라 풀 수 있다", "l2": "되돌릴 수 없어야 안전한 함수 — 비밀번호 저장", "l3": "섭씨 ↔ 화씨, 양말 ↔ 신발", "f3-e1": "예제 1 · 111쪽", "f3-p1": "스스로 확인하기 · 109쪽", "f3-p2": "문제 01 · 110쪽", "f3-p14": "문제 02 · 110쪽", "f3-p3": "문제 03 · 111쪽", "f3-p4": "문제 04 · 111쪽", "f3-p5": "내 역량 · 111쪽", "f3-p20": "개념 탐구 · 112쪽", "f3-p6": "문제 05 · 112쪽", "f3-p7": "중단원 04 · 113쪽", "f3-p15": "중단원 07 · 114쪽", "f3-p8": "중단원 08 · 114쪽", "f3-p9": "중단원 09 · 114쪽", "f3-p16": "중단원 10 · 114쪽", "f3-p10": "중단원 11 · 114쪽", "f3-p11": "중단원 12 · 114쪽", "f3-p17": "대단원 04 · 130쪽", "f3-p18": "대단원 05 · 130쪽", "f3-p19": "대단원 06 · 130쪽", "f3-p12": "대단원 14 · 131쪽", "f3-p13": "익힘책 08 · 141쪽"}, "book": "카이사르의 비밀 편지 — 2000년 전의 함수와 역함수", "cards": 4, "life": 3, "videos": 3}, "r1": {"probs": 8, "title": "유리식과 유리함수", "unit": "Ⅲ-2 유리함수와 무리함수", "no": 1, "pages": "교과서 117~119쪽", "focus": "가까워지기만 하고 영원히 닿지 않는 선이 있다.", "core": "왜 어떤 양은 한없이 가까워지기만 하고 닿지 않을까? — 반비례와 점근선", "ref": {"c1": "하이브리드 자동차의 연비", "c2": "유리식의 사칙연산", "c3": "유리함수와 정의역", "c4": "\\(y=\\frac{k}{x}\\)의 그래프와 점근선", "c5": "폴리그래프 — 유리함수의 그래프 찾기", "l1": "함께 일하면 얼마나 빨라질까?", "l2": "보일의 법칙 — 공기를 누르면?", "l3": "1인당 비용과 화면 속 크기", "r1-p1": "개념 탐구 · 117쪽", "r1-p2": "스스로 확인하기 · 118쪽", "r1-p3": "문제 01 · 118쪽", "r1-p4": "문제 02 · 118쪽", "r1-p5": "문제 03 · 119쪽", "r1-p6": "탐구 · 119쪽", "r1-p7": "중단원 01 · 127쪽", "r1-p8": "대단원 07 · 130쪽"}, "book": "아킬레스는 거북이를 따라잡을 수 있을까? — 제논의 역설", "cards": 5, "life": 3, "videos": 4}, "r2": {"probs": 15, "title": "유리함수 그래프의 이동과 활용", "unit": "Ⅲ-2 유리함수와 무리함수", "no": 2, "pages": "교과서 119~121쪽 · 127~131쪽 · 익힘책", "focus": "갈 때는 시속 60km, 올 때는 시속 40km. 왕복 평균은 시속 50km가 아니다.", "core": "유리함수의 그래프는 어떻게 움직이고, 세상의 어떤 변화를 설명할까?", "ref": {"c1": "\\(y=\\frac{k}{x-p}+q\\) — 점근선이 움직인다", "c2": "\\(y=\\frac{ax+b}{cx+d}\\)를 표준형으로", "c3": "그래프를 보고 식 찾기", "l1": "왕복 평균 속력은 왜 산술평균이 아닐까?", "l2": "다가오는 기차의 기적 소리 (도플러 효과)", "l3": "저항을 병렬로 연결하면?", "r2-e1": "예제 1 · 120쪽", "r2-p1": "예제 2 · 121쪽", "r2-p2": "문제 04 · 120쪽", "r2-p3": "문제 05 · 121쪽", "r2-p4": "문제 06 · 121쪽 (도플러)", "r2-p5": "중단원 02 · 127쪽", "r2-p6": "중단원 05 · 128쪽", "r2-p7": "중단원 06 · 128쪽", "r2-p8": "중단원 07 · 128쪽", "r2-p13": "중단원 11 · 128쪽", "r2-p9": "대단원 08 · 131쪽", "r2-p10": "대단원 15 · 132쪽", "r2-p11": "익힘책 09 · 141쪽", "r2-p14": "익힘책 10 · 141쪽", "r2-p12": "익힘책 11 · 141쪽"}, "book": "갈릴레이의 「등속 운동」 — 시간은 속력에 반비례한다", "cards": 3, "life": 3, "videos": 2}, "r3": {"probs": 26, "title": "무리식과 무리함수", "unit": "Ⅲ-2 유리함수와 무리함수", "no": 3, "pages": "교과서 122~126쪽", "focus": "실의 길이를 4배로 늘려도, 진자는 겨우 2배 느리게 흔들린다.", "core": "왜 어떤 변화는 「제곱근」의 모양으로 나타날까?", "ref": {"c1": "지진 해일은 얼마나 빠를까?", "c2": "무리식 — 근호 안이 0 이상, 분모는 0이 아니게", "c3": "\\(y=\\sqrt{ax}\\)는 \\(y=\\frac{1}{a}x^2\\ (x\\ge0)\\)의 역함수", "c4": "\\(y=\\sqrt{a(x-p)}+q\\) — 시작점이 움직인다", "c5": "폴리그래프 — 무리함수 그래프 찾기", "l1": "진자의 주기 — 갈릴레이가 발견한 제곱근", "l2": "스키드 마크로 사고 차량의 속력 추정", "l3": "크레인 쇠밧줄의 지름", "r3-e1": "예제 1 · 126쪽", "r3-p1": "스스로 확인하기 · 122쪽", "r3-p2": "문제 01 · 122쪽", "r3-p13": "스스로 확인하기 · 123쪽", "r3-p3": "문제 02 · 123쪽", "r3-p14": "스스로 확인하기 · 123쪽", "r3-p4": "문제 03 · 123쪽", "r3-p15": "문제 04 · 124쪽", "r3-p5": "문제 05 · 125쪽", "r3-p16": "스스로 확인하기 · 125쪽", "r3-p6": "문제 06 · 126쪽", "r3-p7": "문제 07 · 126쪽", "r3-p8": "중단원 03 · 127쪽", "r3-p17": "중단원 04 · 127쪽", "r3-p9": "중단원 08 · 128쪽", "r3-p10": "중단원 09 · 128쪽", "r3-p11": "중단원 10 · 128쪽", "r3-p18": "중단원 12 · 128쪽", "r3-p19": "대단원 09 · 131쪽", "r3-p20": "대단원 10 · 131쪽", "r3-p12": "대단원 11 · 131쪽", "r3-p21": "대단원 16 · 132쪽 (서술형)", "r3-p22": "대단원 17 · 132쪽 (서술형)", "r3-p23": "익힘책 12 · 141쪽", "r3-p24": "익힘책 13 · 141쪽", "r3-p25": "수행 평가 · 129쪽 (공학 도구)"}, "book": "갈릴레이의 진자 — 길이와 시간 사이의 제곱근", "cards": 5, "life": 3, "videos": 4}};
-var LESSON_SOL = {"f1-p1": "\\(2\\)의 약수 : \\(1, 2\\) → \\(2\\)개 &nbsp;·&nbsp; \\(3\\)의 약수 : \\(1, 3\\) → \\(2\\)개 &nbsp;·&nbsp; \\(4\\)의 약수 : \\(1, 2, 4\\) → \\(3\\)개 &nbsp;·&nbsp; \\(6\\)의 약수 : \\(1, 2, 3, 6\\) → \\(4\\)개<br>\n따라서 \\(2\\to2,\\ 3\\to2,\\ 4\\to3,\\ 6\\to4\\). \\(X\\)의 각 원소에 \\(Y\\)의 원소가 오직 하나씩 대응하므로 함수이다.<br>\n<b>정답</b> \\(2\\to2,\\ 3\\to2,\\ 4\\to3,\\ 6\\to4\\)", "f1-p2": "(1) \\(x=2\\) : \\(y=|2|-2=0\\) → \\(2\\to0\\)<br>\n(2) \\(x=-1\\) : \\(y=|-1|-(-1)=1+1=2\\) → \\(-1\\to2\\) &nbsp; (\\(x=1\\) : \\(|1|-1=0\\))<br>\n따라서 \\(Y\\)의 원소 \\(2\\)에 대응되는 \\(X\\)의 원소는 \\(-1\\)이다.<br>\n<b>정답</b> (1) \\(0\\) &nbsp; (2) \\(-1\\)", "f1-p3": "(1) \\(X\\)의 원소 \\(4\\)에 대응하는 \\(Y\\)의 원소가 없다 → 「각」이 깨짐 → 함수 ✘<br>\n(2) \\(X\\)의 각 원소에 \\(Y\\)의 원소가 하나씩 대응 → 함수 ○. 화살표를 받은 원소는 \\(a, c, d\\)<br>\n(3) \\(X\\)의 원소 \\(2\\)가 \\(b\\)와 \\(d\\) 두 개에 대응 → 「오직 하나씩」이 깨짐 → 함수 ✘<br>\n<b>정답</b> 함수는 (2), 치역 \\(\\{a, c, d\\}\\) (정의역 \\(\\{1,2,3,4\\}\\), 공역 \\(\\{a,b,c,d\\}\\))", "f1-p4": "\\(f(0)=|0|=0,\\ g(0)=0^2=0\\) &nbsp;·&nbsp; \\(f(1)=|1|=1,\\ g(1)=1^2=1\\)<br>\n두 함수의 정의역이 \\(\\{0,1\\}\\)로 같고, 정의역의 모든 원소에서 함숫값이 같으므로 \\(f=g\\).<br>\n<b>정답</b> \\(f(0)=g(0)=0,\\ f(1)=g(1)=1\\), 서로 같은 함수", "f1-p5": "각 그래프에 세로선(직선 \\(x=a\\))을 그어 본다.<br>\n(1) 어느 세로선과도 한 점에서만 만난다 → 함수의 그래프 ○<br>\n(2) 원 : 세로선과 두 점에서 만나는 곳이 있다 → ✘<br>\n(3) \\(x=1\\) 위에 점이 두 개 있다 → 하나의 \\(x\\)에 \\(y\\)가 두 개 → ✘<br>\n<b>정답</b> (2), (3)", "f1-p6": "(1) \\(y=|x|\\) : \\(1\\ne-1\\)인데 함숫값이 모두 \\(1\\) → 일대일함수 ✘<br>\n(2) \\(y=x^2-1\\) : \\(1\\)과 \\(-1\\)의 함숫값이 모두 \\(0\\) → ✘ (치역도 \\(y\\ge-1\\)이라 공역과 다름)<br>\n(3) \\(y=-x+1\\) : 기울기가 \\(0\\)이 아닌 일차함수 → 서로 다른 \\(x\\)에 서로 다른 \\(y\\), 치역 = 공역 = 실수 전체 → 일대일대응 ○<br>\n<b>정답</b> (3)", "f1-p7": "ㄱ. 거짓. 반례 : \\(f:\\{1\\}\\to\\{1,2\\},\\ f(1)=1\\) 은 일대일함수이지만 치역 \\(\\{1\\}\\ne\\) 공역 \\(\\{1,2\\}\\) → 일대일대응이 아니다.<br>\nㄴ. 참. 일대일함수의 정의 그 자체이다.<br>\nㄷ. 거짓. 반례 : \\(f:\\{1,2\\}\\to\\{1\\},\\ f(x)=1\\) (상수함수) 는 치역 = 공역이지만 \\(1\\ne2\\) 인데 \\(f(1)=f(2)\\) 이므로 일대일함수가 아니다.<br>\n<b>정답</b> ㄱ, ㄷ", "f1-p8": "(1) 원점을 지나고 기울기 \\(1\\)인 직선 \\(y=x\\) → 항등함수<br>\n(2) \\(y=-x\\) : \\(f(x)=x\\)가 아니므로 항등함수 ✘, 값이 변하므로 상수함수 ✘<br>\n(3) \\(x\\)축에 평행한 직선 \\(y=1\\) → 상수함수<br>\n<b>정답</b> 항등함수 (1), 상수함수 (3)", "f1-p9": "그림에서 정의역은 \\(\\{-1,0,1,2\\}\\), 공역은 \\(\\{0,1,2,3\\}\\)이다. 화살표를 실제로 받은 \\(Y\\)의 원소만 모으면 \\(0, 1, 3\\) (\\(2\\)는 화살표를 받지 못함).<br>\n<b>정답</b> 치역 \\(\\{0,1,3\\}\\)", "f1-p10": "ㄱ. \\(y=-4\\) : 상수함수 (모든 \\(x\\)가 \\(-4\\)로)<br>\nㄴ. \\(y=x\\) : 항등함수이며 일대일함수<br>\nㄷ. \\(y=5x+7\\) : 기울기 \\(5\\ne0\\) → 일대일함수<br>\nㄹ. \\(y=x^2\\) : \\(f(1)=f(-1)=1\\) → 일대일함수 ✘<br>\n<b>정답</b> 일대일함수 ㄴ, ㄷ · 항등함수 ㄴ · 상수함수 ㄱ", "f1-p11": "\\(f(1)=1-2=-1,\\ f(2)=4-4=0\\)<br>\n\\(f=g\\) 이려면 정의역의 모든 원소에서 함숫값이 같아야 하므로<br>\n\\(g(1)=a+b=-1,\\ g(2)=2a+b=0\\) → 두 식을 빼면 \\(a=1\\), \\(b=-2\\)<br>\n<b>정답</b> \\(a=1,\\ b=-2\\)", "f1-p12": "\\(x=-1,0,1\\) 에서 함숫값을 표로 만든다.<br>\n\\(f(x)=-x+1\\) : \\(2,\\ 1,\\ 0\\)<br>\n\\(g(x)=x^2-1\\) : \\(0,\\ -1,\\ 0\\)<br>\n\\(h(x)=|x-1|\\) : \\(2,\\ 1,\\ 0\\)<br>\n\\(f\\)와 \\(h\\)는 정의역의 모든 원소에서 함숫값이 같다.<br>\n<b>정답</b> \\(f\\)와 \\(h\\)", "f1-p13": "그림에서 \\(1\\to d,\\ 2\\to a,\\ 3\\to b\\) 이므로 \\(f(3)=b\\)<br>\n치역은 함숫값 전체의 집합 \\(\\{f(1), f(2), f(3)\\}=\\{d, a, b\\}\\)<br>\n<b>정답</b> \\(f(3)=b\\), 치역 \\(\\{a,b,d\\}\\)", "f1-p14": "(1) \\(x_1\\ne x_2\\)이면 \\(2x_1\\ne2x_2\\) → 일대일함수. 또 치역과 공역이 모두 실수 전체로 같다 → 일대일대응<br>\n(2) \\(1\\ne-1\\)이지만 \\(g(1)=g(-1)=1\\) → 일대일함수가 아니다 → 일대일대응도 아니다<br>\n<b>정답</b> (1) 일대일함수이다, 일대일대응이다 (2) 일대일함수가 아니다, 일대일대응이 아니다", "f1-p15": "\\(x\\ge0\\)에서 \\(f(x)=3x-1\\)은 기울기 \\(3>0\\)인 직선이고, \\(x\\lt 0\\)에서 \\(f(x)=(a+2)x-1\\)이다.<br>\n두 식은 \\(x=0\\)에서 모두 \\(-1\\)이므로 그래프가 이어져 있다. 일대일대응이 되려면 \\(x\\lt 0\\)인 부분도 증가해야 하므로 \\(a+2>0\\)<br>\n(\\(a+2=0\\)이면 \\(x\\lt 0\\)에서 상수 \\(-1\\) → 일대일함수 ✘, \\(a+2\\lt 0\\)이면 감소 → 가로선과 두 점에서 만남)<br>\n<b>정답</b> \\(a>-2\\)", "f1-p16": "① 이차함수 : 가로선과 두 점에서 만남 → ✘ &nbsp;② \\(y=|x|\\) 꼴 : ✘ &nbsp;③ 두 점의 \\(y\\)좌표가 \\(2\\)로 같음 → ✘<br>\n④ 상수함수 → ✘ &nbsp;⑤ 기울기가 양수인 두 직선이 이어져 계속 증가하고 치역이 실수 전체 → 일대일대응<br>\n<b>정답</b> ⑤", "f1-p17": "\\(1\\to1\\) / \\(2,3,5,7\\to2\\) (소수) / \\(4\\to3\\ (1,2,4)\\) / \\(6\\to4\\ (1,2,3,6)\\) / \\(8\\to4\\ (1,2,4,8)\\) / \\(9\\to3\\ (1,3,9)\\)<br>\n(1) \\(f(4)=3,\\ f(6)=4,\\ f(8)=4,\\ f(9)=3\\)<br>\n(2) 함숫값 전체의 집합은 \\(\\{1,2,3,4\\}\\)<br>\n<b>정답</b> (1) \\(3, 4, 4, 3\\) (2) \\(\\{1,2,3,4\\}\\)", "f1-p18": "(i) \\(x\\ge-1\\)일 때 \\(f(x)=(x+1)+ax-2=(a+1)x-1\\)<br>\n(ii) \\(x\\lt -1\\)일 때 \\(f(x)=-(x+1)+ax-2=(a-1)x-3\\)<br>\n두 직선은 \\(x=-1\\)에서 \\(f(-1)=-a-2\\)로 이어진다. 일대일대응이려면 두 직선이 모두 증가하거나 모두 감소해야 하므로<br>\n\\((a+1)(a-1)>0\\) → \\(a\\lt -1\\) 또는 \\(a>1\\)<br>\n<b>정답</b> \\(a\\lt -1\\) 또는 \\(a>1\\)", "f1-p19": "세로선(직선 \\(x=k\\))을 그어 본다.<br>\nㄱ. 상수함수 → 함수 ○ &nbsp;ㄴ. \\(x>0\\)인 세로선과 두 점에서 만남 → ✘<br>\nㄷ. \\(y\\)축에 평행한 직선 → 한 \\(x\\)에 무수히 많은 \\(y\\) → ✘ &nbsp;ㄹ. 각 \\(x\\)에서 ●인 점 하나만 → 함수 ○<br>\n<b>정답</b> ㄱ, ㄹ", "f1-p20": "\\(3\\)은 홀수이므로 \\(f(3)=3^2+a=9+a=12\\) → \\(a=3\\)<br>\n\\(4\\)는 짝수이므로 \\(f(4)=2\\times4+3=11\\)<br>\n<b>정답</b> \\(11\\)", "f1-p21": "\\(f\\)가 항등함수이려면 \\(X\\)의 모든 원소 \\(x\\)에 대하여 \\(f(x)=x\\)<br>\n\\(3x^2-5x-9=x\\) → \\(3x^2-6x-9=0\\) → \\(x^2-2x-3=0\\) → \\(x=-1\\) 또는 \\(x=3\\)<br>\n\\(X\\)는 \\(\\{-1,3\\}\\)의 공집합이 아닌 부분집합 : \\(\\{-1\\},\\ \\{3\\},\\ \\{-1,3\\}\\)<br>\n<b>정답</b> \\(3\\)개"};
+var LESSON_META = {"f1": {"probs": 22, "title": "함수의 뜻과 그래프", "unit": "Ⅲ-1 함수", "no": 1, "pages": "교과서 101~105쪽", "focus": "「식」이 없어도 함수일 수 있다.", "core": "함수란 무엇이고, 우리는 왜 세상을 「대응」으로 바라볼까?", "ref": {"c1": "짝 지어 주기 — 대응과 함수", "c2": "정의역 · 공역 · 함숫값 · 치역", "c3": "함수의 그래프 — 세로선 테스트", "c4": "일대일함수와 일대일대응", "c5": "항등함수와 상수함수", "c6": "폴리그래프 — 예/아니요 질문으로 그래프 찾기", "l1": "학생 → 우편번호, 학생 → 출석번호", "l2": "자판기와 「랜덤 뽑기」는 함수일까?", "l3": "수지와 지호가 찾은 함수", "f1-p1": "문제 01 · 101쪽", "f1-p2": "스스로 확인하기 · 101쪽", "f1-p13": "스스로 확인하기 · 102쪽", "f1-p3": "문제 02 · 102쪽", "f1-p4": "문제 04 · 103쪽", "f1-p5": "문제 05 · 103쪽", "f1-p14": "스스로 확인하기 · 104쪽", "f1-p6": "문제 06 · 104쪽", "f1-p7": "문제 07 · 104쪽", "f1-p8": "문제 08 · 105쪽", "f1-p9": "중단원 01 · 113쪽", "f1-p10": "중단원 02 · 113쪽", "f1-p15": "중단원 05 · 114쪽", "f1-p22": "중단원 11 · 114쪽", "f1-p11": "대단원 01 · 130쪽", "f1-p16": "대단원 02 · 130쪽", "f1-p17": "대단원 12 · 131쪽 (서술형)", "f1-p18": "대단원 13 · 131쪽 (서술형)", "f1-p12": "익힘책 01 · 140쪽", "f1-p19": "익힘책 02 · 140쪽", "f1-p20": "익힘책 03 · 140쪽", "f1-p21": "익힘책 04 · 140쪽"}, "book": "함수란 「식」일까, 「대응」일까? — 오일러 vs 디리클레", "cards": 6, "life": 3, "videos": 1}, "f2": {"probs": 12, "title": "합성함수", "unit": "Ⅲ-1 함수", "no": 2, "pages": "교과서 106~108쪽", "focus": "양말을 신고 신발을 신는 것과, 신발을 신고 양말을 신는 것은 다르다.", "core": "두 함수를 이어 붙이면 무엇이 달라지고, 왜 「순서」가 중요할까?", "ref": {"c1": "곡명 → 작곡가 → 국적", "c2": "합성함수 \\(g\\circ f\\)", "c3": "교환법칙은 ✘, 결합법칙은 ○", "l1": "원 → 유로 → 파운드, 환전도 합성함수", "l2": "할인 먼저? 쿠폰 먼저?", "l3": "사진 앱 : 회전하고 뒤집기 vs 뒤집고 회전하기", "f2-e1": "예제 1 · 107쪽", "f2-p1": "스스로 확인하기 · 107쪽", "f2-p2": "문제 01 · 107쪽", "f2-p3": "문제 02 · 107쪽", "f2-p4": "문제 03 · 108쪽", "f2-p5": "중단원 03 · 113쪽", "f2-p6": "중단원 06 · 114쪽", "f2-p7": "대단원 03 · 130쪽", "f2-p8": "익힘책 05 · 140쪽", "f2-p9": "익힘책 06 · 140쪽", "f2-p10": "익힘책 07 · 140쪽", "f2-p11": "수행 평가 · 115쪽 (모둠)"}, "book": "앨리스의 키는 어떻게 변할까? — 「마셔라」와 「먹어라」의 합성", "cards": 3, "life": 3, "videos": 0}, "f3": {"probs": 20, "title": "역함수", "unit": "Ⅲ-1 함수", "no": 3, "pages": "교과서 109~112쪽", "focus": "암호를 만들 수 있다면, 반드시 풀 수도 있다.", "core": "어떤 함수는 되돌릴 수 있고, 어떤 함수는 왜 되돌릴 수 없을까?", "ref": {"c1": "화살표를 거꾸로 하면 여전히 함수일까?", "c2": "역함수 \\(f^{-1}\\)와 존재 조건", "c3": "역함수 구하기 — 풀고, 바꾸고", "c4": "함수와 역함수의 그래프는 \\(y=x\\)에 대칭", "l1": "카이사르 암호 — 일대일대응이라 풀 수 있다", "l2": "되돌릴 수 없어야 안전한 함수 — 비밀번호 저장", "l3": "섭씨 ↔ 화씨, 양말 ↔ 신발", "f3-e1": "예제 1 · 111쪽", "f3-p1": "스스로 확인하기 · 109쪽", "f3-p2": "문제 01 · 110쪽", "f3-p14": "문제 02 · 110쪽", "f3-p3": "문제 03 · 111쪽", "f3-p4": "문제 04 · 111쪽", "f3-p5": "내 역량 · 111쪽", "f3-p20": "개념 탐구 · 112쪽", "f3-p6": "문제 05 · 112쪽", "f3-p7": "중단원 04 · 113쪽", "f3-p15": "중단원 07 · 114쪽", "f3-p8": "중단원 08 · 114쪽", "f3-p9": "중단원 09 · 114쪽", "f3-p16": "중단원 10 · 114쪽", "f3-p11": "중단원 12 · 114쪽", "f3-p17": "대단원 04 · 130쪽", "f3-p18": "대단원 05 · 130쪽", "f3-p19": "대단원 06 · 130쪽", "f3-p12": "대단원 14 · 131쪽", "f3-p13": "익힘책 08 · 141쪽"}, "book": "카이사르의 비밀 편지 — 2000년 전의 함수와 역함수", "cards": 4, "life": 3, "videos": 3}, "r1": {"probs": 8, "title": "유리식과 유리함수", "unit": "Ⅲ-2 유리함수와 무리함수", "no": 1, "pages": "교과서 117~119쪽", "focus": "가까워지기만 하고 영원히 닿지 않는 선이 있다.", "core": "왜 어떤 양은 한없이 가까워지기만 하고 닿지 않을까? — 반비례와 점근선", "ref": {"c1": "하이브리드 자동차의 연비", "c2": "유리식의 사칙연산", "c3": "유리함수와 정의역", "c4": "\\(y=\\frac{k}{x}\\)의 그래프와 점근선", "c5": "폴리그래프 — 유리함수의 그래프 찾기", "l1": "함께 일하면 얼마나 빨라질까?", "l2": "보일의 법칙 — 공기를 누르면?", "l3": "1인당 비용과 화면 속 크기", "r1-p1": "개념 탐구 · 117쪽", "r1-p2": "스스로 확인하기 · 118쪽", "r1-p3": "문제 01 · 118쪽", "r1-p4": "문제 02 · 118쪽", "r1-p5": "문제 03 · 119쪽", "r1-p6": "탐구 · 119쪽", "r1-p7": "중단원 01 · 127쪽", "r1-p8": "대단원 07 · 130쪽"}, "book": "아킬레스는 거북이를 따라잡을 수 있을까? — 제논의 역설", "cards": 5, "life": 3, "videos": 4}, "r2": {"probs": 15, "title": "유리함수 그래프의 이동과 활용", "unit": "Ⅲ-2 유리함수와 무리함수", "no": 2, "pages": "교과서 119~121쪽 · 127~131쪽 · 익힘책", "focus": "갈 때는 시속 60km, 올 때는 시속 40km. 왕복 평균은 시속 50km가 아니다.", "core": "유리함수의 그래프는 어떻게 움직이고, 세상의 어떤 변화를 설명할까?", "ref": {"c1": "\\(y=\\frac{k}{x-p}+q\\) — 점근선이 움직인다", "c2": "\\(y=\\frac{ax+b}{cx+d}\\)를 표준형으로", "c3": "그래프를 보고 식 찾기", "l1": "왕복 평균 속력은 왜 산술평균이 아닐까?", "l2": "다가오는 기차의 기적 소리 (도플러 효과)", "l3": "저항을 병렬로 연결하면?", "r2-e1": "예제 1 · 120쪽", "r2-p1": "예제 2 · 121쪽", "r2-p2": "문제 04 · 120쪽", "r2-p3": "문제 05 · 121쪽", "r2-p4": "문제 06 · 121쪽 (도플러)", "r2-p5": "중단원 02 · 127쪽", "r2-p6": "중단원 05 · 128쪽", "r2-p7": "중단원 06 · 128쪽", "r2-p8": "중단원 07 · 128쪽", "r2-p13": "중단원 11 · 128쪽", "r2-p9": "대단원 08 · 131쪽", "r2-p10": "대단원 15 · 132쪽", "r2-p11": "익힘책 09 · 141쪽", "r2-p14": "익힘책 10 · 141쪽", "r2-p12": "익힘책 11 · 141쪽"}, "book": "갈릴레이의 「등속 운동」 — 시간은 속력에 반비례한다", "cards": 3, "life": 3, "videos": 2}, "r3": {"probs": 26, "title": "무리식과 무리함수", "unit": "Ⅲ-2 유리함수와 무리함수", "no": 3, "pages": "교과서 122~126쪽", "focus": "실의 길이를 4배로 늘려도, 진자는 겨우 2배 느리게 흔들린다.", "core": "왜 어떤 변화는 「제곱근」의 모양으로 나타날까?", "ref": {"c1": "지진 해일은 얼마나 빠를까?", "c2": "무리식 — 근호 안이 0 이상, 분모는 0이 아니게", "c3": "\\(y=\\sqrt{ax}\\)는 \\(y=\\frac{1}{a}x^2\\ (x\\ge0)\\)의 역함수", "c4": "\\(y=\\sqrt{a(x-p)}+q\\) — 시작점이 움직인다", "c5": "폴리그래프 — 무리함수 그래프 찾기", "l1": "진자의 주기 — 갈릴레이가 발견한 제곱근", "l2": "스키드 마크로 사고 차량의 속력 추정", "l3": "크레인 쇠밧줄의 지름", "r3-e1": "예제 1 · 126쪽", "r3-p1": "스스로 확인하기 · 122쪽", "r3-p2": "문제 01 · 122쪽", "r3-p13": "스스로 확인하기 · 123쪽", "r3-p3": "문제 02 · 123쪽", "r3-p14": "스스로 확인하기 · 123쪽", "r3-p4": "문제 03 · 123쪽", "r3-p15": "문제 04 · 124쪽", "r3-p5": "문제 05 · 125쪽", "r3-p16": "스스로 확인하기 · 125쪽", "r3-p6": "문제 06 · 126쪽", "r3-p7": "문제 07 · 126쪽", "r3-p8": "중단원 03 · 127쪽", "r3-p17": "중단원 04 · 127쪽", "r3-p9": "중단원 08 · 128쪽", "r3-p10": "중단원 09 · 128쪽", "r3-p11": "중단원 10 · 128쪽", "r3-p18": "중단원 12 · 128쪽", "r3-p19": "대단원 09 · 131쪽", "r3-p20": "대단원 10 · 131쪽", "r3-p12": "대단원 11 · 131쪽", "r3-p21": "대단원 16 · 132쪽 (서술형)", "r3-p22": "대단원 17 · 132쪽 (서술형)", "r3-p23": "익힘책 12 · 141쪽", "r3-p24": "익힘책 13 · 141쪽", "r3-p25": "수행 평가 · 129쪽 (공학 도구)"}, "book": "갈릴레이의 진자 — 길이와 시간 사이의 제곱근", "cards": 5, "life": 3, "videos": 4}};
+var LESSON_SOL = {"f1-p1": "\\(2\\)의 약수 : \\(1, 2\\) → \\(2\\)개 &nbsp;·&nbsp; \\(3\\)의 약수 : \\(1, 3\\) → \\(2\\)개 &nbsp;·&nbsp; \\(4\\)의 약수 : \\(1, 2, 4\\) → \\(3\\)개 &nbsp;·&nbsp; \\(6\\)의 약수 : \\(1, 2, 3, 6\\) → \\(4\\)개<br>\n따라서 \\(2\\to2,\\ 3\\to2,\\ 4\\to3,\\ 6\\to4\\). \\(X\\)의 각 원소에 \\(Y\\)의 원소가 오직 하나씩 대응하므로 함수이다.<br>\n<b>정답</b> \\(2\\to2,\\ 3\\to2,\\ 4\\to3,\\ 6\\to4\\)", "f1-p2": "(1) \\(x=2\\) : \\(y=|2|-2=0\\) → \\(2\\to0\\)<br>\n(2) \\(x=-1\\) : \\(y=|-1|-(-1)=1+1=2\\) → \\(-1\\to2\\) &nbsp; (\\(x=1\\) : \\(|1|-1=0\\))<br>\n따라서 \\(Y\\)의 원소 \\(2\\)에 대응되는 \\(X\\)의 원소는 \\(-1\\)이다.<br>\n<b>정답</b> (1) \\(0\\) &nbsp; (2) \\(-1\\)", "f1-p3": "(1) \\(X\\)의 원소 \\(4\\)에 대응하는 \\(Y\\)의 원소가 없다 → 「각」이 깨짐 → 함수 ✘<br>\n(2) \\(X\\)의 각 원소에 \\(Y\\)의 원소가 하나씩 대응 → 함수 ○. 화살표를 받은 원소는 \\(a, c, d\\)<br>\n(3) \\(X\\)의 원소 \\(2\\)가 \\(b\\)와 \\(d\\) 두 개에 대응 → 「오직 하나씩」이 깨짐 → 함수 ✘<br>\n<b>정답</b> 함수는 (2), 치역 \\(\\{a, c, d\\}\\) (정의역 \\(\\{1,2,3,4\\}\\), 공역 \\(\\{a,b,c,d\\}\\))", "f1-p4": "\\(f(0)=|0|=0,\\ g(0)=0^2=0\\) &nbsp;·&nbsp; \\(f(1)=|1|=1,\\ g(1)=1^2=1\\)<br>\n두 함수의 정의역이 \\(\\{0,1\\}\\)로 같고, 정의역의 모든 원소에서 함숫값이 같으므로 \\(f=g\\).<br>\n<b>정답</b> \\(f(0)=g(0)=0,\\ f(1)=g(1)=1\\), 서로 같은 함수", "f1-p5": "각 그래프에 세로선(직선 \\(x=a\\))을 그어 본다.<br>\n(1) 어느 세로선과도 한 점에서만 만난다 → 함수의 그래프 ○<br>\n(2) 원 : 세로선과 두 점에서 만나는 곳이 있다 → ✘<br>\n(3) \\(x=1\\) 위에 점이 두 개 있다 → 하나의 \\(x\\)에 \\(y\\)가 두 개 → ✘<br>\n<b>정답</b> (2), (3)", "f1-p6": "(1) \\(y=|x|\\) : \\(1\\ne-1\\)인데 함숫값이 모두 \\(1\\) → 일대일함수 ✘<br>\n(2) \\(y=x^2-1\\) : \\(1\\)과 \\(-1\\)의 함숫값이 모두 \\(0\\) → ✘ (치역도 \\(y\\ge-1\\)이라 공역과 다름)<br>\n(3) \\(y=-x+1\\) : 기울기가 \\(0\\)이 아닌 일차함수 → 서로 다른 \\(x\\)에 서로 다른 \\(y\\), 치역 = 공역 = 실수 전체 → 일대일대응 ○<br>\n<b>정답</b> (3)", "f1-p7": "ㄱ. 거짓. 반례 : \\(f:\\{1\\}\\to\\{1,2\\},\\ f(1)=1\\) 은 일대일함수이지만 치역 \\(\\{1\\}\\ne\\) 공역 \\(\\{1,2\\}\\) → 일대일대응이 아니다.<br>\nㄴ. 참. 일대일함수의 정의 그 자체이다.<br>\nㄷ. 거짓. 반례 : \\(f:\\{1,2\\}\\to\\{1\\},\\ f(x)=1\\) (상수함수) 는 치역 = 공역이지만 \\(1\\ne2\\) 인데 \\(f(1)=f(2)\\) 이므로 일대일함수가 아니다.<br>\n<b>정답</b> ㄱ, ㄷ", "f1-p8": "(1) 원점을 지나고 기울기 \\(1\\)인 직선 \\(y=x\\) → 항등함수<br>\n(2) \\(y=-x\\) : \\(f(x)=x\\)가 아니므로 항등함수 ✘, 값이 변하므로 상수함수 ✘<br>\n(3) \\(x\\)축에 평행한 직선 \\(y=1\\) → 상수함수<br>\n<b>정답</b> 항등함수 (1), 상수함수 (3)", "f1-p9": "그림에서 정의역은 \\(\\{-1,0,1,2\\}\\), 공역은 \\(\\{0,1,2,3\\}\\)이다. 화살표를 실제로 받은 \\(Y\\)의 원소만 모으면 \\(0, 1, 3\\) (\\(2\\)는 화살표를 받지 못함).<br>\n<b>정답</b> 치역 \\(\\{0,1,3\\}\\)", "f1-p10": "ㄱ. \\(y=-4\\) : 상수함수 (모든 \\(x\\)가 \\(-4\\)로)<br>\nㄴ. \\(y=x\\) : 항등함수이며 일대일함수<br>\nㄷ. \\(y=5x+7\\) : 기울기 \\(5\\ne0\\) → 일대일함수<br>\nㄹ. \\(y=x^2\\) : \\(f(1)=f(-1)=1\\) → 일대일함수 ✘<br>\n<b>정답</b> 일대일함수 ㄴ, ㄷ · 항등함수 ㄴ · 상수함수 ㄱ", "f1-p11": "\\(f(1)=1-2=-1,\\ f(2)=4-4=0\\)<br>\n\\(f=g\\) 이려면 정의역의 모든 원소에서 함숫값이 같아야 하므로<br>\n\\(g(1)=a+b=-1,\\ g(2)=2a+b=0\\) → 두 식을 빼면 \\(a=1\\), \\(b=-2\\)<br>\n<b>정답</b> \\(a=1,\\ b=-2\\)", "f1-p12": "\\(x=-1,0,1\\) 에서 함숫값을 표로 만든다.<br>\n\\(f(x)=-x+1\\) : \\(2,\\ 1,\\ 0\\)<br>\n\\(g(x)=x^2-1\\) : \\(0,\\ -1,\\ 0\\)<br>\n\\(h(x)=|x-1|\\) : \\(2,\\ 1,\\ 0\\)<br>\n\\(f\\)와 \\(h\\)는 정의역의 모든 원소에서 함숫값이 같다.<br>\n<b>정답</b> \\(f\\)와 \\(h\\)", "f1-p13": "그림에서 \\(1\\to d,\\ 2\\to a,\\ 3\\to b\\) 이므로 \\(f(3)=b\\)<br>\n치역은 함숫값 전체의 집합 \\(\\{f(1), f(2), f(3)\\}=\\{d, a, b\\}\\)<br>\n<b>정답</b> \\(f(3)=b\\), 치역 \\(\\{a,b,d\\}\\)", "f1-p14": "(1) \\(x_1\\ne x_2\\)이면 \\(2x_1\\ne2x_2\\) → 일대일함수. 또 치역과 공역이 모두 실수 전체로 같다 → 일대일대응<br>\n(2) \\(1\\ne-1\\)이지만 \\(g(1)=g(-1)=1\\) → 일대일함수가 아니다 → 일대일대응도 아니다<br>\n<b>정답</b> (1) 일대일함수이다, 일대일대응이다 (2) 일대일함수가 아니다, 일대일대응이 아니다", "f1-p15": "\\(x\\ge0\\)에서 \\(f(x)=3x-1\\)은 기울기 \\(3>0\\)인 직선이고, \\(x\\lt 0\\)에서 \\(f(x)=(a+2)x-1\\)이다.<br>\n두 식은 \\(x=0\\)에서 모두 \\(-1\\)이므로 그래프가 이어져 있다. 일대일대응이 되려면 \\(x\\lt 0\\)인 부분도 증가해야 하므로 \\(a+2>0\\)<br>\n(\\(a+2=0\\)이면 \\(x\\lt 0\\)에서 상수 \\(-1\\) → 일대일함수 ✘, \\(a+2\\lt 0\\)이면 감소 → 가로선과 두 점에서 만남)<br>\n<b>정답</b> \\(a>-2\\)", "f1-p22": "\\(f\\)가 \\(X=[-2,2]\\)에서 \\(Y=[-1,3]\\)로의 일대일대응이 되려면 양 끝점이 양 끝점으로 가야 한다.<br>\n(i) \\(a\\gt0\\) (증가) : \\(f(-2)=-1,\\ f(2)=3\\) → \\(-2a+b=-1,\\ 2a+b=3\\) → \\(b=1,\\ a=1\\) → \\(ab=1\\)<br>\n(ii) \\(a\\lt0\\) (감소) : \\(f(-2)=3,\\ f(2)=-1\\) → \\(-2a+b=3,\\ 2a+b=-1\\) → \\(b=1,\\ a=-1\\) → \\(ab=-1\\)<br>\n(\\(a=0\\)이면 상수함수라 일대일대응 ✘)<br>\n<b>정답</b> \\(ab=1\\) 또는 \\(ab=-1\\)", "f1-p16": "① 이차함수 : 가로선과 두 점에서 만남 → ✘ &nbsp;② \\(y=|x|\\) 꼴 : ✘ &nbsp;③ 두 점의 \\(y\\)좌표가 \\(2\\)로 같음 → ✘<br>\n④ 상수함수 → ✘ &nbsp;⑤ 기울기가 양수인 두 직선이 이어져 계속 증가하고 치역이 실수 전체 → 일대일대응<br>\n<b>정답</b> ⑤", "f1-p17": "\\(1\\to1\\) / \\(2,3,5,7\\to2\\) (소수) / \\(4\\to3\\ (1,2,4)\\) / \\(6\\to4\\ (1,2,3,6)\\) / \\(8\\to4\\ (1,2,4,8)\\) / \\(9\\to3\\ (1,3,9)\\)<br>\n(1) \\(f(4)=3,\\ f(6)=4,\\ f(8)=4,\\ f(9)=3\\)<br>\n(2) 함숫값 전체의 집합은 \\(\\{1,2,3,4\\}\\)<br>\n<b>정답</b> (1) \\(3, 4, 4, 3\\) (2) \\(\\{1,2,3,4\\}\\)", "f1-p18": "(i) \\(x\\ge-1\\)일 때 \\(f(x)=(x+1)+ax-2=(a+1)x-1\\)<br>\n(ii) \\(x\\lt -1\\)일 때 \\(f(x)=-(x+1)+ax-2=(a-1)x-3\\)<br>\n두 직선은 \\(x=-1\\)에서 \\(f(-1)=-a-2\\)로 이어진다. 일대일대응이려면 두 직선이 모두 증가하거나 모두 감소해야 하므로<br>\n\\((a+1)(a-1)>0\\) → \\(a\\lt -1\\) 또는 \\(a>1\\)<br>\n<b>정답</b> \\(a\\lt -1\\) 또는 \\(a>1\\)", "f1-p19": "세로선(직선 \\(x=k\\))을 그어 본다.<br>\nㄱ. 상수함수 → 함수 ○ &nbsp;ㄴ. \\(x>0\\)인 세로선과 두 점에서 만남 → ✘<br>\nㄷ. \\(y\\)축에 평행한 직선 → 한 \\(x\\)에 무수히 많은 \\(y\\) → ✘ &nbsp;ㄹ. 각 \\(x\\)에서 ●인 점 하나만 → 함수 ○<br>\n<b>정답</b> ㄱ, ㄹ", "f1-p20": "\\(3\\)은 홀수이므로 \\(f(3)=3^2+a=9+a=12\\) → \\(a=3\\)<br>\n\\(4\\)는 짝수이므로 \\(f(4)=2\\times4+3=11\\)<br>\n<b>정답</b> \\(11\\)", "f1-p21": "\\(f\\)가 항등함수이려면 \\(X\\)의 모든 원소 \\(x\\)에 대하여 \\(f(x)=x\\)<br>\n\\(3x^2-5x-9=x\\) → \\(3x^2-6x-9=0\\) → \\(x^2-2x-3=0\\) → \\(x=-1\\) 또는 \\(x=3\\)<br>\n\\(X\\)는 \\(\\{-1,3\\}\\)의 공집합이 아닌 부분집합 : \\(\\{-1\\},\\ \\{3\\},\\ \\{-1,3\\}\\)<br>\n<b>정답</b> \\(3\\)개"};
 var LESSON_QEX = {"focus": [{"lv": "what", "q": "함수의 정확한 정의는 무엇일까?"}, {"lv": "howwhy", "q": "왜 식이 없어도 함수라고 부를 수 있을까?"}, {"lv": "if", "q": "식이 없으면 함수를 무엇으로 나타낼 수 있을까?"}], "c1": [{"lv": "what", "q": "대응과 함수는 무엇이 다를까?"}, {"lv": "howwhy", "q": "왜 함수의 정의에 「각」과 「오직 하나씩」이 둘 다 들어갈까?"}, {"lv": "if", "q": "만약 \\(X\\)가 공집합이라면 함수라고 할 수 있을까?"}], "c2": [{"lv": "what", "q": "치역이 공역과 같아지는 경우는 언제일까?"}, {"lv": "howwhy", "q": "공역과 치역은 왜 따로 이름을 붙였을까?"}, {"lv": "if", "q": "정의역을 말하지 않으면 왜 실수 전체로 생각할까?"}], "c3": [{"lv": "what", "q": "함수의 그래프는 정확히 무엇의 집합일까?"}, {"lv": "howwhy", "q": "세로선 테스트는 왜 함수를 판별할 수 있을까?"}, {"lv": "if", "q": "만약 세로선이 그래프와 한 점도 만나지 않는 곳이 있다면 어떻게 될까?"}], "c4": [{"lv": "what", "q": "일대일함수와 일대일대응은 무엇이 다를까?"}, {"lv": "howwhy", "q": "왜 일대일함수와 일대일대응을 구별해야 할까?"}, {"lv": "if", "q": "정의역을 어떻게 바꾸면 \\(y=x^2\\)도 일대일함수가 될까?"}], "c5": [{"lv": "what", "q": "항등함수는 어디에 쓰일까?"}, {"lv": "howwhy", "q": "아무것도 바꾸지 않는 함수를 왜 따로 이름 붙였을까?"}, {"lv": "if", "q": "만약 정의역의 원소가 하나뿐이라면 상수함수도 일대일함수가 될까?"}], "c6": [{"lv": "what", "q": "어떤 질문이 그래프의 범위를 가장 빨리 줄여 줄까?"}, {"lv": "howwhy", "q": "왜 「직선인가요?」보다 「세로선과 두 번 만나나요?」가 더 좋은 질문일까?"}, {"lv": "if", "q": "만약 그래프가 16개라면 최소 몇 번 질문해야 할까?"}], "probs": [{"lv": "what", "q": "문제 02의 (1)은 어떤 화살표를 하나 더 그리면 함수가 될까?"}, {"lv": "howwhy", "q": "서로 다른 두 원소가 같은 값에 대응해도 왜 함수일까? (문제 01)"}, {"lv": "if", "q": "정의역이 \\(\\{0,1\\}\\)일 때 \\(|x|\\)와 \\(x^2\\)이 같은 함수라면, 정의역이 \\(\\{-1,0,1\\}\\)이어도 같을까? (문제 04)"}], "l1": [{"lv": "what", "q": "학생에서 혈액형으로의 대응은 함수일까?"}, {"lv": "howwhy", "q": "혈액형에서 학생으로의 대응은 왜 함수가 아닐까?"}, {"lv": "if", "q": "만약 우편번호가 한 집에 두 개라면 함수일까?"}], "l2": [{"lv": "what", "q": "랜덤 뽑기의 정의역과 공역은 무엇으로 정하면 좋을까?"}, {"lv": "howwhy", "q": "자판기는 왜 함수라고 할 수 있을까?"}, {"lv": "if", "q": "품절된 버튼이 있으면 자판기는 여전히 함수일까?"}], "l3": [{"lv": "what", "q": "생활 속 항등함수의 예는 무엇이 있을까?"}, {"lv": "howwhy", "q": "세 학생이 모두 같은 책을 샀을 때 왜 상수함수일까?"}, {"lv": "if", "q": "만약 규칙을 「2번째 꼭짓점」으로 바꾸면 어떤 함수가 될까?"}], "book": [{"lv": "what", "q": "오일러는 7년 사이에 무엇을 보고 생각을 바꾸었을까?"}, {"lv": "howwhy", "q": "오일러는 왜 처음에 함수를 「식」이라고 정의했을까?"}, {"lv": "if", "q": "만약 함수의 정의가 오일러의 1748년 정의에 머물렀다면 수학은 어떻게 달라졌을까?"}], "free": [{"lv": "what", "q": "함수를 처음 만든 사람은 누구일까?"}, {"lv": "howwhy", "q": "함수는 왜 「함(函)」이라는 한자를 쓸까?"}, {"lv": "if", "q": "만약 함수가 없었다면 과학은 어떻게 발전했을까?"}]};
 /* 3-1 함수 · 1차시 — 함수의 뜻과 그래프 (교과서 101~105쪽) */
 const LESSON = {
@@ -2651,6 +2651,10 @@ const LESSON = {
       fs:[{t:'multi',l:'일대일함수',opts:['ㄱ','ㄴ','ㄷ','ㄹ'],a:['ㄴ','ㄷ']},{t:'sel',l:'항등함수',opts:['ㄱ','ㄴ','ㄷ','ㄹ'],a:'ㄴ'},{t:'sel',l:'상수함수',opts:['ㄱ','ㄴ','ㄷ','ㄹ'],a:'ㄱ'}],
       hints:['기울기가 0이 아닌 일차함수는 일대일함수예요.'], sol:'일대일함수 ㄴ, ㄷ · 항등함수 ㄴ · 상수함수 ㄱ' },
     { id:"f1-p15", tag:"중단원 05 · 114쪽", lv:"기본", pt:15, q:"실수 전체의 집합에서 정의된 함수 \\(f(x)=\\begin{cases}3x-1 & (x\\ge0)\\\\ (a+2)x-1 & (x\\lt 0)\\end{cases}\\) 이 일대일대응이 되도록 하는 실수 \\(a\\)의 값의 범위를 구하시오.", fs:[{"t": "sel", "l": "\\(a\\)의 범위", "opts": ["\\(a>-2\\)", "\\(a\\lt -2\\)", "\\(a>1\\)", "\\(a\\ne-2\\)"], "a": "\\(a>-2\\)"}], hints:["\\(x\\ge0\\)인 부분은 기울기 3 → 증가. 두 부분이 모두 증가해야 해요.", "두 식 모두 \\(x=0\\)에서 \\(-1\\) → 그래프가 이어져 있어요. 기울기 \\(a+2\\gt 0\\)이면 충분!"], sol:"\\(x\\ge0\\)인 부분은 기울기 3인 증가 직선이므로 \\(x\\lt 0\\)인 부분도 증가해야 일대일대응 → \\(a+2\\gt 0\\), \\(a>-2\\)" },
+    { id:'f1-p22', tag:'중단원 11 · 114쪽', lv:'도전', pt:20,
+      q:'\\(X=\\{x\\mid-2\\le x\\le2\\}\\), \\(Y=\\{y\\mid-1\\le y\\le3\\}\\)에서 \\(f(x)=ax+b\\)가 일대일대응이 되도록 하는 \\(ab\\)의 값을 모두 구하시오.',
+      fs:[{t:'set',l:'ab의 값 (모두)',a:[1,-1],ph:'예: 2, -2'}],
+      hints:['\\(a>0\\)이면 양 끝점끼리 : \\(f(-2)=-1, f(2)=3\\)','\\(a\\lt 0\\)이면 \\(f(-2)=3, f(2)=-1\\)'], sol:'\\(a=1,b=1\\) 또는 \\(a=-1,b=1\\) → \\(ab=1\\) 또는 \\(-1\\)' },
     { id:'f1-p11', tag:'대단원 01 · 130쪽', lv:'기본', pt:15,
       q:'정의역이 \\(\\{1,2\\}\\)인 두 함수 \\(f(x)=x^2-2x\\), \\(g(x)=ax+b\\)에 대하여 \\(f=g\\)가 성립할 때, 실수 \\(a,b\\)의 값을 구하시오.',
       fs:[{t:'num',l:'a',a:1},{t:'num',l:'b',a:-2}],
@@ -2747,6 +2751,8 @@ function tex(root){
       throwOnError:false, strict:false,
       ignoredTags:['script','noscript','style','textarea','option','input']
     });
+    // 수식을 감싼 겉 span 에 표시(kx)를 해 두어, 사이트의 `… span{…}` 꾸밈 규칙이 수식에 닿지 않게 한다 (kshield.py 와 짝)
+    (root || document.body).querySelectorAll('.katex').forEach(k => { let p = k.parentElement; while (p && p.tagName === 'SPAN' && (!p.className || p.className === 'katex-display')){ p.classList.add('kx'); p = p.parentElement; } });
   }catch(e){}
 }
 function snack(msg, ms){
@@ -5192,7 +5198,7 @@ const BB = (() => {
         return ok(`${T(`f(x)=ax${b > 0 ? '+' : ''}${b}`)}에 대하여 ${T('f=f^{-1}')}이 성립할 때 ${T(`f(${k})`)}의 값은? (단, ${T('a')}는 실수)`, -k + b, 1, `f=f⁻¹ 이고 b≠0 → a=−1`); } },
       { sc:['f3c'], src:'익힘책 08 · 141쪽 유형', g(){ const p = NZ(-3, 3), q = R(-4, 4), r = NZ(-3, 3), s = R(-4, 4), k = R(-2, 3), f = x => p * x + q, g = x => r * x + s;
         return ok(`${T(`f(x)=${lin(p, q)}`)}, ${T(`g(x)=${lin(r, s)}`)}에 대하여 함수 ${T('h')}가 ${T('(g\\circ f)^{-1}\\circ h=f')}를 만족시킬 때 ${T(`h(${k})`)}의 값은?`, g(f(f(k))), 1, `h = g∘f∘f`); } },
-      { sc:['f3a'], src:'중단원 11 · 114쪽 유형', g(){ const a = P([1, 2, 3]), m = R(-3, 0), n = m + R(1, 3), u = R(-4, 2), b = u - a * m, w = a * n + b;
+      { sc:['f1d'], src:'중단원 11 · 114쪽 유형 (일대일대응)', g(){ const a = P([1, 2, 3]), m = R(-3, 0), n = m + R(1, 3), u = R(-4, 2), b = u - a * m, w = a * n + b;
         return ok(`${T(`X=\\{x\\mid ${m}\\le x\\le ${n}\\}`)}, ${T(`Y=\\{y\\mid ${u}\\le y\\le ${w}\\}`)}에 대하여 ${T('f:X\\to Y')}, ${T('f(x)=ax+b')}가 일대일대응이고 ${T('a>0')}일 때 ${T('ab')}의 값은?`, a * b, 1, `f(${m})=${u}, f(${n})=${w}`); } }
     ]
   },
@@ -8049,9 +8055,9 @@ function pageStart(){
    묶이지 않은 문항(중단원·대단원·익힘책)은 「✏️ 실력 다지기」에 나온다. */
 const FLOW = {
   f1:{ c1:{ ex:'f1-p1', chk:['f1-p2'] }, c2:{ ex:'f1-p3', chk:['f1-p13','f1-p4','f1-p9'] }, c3:{ ex:'f1-p5', chk:[] },
-       c4:{ ex:'f1-p6', chk:['f1-p14','f1-p7'] }, c5:{ ex:'f1-p8', chk:['f1-p10'] } },
+       c4:{ ex:'f1-p6', chk:['f1-p14','f1-p7','f1-p22'] }, c5:{ ex:'f1-p8', chk:['f1-p10'] } },
   f2:{ c1:{ ex:'f2-p1', chk:[] }, c2:{ ex:'f2-e1', chk:['f2-p2','f2-p3'] }, c3:{ ex:'f2-p4', chk:['f2-p7','f2-p9'] } },
-  f3:{ c1:{ ex:'f3-p1', chk:['f3-p2'] }, c2:{ ex:'f3-p4', chk:['f3-p14','f3-p5','f3-p8','f3-p10'] }, c3:{ ex:'f3-e1', chk:['f3-p3','f3-p7'] },
+  f3:{ c1:{ ex:'f3-p1', chk:['f3-p2'] }, c2:{ ex:'f3-p4', chk:['f3-p14','f3-p5','f3-p8'] }, c3:{ ex:'f3-e1', chk:['f3-p3','f3-p7'] },
        c4:{ ex:'f3-p20', chk:['f3-p6','f3-p11'] } },
   r1:{ c1:{ ex:'r1-p1', chk:[] }, c2:{ ex:'r1-p2', chk:['r1-p3','r1-p7'] }, c3:{ ex:'r1-p4', chk:[] }, c4:{ ex:'r1-p5', chk:['r1-p6'] } },
   r2:{ c1:{ ex:'r2-e1', chk:['r2-p2'] }, c2:{ ex:'r2-p1', chk:['r2-p3','r2-p5'] }, c3:{ ex:'r2-p7', chk:['r2-p9','r2-p6'] } },
