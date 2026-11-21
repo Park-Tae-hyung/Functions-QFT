@@ -1379,6 +1379,57 @@ html.fslock,html.fslock body{overflow:hidden}
 .djwrap.fs .dkrig{max-width:1500px;margin:0 auto}
 .djwrap [hidden]{display:none !important}
 
+/* ---------- 📍 문장에 생각 달기 ---------- */
+.t-e{--tc:#14a88f;--tb:#e3f7f2}.t-a{--tc:#2a7fd4;--tb:#e6f1fc}.t-q{--tc:#8b3dff;--tb:#f1e9ff}.t-c{--tc:#ef5a37;--tb:#fdece7}
+#pg-book .pg .hs{cursor:pointer;border-radius:4px;padding:1px 0;transition:background .15s,box-shadow .15s;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+#pg-book .pg .hs:hover{background:#fff1b8}
+#pg-book .pg .hs.m-e{box-shadow:inset 0 -.45em 0 rgba(20,168,143,.28)}
+#pg-book .pg .hs.m-a{box-shadow:inset 0 -.45em 0 rgba(42,127,212,.26)}
+#pg-book .pg .hs.m-q{box-shadow:inset 0 -.45em 0 rgba(139,61,255,.26)}
+#pg-book .pg .hs.m-c{box-shadow:inset 0 -.45em 0 rgba(239,90,55,.26)}
+#pg-book .pg .hs.sel{background:#fff1b8;outline:2px solid #8b3dff;outline-offset:1px}
+#pg-book.hlheat .pg .hs{background:rgba(255,128,48,var(--h,0))}
+#pg-book.hlheat .pg .hs{box-shadow:none}
+#pg-book.hlheat .pg .hs[data-n]::after{content:attr(data-n);display:inline-block;text-indent:0;font:900 .66rem/1.45 Pretendard,sans-serif;color:#fff;background:#ef6a2a;border-radius:999px;padding:0 6px;margin-left:4px;vertical-align:.4em;letter-spacing:0}
+.hllegend{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;margin:8px 0}
+.hlty{display:flex;flex-direction:column;background:var(--tb);border-left:4px solid var(--tc);border-radius:10px;padding:6px 10px}
+.hlty b{color:var(--tc);font-size:.9rem}.hlty small{color:var(--ink2);font-size:.76rem}
+.hlbar .hlme{font-size:.82rem;color:var(--ink2);font-weight:700}
+.hlsum{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:12px 0 6px}
+.hlst{background:#fff;border:2px solid var(--line);border-radius:12px;padding:4px 12px;display:flex;align-items:baseline;gap:4px}
+.hlst b{font-size:1.2rem;color:#5a3fc0}.hlst small{font-size:.76rem;color:var(--ink2)}
+.hldist{flex:1 1 280px;display:flex;border-radius:999px;overflow:hidden;min-height:28px;font-size:.74rem;font-weight:900;color:#fff}
+.hldist>span:where(:not(.kx):not(.katex):not(.katex *)){background:var(--tc);display:flex;align-items:center;justify-content:center;white-space:nowrap;padding:0 6px;min-width:0;overflow:hidden}
+.hlins h4{margin:14px 0 6px;font-size:.92rem}.hlins h4 small{font-weight:700;color:var(--ink3);font-size:.76rem}
+.hltop{display:flex;align-items:center;gap:10px;width:100%;text-align:left;background:#fff;border:2px solid var(--line);border-radius:12px;padding:7px 10px;margin:5px 0;cursor:pointer;font:inherit;transition:.15s}
+.hltop:hover{border-color:#c9b6ff;background:#fbf8ff}
+.hlrk{flex:none;width:24px;height:24px;border-radius:50%;background:linear-gradient(135deg,#ff8ab8,#a58bff);color:#fff;font-weight:900;display:flex;align-items:center;justify-content:center;font-size:.8rem}
+.hltx{flex:1;font-size:.86rem;line-height:1.5}.hlcn{flex:none;display:flex;gap:4px}
+.hlcn i,.hlcnt i{font-style:normal;font-size:.76rem;font-weight:900;background:var(--tb);color:var(--tc);border-radius:999px;padding:1px 7px}
+.hlqs{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:8px}
+.hlq{background:var(--tb);border-radius:12px;padding:8px 11px;font-size:.86rem;line-height:1.55}
+.hlq b{color:var(--tc);margin-right:4px}.hlq small{display:block;color:var(--ink3);font-size:.72rem;margin-top:3px}
+.hlnone{color:var(--ink3);font-size:.84rem;margin:6px 0}
+.hlpop{position:absolute;z-index:60;background:#fff;border-radius:16px;box-shadow:0 14px 40px rgba(50,30,110,.22),0 0 0 1px rgba(120,90,200,.12);padding:14px 14px 12px;font-size:.88rem;animation:hlin .18s ease-out}
+@keyframes hlin{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+.hlx{position:absolute;top:6px;right:8px;border:0;background:none;font-size:1rem;cursor:pointer;color:var(--ink3)}
+.hlsen{font-size:.84rem;color:var(--ink2);line-height:1.55;padding-right:18px;max-height:7.5em;overflow:auto}
+.hlcnt{margin-top:6px;font-size:.78rem;font-weight:800;color:var(--ink2);display:flex;gap:4px;align-items:center;flex-wrap:wrap}
+.hlpick{display:flex;flex-wrap:wrap;gap:5px;margin:10px 0 6px}
+.hlpk{border:1.5px solid var(--tc);color:var(--tc);background:#fff;border-radius:999px;padding:3px 11px;font:inherit;font-size:.82rem;font-weight:800;cursor:pointer}
+.hlpk.on{background:var(--tc);color:#fff}
+.hlpop textarea{width:100%;box-sizing:border-box;border:2px solid var(--line);border-radius:12px;padding:8px 10px;font:inherit;font-size:.88rem;resize:vertical}
+.hlpop textarea:focus{outline:none;border-color:#b49cff}
+.hlrow{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:6px}.hlhint{color:var(--ink3);font-size:.74rem}
+.hlpop .btn{padding:6px 14px;font-size:.84rem}
+.hlit{background:var(--tb);border-radius:10px;padding:6px 9px;margin:6px 0;line-height:1.5}
+.hlit b{color:var(--tc);margin-right:4px;font-size:.8rem}
+.hlact{display:flex;gap:6px;justify-content:flex-end;margin-top:3px}
+.hlact button{border:0;background:#fff;border-radius:999px;padding:2px 9px;font:inherit;font-size:.72rem;font-weight:800;color:var(--ink2);cursor:pointer}
+.hloth h5{margin:10px 0 2px;font-size:.8rem;color:var(--ink2)}
+.hlmy{margin-top:8px}
+@media (max-width:600px){.hlpop{font-size:.84rem}.hltop{flex-wrap:wrap}.hlcn{width:100%;justify-content:flex-end}}
+
 /* ===================================================================
    교과서 스타일 + 입체감 + 큰 글씨 · 큰 수식
    =================================================================== */
@@ -6813,6 +6864,7 @@ function stRecord(P, s){
     gq:g.filter(x => x.kind === 'q'), gr:g.filter(x => x.kind === 'r'), gchat:g.filter(x => x.kind === 'chat'), gres:g.filter(x => x.kind === 'result'),
     grp:(P.groups || []).find(x => x.student_no === no),
     port:R('portfolio'), debate:R('debate'), after:R('debate_after'), talk:R(/^talk\d$/), reflect:R('reflect'),
+    hl:R('hl').flatMap(x => Array.isArray(x.body.a) ? x.body.a : []),
     notes:mine(P.notes || []), evals:mine(P.evals || []), solved:(P.solved || []).find(x => x.student_no === no),
     saved:(P.seteuk || []).find(x => x.student_no === no),
     work:(P.work || []).filter(x => x.student_no === no)
@@ -6901,6 +6953,14 @@ function stDraft(r, salt){
     const tp = stTopics(r.gchat.map(m => m.body).concat(r.talk.map(t => t.body.a || '')), 2);
     S.push({ k:'deb', t:`토의 과정에서 ${tp.length ? andJoin(tp) + '에 관한 ' : ''}자신의 생각을 이유와 함께 밝히고, 친구의 의견에 동의하거나 다른 관점을 덧붙이며 결론을 함께 이끌어 냄.` });
   }
+  // ④-2 책 속 문장에 생각 달기 (공감 · 분석 · 의문 · 비판)
+  if ((r.hl || []).length >= 3){
+    const qc = r.hl.filter(x => x.t === 'q' || x.t === 'c'), kinds = new Set(r.hl.map(x => x.t)).size, tp = stTopics(qc.concat(r.hl).map(x => x.x || ''), 2);
+    S.push({ k:'hl', t: qc.length >= 2
+      ? `원문을 읽으며 ${r.hl.length}개의 문장에 생각을 남겼고, 특히 ${tp.length ? andJoin(tp) + '에 관한 ' : ''}의문과 반론을 제기하며 글의 논리를 비판적으로 따져 읽음.`
+      : kinds >= 3 ? `원문의 문장마다 공감 · 분석 · 의문 · 비판으로 생각의 종류를 구분해 기록하며 ${tp.length ? andJoin(tp) + '에 대한 ' : ''}자신의 관점을 정리함.`
+      : `원문을 꼼꼼히 읽으며 인상 깊은 문장에 자신의 해석을 덧붙여 ${tp.length ? andJoin(tp) + '과 수학 개념을 ' : '글과 수학 개념을 '}연결함.` });
+  }
   // ⑤ 학습 관리 (짧게)
   const wn = (r.work || []).filter(x => x.n).length, wi = (r.work || []).filter(x => x.i || x.g).length;
   const sub = r.notes.some(n => n.submitted) || wn >= 2, solved = r.solved ? +r.solved.solved : 0;
@@ -6922,7 +6982,7 @@ function stDraft(r, salt){
   }
   // 1500byte 이내로 (덜 중요한 문장부터 뺌)
   let out = S.map(x => x.t);
-  for (const drop of ['self', 'port', 'deb', 'next']){ if (neisBytes(out.join(' ')) <= 1500) break; const i = S.findIndex(x => x.k === drop); if (i >= 0){ S.splice(i, 1); out = S.map(x => x.t); } }
+  for (const drop of ['hl', 'self', 'port', 'deb', 'next']){ if (neisBytes(out.join(' ')) <= 1500) break; const i = S.findIndex(x => x.k === drop); if (i >= 0){ S.splice(i, 1); out = S.map(x => x.t); } }
   return out.join(' ');
 }
 const SETEUK_CHECK = ['미제출','제출하지 않','미완성','완성하지 못','아쉬','부족','못했','틀린','포기','역량','GeoGebra','지오지브라','Desmos','파이썬','엑셀','ChatGPT'];
@@ -7942,6 +8002,201 @@ LABS.r3g141 = h => graphFigs(h, [{ t:'', w:300, xr:[-0.3,3], yr:[-0.3,3], d:P =>
 
 ;
 /* ===================================================================
+   📍 문장에 생각 달기 — 책 속 원문의 문장을 골라 공감 · 분석 · 의문 · 비판으로 생각을 남긴다
+   · 내 생각 : qf_respond(item 'hl')에 { a:[{ s, t, x, at }] } 로 저장 (선생님 화면 · 세특 근거)
+   · 친구 생각 : qf_peek('hl') — 이름 없이 모아서 문장별 열기 지도 · 유형 분포 · 많이 멈춘 문장
+   · 내 생각을 하나 이상 남겨야 친구들의 글이 열린다 (먼저 스스로 생각하기)
+   =================================================================== */
+const HLT = {
+  e:{ n:'공감', i:'😊', c:'#14a88f', d:'이해되거나 마음에 와닿은 문장', ph:'이 문장이 왜 와닿았나요? 내가 아는 수학과 어떻게 연결되나요?' },
+  a:{ n:'분석', i:'🧐', c:'#2a7fd4', d:'식 · 그림 · 논리로 풀어 본 문장', ph:'이 문장을 식이나 그림으로 바꾸면? 어떤 개념이 숨어 있나요?' },
+  q:{ n:'의문', i:'🤔', c:'#8b3dff', d:'질문이 떠오르는 문장', ph:'이 문장을 읽고 떠오른 질문을 적어요. (왜 ~일까? 만약 ~라면?)' },
+  c:{ n:'비판', i:'😤', c:'#ef5a37', d:'반례나 이상한 점이 보이는 문장', ph:'이 주장은 어디가 이상한가요? 반례나 빠진 조건은?' }
+};
+const HL_MAX = 25, HL_LEN = 160;
+const HL = { all:null, at:0, sel:null, heat:false, type:'q', text:{} };
+
+/* ---------- 원문을 문장 단위로 나누기 (HTML 태그 · \( \) 수식 · 따옴표 안은 자르지 않음) ---------- */
+function hlSegs(s){
+  const out = []; let cur = '', i = 0, math = false, q = 0, sq = false;
+  const push = () => { if (cur.trim()) out.push(cur); cur = ''; };
+  while (i < s.length){
+    const ch = s[i];
+    if (!math && ch === '<'){ const j = s.indexOf('>', i); if (j < 0){ cur += s.slice(i); break; } const tag = s.slice(i, j + 1);
+      if (/^<br\s*\/?>$/i.test(tag)){ cur += tag; push(); } else cur += tag; i = j + 1; continue; }
+    if (s.startsWith('\\(', i)){ math = true; cur += '\\('; i += 2; continue; }
+    if (math && s.startsWith('\\)', i)){ math = false; cur += '\\)'; i += 2; continue; }
+    if (math){ cur += ch; i++; continue; }
+    if (ch === '&'){ const j = s.indexOf(';', i); if (j > i && j - i < 10){ cur += s.slice(i, j + 1); i = j + 1; continue; } }
+    if ('「『“‘(（'.includes(ch)) q++; else if ('」』”’)）'.includes(ch)) q = Math.max(0, q - 1); else if (ch === '"') sq = !sq;
+    cur += ch; i++;
+    if ('.?!…'.includes(ch) && !q && !sq){
+      while (i < s.length && '.?!…'.includes(s[i])){ cur += s[i]; i++; }
+      if (i >= s.length || /\s/.test(s[i])) push();
+    } else if ('.?!…'.includes(ch) && (q || sq)){
+      // 따옴표 안의 문장 끝 : 닫는 따옴표까지 붙인 뒤 공백이 오면 끊는다
+      let k = i, tq = q, tsq = sq, tail = '';
+      while (k < s.length && '」』”’)）"'.includes(s[k])){ if (s[k] === '"') tsq = !tsq; else tq = Math.max(0, tq - 1); tail += s[k]; k++; }
+      if (tail && !tq && !tsq && (k >= s.length || /\s/.test(s[k]))){ cur += tail; i = k; q = tq; sq = tsq; push(); }
+    }
+  }
+  push();
+  // 태그가 짝이 맞지 않는 조각은 다음 조각과 합친다
+  const bal = t => { const o = (t.match(/<(?!\/|br\b|img\b|hr\b)[a-z][^>]*>/gi) || []).length, c = (t.match(/<\/[a-z]+>/gi) || []).length; return o === c; };
+  const res = [];
+  const tiny = t => /^\s*[(（\[][^가-힣]{0,14}[)）\]]\s*$/.test(t.replace(/<[^>]+>/g, ''));      // 「(1748)」 같은 꼬리표는 앞 문장에 붙인다
+  out.forEach(t => { if (res.length && (!bal(res[res.length - 1]) || tiny(t))) res[res.length - 1] += ' ' + t.trim(); else res.push(t); });
+  return res;
+}
+/* 원문 HTML → 문장마다 <span class="hs" data-s="m3"> 로 감싼 HTML */
+function hlWrap(html, pre){
+  let n = 0;
+  const wrap = body => hlSegs(body).map(seg => {
+    const lead = seg.match(/^\s*/)[0], id = pre + (n++);
+    HL.text[id] = seg.replace(/<[^>]+>/g, '').replace(/\\\(|\\\)/g, '').replace(/&nbsp;/g, ' ').replace(/\s+/g, ' ').trim();
+    return `${lead}<span class="hs" data-s="${id}">${seg.slice(lead.length)}</span>`;
+  }).join(' ');
+  if (!/<p[\s>]/i.test(html)) return wrap(html);
+  return html.replace(/(<p[^>]*>)([\s\S]*?)(<\/p>)/gi, (m, a, b, c) => a + wrap(b) + c);
+}
+/* 선생님 화면용 : 문장 번호 → 글 */
+function hlSentence(id){
+  if (!Object.keys(HL.text).length && LESSON.book){ hlWrap(LESSON.book.passage || '', 'm'); if (LESSON.book.extra) hlWrap(LESSON.book.extra.passage || '', 'x'); }
+  return HL.text[id] || '';
+}
+
+/* ---------- 데이터 ---------- */
+const hlMine = () => ((typeof MINE !== 'undefined' && MINE.hl && MINE.hl.a) || []);
+async function hlSave(list){
+  if (needLogin()) return false;
+  const body = { a:list.slice(-HL_MAX) };
+  try{
+    await rpc('qf_respond', { p_lesson:LESSON.code, p_item:'hl', p_no:ME.no, p_name:ME.name, p_body:body });
+    MINE.hl = body; HL.at = 0; return true;
+  }catch(e){ snack('저장하지 못했어요: ' + e.message, 3000); return false; }
+}
+async function hlLoadAll(force){
+  if (!force && HL.all && Date.now() - HL.at < 20000) return HL.all;
+  const r = await peek('hl');
+  HL.all = (r || []).map(b => (b && Array.isArray(b.a) ? b.a : [])).filter(a => a.length); HL.at = Date.now();
+  return HL.all;
+}
+/* 반 전체 집계 (내 것 포함) : 문장별 개수 · 유형별 개수 */
+function hlAgg(){
+  const per = {}, ty = { e:0, a:0, q:0, c:0 }; let n = 0;
+  (HL.all || []).forEach(a => a.forEach(x => { if (!HLT[x.t]) return; n++; ty[x.t]++; const p = per[x.s] = per[x.s] || { n:0, e:0, a:0, q:0, c:0 }; p.n++; p[x.t]++; }));
+  return { per, ty, n, people:(HL.all || []).length };
+}
+
+/* ---------- 화면 ---------- */
+function hlCard(){
+  return `<div class="card hlcard" id="hlCard">
+    <h2><span class="chip">읽으며 생각 달기</span>📍 마음에 걸리는 문장을 눌러 생각을 남겨요</h2>
+    <p class="lead">위 원문에서 <b>문장을 누르면</b> 생각 상자가 열려요. 생각의 종류를 고르고 한두 줄로 적어요. 내 생각을 하나 남기면 <b>친구들이 같은 문장에 남긴 생각</b>(이름 없이)도 볼 수 있어요.</p>
+    <div class="hllegend">${Object.entries(HLT).map(([k, t]) => `<span class="hlty t-${k}"><b>${t.i} ${t.n}</b><small>${t.d}</small></span>`).join('')}</div>
+    <div class="ctr hlbar">
+      <button type="button" class="fbtn on" data-hm="mine">✏️ 내 생각 보기</button>
+      <button type="button" class="fbtn" data-hm="heat">🔥 우리 반 열기 지도</button>
+      <button type="button" class="fbtn hlre">↻ 새로 고침</button>
+      <span class="hlme"></span>
+    </div>
+    <div class="hlins"></div>
+  </div>`;
+}
+function hlPaint(){
+  const mine = hlMine(), by = {};
+  mine.forEach(x => { by[x.s] = x.t; });
+  const A = hlAgg(), max = Math.max(1, ...Object.values(A.per).map(p => p.n));
+  $$('#pg-book .hs').forEach(el => {
+    const s = el.dataset.s, p = A.per[s];
+    el.classList.remove('m-e', 'm-a', 'm-q', 'm-c', 'sel');
+    if (by[s]) el.classList.add('m-' + by[s]);
+    if (HL.sel === s) el.classList.add('sel');
+    el.style.setProperty('--h', p ? (0.12 + 0.55 * p.n / max).toFixed(2) : 0);
+    if (p && HL.heat) el.dataset.n = p.n; else delete el.dataset.n;
+  });
+  const bk = $('#pg-book .book') && $('#pg-book'); if (bk) bk.classList.toggle('hlheat', HL.heat);
+  const me = $('#hlCard .hlme');
+  if (me) me.innerHTML = mine.length ? `내 생각 <b>${mine.length}</b>개 · ${Object.entries(HLT).map(([k, t]) => { const c = mine.filter(x => x.t === k).length; return c ? `${t.i}${c}` : ''; }).join(' ')}` : '아직 남긴 생각이 없어요';
+  hlInsight(A);
+}
+function hlInsight(A){
+  const box = $('#hlCard .hlins'); if (!box) return;
+  if (!HL.all){ box.innerHTML = ''; return; }
+  if (!A.n){ box.innerHTML = '<p class="hlnone">아직 우리 반에 남겨진 생각이 없어요. 첫 생각을 남겨 보세요!</p>'; return; }
+  const open = hlMine().length > 0;
+  const top = Object.entries(A.per).sort((a, b) => b[1].n - a[1].n).slice(0, 3);
+  const qs = []; (HL.all || []).forEach(a => a.forEach(x => { if (x.t === 'q' || x.t === 'c') qs.push(x); }));
+  box.innerHTML = `
+    <div class="hlsum"><div class="hlst"><b>${A.people}</b><small>명이</small></div><div class="hlst"><b>${A.n}</b><small>개의 생각</small></div>
+      <div class="hldist">${Object.entries(HLT).map(([k, t]) => A.ty[k] ? `<span class="t-${k}" style="flex:${A.ty[k]}" title="${t.n} ${A.ty[k]}개">${t.i} ${t.n} ${A.ty[k]}</span>` : '').join('')}</div></div>
+    <h4>🛑 우리 반이 가장 많이 멈춘 문장</h4>
+    ${top.map(([s, p], i) => `<button type="button" class="hltop" data-s="${s}"><span class="hlrk">${i + 1}</span><span class="hltx">${esc(hlSentence(s).slice(0, 90))}${hlSentence(s).length > 90 ? '…' : ''}</span>
+      <span class="hlcn">${Object.keys(HLT).map(k => p[k] ? `<i class="t-${k}">${HLT[k].i}${p[k]}</i>` : '').join('')}</span></button>`).join('')}
+    <h4>🤔 친구들의 의문 · 비판 <small>${open ? '(이름 없이)' : '— 내 생각을 하나 남기면 열려요'}</small></h4>
+    ${open ? (qs.length ? `<div class="hlqs">${qs.slice(0, 12).map(x => `<div class="hlq t-${x.t}"><b>${HLT[x.t].i} ${HLT[x.t].n}</b> ${esc(x.x)}<small>「${esc(hlSentence(x.s).slice(0, 38))}…」</small></div>`).join('')}</div>`
+      : '<p class="hlnone">아직 의문이나 비판이 없어요. 먼저 물음을 던져 보세요!</p>') : '<p class="hlnone">🔒 문장 하나에 내 생각을 남기면 친구들의 생각이 보여요.</p>'}`;
+  $$('.hltop', box).forEach(b => b.onclick = () => { const el = $(`#pg-book .hs[data-s="${b.dataset.s}"]`); if (el){ el.scrollIntoView({ behavior:'smooth', block:'center' }); setTimeout(() => hlOpen(el), 350); } });
+  tex(box);
+}
+function hlClose(){ const p = $('#hlPop'); if (p) p.remove(); HL.sel = null; $$('#pg-book .hs.sel').forEach(e => e.classList.remove('sel')); }
+function hlOpen(el){
+  hlClose();
+  const s = el.dataset.s; HL.sel = s; el.classList.add('sel');
+  const mine = hlMine(), my = mine.filter(x => x.s === s), A = hlAgg(), p = A.per[s] || { n:0 };
+  const open = mine.length > 0;
+  const others = []; (HL.all || []).forEach(a => a.forEach(x => { if (x.s === s) others.push(x); }));
+  const myKey = new Set(my.map(x => x.t + '|' + x.x)), oth = others.filter(x => !myKey.has(x.t + '|' + x.x));
+  const pop = document.createElement('div'); pop.id = 'hlPop'; pop.className = 'hlpop';
+  pop.innerHTML = `<button type="button" class="hlx" aria-label="닫기">✕</button>
+    <div class="hlsen">「${esc(hlSentence(s))}」</div>
+    ${p.n ? `<div class="hlcnt">우리 반 ${p.n}개 · ${Object.keys(HLT).map(k => p[k] ? `<i class="t-${k}">${HLT[k].i}${p[k]}</i>` : '').join(' ')}</div>` : ''}
+    ${my.length ? `<div class="hlmy">${my.map(x => `<div class="hlit t-${x.t}"><b>${HLT[x.t].i} ${HLT[x.t].n}</b> ${esc(x.x)}
+      <span class="hlact">${x.t === 'q' ? `<button type="button" class="hlask" data-x="${esc(x.x)}">❓ 질문으로 올리기</button>` : ''}<button type="button" class="hldel" data-at="${x.at}">지우기</button></span></div>`).join('')}</div>` : ''}
+    <div class="hlpick">${Object.entries(HLT).map(([k, t]) => `<button type="button" class="hlpk t-${k}${k === HL.type ? ' on' : ''}" data-t="${k}">${t.i} ${t.n}</button>`).join('')}</div>
+    <textarea maxlength="${HL_LEN}" rows="2" placeholder="${HLT[HL.type].ph}"></textarea>
+    <div class="hlrow"><small class="hlhint">${HLT[HL.type].d}</small><button type="button" class="btn main hlsv">남기기</button></div>
+    <div class="hloth">${!oth.length ? '' : open ? `<h5>친구들의 생각 (${oth.length})</h5>${oth.slice(0, 8).map(x => `<div class="hlit t-${x.t}"><b>${HLT[x.t].i} ${HLT[x.t].n}</b> ${esc(x.x)}</div>`).join('')}`
+      : `<p class="hlnone">🔒 친구 ${oth.length}명의 생각이 있어요. 내 생각을 먼저 남기면 열려요!</p>`}</div>`;
+  document.body.appendChild(pop);
+  const r = el.getBoundingClientRect(), W = Math.min(380, window.innerWidth - 20);
+  pop.style.width = W + 'px';
+  pop.style.left = Math.max(10, Math.min(window.innerWidth - W - 10, r.left + window.scrollX)) + 'px';
+  pop.style.top = (r.bottom + window.scrollY + 8) + 'px';
+  const ta = $('textarea', pop);
+  $$('.hlpk', pop).forEach(b => b.onclick = () => { HL.type = b.dataset.t; $$('.hlpk', pop).forEach(x => x.classList.toggle('on', x === b)); ta.placeholder = HLT[HL.type].ph; $('.hlhint', pop).textContent = HLT[HL.type].d; ta.focus(); });
+  $('.hlx', pop).onclick = hlClose;
+  $('.hlsv', pop).onclick = async () => {
+    const x = ta.value.trim(); if (!x){ snack('한두 줄로 생각을 적어 주세요'); ta.focus(); return; }
+    const list = hlMine().concat([{ s, t:HL.type, x:x.slice(0, HL_LEN), at:Date.now() }]);
+    if (list.length > HL_MAX) snack(`생각은 ${HL_MAX}개까지 보관돼요. 가장 오래된 생각부터 빠져요.`);
+    if (await hlSave(list)){ SND.hint(); snack(`${HLT[HL.type].i} ${HLT[HL.type].n} 생각을 남겼어요!`); await hlLoadAll(true); hlPaint(); hlOpen(el); }
+  };
+  $$('.hldel', pop).forEach(b => b.onclick = async () => { const at = +b.dataset.at; if (await hlSave(hlMine().filter(x => x.at !== at))){ await hlLoadAll(true); hlPaint(); hlOpen(el); } });
+  $$('.hlask', pop).forEach(b => b.onclick = () => {
+    const t = $('#bookAsk textarea'); if (!t) return; hlClose();
+    t.value = b.dataset.x; t.dispatchEvent(new Event('input')); t.scrollIntoView({ behavior:'smooth', block:'center' }); t.focus();
+    snack('질문 상자에 옮겼어요. 다듬어서 올려 보세요!');
+  });
+  setTimeout(() => ta.focus({ preventScroll:true }), 30);
+  tex(pop);
+}
+let _hlDoc = false;
+async function hlBind(){
+  if (!$('#hlCard')) return;
+  $$('#pg-book .hs').forEach(el => el.onclick = e => { if (String(window.getSelection && window.getSelection()).length > 2) return; e.stopPropagation(); HL.sel === el.dataset.s ? hlClose() : hlOpen(el); });
+  $$('#hlCard [data-hm]').forEach(b => b.onclick = () => { HL.heat = b.dataset.hm === 'heat'; $$('#hlCard [data-hm]').forEach(x => x.classList.toggle('on', x === b)); hlPaint(); });
+  $('#hlCard .hlre').onclick = async () => { await hlLoadAll(true); hlPaint(); snack('새로 불러왔어요'); };
+  if (!_hlDoc){ _hlDoc = true;
+    document.addEventListener('click', e => { const p = $('#hlPop'); if (p && !p.contains(e.target) && !e.target.closest('.hs')) hlClose(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') hlClose(); }); }
+  hlPaint();
+  try{ await hlLoadAll(); }catch(e){}
+  hlPaint();
+}
+
+;
+/* ===================================================================
    질문 탐구 교실 — 차시 화면 그리기 (LESSON 데이터 → 탭)
    =================================================================== */
 const REFNAME = {};
@@ -8215,7 +8470,7 @@ function pageBook(){
         <div class="bt">📖 ${B.author} · ${B.work} (${B.year})</div>
         ${narr(LESSON.code)}
         <h3>${B.heading}</h3>
-        <div class="pg">${B.passage}</div>
+        <div class="pg">${hlWrap(B.passage, 'm')}</div>
         <div class="src">${B.src}</div>
       </div>
     </div>
@@ -8225,9 +8480,11 @@ function pageBook(){
       <div class="book" style="background:linear-gradient(180deg,#fbfaff,#f3f0ff);border-color:#ddd2ff">
       <div class="bt" style="color:#7d5fe0">📖 ${B.extra.author} · ${B.extra.work} (${B.extra.year})</div>
       ${narr(LESSON.code + 'x')}
-      <h3>${B.extra.heading}</h3><div class="pg">${B.extra.passage}</div><div class="src">${B.extra.src}</div></div></div>` : ''}
+      <h3>${B.extra.heading}</h3><div class="pg">${hlWrap(B.extra.passage, 'x')}</div><div class="src">${B.extra.src}</div></div></div>` : ''}
     ${B.glossary ? `<div class="tip">📝 <b>읽기 도움말</b><br>${B.glossary}</div>` : ''}
   </div>
+
+  ${hlCard()}
 
   <div class="card">
     <h2><span class="chip">1단계 · 질문 만들기</span>이 글을 읽고 떠오른 질문</h2>
@@ -8620,6 +8877,7 @@ function bootPages(){
     pl.appendChild(makeCard(p));
   });
   // 책
+  hlBind(); FORMS.push({ host:document.createElement('div'), item:'hl', onLoad:() => hlPaint() });
   mountComposer($('#bookAsk'), { kind:'book', ref:'book', refLabel:'책 속 질문', chips:L.book.chips || L.concepts, max:6,
     ph:'이 글에 대해 떠오르는 질문 (수학과 연결되면 더 좋아요)' });
   L.book.talk.forEach((t,i) => {
@@ -8898,9 +9156,26 @@ function tDebate(V){
       return `<tr><td>${esc(r.student_no)} ${esc(r.name || '')}</td><td>${STN[r.body.stance] || '-'}</td><td class="wrap">${esc(r.body.reason)}</td>
       <td class="wrap">${esc(r.body.rebut)}</td><td class="wrap">${esc(r.body.ask)}</td><td class="wrap">${a ? (STN[a.body.stance] || '') + '<br>' + esc(a.body.change) : '-'}</td></tr>`; }).join('') || '<tr><td colspan="6">아직 없어요</td></tr>'}
     </table></div>
+    ${tHL()}
     <h3 style="margin-top:16px">💭 토의 답변</h3>
     <div class="tscroll"><table class="tt"><tr><th>질문</th><th>학생</th><th>생각</th></tr>
     ${talks.map(r => `<tr><td>${r.item.replace('talk','Q')}</td><td>${esc(r.student_no)} ${esc(r.name || '')}</td><td class="wrap">${esc(r.body.a)}</td></tr>`).join('') || '<tr><td colspan="3">아직 없어요</td></tr>'}</table></div>`;
+}
+/* 📍 문장에 생각 달기 — 문장별 열기 · 유형 분포 · 학생별 생각 */
+function tHL(){
+  const H = RESP('hl').filter(r => Array.isArray(r.body.a) && r.body.a.length);
+  if (!H.length) return '<h3 style="margin-top:16px">📍 문장에 생각 달기</h3><p class="lead">아직 문장에 생각을 남긴 학생이 없어요.</p>';
+  const per = {}, ty = { e:0, a:0, q:0, c:0 }; let n = 0;
+  H.forEach(r => r.body.a.forEach(x => { if (!HLT[x.t]) return; n++; ty[x.t]++; const p = per[x.s] = per[x.s] || { n:0, e:0, a:0, q:0, c:0 }; p.n++; p[x.t]++; }));
+  const top = Object.entries(per).sort((a, b) => b[1].n - a[1].n).slice(0, 5);
+  const rows = []; H.forEach(r => r.body.a.forEach(x => rows.push({ r, x })));
+  rows.sort((a, b) => (a.x.s > b.x.s ? 1 : a.x.s < b.x.s ? -1 : 0) || a.x.at - b.x.at);
+  return `<h3 style="margin-top:16px">📍 문장에 생각 달기 <small style="font-weight:700;color:#8a82ad">${H.length}명 · ${n}개</small></h3>
+    <div class="tiles">${Object.entries(HLT).map(([k, t]) => `<div class="tile"><div class="k">${t.i} ${t.n}</div><div class="v">${ty[k]}</div></div>`).join('')}</div>
+    <div class="tscroll"><table class="tt"><tr><th>순위</th><th>가장 많이 멈춘 문장 (토의 후보)</th><th>생각</th><th>유형</th></tr>
+    ${top.map(([s, p], i) => `<tr><td>${i + 1}</td><td class="wrap">${esc(hlSentence(s))}</td><td>${p.n}</td><td>${Object.keys(HLT).map(k => p[k] ? HLT[k].i + p[k] : '').join(' ')}</td></tr>`).join('')}</table></div>
+    <div class="tscroll" style="margin-top:8px"><table class="tt"><tr><th>학생</th><th>문장</th><th>유형</th><th>생각</th></tr>
+    ${rows.map(({ r, x }) => `<tr><td>${esc(r.student_no)} ${esc(r.name || '')}</td><td class="wrap" style="max-width:280px">${esc(hlSentence(x.s).slice(0, 60))}</td><td>${(HLT[x.t] || {}).i || ''} ${(HLT[x.t] || {}).n || ''}</td><td class="wrap">${esc(x.x)}</td></tr>`).join('')}</table></div>`;
 }
 function tReflect(V){
   const F = RESP('reflect');
@@ -8929,7 +9204,7 @@ function tProbs(V){
       || '<tr><td colspan="6">아직 기록이 없어요</td></tr>'}</table></div>`;
 }
 /* ---------- ☁️ 워드클라우드 · 빈도 · 단어 연결망 (영역별 · 반별) ---------- */
-const TSRC = [['all','💬 전체 질문'],['concept','🧠 개념'],['problem','✏️ 문제'],['life','🌍 실생활'],['book','📚 책 속'],['free','🔒 자유 질문방'],['gq','👥 소그룹 질문·해결'],['gchat','👥 소그룹 토론·결과'],['talk','💭 토의'],['debate','⚖️ 토론'],['reflect','🪞 성찰']];
+const TSRC = [['all','💬 전체 질문'],['concept','🧠 개념'],['problem','✏️ 문제'],['life','🌍 실생활'],['book','📚 책 속'],['free','🔒 자유 질문방'],['gq','👥 소그룹 질문·해결'],['gchat','👥 소그룹 토론·결과'],['talk','💭 토의'],['hl','📍 문장 생각'],['debate','⚖️ 토론'],['reflect','🪞 성찰']];
 let tSrc = 'all', tMath = false;
 function tTexts(src, D){
   const Q = (D.posts || []).filter(p => p.kind !== 'reply' && !p.hidden), RS = f => (D.responses || []).filter(r => f(r.item));
@@ -8938,6 +9213,7 @@ function tTexts(src, D){
   if (src === 'gq') return (D.gposts || []).filter(g => g.kind === 'q' || g.kind === 'r').map(g => g.body);
   if (src === 'gchat') return (D.gposts || []).filter(g => g.kind === 'chat' || g.kind === 'result').map(g => g.data && g.data.how ? [g.data.q, g.data.how, g.data.ans].join(' ') : g.body);
   if (src === 'talk') return RS(i => /^talk\d$/.test(i)).map(r => r.body.a || '');
+  if (src === 'hl') return RS(i => i === 'hl').flatMap(r => (Array.isArray(r.body.a) ? r.body.a : []).map(x => x.x || ''));
   if (src === 'debate') return RS(i => i === 'debate').map(r => [r.body.reason, r.body.rebut, r.body.ask].filter(Boolean).join(' '))
     .concat(RS(i => i === 'debate_after').map(r => r.body.change || ''));
   if (src === 'reflect') return RS(i => i === 'reflect').map(r => ['core','myq','s3','s2','s1','m1','m2','m3'].map(k => r.body[k] || '').join(' '));
@@ -8999,13 +9275,14 @@ function tFreqCSV(){
       s2.freq.slice(0, 100).forEach(([w, n], i) => rows.push([TL, cn, t.replace(/^\S+\s/, ''), i + 1, w, n, s2.df[w], s2.docs])); }));
   csvDown(rows, `낱말빈도_${TL}.csv`);
 }
-const RESPNAME = it => /^talk\d$/.test(it) ? '토의' : it === 'debate' ? '토론' : it === 'debate_after' ? '토론 후' : it === 'reflect' ? '성찰' : it === 'poly' ? '폴리그래프' : '응답';
+const RESPNAME = it => /^talk\d$/.test(it) ? '토의' : it === 'debate' ? '토론' : it === 'debate_after' ? '토론 후' : it === 'reflect' ? '성찰' : it === 'poly' ? '폴리그래프' : it === 'hl' ? '문장 생각' : '응답';
 function tCSV(){
   const lines = [['종류','차시','반','시간','학번','이름','항목','수준','유형','내용','공감','선생님답변']];
   (TD.posts || []).forEach(p => lines.push([KINDS[p.kind] || (p.kind === 'reply' ? '답글' : p.kind), TL, clsOf(p.student_no), p.created_at, p.student_no, p.name,
     (p.ref ? tRef(p.ref) : '') || (p.parent_id ? '답글→' + p.parent_id : ''), LVS[p.level] || '', p.qtype || '', p.body, p.votes, p.teacher_reply || '']));
   (TD.responses || []).forEach(r => lines.push([RESPNAME(r.item), TL, clsOf(r.student_no), r.updated_at, r.student_no, r.name, r.item, '', '',
-    Object.entries(r.body).map(([k,v]) => `${k}: ${v}`).join(' | '), '', '']));
+    r.item === 'hl' && Array.isArray(r.body.a) ? r.body.a.map(x => `[${(HLT[x.t] || {}).n || x.t}] 「${hlSentence(x.s).slice(0, 40)}」 ${x.x}`).join(' | ')
+      : Object.entries(r.body).map(([k,v]) => `${k}: ${v}`).join(' | '), '', '']));
   (TD.attempts || []).forEach(a => lines.push(['문제풀이', TL, clsOf(a.student_no), a.at, a.student_no, a.name, tRef(a.problem_id), '', '', a.solved ? '해결' : '미해결', a.tries, '']));
   const csv = '﻿' + lines.map(r => r.map(v => `"${String(v == null ? '' : v).replace(/"/g,'""')}"`).join(',')).join('\r\n');
   const a = document.createElement('a');
