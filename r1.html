@@ -1445,6 +1445,10 @@ html.fslock,html.fslock body{overflow:hidden}
 .bkread .lab{margin-top:14px}
 .bkread .figbox svg,.bkread .lab svg{display:block;margin:0 auto;font-family:Pretendard,system-ui,sans-serif}
 
+.bkread figure.bkph{margin:14px auto 18px;max-width:760px}
+.bkread figure.bkph img{max-height:none;aspect-ratio:16/9;object-fit:cover}
+.bkread figure.bkph figcaption{position:static;display:block;background:none;color:#5b6478;font:600 .8rem/1.45 Pretendard,system-ui,sans-serif;text-align:center;padding:8px 12px 10px;border-radius:0}
+
 /* ===================================================================
    교과서 스타일 + 입체감 + 큰 글씨 · 큰 수식
    =================================================================== */
@@ -1775,7 +1779,17 @@ var IMG = {
   r1_book:'hf_20261105_151922_01251d8d-ffb2-4842-846d-1dfb1efe4cb7.webp',
   r2_book:'hf_20261105_151922_2266d2c2-c93f-4ba8-a4a1-9a12714f6739.webp',
   r3_book:'hf_20261105_151922_89461997-c2b8-4fba-9fb3-ee7fc6160b2d.webp',
-  r3_book2:'hf_20261105_151933_cccafe1d-2a45-4f92-914a-101a25fbabc2.webp'
+  r3_book2:'hf_20261105_151933_cccafe1d-2a45-4f92-914a-101a25fbabc2.webp',
+  /* 21차 · 「📗 함께 읽기」 장면 (GPT Image 2.6, 2026-11-21) */
+  r1_rd1:'hf_20261121_092727_2d2c9ac7-8a10-49ba-8a71-30c5c28716ab.png',
+  r1_rd2:'hf_20261121_092726_aae700da-7584-4583-85e2-26ba0ac143f0.png',
+  r1_rd3:'hf_20261121_092727_4ad64d13-73c8-4e21-87f4-8697bcdc5d48.png',
+  r2_rd1:'hf_20261121_092726_e2d5c888-a8f1-4104-a73b-28fc54175bc9.png',
+  r2_rd2:'hf_20261121_092726_a9288e5b-8d51-495e-b936-897153f33c67.png',
+  r2_rd3:'hf_20261121_092726_3f50a35a-5615-4db2-b703-ad92367138f2.png',
+  r3_rd1:'hf_20261121_094631_3f885c47-7239-495c-b72b-4b47251a9aa3.png',
+  r3_rd2:'hf_20261121_092806_6fe81c57-3490-49e1-a247-9adb34d01cfd.png',
+  r3_rd3:'hf_20261121_092726_8da4644b-81bd-4a42-af4f-8ec57def1907.png'
 };
 Object.keys(IMG).forEach(k => IMG[k] = IMG_BASE + IMG[k]);
 
@@ -2712,6 +2726,31 @@ const LESSON = {
     passage:`<p>운동에 관한 제논의 논증은 넷인데, 이것들이 많은 사람을 곤란하게 만든다. 첫째는 「이분법」이라 불리는 것으로, 움직이는 것은 목적지에 닿기 전에 반드시 그 절반 지점에 먼저 닿아야 하므로 운동은 존재하지 않는다는 주장이다.</p>
       <p>둘째는 이른바 「아킬레스」이다. 그 내용은 이렇다. 달리기에서 가장 느린 자는 가장 빠른 자에게 결코 따라잡히지 않는다. 쫓는 자는 먼저, 쫓기는 자가 출발한 지점에 닿아야 하기 때문이다. 그러므로 느린 자는 언제나 조금이라도 앞서 있을 수밖에 없다.</p>`,
     src:'출처 : Aristotle, <i>Physica</i> VI.9, 239b. 고대 그리스어 원문(저작권 소멸)을 수업용으로 우리말로 옮김. 아리스토텔레스는 이 논증이 틀렸다고 반박했다.',
+    read:{ author:'장영민', work:'『청소년을 위한 최소한의 수학 2』 Day 24 「극한의 이해」', year:'궁리, 2016 · 222~225쪽',
+      heading:'제논의 역설과 극한 — 화살은 과녁에 닿을 수 있을까?',
+      note:'📌 이 글은 책의 문장을 그대로 옮긴 것이 아니라, 선생님이 책의 내용(대화 · 그림 · 식)을 쪽 순서대로 다시 정리한 거예요. 책 222쪽을 함께 펴 놓고 읽어요. 그림도 책 그림이 아니라 같은 내용을 새로 그린 거예요.',
+      lab:'arrow',
+      passage:`<h4>① 「접근한다」는 것 (222쪽)</h4>
+<div class="bkimg" data-img="r1_rd1" data-cap="아빠와 우식이가 「한없이 가까워지는 점」을 이야기하는 장면"></div>
+<p>책은 불량 아빠와 우식이의 대화로 극한을 설명해요. 아빠는 \\(x\\to0\\), \\(a\\to3\\), \\(x\\to\\infty\\)처럼 어떤 수에 끝없이 가까이 다가가는 것을 「접근」이라고 부르고, 우리 눈에는 같아 보여도 실제로는 다를 수 있다고 말해요. 그리고 \\(1-0.999\\cdots\\)가 우리가 사는 차원에서는 0이지만 0이 아닌 다른 차원이 있다는 비유를 들어요.</p>
+<h4>② 오차범위로 문제를 푸는 방법 (222쪽)</h4>
+<p>이어서 책은 오차범위를 정해 놓고 그 안에 들어오면 같다고 보는 방법이 생활 곳곳에 있다고 소개해요. 저울로 무게를 잴 때, 컴퓨터 프린트와 비디오 파일, 그리고 사람이 들을 수 있는 소리만 남기고 나머지를 줄여 저장하는 MP3 파일이 그 예예요. 세상에는 정확히 맞아떨어지는 것보다 범위 안에서 비슷하게 움직이는 것이 더 많다는 것이 아빠의 설명이에요.</p>
+<h4>③ 제논과 피타고라스 학파 (222~223쪽)</h4>
+<div class="bkimg" data-img="r1_rd2" data-cap="제논이 날아가는 화살과 반씩 줄어드는 거리를 가리키는 장면"></div>
+<p>책에 따르면 피타고라스 학파는 시간과 공간이 더 이상 나눌 수 없을 만큼 작은 순간과 점으로 이루어져 있고, 이것을 정수와 분수로 나타낼 수 있다고 주장했어요. 고대 그리스의 철학자 제논은 이 생각에 반박하기 위해 화살 이야기를 질문으로 던졌어요.</p>
+<h4>④ 화살은 과녁에 닿을 수 있을까? (223쪽)</h4>
+<p>화살이 A 지점에서 거리 1만큼 떨어진 B 지점으로 날아간다고 해요. 화살은 먼저 절반인 \\(\\frac12\\)을 지나야 하고, 다음에는 남은 거리의 절반인 \\(\\frac14\\), 그다음에는 \\(\\frac18\\), \\(\\frac1{16}\\), \\(\\frac1{32}\\), … 을 지나야 해요. 제논은 이 과정을 끝없이 되풀이해도 화살은 1에 닿지 못한다고 물었어요.</p>
+<div class="figbox" data-fig="arrowFig"></div>
+<p>화살의 움직임을 식으로 쓰면 다음과 같아요.</p>
+<div class="fml">\\[\\frac12+\\frac14+\\frac18+\\frac1{16}+\\frac1{32}+\\frac1{64}+\\cdots\\]</div>
+<h4>⑤ 2000년이 넘게 걸린 답 (224쪽)</h4>
+<p>책은 피타고라스 학파가 이 질문에 답하지 못했고, 그 뒤 그리스 수학자들은 무한을 아예 없는 것처럼 다루기 시작했다고 해요. 시간과 공간은 점이 아니라 연속이라거나, 무한한 점과 빈 공간이 섞여 있다는 여러 설명이 나왔지만 제대로 증명하지는 못했다고 해요.</p>
+<p>아빠는 이 이야기가 앞에서 다룬 \\(1=0.999\\cdots\\)와 이어진다고 말해요. 화살이 과녁에 닿는다는 것은 경험으로 알지만, 그것을 논리로 설명하는 연결고리를 만든 것이 극한의 개념이라는 거예요. 책은 오차범위를 정하고 그 안에 화살이 들어오면 1만큼 갔다고 하면 된다고 설명해요.</p>
+<p>책은 제논이 이 문제를 기원전 4세기에 냈고, 1800년대에 이르러서야 코시의 극한을 통해 움직이는 것을 수학으로 설명할 수 있게 되었다고 마무리해요.</p>
+<h4>⑥ 퇴근길의 농담 (225쪽)</h4>
+<div class="bkimg" data-img="r1_rd3" data-cap="목적지가 코앞인데 닿지 못하는 퇴근길"></div>
+<p>그날 저녁 꽉 막힌 퇴근길에서 아빠는 음식점이 코앞에 보이는데 차가 움직이지 않자 「바로 눈앞에 목적지가 보이지만 절대 거기에 도달하지 못한다」는 농담을 떠올려요. 그리고 오차범위를 만들어 다 온 것이라 생각하고 마음 편히 안전 운전을 하자고 말해요.</p>`,
+      src:'출처 : 장영민, 『청소년을 위한 최소한의 수학 2』(궁리, 2016) Day 24, 222~225쪽의 내용을 수업용으로 다시 정리함.' },
     glossary:'이분법 = 남은 거리의 절반, 또 그 절반 … 을 끝없이 지나야 한다는 논증. 남은 거리 \\(1,\\ \\frac12,\\ \\frac14,\\ \\cdots\\)는 0에 한없이 가까워져요 — 마치 점근선처럼!',
     chips:['점근선','무한','거리','시간','반비례','한없이','제논','아킬레스'],
     talk:['제논의 「이분법」에서 남은 거리를 \\(y\\), 지난 단계 수를 \\(x\\)라 하면 어떤 그래프가 될까요? 그 그래프의 점근선은?',
@@ -2737,6 +2776,7 @@ const LESSON = {
     {k:'읽기 자료', t:'위키백과 「보일의 법칙」', u:'https://ko.wikipedia.org/wiki/보일의_법칙', d:'압력과 부피의 반비례'}
   ],
   books:[
+    {t:'청소년을 위한 최소한의 수학 2', a:'장영민', d:'Day 24 「극한의 이해」 222~225쪽 — 책 탭 「함께 읽기」를 책과 함께 읽어요.'},
     {t:'미적분의 힘', a:'스티븐 스트로가츠', d:'제논의 역설에서 시작해 무한을 길들인 수학 이야기'},
     {t:'X의 즐거움', a:'스티븐 스트로가츠', d:'분수·비례·그래프를 일상의 언어로'},
     {t:'수학이 필요한 순간', a:'김민형', d:'무한과 극한에 대한 질문을 생각하는 법'}
@@ -8093,6 +8133,119 @@ LABS.brake = host => {
   draw();
 };
 
+/* ===================================================================
+   📗 함께 읽기 (r1) — 『청소년을 위한 최소한의 수학 2』 Day 24 : 화살과 점근선
+   =================================================================== */
+LABS.arrowFig = host => {
+  const W = 600, L = 40, R = 430, X = t => L + (R - L) * t, rows = 5;
+  let s = `<svg viewBox="0 0 ${W} 250" role="img" aria-label="남은 거리의 절반씩 나아가는 화살" style="width:100%;max-width:${W}px">
+    <defs><marker id="arH" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto"><path d="M0,0L10,5L0,10z" fill="#1b3f6b"/></marker></defs>`;
+  let a = 0;
+  for (let i = 0; i < rows; i++){
+    const y = 30 + i * 42, b = a + (1 - a) / 2;
+    s += `<line x1="${X(0)}" y1="${y}" x2="${X(1)}" y2="${y}" stroke="#9cc3ef" stroke-width="2"/>
+      <rect x="${X(0) - 18}" y="${y - 12}" width="18" height="24" fill="#fff" stroke="#1b3f6b"/><text x="${X(0) - 9}" y="${y + 5}" text-anchor="middle" font-size="13" font-weight="800">A</text>
+      <rect x="${X(1)}" y="${y - 12}" width="18" height="24" fill="#fff" stroke="#1b3f6b"/><text x="${X(1) + 9}" y="${y + 5}" text-anchor="middle" font-size="13" font-weight="800">B</text>
+      ${a > 0 ? `<line x1="${X(0)}" y1="${y}" x2="${X(a)}" y2="${y}" stroke="#2a7fd4" stroke-width="4" opacity=".35"/>` : ''}
+      <line x1="${X(a)}" y1="${y}" x2="${X(b)}" y2="${y}" stroke="#1b3f6b" stroke-width="4" marker-end="url(#arH)"/>
+      <text x="${X(1) + 30}" y="${y + 5}" font-size="13" font-weight="800" fill="#1b3f6b">+1/${2 ** (i + 1)}</text>
+      <text x="${X(1) + 80}" y="${y + 5}" font-size="12" fill="#8a7fa3">남은 거리 1/${2 ** (i + 1)}</text>`;
+    a = b;
+  }
+  s += `<text x="${W / 2}" y="242" text-anchor="middle" font-size="13" font-weight="700" fill="#35506e">⋯ 남은 거리의 절반씩 나아가기를 끝없이 되풀이한다</text></svg>`;
+  host.innerHTML = s;
+};
+
+LABS.arrow = host => {
+  host.innerHTML = `<div style="font-weight:900">🏹 화살과 점근선 실험실 — 절반씩 나아가기를 직접 늘려 보기</div>
+    <div style="display:flex;gap:6px;flex-wrap:wrap;margin:6px 0"><button type="button" class="fbtn" data-cmp="1">📈 y = 1/x 와 함께 보기</button></div>`;
+  const V = sliders(host, [{ k:'n', l:'단계 n', min:1, max:20, s:1, v:4 }], () => draw());
+  const bar = document.createElement('div'), pl = document.createElement('div'), out = document.createElement('div');
+  out.className = 'out'; host.append(bar, pl, out);
+  let cmp = false;
+  host.querySelector('[data-cmp]').onclick = e => { cmp = !cmp; e.currentTarget.classList.toggle('on', cmp); draw(); };
+  function draw(){
+    const n = V.n, S = 1 - 2 ** -n, W = 600, X = t => 30 + 540 * t;
+    let segs = '', a = 0;
+    for (let i = 1; i <= Math.min(n, 12); i++){ const b = 1 - 2 ** -i; segs += `<rect x="${X(a)}" y="20" width="${Math.max(0.6, X(b) - X(a) - 1)}" height="18" fill="${i % 2 ? '#2a7fd4' : '#14a88f'}"/>`; a = b; }
+    bar.innerHTML = `<svg viewBox="0 0 ${W} 62" style="width:100%;max-width:${W}px" role="img" aria-label="화살이 간 거리">
+      <rect x="${X(0)}" y="20" width="540" height="18" fill="#eef3fa" stroke="#9cc3ef"/>${segs}
+      <text x="${X(0)}" y="56" font-size="12" font-weight="800">A (0)</text><text x="${X(1)}" y="56" text-anchor="end" font-size="12" font-weight="800">B (1)</text>
+      <text x="${X(S)}" y="14" text-anchor="${S > 0.8 ? 'end' : 'middle'}" font-size="12" font-weight="800" fill="#1b3f6b">🏹 ${S.toFixed(6)}</text></svg>`;
+    /* 그래프 : 단계 k → 남은 거리 1/2^k (점), 비교 곡선 y = 1/x */
+    const GW = 480, GH = 260, L = 40, T = 12, PW = GW - L - 12, PH = GH - T - 34, XM = 20, YM = 1;
+    const sx = x => L + x / XM * PW, sy = y => T + PH - y / YM * PH;
+    let pts = ''; for (let k = 0; k <= n; k++) pts += `<circle cx="${sx(k)}" cy="${sy(2 ** -k)}" r="4" fill="#ef6a2a"/>`;
+    let cur = ''; if (cmp){ let d = ''; for (let i = 0; i <= 200; i++){ const x = 1 + 19 * i / 200; d += (d ? 'L' : 'M') + sx(x).toFixed(1) + ',' + sy(1 / x).toFixed(1); } cur = `<path d="${d}" fill="none" stroke="#7d3fd8" stroke-width="2.4"/><text x="${sx(14)}" y="${sy(1 / 14) - 10}" font-size="12" font-weight="800" fill="#7d3fd8">y = 1/x</text>`; }
+    let ax = ''; for (let x = 0; x <= XM; x += 5) ax += `<text x="${sx(x)}" y="${T + PH + 14}" font-size="10" text-anchor="middle" fill="#8a7fa3">${x}</text>`;
+    [0, 0.5, 1].forEach(y => { ax += `<text x="${L - 6}" y="${sy(y) + 4}" font-size="10" text-anchor="end" fill="#8a7fa3">${y}</text>`; });
+    pl.innerHTML = `<svg viewBox="0 0 ${GW} ${GH}" style="width:100%;max-width:${GW}px;background:#fff;border-radius:12px" role="img" aria-label="남은 거리 그래프">
+      <line x1="${L}" y1="${T + PH}" x2="${L + PW}" y2="${T + PH}" stroke="#4a3f5c"/><line x1="${L}" y1="${T}" x2="${L}" y2="${T + PH}" stroke="#4a3f5c"/>${ax}
+      <text x="${L + PW}" y="${GH - 4}" text-anchor="end" font-size="12" font-weight="700">단계 (또는 x)</text>
+      <text x="${L + PW}" y="${T + 12}" text-anchor="end" font-size="12" font-weight="700" fill="#ef6a2a">● 남은 거리 1/2ⁿ</text>${cur}${pts}</svg>`;
+    out.innerHTML = `${n}단계 : 간 거리 \\(\\frac12+\\frac14+\\cdots+\\frac1{2^{${n}}}=1-\\frac1{2^{${n}}}\\approx ${S.toFixed(6)}\\), 남은 거리 \\(\\frac1{2^{${n}}}\\approx ${(2 ** -n).toPrecision(3)}\\) ·
+      첫 단계에 1초가 걸리고 속력이 일정하면 걸린 시간 \\(1+\\frac12+\\cdots=${(2 - 2 ** (1 - n)).toFixed(6)}\\)초`;
+    tex(out);
+  }
+  draw();
+};
+
+/* ===================================================================
+   📗 함께 읽기 (r2) — 『과학공화국 수학법정 7』 : 평균 속력으로 승부를 내는 경기
+   =================================================================== */
+LABS.tripFig = host => {
+  host.innerHTML = `<svg viewBox="0 0 560 230" role="img" aria-label="산을 왕복하는 길과 걸린 시간" style="width:100%;max-width:560px">
+    <defs><marker id="trA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0L10,5L0,10z" fill="#2a7fd4"/></marker>
+      <marker id="trB" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0L10,5L0,10z" fill="#ef6a2a"/></marker></defs>
+    <path d="M40,200 L280,40 L520,200 Z" fill="#e8f2e4" stroke="#7aa86a" stroke-width="2"/>
+    <line x1="70" y1="170" x2="250" y2="50" stroke="#2a7fd4" stroke-width="3" marker-end="url(#trA)"/>
+    <line x1="310" y1="50" x2="490" y2="170" stroke="#ef6a2a" stroke-width="3" marker-end="url(#trB)"/>
+    <text x="40" y="70" font-size="14" font-weight="800" fill="#2a7fd4">오르막 s m</text><text x="40" y="90" font-size="13" fill="#2a7fd4">초속 5 m → 시간 s/5</text>
+    <text x="400" y="70" font-size="14" font-weight="800" fill="#ef6a2a">내리막 s m</text><text x="400" y="90" font-size="13" fill="#ef6a2a">초속 20 m → 시간 s/20</text>
+    <text x="280" y="28" text-anchor="middle" font-size="13" font-weight="800">🚩 정상</text>
+    <text x="280" y="222" text-anchor="middle" font-size="14" font-weight="900" fill="#7d3fd8">평균 속력 = 전체 거리 2s ÷ 전체 시간 (s/5 + s/20)</text></svg>`;
+};
+
+LABS.trip = host => {
+  host.innerHTML = `<div style="font-weight:900">🚴 왕복 평균 속력 실험실 — 올 때 아무리 빨라도?</div>`;
+  const V = sliders(host, [
+    { k:'a', l:'갈 때(오르막) 속력 a (m/s)', min:1, max:20, s:0.5, v:5 },
+    { k:'b', l:'올 때(내리막) 속력 b (m/s)', min:1, max:60, s:1, v:20 },
+    { k:'s', l:'편도 거리 s (m)', min:100, max:3000, s:100, v:1000 }
+  ], () => draw());
+  const line = document.createElement('div'), pl = document.createElement('div'), out = document.createElement('div');
+  out.className = 'out'; host.append(line, pl, out);
+  function draw(){
+    const a = V.a, b = V.b, s = V.s, H = 2 * a * b / (a + b), G = Math.sqrt(a * b), A = (a + b) / 2, t1 = s / a, t2 = s / b;
+    /* 세 평균 수직선 */
+    const M = Math.max(a, b) * 1.05, W = 600, X = v => 30 + 540 * v / M;
+    line.innerHTML = `<svg viewBox="0 0 ${W} 78" style="width:100%;max-width:${W}px" role="img" aria-label="세 평균의 크기 비교">
+      <line x1="30" y1="40" x2="570" y2="40" stroke="#4a3f5c"/>
+      ${[[a, 'a', '#2a7fd4'], [b, 'b', '#ef6a2a']].map(([v, t, c]) => `<circle cx="${X(v)}" cy="40" r="5" fill="${c}"/><text x="${X(v)}" y="62" text-anchor="middle" font-size="12" font-weight="800" fill="${c}">${t} = ${v}</text>`).join('')}
+      <line x1="${X(H)}" y1="22" x2="${X(H)}" y2="40" stroke="#7d3fd8" stroke-width="3"/><text x="${X(H)}" y="16" text-anchor="middle" font-size="11" font-weight="900" fill="#7d3fd8">조화 ${H.toFixed(2)}</text>
+      <line x1="${X(G)}" y1="40" x2="${X(G)}" y2="56" stroke="#14a88f" stroke-width="3"/><text x="${X(G)}" y="74" text-anchor="middle" font-size="11" font-weight="900" fill="#14a88f">기하 ${G.toFixed(2)}</text>
+      <line x1="${X(A)}" y1="22" x2="${X(A)}" y2="40" stroke="#b0862a" stroke-width="3"/><text x="${X(A) + (Math.abs(A - H) / M < .12 ? 34 : 0)}" y="16" text-anchor="middle" font-size="11" font-weight="900" fill="#b0862a">산술 ${A.toFixed(2)}</text></svg>`;
+    /* 그래프 : 올 때 속력 x → 평균 v(x) = 2ax/(x+a), 점근선 v = 2a */
+    const GW = 480, GH = 260, L = 40, T = 12, PW = GW - L - 12, PH = GH - T - 34, XM = 60, YM = Math.ceil(2 * a * 1.1 / 5) * 5;
+    const sx = x => L + x / XM * PW, sy = y => T + PH - y / YM * PH;
+    let d = ''; for (let i = 0; i <= 240; i++){ const x = 0.25 + (XM - 0.25) * i / 240; d += (d ? 'L' : 'M') + sx(x).toFixed(1) + ',' + sy(2 * a * x / (x + a)).toFixed(1); }
+    let ax = ''; for (let x = 0; x <= XM; x += 10) ax += `<text x="${sx(x)}" y="${T + PH + 14}" font-size="10" text-anchor="middle" fill="#8a7fa3">${x}</text>`;
+    for (let y = 0; y <= YM; y += YM > 20 ? 10 : 5) ax += `<text x="${L - 6}" y="${sy(y) + 4}" font-size="10" text-anchor="end" fill="#8a7fa3">${y}</text>`;
+    pl.innerHTML = `<svg viewBox="0 0 ${GW} ${GH}" style="width:100%;max-width:${GW}px;background:#fff;border-radius:12px" role="img" aria-label="올 때 속력과 평균 속력의 그래프">
+      <line x1="${L}" y1="${T + PH}" x2="${L + PW}" y2="${T + PH}" stroke="#4a3f5c"/><line x1="${L}" y1="${T}" x2="${L}" y2="${T + PH}" stroke="#4a3f5c"/>${ax}
+      <line x1="${L}" y1="${sy(2 * a)}" x2="${L + PW}" y2="${sy(2 * a)}" stroke="#ef6a2a" stroke-dasharray="6 4" stroke-width="2"/>
+      <text x="${L + PW - 4}" y="${sy(2 * a) - 6}" text-anchor="end" font-size="12" font-weight="800" fill="#ef6a2a">점근선 v = 2a = ${2 * a}</text>
+      <path d="${d}" fill="none" stroke="#7d3fd8" stroke-width="2.6"/><circle cx="${sx(b)}" cy="${sy(H)}" r="5" fill="#7d3fd8"/>
+      <text x="${L + PW}" y="${GH - 4}" text-anchor="end" font-size="12" font-weight="700">올 때 속력 x (m/s)</text>
+      <text x="${L + 6}" y="${T + 12}" font-size="12" font-weight="700">평균 속력</text></svg>`;
+    out.innerHTML = `걸린 시간 : 오르막 \\(\\frac{${s}}{${a}}\\approx ${t1.toFixed(1)}\\)초, 내리막 \\(\\frac{${s}}{${b}}\\approx ${t2.toFixed(1)}\\)초 ·
+      평균 속력 \\(\\frac{2\\times${s}}{${t1.toFixed(1)}+${t2.toFixed(1)}}=\\frac{2ab}{a+b}\\approx ${H.toFixed(2)}\\) m/s ·
+      올 때 속력을 아무리 키워도 평균은 \\(2a=${2 * a}\\)에 다가가기만 해요.`;
+    tex(out);
+  }
+  draw();
+};
+
 ;
 /* ===================================================================
    📍 문장에 생각 달기 — 책 속 원문의 문장을 골라 공감 · 분석 · 의문 · 비판으로 생각을 남긴다
@@ -8299,6 +8452,13 @@ const IMGS = (typeof IMG !== 'undefined') ? IMG : {};
 function photo(key, side, cap){
   const u = IMGS[key]; if (!u) return '';
   return `<figure class="ph${side ? ' side' : ''} tilt"><img src="${u}" alt="" loading="lazy" onerror="this.parentNode.style.display='none'"><figcaption>${cap || 'AI 생성 이미지'}</figcaption></figure>`;
+}
+/* 「함께 읽기」 글 속 그림 자리 : <div class="bkimg" data-img="키" data-cap="설명"></div> */
+function bkImgs(html){
+  return html.replace(/<div class="bkimg" data-img="([^"]+)" data-cap="([^"]*)"><\/div>/g, (m, k, c) => {
+    const u = IMGS[k]; if (!u) return '';
+    return `<figure class="ph bkph tilt"><img src="${u}" alt="${c}" loading="lazy" onerror="this.parentNode.style.display='none'"><figcaption>AI 생성 이미지 · ${c}</figcaption></figure>`;
+  });
 }
 function bindTilt(root){
   $$('.tilt, .scene .stage', root || document).forEach(el => {
@@ -8578,7 +8738,7 @@ function pageBook(){
       <div class="bt">📗 함께 읽기 · ${B.read.author} · ${B.read.work} (${B.read.year})</div>
       <h3>${B.read.heading}</h3>
       <div class="bnote2">${B.read.note}</div>
-      <div class="pg">${hlWrap(B.read.passage, 'y')}</div>
+      <div class="pg">${bkImgs(hlWrap(B.read.passage, 'y'))}</div>
       ${B.read.lab ? `<div class="lab" data-lab="${B.read.lab}"></div>` : ''}
       <div class="src">${B.read.src}</div></div>` : ''}
     ${B.glossary ? `<div class="tip">📝 <b>읽기 도움말</b><br>${B.glossary}</div>` : ''}

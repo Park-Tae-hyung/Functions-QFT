@@ -1434,6 +1434,10 @@ html.fslock,html.fslock body{overflow:hidden}
 .bkread .lab{margin-top:14px}
 .bkread .figbox svg,.bkread .lab svg{display:block;margin:0 auto;font-family:Pretendard,system-ui,sans-serif}
 
+.bkread figure.bkph{margin:14px auto 18px;max-width:760px}
+.bkread figure.bkph img{max-height:none;aspect-ratio:16/9;object-fit:cover}
+.bkread figure.bkph figcaption{position:static;display:block;background:none;color:#5b6478;font:600 .8rem/1.45 Pretendard,system-ui,sans-serif;text-align:center;padding:8px 12px 10px;border-radius:0}
+
 /* ===================================================================
    교과서 스타일 + 입체감 + 큰 글씨 · 큰 수식
    =================================================================== */
@@ -1745,7 +1749,17 @@ var IMG = {
   r1_book:'hf_20261105_151922_01251d8d-ffb2-4842-846d-1dfb1efe4cb7.webp',
   r2_book:'hf_20261105_151922_2266d2c2-c93f-4ba8-a4a1-9a12714f6739.webp',
   r3_book:'hf_20261105_151922_89461997-c2b8-4fba-9fb3-ee7fc6160b2d.webp',
-  r3_book2:'hf_20261105_151933_cccafe1d-2a45-4f92-914a-101a25fbabc2.webp'
+  r3_book2:'hf_20261105_151933_cccafe1d-2a45-4f92-914a-101a25fbabc2.webp',
+  /* 21차 · 「📗 함께 읽기」 장면 (GPT Image 2.6, 2026-11-21) */
+  r1_rd1:'hf_20261121_092727_2d2c9ac7-8a10-49ba-8a71-30c5c28716ab.png',
+  r1_rd2:'hf_20261121_092726_aae700da-7584-4583-85e2-26ba0ac143f0.png',
+  r1_rd3:'hf_20261121_092727_4ad64d13-73c8-4e21-87f4-8697bcdc5d48.png',
+  r2_rd1:'hf_20261121_092726_e2d5c888-a8f1-4104-a73b-28fc54175bc9.png',
+  r2_rd2:'hf_20261121_092726_a9288e5b-8d51-495e-b936-897153f33c67.png',
+  r2_rd3:'hf_20261121_092726_3f50a35a-5615-4db2-b703-ad92367138f2.png',
+  r3_rd1:'hf_20261121_094631_3f885c47-7239-495c-b72b-4b47251a9aa3.png',
+  r3_rd2:'hf_20261121_092806_6fe81c57-3490-49e1-a247-9adb34d01cfd.png',
+  r3_rd3:'hf_20261121_092726_8da4644b-81bd-4a42-af4f-8ec57def1907.png'
 };
 Object.keys(IMG).forEach(k => IMG[k] = IMG_BASE + IMG[k]);
 
