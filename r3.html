@@ -1430,6 +1430,21 @@ html.fslock,html.fslock body{overflow:hidden}
 .hlmy{margin-top:8px}
 @media (max-width:600px){.hlpop{font-size:.84rem}.hltop{flex-wrap:wrap}.hlcn{width:100%;justify-content:flex-end}}
 
+/* 📗 함께 읽기 (현대 도서 · 선생님이 다시 정리한 글) */
+.book.bkread{margin-top:10px;background:linear-gradient(180deg,#f7fbff,#edf5ff);border-color:#cfe3fb}
+.book.bkread .bt{color:#2a7fd4}
+.bkread .bnote2{font-size:.86rem;line-height:1.6;background:#fff;border:1px dashed #9cc3ef;border-radius:12px;padding:8px 12px;margin:4px 0 12px;color:#35506e}
+.bkread .pg h4{font-family:Pretendard,system-ui,sans-serif;font-size:1.02rem;font-weight:900;margin:20px 0 8px;color:#1b3f6b}
+.bkread .tblw{overflow-x:auto;margin:6px 0 14px}
+.bkread table.bkt{border-collapse:collapse;width:100%;min-width:420px;font-family:Pretendard,system-ui,sans-serif;font-size:.88rem;line-height:1.5;background:#fff;color:#2b3442}
+.bkread table.bkt th{background:#1b3f6b;color:#fff;padding:6px 8px;font-weight:800}
+.bkread table.bkt td{border:1px solid #d7e3f3;padding:5px 8px;text-align:center}
+.bkread table.bkt tr:nth-child(even) td{background:#f5f9ff}
+.bkread .fml{text-align:center;margin:6px 0 14px;overflow-x:auto;font-size:1.02rem}
+.bkread .figbox{margin:8px 0 16px;background:#fff;border-radius:14px;padding:8px}
+.bkread .lab{margin-top:14px}
+.bkread .figbox svg,.bkread .lab svg{display:block;margin:0 auto;font-family:Pretendard,system-ui,sans-serif}
+
 /* ===================================================================
    교과서 스타일 + 입체감 + 큰 글씨 · 큰 수식
    =================================================================== */
@@ -2734,6 +2749,47 @@ const LESSON = {
       heading:'"말할 수 없는 수"의 비밀',
       passage:`<p>피타고라스 학파는 「모든 것은 수(정수의 비)로 설명된다」고 믿었다. 그런데 정사각형의 대각선과 한 변의 길이의 비는 어떤 정수의 비로도 나타낼 수 없었다. 전해지는 이야기에 따르면, 이 비밀을 학파 바깥에 알린 사람(흔히 히파소스라고 함)은 바다에서 목숨을 잃었다고 한다.</p>`,
       src:'출처 : Iamblichus, <i>De vita Pythagorica</i> 등에 전하는 이야기를 수업용으로 요약함. 역사적 사실이라기보다 <b>전설</b>로 보는 견해가 많다.' },
+    read:{ author:'사사키 준', work:'『하루 한 권, 일상 속 수학』 4-5', year:'드루, 2023 · 59쪽~',
+      heading:'일차 함수로 나타내는 「공주거리」, 이차 함수로 나타내는 「제동 거리」',
+      note:'📌 이 글은 책의 문장을 그대로 옮긴 것이 아니라, 선생님이 책의 수학 내용(표 · 식 · 그림)을 다시 정리하고 모든 계산을 확인한 거예요. 책 59쪽을 함께 펴 놓고 읽어요. 그림도 책 그림이 아니라 같은 내용을 새로 그린 거예요.',
+      lab:'brake',
+      passage:`<h4>① 멈추기까지의 세 구간</h4>
+<p>책은 「속도가 느릴수록 안전하다」는 누구나 아는 사실에서 출발해, 「그렇다면 얼마나 안전한가?」를 수학으로 따져 봐요. 운전자가 위험을 보고 발을 브레이크 페달로 옮겨 밟고, 브레이크가 실제로 듣기 시작할 때까지 걸리는 시간을 <b>공주시간</b>, 그동안 차가 달린 거리를 <b>공주거리</b>라고 해요. 브레이크가 듣기 시작해서 차가 완전히 멈출 때까지 달린 거리는 <b>제동 거리</b>, 두 거리를 더한 것이 <b>정지 거리</b>예요.</p>
+<div class="figbox" data-fig="brakeFig1"></div>
+<h4>② 공주시간은 평균 0.75초</h4>
+<p>책은 공주시간을 세 동작으로 나누어 보여 줘요. 공주거리는 이 표의 평균값 0.75초로 계산해요.</p>
+<div class="tblw"><table class="bkt"><tr><th>공주시간 (평균)</th><th>0.75초</th></tr><tr><td>가속 페달에서 발을 옮길 때까지 걸리는 시간</td><td>0.4~0.5초</td></tr><tr><td>브레이크 페달에 발을 올리는 시간</td><td>0.2초</td></tr><tr><td>페달을 밟는 시간</td><td>0.1~0.3초</td></tr></table></div>
+<h4>③ 시속을 초속으로 바꾸기</h4>
+<p>속도계는 시속(km/h)으로 나오지만, 몇 초 동안 몇 m를 가는지 알려면 초속(m/s)이 편해요. \\(1\\text{ km}=1000\\text{ m}\\), \\(1\\text{시간}=60\\text{분}=60\\times60\\text{초}=3600\\text{초}\\)이므로 시속 \\(x\\) km를 초속 \\(y_1\\) m로 바꾸는 식은 다음과 같아요.</p>
+<div class="fml">\\[y_1=x\\times1000\\div3600=\\frac{1000x}{3600}=\\frac{5}{18}x\\]</div>
+<div class="tblw"><table class="bkt"><tr><th>시속</th><th>초속</th><th>계산식</th></tr><tr><td>10 km</td><td>2.78 m</td><td>10×1000÷3600 = 2.77778…</td></tr><tr><td>20 km</td><td>5.56 m</td><td>20×1000÷3600 = 5.55556…</td></tr><tr><td>30 km</td><td>8.33 m</td><td>30×1000÷3600 = 8.33333…</td></tr><tr><td>40 km</td><td>11.11 m</td><td>40×1000÷3600 = 11.11111…</td></tr><tr><td>50 km</td><td>13.89 m</td><td>50×1000÷3600 = 13.88889…</td></tr><tr><td>60 km</td><td>16.67 m</td><td>60×1000÷3600 = 16.66667…</td></tr><tr><td>70 km</td><td>19.44 m</td><td>70×1000÷3600 = 19.44444…</td></tr><tr><td>80 km</td><td>22.22 m</td><td>80×1000÷3600 = 22.22222…</td></tr><tr><td>90 km</td><td>25.00 m</td><td>90×1000÷3600 = 25</td></tr></table></div>
+<h4>④ 공주거리는 일차함수</h4>
+<p>(속도) × (시간) = (거리)이므로, 초속에 공주시간 0.75초를 곱하면 공주거리 \\(y_2\\)(m)가 돼요.</p>
+<div class="fml">\\[y_2=x\\times1000\\div3600\\times0.75=\\frac{1000x}{3600}\\times\\frac{3}{4}=\\frac{5}{24}x\\]</div>
+<p>초속을 구하는 식이 일차함수이고 공주거리는 거기에 상수 0.75를 곱했을 뿐이므로, 공주거리도 일차함수예요. 시속 60 km라면 브레이크가 듣기도 전에 12.5 m를 달려가요.</p>
+<div class="tblw"><table class="bkt"><tr><th>시속</th><th>공주거리</th><th>계산식</th></tr><tr><td>10 km</td><td>2.08 m</td><td>10×1000÷3600×0.75 = 2.08333…</td></tr><tr><td>20 km</td><td>4.17 m</td><td>20×1000÷3600×0.75 = 4.16667…</td></tr><tr><td>30 km</td><td>6.25 m</td><td>30×1000÷3600×0.75 = 6.25</td></tr><tr><td>40 km</td><td>8.33 m</td><td>40×1000÷3600×0.75 = 8.33333…</td></tr><tr><td>50 km</td><td>10.42 m</td><td>50×1000÷3600×0.75 = 10.41667…</td></tr><tr><td>60 km</td><td>12.50 m</td><td>60×1000÷3600×0.75 = 12.5</td></tr><tr><td>70 km</td><td>14.58 m</td><td>70×1000÷3600×0.75 = 14.58333…</td></tr><tr><td>80 km</td><td>16.67 m</td><td>80×1000÷3600×0.75 = 16.66667…</td></tr><tr><td>90 km</td><td>18.75 m</td><td>90×1000÷3600×0.75 = 18.75</td></tr></table></div>
+<h4>⑤ 제동 거리는 이차함수</h4>
+<p>책은 중력 가속도를 \\(g=9.8\\), 마찰 계수를 \\(\\mu\\), 시속을 \\(x\\)(km)로 두고 제동 거리 \\(y_3\\)(m)를 다음 식으로 나타내요. 이 식이 나오는 과정은 아래 ⑦에 정리했어요.</p>
+<div class="fml">\\[y_3=\\frac{1}{254.016\\mu}x^2\\approx\\frac{1}{254\\mu}x^2\\]</div>
+<p>마른 아스팔트나 콘크리트의 마찰 계수를 평균 0.7로 두고 계산하면 아래 표가 돼요. 계산식에서 속력을 제곱한다는 점(\\(10^2\\), \\(20^2\\), …)에 주의해요.</p>
+<div class="tblw"><table class="bkt"><tr><th>시속</th><th>제동 거리</th><th>계산식</th></tr><tr><td>10 km</td><td>0.56 m</td><td>\\(10^2\\)÷(254.016×0.7) = 0.56239…</td></tr><tr><td>20 km</td><td>2.25 m</td><td>\\(20^2\\)÷(254.016×0.7) = 2.24958…</td></tr><tr><td>30 km</td><td>5.06 m</td><td>\\(30^2\\)÷(254.016×0.7) = 5.06155…</td></tr><tr><td>40 km</td><td>9.00 m</td><td>\\(40^2\\)÷(254.016×0.7) = 8.99831…</td></tr><tr><td>50 km</td><td>14.06 m</td><td>\\(50^2\\)÷(254.016×0.7) = 14.05986…</td></tr><tr><td>60 km</td><td>20.25 m</td><td>\\(60^2\\)÷(254.016×0.7) = 20.24619…</td></tr><tr><td>70 km</td><td>27.56 m</td><td>\\(70^2\\)÷(254.016×0.7) = 27.55732…</td></tr><tr><td>80 km</td><td>35.99 m</td><td>\\(80^2\\)÷(254.016×0.7) = 35.99323…</td></tr><tr><td>90 km</td><td>45.55 m</td><td>\\(90^2\\)÷(254.016×0.7) = 45.55394…</td></tr></table></div>
+<h4>⑥ 정지 거리 = 공주거리 + 제동 거리</h4>
+<p>두 거리를 더하면 정지 거리예요. 시속 60 km라면 12.50 m + 20.25 m = 32.75 m로, 멈출 때까지 30 m가 넘게 필요해요.</p>
+<div class="tblw"><table class="bkt"><tr><th>시속</th><th>공주거리</th><th>제동 거리</th><th>정지 거리</th></tr><tr><td>10 km</td><td>2.08 m</td><td>0.56 m</td><td><b>2.64 m</b></td></tr><tr><td>20 km</td><td>4.17 m</td><td>2.25 m</td><td><b>6.42 m</b></td></tr><tr><td>30 km</td><td>6.25 m</td><td>5.06 m</td><td><b>11.31 m</b></td></tr><tr><td>40 km</td><td>8.33 m</td><td>9.00 m</td><td><b>17.33 m</b></td></tr><tr><td>50 km</td><td>10.42 m</td><td>14.06 m</td><td><b>24.48 m</b></td></tr><tr><td>60 km</td><td>12.50 m</td><td>20.25 m</td><td><b>32.75 m</b></td></tr><tr><td>70 km</td><td>14.58 m</td><td>27.56 m</td><td><b>42.14 m</b></td></tr><tr><td>80 km</td><td>16.67 m</td><td>35.99 m</td><td><b>52.66 m</b></td></tr><tr><td>90 km</td><td>18.75 m</td><td>45.55 m</td><td><b>64.30 m</b></td></tr></table></div>
+<div class="figbox" data-fig="brakeFig3"></div>
+<p>책은 이 결과를 바탕으로 시속 60 km에서는 차간 거리를 40 m, 시간으로 세면 3초 정도 두어야 한다고 말해요. 그리고 운전 강사가 차간 거리를 늘 강조하는 까닭을 「제곱에 비례하는 정지 거리」에서 찾으며 글을 마무리해요.</p>
+<h4>⑦ 제동 거리의 식은 어떻게 나왔을까</h4>
+<p>자동차의 질량을 \\(m\\)이라 하면 자동차가 땅을 누르는 힘(중력)은 \\(mg\\)예요. 땅이 같은 크기의 수직 항력 \\(N\\)으로 차를 떠받치기 때문에 차가 땅에 박혀 들어가지 않으므로 \\(N=mg\\)예요.</p>
+<div class="figbox" data-fig="brakeFig2"></div>
+<p>브레이크가 걸린 바퀴와 땅 사이에는 운동 마찰력 \\(f=-\\mu N=-\\mu mg\\)가 달리는 방향과 반대로 작용해요. 이 힘이 질량 \\(m\\)인 차에 가속도 \\(a\\)를 만들므로 \\(ma=-\\mu mg\\), 곧 \\(a=-\\mu g\\)예요. 음의 부호는 속력이 줄어드는 쪽으로 가속된다는 뜻이에요.</p>
+<p>고등학교 물리에서 배우는 식 \\(v^2-v_0^2=2ay_3\\)(나중 속도 \\(v\\), 처음 속도 \\(v_0\\), 이동 거리 \\(y_3\\))에 멈춘 순간의 속도 \\(v=0\\)과 \\(a=-\\mu g\\)를 넣으면 다음과 같아요.</p>
+<div class="fml">\\[0^2-v_0^2=2\\times(-\\mu g)\\times y_3,\\qquad -v_0^2=-2\\mu g\\,y_3,\\qquad y_3=\\frac{1}{2\\mu g}v_0^2\\]</div>
+<p>이 식의 \\(v_0\\)는 초속(m/s)이에요. 초속 \\(v\\) m는 분속 \\(60v\\) m, 시속 \\(3600v\\) m, 곧 시속 \\(3.6v\\) km와 같아요. 그래서 \\(x=3.6v\\), \\(v=\\frac{1}{3.6}x\\)를 넣고 \\(g=9.8\\)로 계산하면 앞의 식이 나와요.</p>
+<div class="fml">\\[y_3=\\frac{1}{2\\mu\\times9.8}\\times\\left(\\frac{1}{3.6}x\\right)^2=\\frac{1}{19.6\\times3.6^2\\,\\mu}x^2=\\frac{1}{254.016\\mu}x^2\\]</div>
+<p>책에 따라서는 소수점 아래를 반올림해 \\(y_3=\\frac{1}{254\\mu}x^2\\)로 쓰거나, \\(g=10\\)으로 계산해 다음처럼 쓰기도 해요.</p>
+<div class="fml">\\[y_3=\\frac{1}{2\\mu\\times10}\\times\\left(\\frac{1}{3.6}x\\right)^2=\\frac{1}{20\\times3.6^2\\,\\mu}x^2=\\frac{1}{259.2\\mu}x^2\\approx\\frac{1}{259\\mu}x^2\\]</div>
+<p>두 식은 같은 현상을 나타내지만 \\(g\\)를 9.8로 하느냐 10으로 하느냐에 따라 계산 결과가 조금 달라져요.</p>`,
+      src:'출처 : 사사키 준, 『하루 한 권, 일상 속 수학』(드루, 2023) 4-5, 59쪽~의 내용을 수업용으로 다시 정리함. 표의 값은 책의 식으로 다시 계산해 확인함.' },
     glossary:'갈릴레이의 법칙을 식으로 쓰면 \\(T=c\\sqrt L\\) (\\(c\\)는 상수) — 무리함수! 오늘날에는 \\(T=2\\pi\\sqrt{\\frac{L}{g}}\\)로 써요. \\(\\sqrt2\\)처럼 정수의 비로 나타낼 수 없는 수가 <b>무리수</b>예요.',
     chips:['무리함수','제곱근','진자','길이','주기','무리수','비례','갈릴레이'],
     talk:['갈릴레이의 「실 길이의 비는 시간의 제곱의 비」라는 말을 식으로 써 보세요. \\(T\\)를 \\(L\\)의 함수로, \\(L\\)을 \\(T\\)의 함수로 쓰면 두 함수는 어떤 관계일까요?',
@@ -2759,6 +2815,7 @@ const LESSON = {
     {k:'교과서 자료 출처', t:'국립재난안전연구원', u:'https://www.ndmi.go.kr', d:'개념 탐구(지진 해일) 자료 출처'}
   ],
   books:[
+    {t:'하루 한 권, 일상 속 수학', a:'사사키 준', d:'4-5 「공주거리와 제동 거리」(59쪽~) — 책 탭 「함께 읽기」를 책과 함께 읽어요.'},
     {t:'페르마의 마지막 정리', a:'사이먼 싱', d:'피타고라스 학파와 √2가 무리수라는 증명 이야기가 앞부분에 나와요.'},
     {t:'새로운 두 과학', a:'갈릴레오 갈릴레이', d:'오늘 읽은 진자의 법칙이 실린 고전'},
     {t:'미적분의 힘', a:'스티븐 스트로가츠', d:'갈릴레이·뉴턴이 자연을 함수로 읽어 낸 과정'}
@@ -7988,6 +8045,135 @@ LABS.r3g141 = h => graphFigs(h, [{ t:'', w:300, xr:[-0.3,3], yr:[-0.3,3], d:P =>
 
 ;
 /* ===================================================================
+   📗 함께 읽기 — 공주거리 · 제동 거리 · 정지 거리 (r3 책 탭)
+   『하루 한 권, 일상 속 수학』 4-5의 수학 내용을 다시 그린 그림과 실험실
+   (책의 그림을 옮긴 것이 아니라 같은 내용을 새로 그렸어요)
+   =================================================================== */
+const BK = {
+  r: (x, t) => x / 3.6 * t,                         // 공주거리 (m)
+  b: (x, mu, g) => x * x / (2 * mu * g * 3.6 * 3.6), // 제동 거리 (m)
+  f2: n => (Math.round(n * 100) / 100).toFixed(2),
+  C1: '#2a7fd4', C2: '#ef6a2a', C3: '#7d3fd8'
+};
+
+/* 그림 1 : 멈추기까지의 세 거리 */
+LABS.brakeFig1 = host => {
+  const car = (x, op) => `<g transform="translate(${x},86)" opacity="${op}">
+      <rect x="-30" y="-20" width="60" height="18" rx="6" fill="#3d4f6b"/><rect x="-18" y="-32" width="34" height="14" rx="5" fill="#5a6e8f"/>
+      <circle cx="-17" cy="0" r="6" fill="#222"/><circle cx="17" cy="0" r="6" fill="#222"/></g>`;
+  host.innerHTML = `<svg viewBox="0 0 640 200" role="img" aria-label="정지 거리는 공주거리와 제동 거리의 합" style="width:100%;max-width:640px">
+    <defs><marker id="bkA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0L10,5L0,10z" fill="#4a3f5c"/></marker></defs>
+    <rect x="20" y="92" width="600" height="8" rx="4" fill="#9aa3b5"/>
+    ${car(80, 1)}${car(300, .8)}${car(560, .65)}
+    <line x1="110" y1="12" x2="110" y2="150" stroke="#4a3f5c" stroke-dasharray="4 4"/>
+    <line x1="330" y1="40" x2="330" y2="150" stroke="#4a3f5c" stroke-dasharray="4 4"/>
+    <line x1="590" y1="12" x2="590" y2="150" stroke="#4a3f5c" stroke-dasharray="4 4"/>
+    <line x1="114" y1="22" x2="586" y2="22" stroke="${BK.C3}" stroke-width="2" marker-start="url(#bkA)" marker-end="url(#bkA)"/>
+    <text x="350" y="15" text-anchor="middle" font-size="15" font-weight="800" fill="${BK.C3}">정지 거리 = 공주거리 + 제동 거리</text>
+    <line x1="114" y1="46" x2="326" y2="46" stroke="${BK.C1}" stroke-width="2" marker-start="url(#bkA)" marker-end="url(#bkA)"/>
+    <text x="220" y="40" text-anchor="middle" font-size="14" font-weight="800" fill="${BK.C1}">공주거리 (일차함수)</text>
+    <line x1="334" y1="46" x2="586" y2="46" stroke="${BK.C2}" stroke-width="2" marker-start="url(#bkA)" marker-end="url(#bkA)"/>
+    <text x="460" y="40" text-anchor="middle" font-size="14" font-weight="800" fill="${BK.C2}">제동 거리 (이차함수)</text>
+    <text x="110" y="172" text-anchor="middle" font-size="13" font-weight="700">① 위험을 보고</text><text x="110" y="190" text-anchor="middle" font-size="13">발을 브레이크로</text>
+    <text x="330" y="172" text-anchor="middle" font-size="13" font-weight="700">② 브레이크가</text><text x="330" y="190" text-anchor="middle" font-size="13">듣기 시작</text>
+    <text x="590" y="172" text-anchor="middle" font-size="13" font-weight="700">③ 정지</text>
+  </svg>`;
+};
+
+/* 그림 2 : 브레이크를 밟은 자동차에 작용하는 힘 */
+LABS.brakeFig2 = host => {
+  host.innerHTML = `<svg viewBox="0 0 520 230" role="img" aria-label="수직 항력, 중력, 운동 마찰력" style="width:100%;max-width:520px">
+    <defs>${[['g','#14a88f'],['k','#4a3f5c'],['o',BK.C2],['b',BK.C1]].map(([k,c]) => `<marker id="bkF${k}" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0L10,5L0,10z" fill="${c}"/></marker>`).join('')}</defs>
+    <rect x="20" y="150" width="480" height="8" rx="4" fill="#9aa3b5"/>
+    <g transform="translate(250,148)"><rect x="-70" y="-44" width="140" height="36" rx="10" fill="#3d4f6b"/><rect x="-40" y="-70" width="78" height="28" rx="8" fill="#5a6e8f"/>
+      <circle cx="-42" cy="-6" r="12" fill="#222"/><circle cx="42" cy="-6" r="12" fill="#222"/><text x="0" y="-20" text-anchor="middle" font-size="17" font-style="italic" font-weight="700" fill="#fff">m</text></g>
+    <line x1="250" y1="76" x2="250" y2="18" stroke="#14a88f" stroke-width="3" marker-end="url(#bkFg)"/><text x="262" y="30" font-size="15" font-weight="800" fill="#14a88f">수직 항력 N = mg</text>
+    <line x1="250" y1="150" x2="250" y2="214" stroke="#4a3f5c" stroke-width="3" marker-end="url(#bkFk)"/><text x="262" y="210" font-size="15" font-weight="800">중력 mg</text>
+    <line x1="170" y1="140" x2="70" y2="140" stroke="${BK.C2}" stroke-width="3" marker-end="url(#bkFo)"/><text x="20" y="128" font-size="15" font-weight="800" fill="${BK.C2}">마찰력 f = −μmg</text>
+    <line x1="340" y1="100" x2="440" y2="100" stroke="${BK.C1}" stroke-width="3" stroke-dasharray="6 4" marker-end="url(#bkFb)"/><text x="350" y="90" font-size="15" font-weight="800" fill="${BK.C1}">달리는 방향 (속도 v₀)</text>
+  </svg>`;
+};
+
+/* 그림 3 : 속력별 공주거리(직선)와 제동 거리(곡선) */
+LABS.brakeFig3 = host => {
+  const sp = [30, 40, 50, 60, 70, 80, 90], sc = 5.2, x0 = 92, gap = 12;
+  const R = sp.map(x => BK.r(x, 0.75)), B = sp.map(x => BK.b(x, 0.7, 9.8));
+  const x1 = x0 + Math.max(...R) * sc + gap, y = i => 210 - i * 28;
+  let s = `<svg viewBox="0 0 560 276" role="img" aria-label="속력별 공주거리와 제동 거리" style="width:100%;max-width:640px">
+    <text x="${x0}" y="24" font-size="14" font-weight="800" fill="${BK.C1}">공주거리 (m)</text><text x="${x1}" y="24" font-size="14" font-weight="800" fill="${BK.C2}">제동 거리 (m) · μ = 0.7</text>`;
+  sp.forEach((x, i) => {
+    s += `<text x="${x0 - 8}" y="${y(i) + 5}" text-anchor="end" font-size="13" font-weight="700">${x} km/h</text>
+      <rect x="${x0}" y="${y(i) - 10}" width="${R[i] * sc}" height="20" rx="4" fill="${BK.C1}" opacity=".85"/><text x="${x0 + 4}" y="${y(i) + 5}" font-size="12" fill="#fff" font-weight="700">${BK.f2(R[i])}</text>
+      <rect x="${x1}" y="${y(i) - 10}" width="${B[i] * sc}" height="20" rx="4" fill="${BK.C2}" opacity=".85"/><text x="${x1 + 4}" y="${y(i) + 5}" font-size="12" fill="#fff" font-weight="700">${BK.f2(B[i])}</text>`;
+  });
+  s += `<polyline points="${sp.map((x, i) => `${x0 + R[i] * sc},${y(i)}`).join(' ')}" fill="none" stroke="#1b3f6b" stroke-width="2"/>
+    <polyline points="${sp.map((x, i) => `${x1 + B[i] * sc},${y(i)}`).join(' ')}" fill="none" stroke="#8a3410" stroke-width="2"/>
+    <text x="${x0}" y="246" font-size="13" fill="#1b3f6b" font-weight="700">파란 막대 끝을 이으면 직선 → 공주거리는 일차함수</text>
+    <text x="${x0}" y="266" font-size="13" fill="#8a3410" font-weight="700">주황 막대 끝을 이으면 곡선 → 제동 거리는 이차함수</text></svg>`;
+  host.innerHTML = s;
+};
+
+/* 실험실 : 속력 · 마찰 계수 · 공주시간 · g를 바꿔 보기 */
+LABS.brake = host => {
+  host.innerHTML = `<div style="font-weight:900">🚗 정지 거리 실험실 — 책의 식을 직접 움직여 보기</div>
+    <div class="bkg" style="display:flex;gap:6px;flex-wrap:wrap;margin:6px 0">
+      <span style="font-weight:800;align-self:center">중력 가속도 g :</span>
+      <button type="button" class="fbtn on" data-g="9.8">9.8</button><button type="button" class="fbtn" data-g="10">10</button>
+      <span style="flex:1"></span>
+      <button type="button" class="fbtn" data-flip="1">↔ 축 바꿔 보기</button></div>`;
+  const V = sliders(host, [
+    { k:'x', l:'속력 x (km/h)', min:10, max:120, s:5, v:60 },
+    { k:'m', l:'마찰 계수 μ (책 : 마른 아스팔트·콘크리트 평균 0.7)', min:0.1, max:1, s:0.05, v:0.7 },
+    { k:'t', l:'공주시간 (초, 책 : 평균 0.75)', min:0.3, max:2, s:0.05, v:0.75 }
+  ], () => draw());
+  const road = document.createElement('div'), pl = document.createElement('div'), out = document.createElement('div');
+  road.style.margin = '6px 0'; pl.style.margin = '6px 0'; out.className = 'out';
+  host.append(road, pl, out);
+  let g = 9.8, flip = false;
+  host.querySelectorAll('[data-g]').forEach(b => b.onclick = () => { g = +b.dataset.g; host.querySelectorAll('[data-g]').forEach(x => x.classList.toggle('on', x === b)); draw(); });
+  host.querySelector('[data-flip]').onclick = e => { flip = !flip; e.currentTarget.classList.toggle('on', flip); draw(); };
+
+  function draw(){
+    const x = V.x, mu = V.m, t = V.t, R = BK.r(x, t), B = BK.b(x, mu, g), D = R + B, K = 2 * g * 3.6 * 3.6;
+    /* 도로 막대 */
+    const M = Math.max(40, D * 1.08), W = 600, px = v => 20 + v / M * (W - 40);
+    road.innerHTML = `<svg viewBox="0 0 ${W} 88" style="width:100%;max-width:${W}px" role="img" aria-label="정지 거리 막대">
+      <rect x="20" y="40" width="${W - 40}" height="6" rx="3" fill="#c9ced8"/>
+      <rect x="${px(0)}" y="22" width="${px(R) - px(0)}" height="16" rx="4" fill="${BK.C1}"/>
+      <rect x="${px(R)}" y="22" width="${px(D) - px(R)}" height="16" rx="4" fill="${BK.C2}"/>
+      <text x="${px(0)}" y="16" font-size="12" font-weight="800" fill="${BK.C1}">공주 ${BK.f2(R)} m</text>
+      <text x="${Math.min(px(R) + 4, W - 150)}" y="16" font-size="12" font-weight="800" fill="${BK.C2}">제동 ${BK.f2(B)} m</text>
+      <text x="${Math.max(px(D), 150)}" y="84" text-anchor="end" font-size="13" font-weight="900" fill="${BK.C3}">정지 ${BK.f2(D)} m 🛑</text>
+      ${[0, 10, 20, 30, 40, 60, 80, 100, 120, 150, 200].filter(v => v <= M).map(v => `<text x="${px(v)}" y="60" font-size="10" fill="#8a7fa3" text-anchor="middle">${v}</text>`).join('')}</svg>`;
+    /* 그래프 */
+    const XM = 120, TOT = BK.r(XM, t) + BK.b(XM, mu, g), YM = Math.min(200, Math.max(60, Math.ceil(TOT / 20) * 20));
+    const GW = 480, GH = 300, L = 46, T = 14, PW = GW - L - 14, PH = GH - T - 40;
+    const sx = (a, b) => flip ? [L + b / YM * PW, T + PH - a / XM * PH] : [L + a / XM * PW, T + PH - b / YM * PH];
+    const curve = (f, col, dash) => { let d = ''; for (let i = 0; i <= 120; i++){ const a = XM * i / 120, b = f(a); if (b > YM * 1.05) break; const [X, Y] = sx(a, b); d += (d ? 'L' : 'M') + X.toFixed(1) + ',' + Y.toFixed(1); }
+      return `<path d="${d}" fill="none" stroke="${col}" stroke-width="2.6" ${dash ? 'stroke-dasharray="6 4"' : ''}/>`; };
+    let ax = '';
+    for (let a = 0; a <= XM; a += 20){ const [X, Y] = sx(a, 0); ax += flip ? `<text x="${L - 6}" y="${Y + 4}" font-size="10" text-anchor="end" fill="#8a7fa3">${a}</text>` : `<text x="${X}" y="${T + PH + 14}" font-size="10" text-anchor="middle" fill="#8a7fa3">${a}</text>`; }
+    for (let b = 0; b <= YM; b += YM > 100 ? 40 : 20){ const [X, Y] = sx(0, b); ax += flip ? `<text x="${X}" y="${T + PH + 14}" font-size="10" text-anchor="middle" fill="#8a7fa3">${b}</text>` : `<text x="${L - 6}" y="${Y + 4}" font-size="10" text-anchor="end" fill="#8a7fa3">${b}</text>`; }
+    const [qx, qy] = sx(x, B), [dx, dy] = sx(x, D), [rx, ry] = sx(x, R);
+    pl.innerHTML = `<svg viewBox="0 0 ${GW} ${GH}" style="width:100%;max-width:${GW}px;background:#fff;border-radius:12px" role="img" aria-label="속력과 거리의 그래프">
+      <line x1="${L}" y1="${T + PH}" x2="${L + PW}" y2="${T + PH}" stroke="#4a3f5c"/><line x1="${L}" y1="${T}" x2="${L}" y2="${T + PH}" stroke="#4a3f5c"/>${ax}
+      <text x="${L + PW}" y="${GH - 6}" text-anchor="end" font-size="12" font-weight="700">${flip ? '거리 (m)' : '속력 x (km/h)'}</text>
+      <text x="${L + 6}" y="${T + 10}" font-size="12" font-weight="700">${flip ? '속력 (km/h)' : '거리 (m)'}</text>
+      ${curve(a => BK.r(a, t), BK.C1)}${curve(a => BK.b(a, mu, g), BK.C2)}${curve(a => BK.r(a, t) + BK.b(a, mu, g), BK.C3, 1)}
+      <circle cx="${rx}" cy="${ry}" r="5" fill="${BK.C1}"/><circle cx="${qx}" cy="${qy}" r="5" fill="${BK.C2}"/><circle cx="${dx}" cy="${dy}" r="5" fill="${BK.C3}"/>
+      <g font-size="12" font-weight="800" transform="translate(${flip ? L + PW - 110 : L + 10},${flip ? T + PH - 72 : T + 14})"><rect x="-6" y="0" width="104" height="58" rx="8" fill="#fff" opacity=".88"/><text x="0" y="16" fill="${BK.C1}">— 공주거리</text><text x="0" y="32" fill="${BK.C2}">— 제동 거리</text><text x="0" y="48" fill="${BK.C3}">- - 정지 거리</text></g></svg>
+      ${flip ? '<div class="note" style="font-size:.9rem;margin-top:4px">↔ 가로를 거리, 세로를 속력으로 바꾼 그래프예요. 곡선의 모양이 어떻게 바뀌었는지 관찰해요.</div>' : ''}`;
+    out.innerHTML = `초속 \\(\\dfrac{${x}}{3.6}\\approx ${BK.f2(x / 3.6)}\\) m/s ·
+      공주거리 \\(${BK.f2(x / 3.6)}\\times ${t}\\approx ${BK.f2(R)}\\) m ·
+      제동 거리 \\(\\dfrac{${x}^{2}}{${(K).toFixed(g === 10 ? 1 : 3)}\\times ${mu}}\\approx ${BK.f2(B)}\\) m ·
+      <b>정지 거리 \\(\\approx ${BK.f2(D)}\\) m</b> <span style="color:#8a7fa3">(2 × g × 3.6² = ${K.toFixed(3).replace(/\.?0+$/, '')})</span>`;
+    tex(out);
+  }
+  draw();
+};
+
+;
+/* ===================================================================
    📍 문장에 생각 달기 — 책 속 원문의 문장을 골라 공감 · 분석 · 의문 · 비판으로 생각을 남긴다
    · 내 생각 : qf_respond(item 'hl')에 { a:[{ s, t, x, at }] } 로 저장 (선생님 화면 · 세특 근거)
    · 친구 생각 : qf_peek('hl') — 이름 없이 모아서 문장별 열기 지도 · 유형 분포 · 많이 멈춘 문장
@@ -8047,7 +8233,7 @@ function hlWrap(html, pre){
 }
 /* 선생님 화면용 : 문장 번호 → 글 */
 function hlSentence(id){
-  if (!Object.keys(HL.text).length && LESSON.book){ hlWrap(LESSON.book.passage || '', 'm'); if (LESSON.book.extra) hlWrap(LESSON.book.extra.passage || '', 'x'); }
+  if (!Object.keys(HL.text).length && LESSON.book){ hlWrap(LESSON.book.passage || '', 'm'); if (LESSON.book.extra) hlWrap(LESSON.book.extra.passage || '', 'x'); if (LESSON.book.read) hlWrap(LESSON.book.read.passage || '', 'y'); }
   return HL.text[id] || '';
 }
 
@@ -8467,6 +8653,13 @@ function pageBook(){
       <div class="bt" style="color:#7d5fe0">📖 ${B.extra.author} · ${B.extra.work} (${B.extra.year})</div>
       ${narr(LESSON.code + 'x')}
       <h3>${B.extra.heading}</h3><div class="pg">${hlWrap(B.extra.passage, 'x')}</div><div class="src">${B.extra.src}</div></div></div>` : ''}
+    ${B.read ? `<div class="book bkread">
+      <div class="bt">📗 함께 읽기 · ${B.read.author} · ${B.read.work} (${B.read.year})</div>
+      <h3>${B.read.heading}</h3>
+      <div class="bnote2">${B.read.note}</div>
+      <div class="pg">${hlWrap(B.read.passage, 'y')}</div>
+      ${B.read.lab ? `<div class="lab" data-lab="${B.read.lab}"></div>` : ''}
+      <div class="src">${B.read.src}</div></div>` : ''}
     ${B.glossary ? `<div class="tip">📝 <b>읽기 도움말</b><br>${B.glossary}</div>` : ''}
   </div>
 
